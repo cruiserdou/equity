@@ -6,13 +6,13 @@ Ext.define('App.controller.Tabitem', {
     models: [
         'syj_depts','syj_users','syj_menu','Dept_store','syj_dicts'
         ,'syj_roles','syj_userroles','syj_rolepermissions'
-        ,'msg','enterprise'
+        ,'msg','enterprise','login_log'
     ],
 
     stores: [
         'syj_depts','syj_users','syj_menu','Dept_store','syj_dicts'
         ,'syj_roles','syj_userroles','syj_rolepermissions'
-        ,'msg','enterprise'
+        ,'msg','enterprise','login_log'
     ],
 
     views: [
@@ -25,7 +25,8 @@ Ext.define('App.controller.Tabitem', {
         'menu.Policef', 'menu.Grid', 'menu.Query',
         'rolepermissions.Truckoutf', 'rolepermissions.Grid', 'rolepermissions.Query',
         'msg.Msgf','msg.Grid','msg.Query',
-        'enterprise.Enterprisef','enterprise.Grid','enterprise.Query'
+        'enterprise.Enterprisef','enterprise.Grid','enterprise.Query',
+        'login_log.Login_logf','login_log.Grid','login_log.Query',
   ],
 
     refs: [
