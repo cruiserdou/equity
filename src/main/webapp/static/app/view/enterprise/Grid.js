@@ -15,14 +15,20 @@ Ext.define('App.view.enterprise.Grid', {
 
         this.columns = [
             {text: 'ID', width: 80, dataIndex: 'id',hidden:true},
-            {text: '发送人', width: 80, dataIndex: 'user_id',hidden:true},
-            {text: '状态', width: 100, dataIndex: 'stat'},
-            {text: '类型', width: 100, dataIndex: 'type'},
-            {text: '接收人', width: 100, dataIndex: 'ruser_id'},
-            {text: '内容', width: 100, dataIndex: 'content'},
-            {text: '期限', width: 100, dataIndex: 'deadline'},
-            {text: '发送时间', width: 200, dataIndex: 'rtdate'},
+            {text: '企业名称', width: 80, dataIndex: 'name'},
+            {text: '企业简称', width: 80, dataIndex: 'nos'},
+            {text: '企业类型', width: 80, dataIndex: 'etype'},
+            {text: '挂牌代码', width: 80, dataIndex: 'listcode'},
+            {text: '挂牌价格', width: 80, dataIndex: 'listprice'},
+            {text: '企业性质', width: 80, dataIndex: 'nature'},
+            {text: '营业执照号', width: 100, dataIndex: 'buslic'},
+            {text: '维护状态', width: 100, dataIndex: 'status'},
+            {text: '所属后备库', width: 100, dataIndex: 'reserve'},
+            {text: '注册时间', width: 100, dataIndex: 'regdate'},
+            {text: '是否已标记', width: 100, dataIndex: 'markstat'},
+            {text: '完成回访状态', width: 200, dataIndex: 'visitstat'},
             {text: '备注', flex: 1, dataIndex: 'remark'}
+
 
 
         ];

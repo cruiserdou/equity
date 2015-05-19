@@ -24,6 +24,42 @@
             height: 100%;
             z-index: -1;
         }
+        #reg-btn {
+            display: block;
+            text-align: center;
+            padding: 0.2em 0;
+            width: 7em;
+            margin: 0 auto;
+            border: 1px solid #CCC;
+            border-radius: 3px;
+            color: #468CC8;
+            box-shadow: 0 1px 1px #E2E4E6;
+        }
+
+        #reg-btn:hover{
+            background-color: #c0c89b;
+            color: white;
+            border: 1px solid #468CC8;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .container {
+            display: block;
+            width: 360px;
+            border: 1px solid #cccccc;
+            color: rgb(64, 64, 64);
+            background-color: rgba(247, 247, 247, 0.8);
+            border-radius: 2px;
+            box-shadow: rgba(0, 0, 0, 0.298039) 0px 2px 2px;
+            padding: 30px 0;
+            margin: 0 auto;
+            margin-top: 9em;
+            zoom: 1;
+        }
     </style>
 </head>
 <body>
@@ -48,6 +84,7 @@
         </fieldset>
 
     </form>
+    <a id="reg-btn" href="userregister"><span class="fa fa-user-plus"></span>注册新用户</a>
 
 </div>
 <!-- end login -->

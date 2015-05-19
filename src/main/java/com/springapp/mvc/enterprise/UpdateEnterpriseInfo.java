@@ -30,12 +30,13 @@ public class UpdateEnterpriseInfo {
             @RequestParam("etype") String etype,
             @RequestParam("listcode") String listcode,
             @RequestParam("listprice") String listprice,
-            @RequestParam("name") String buslic,
-            @RequestParam("name") String status,
-            @RequestParam("name") String reserve,
-            @RequestParam("name") String regdate,
-            @RequestParam("name") String markstat,
-            @RequestParam("name") String visitstat,
+            @RequestParam("buslic") String buslic,
+            @RequestParam("status") String status,
+            @RequestParam("reserve") String reserve,
+            @RequestParam("regdate") String regdate,
+            @RequestParam("markstat") String markstat,
+            @RequestParam("visitstat") String visitstat,
+            @RequestParam("nature") String nature,
             @RequestParam("remark") String remark
 
             ) throws Exception{
@@ -60,7 +61,7 @@ public class UpdateEnterpriseInfo {
             String sql = "UPDATE work.tb_enterprise\n" +
                     "   SET   name=?, nos=?, etype=?, listcode=?, listprice=?, buslic=?, \n" +
                     "       status=?, reserve=?, regdate=?, markstat=?, visitstat=?, rtdate=?, \n" +
-                    "       remark=?" +
+                    "       nature=?, remark=?" +
                     " where id = ?";
             pst = conn.prepareStatement(sql);
             pst.setString(1, name);
@@ -77,8 +78,9 @@ public class UpdateEnterpriseInfo {
             java.util.Date date = new java.util.Date();
             Timestamp timestamp = new Timestamp(date.getTime());
             pst.setTimestamp(12, timestamp);
-            pst.setString(13, remark);
-            pst.setInt(14, id);
+            pst.setString(13, nature);
+            pst.setString(14, remark);
+            pst.setInt(15, id);
             pst.executeUpdate();
 
 

@@ -10,6 +10,7 @@ Ext.define('App.model.enterprise', {
         {name: 'etype'},
         {name: 'listcode'},
         {name: 'listprice'},
+        {name: 'nature'},
         {name: 'buslic'},
         {name: 'status'},
         {name: 'reserve'},

@@ -45,13 +45,13 @@ input {
 #login {
     margin: 150px auto;
     box-shadow: rgba(0, 0, 0, 0.298039) 0px 2px 2px 0px;
-    width: 450px;
+    width: 460px;
 }
 
 #login h2 {
     /*background-color: #f95252;*/
-    background-color: orangered;
-    border: thin solid orangered;
+    background-color: #4942ff;
+    border: thin solid #2931ff;
     -webkit-border-radius: 20px 20px 0 0;
     -moz-border-radius: 20px 20px 0 0;
     border-radius: 20px 20px 0 0;

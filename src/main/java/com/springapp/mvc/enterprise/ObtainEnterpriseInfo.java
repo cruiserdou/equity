@@ -25,8 +25,8 @@ public class ObtainEnterpriseInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
-//           @RequestParam(value = "stat", required = false) String stat,
-//           @RequestParam(value = "type", required = false) String type
+           @RequestParam(value = "stat", required = false) String stat,
+           @RequestParam(value = "type", required = false) String type
     ) throws Exception{
         Connection conn = null;
         Statement stmt = null;

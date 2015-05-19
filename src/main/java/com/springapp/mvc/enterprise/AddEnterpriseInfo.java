@@ -29,12 +29,13 @@ public class AddEnterpriseInfo {
             @RequestParam("etype") String etype,
             @RequestParam("listcode") String listcode,
             @RequestParam("listprice") String listprice,
-            @RequestParam("name") String buslic,
-            @RequestParam("name") String status,
-            @RequestParam("name") String reserve,
-            @RequestParam("name") String regdate,
-            @RequestParam("name") String markstat,
-            @RequestParam("name") String visitstat,
+            @RequestParam("buslic") String buslic,
+            @RequestParam("status") String status,
+            @RequestParam("reserve") String reserve,
+            @RequestParam("regdate") String regdate,
+            @RequestParam("markstat") String markstat,
+            @RequestParam("visitstat") String visitstat,
+            @RequestParam("nature") String nature,
             @RequestParam("remark") String remark
 
 
@@ -63,9 +64,9 @@ public class AddEnterpriseInfo {
 
             String sql = "INSERT INTO work.tb_enterprise(\n" +
                     "              name, nos, etype, listcode, listprice, buslic, status, reserve, \n" +
-                    "            regdate, markstat, visitstat, rtdate, remark)\n" +
+                    "            regdate, markstat, visitstat, rtdate,nature, remark)\n" +
                     "    VALUES (  ?, ?, ?, ?, ?, ?, ?, ?, \n" +
-                    "            ?, ?, ?, ?, ?)";
+                    "            ?, ?, ?, ?, ?, ?)";
             pst = conn.prepareStatement(sql);
             pst.setString(1, name);
             pst.setString(2, nos);
@@ -82,6 +83,7 @@ public class AddEnterpriseInfo {
             Timestamp timestamp = new Timestamp(date.getTime());
             pst.setTimestamp(12, timestamp);
             pst.setString(13, remark);
+            pst.setString(14, remark);
             pst.executeUpdate();
 
 
