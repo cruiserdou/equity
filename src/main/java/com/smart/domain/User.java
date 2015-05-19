@@ -1,6 +1,7 @@
 package com.smart.domain;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class User implements Serializable {
@@ -8,6 +9,36 @@ public class User implements Serializable {
     private String account;
     private String password;
     private String sex;
+    private Timestamp lastvisit;
+    private String email;
+    private String phone;
+    private String address;
+    private int state;
+    private Date entry;
+    private int deptid;
+    private String remark;
+
+    private String lastip;
+
+    public Timestamp getLastvisit() {
+        return lastvisit;
+    }
+
+    public void setLastvisit(Timestamp lastvisit) {
+        this.lastvisit = lastvisit;
+    }
+
+
+
+    public String getLastip() {
+        return lastip;
+    }
+
+    public void setLastip(String lastip) {
+        this.lastip = lastip;
+    }
+
+
 
     public int getId() {
         return id;
@@ -97,13 +128,7 @@ public class User implements Serializable {
         this.remark = remark;
     }
 
-    private String email;
-    private String phone;
-    private String address;
-    private int state;
-    private Date entry;
-    private int deptid;
-    private String remark;
+
 
 
 

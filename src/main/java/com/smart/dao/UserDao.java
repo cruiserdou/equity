@@ -36,10 +36,10 @@ public class UserDao {
         return user;
     }
 
-//    public void updateLoginInfo(User user) {
-//        String sqlStr = " UPDATE work.users SET last_visit=?,last_ip=?"
-//                + " WHERE id =?";
-//        jdbcTemplate.update(sqlStr, new Object[]{user.getLastVisit(),
-//                user.getLastIp(), user.getUserId()});
-//    }
+    public void updateLoginInfo(User user) {
+        String sqlStr = " UPDATE work.users SET lastvisit=?,lastip=?"
+                + " WHERE id =?";
+        jdbcTemplate.update(sqlStr, new Object[]{user.getLastvisit(),
+                user.getLastip(), user.getId()});
+    }
 }

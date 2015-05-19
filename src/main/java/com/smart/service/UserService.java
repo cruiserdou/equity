@@ -28,8 +28,8 @@ public class UserService {
     public void loginSuccess(User user) {
         LoginLog loginLog = new LoginLog();
         loginLog.setUserId(user.getId());
-//        loginLog.setIp(user.getLastIp());
-//        loginLog.setLoginDate(user.getLastVisit());
+        loginLog.setIp(user.getLastip());
+        loginLog.setLoginDate(user.getLastvisit());
         loginLogDao.insertLoginLog(loginLog);
     }
 

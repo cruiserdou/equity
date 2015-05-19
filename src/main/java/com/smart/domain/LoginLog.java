@@ -1,6 +1,7 @@
 package com.smart.domain;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class LoginLog implements Serializable {
@@ -10,7 +11,16 @@ public class LoginLog implements Serializable {
 
     private String ip;
 
-    private Date loginDate;
+    private Timestamp loginDate;
+
+    public Timestamp getLoginDate() {
+        return loginDate;
+    }
+
+    public void setLoginDate(Timestamp loginDate) {
+        this.loginDate = loginDate;
+    }
+
 
     public String getIp() {
         return ip;
@@ -20,13 +30,7 @@ public class LoginLog implements Serializable {
         this.ip = ip;
     }
 
-    public Date getLoginDate() {
-        return loginDate;
-    }
 
-    public void setLoginDate(Date loginDate) {
-        this.loginDate = loginDate;
-    }
 
     public int getLoginLogId() {
         return loginLogId;

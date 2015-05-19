@@ -1,19 +1,23 @@
 package com.smart.web;
 
+import com.smart.domain.User;
+import com.smart.service.UserService;
 import com.xwq.common.util.DBInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.*;
 
 //@Controller
 //@RequestMapping(value = "/")
 //public class LoginController {
-//
+
 //    @Autowired
 //    private UserService userService;
 //
@@ -43,25 +47,32 @@ import java.sql.*;
 
 @Controller
 @RequestMapping("/login_check")
-public class LoginController{
+public class LoginController {
+        @Autowired
+    private UserService userService;
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView toMainpage(
+            HttpServletRequest request,
             HttpSession session,
             @RequestParam(value = "user", required = false) String account,
             @RequestParam(value = "password", required = false) String login_password
     ) {
         ModelAndView modelAndView = new ModelAndView();
 
-//        String session_user = "";
-//        String session_pass = "";
-//        if (session.getAttribute("user") != null)
-//            session_user = session.getAttribute("user").toString();
-//        else
-//            session_user = null;
-//        if (session.getAttribute("password") != null)
-//            session_pass = session.getAttribute("password").toString();
-//        else
-//            session_user = null;
+        String session_user = "";
+        String session_pass = "";
+        if (session.getAttribute("user") != null)
+            session_user = session.getAttribute("user").toString();
+        else
+            session_user = null;
+        if (session.getAttribute("password") != null)
+            session_pass = session.getAttribute("password").toString();
+        else
+            session_user = null;
+
+
+
+
 
         //数据库取出用户信息比对获取浏览器发送的信息
         Connection conn = null;
@@ -76,6 +87,9 @@ public class LoginController{
         String url = connstr.getUrl();
         String user = connstr.getUser();
         String password = connstr.getPassword();
+        java.util.Date date = new java.util.Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
+
         try {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
@@ -91,6 +105,12 @@ public class LoginController{
                     session.setAttribute("name", rs.getString(3));
                     session.setAttribute("nos", rs.getString(4));
                     modelAndView.setViewName("main");
+
+                    User e_user = userService.findUserByaccount(account);
+                    e_user.setLastip(request.getLocalAddr());
+                    e_user.setLastvisit(timestamp);
+                    userService.loginSuccess(e_user);
+
                     return modelAndView;
                 }
             }
