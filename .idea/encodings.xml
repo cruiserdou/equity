@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/CheckUserNameInfo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/CommonThreadPool.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/GzipJsFilter.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/UpdateAllUserPassword.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/UpdateChannelPassword.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/UpdateCustPassword.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/UpdatePassword.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/UpdateZhunChannelPassword.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/UserValidateFilter.java" charset="UTF-8" />
   </component>
 </project>
