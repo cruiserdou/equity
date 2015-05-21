@@ -20,6 +20,7 @@ Ext.define('app.view.main.region.Top', {
         Ext.setGlyphFontFamily('FontAwesome'); // 设置图标字体文件，只有设置了以后才能用glyph属性
         this.callParent(arguments);
     },
+
     height: 40,
 
 items: [
