@@ -26,8 +26,8 @@ Ext.define('App.view.enterprise.Query', {
                                 title: '添加信息',
                                 modal: true,
                                 iconCls: 'icon_add',
-                                width: 350,
-                                height: 350,
+                                width: 300,
+                                height: 450,
                                 border: false,
                                 layout: 'fit',
                                 defaults: {
@@ -48,39 +48,87 @@ Ext.define('App.view.enterprise.Query', {
                                             xtype: 'textfield'
                                         },
                                         items: [
+
                                             {
-                                                anchor: '100%',
-                                                name: 'ruser_id',
-                                                fieldLabel: '用户',
+                                                allowBlank: false,
+                                                fieldLabel: '企业名称',
+                                                name: 'name'
+                                            },
+                                            {
+                                                fieldLabel: '企业简称',
+                                                name: 'nos'
+                                            },
+                                            {
+                                                allowBlank: false,
+                                                fieldLabel: '企业类型',
+                                                name: 'etype'
+                                            },
+                                            {
+                                                fieldLabel: '挂牌代码',
+                                                name: 'listcode'
+                                            },
+                                            {
+                                                fieldLabel: '挂牌价格',
+                                                name: 'listprice'
+                                            },
+                                            {
+                                                allowBlank: false,
+                                                fieldLabel: '企业性质',
+                                                name: 'nature',
                                                 xtype: 'combobox',
                                                 autoRender: true,
                                                 autoShow: true,
-                                                store: 'syj_users',
-                                                displayField: 'name',
-                                                valueField: 'id',
-                                                emptyText: '部门主管',
-                                                listConfig: {
-                                                    getInnerTpl: function () {
-                                                        return '<div><span style="font-weight: bold">{id}' +
-                                                            '</span><br><span style="color: green;">' + '({name})</span></div>'
-                                                    }
-                                                }
+                                                store: 'dicts_etype',
+                                                displayField: 'fieldvaldis',
+                                                valueField: 'fieldvaldis',
+                                                emptyText: '企业性质'
                                             },
-
+                                            {
+                                                allowBlank: false,
+                                                fieldLabel: '营业执照号',
+                                                name: 'buslic'
+                                            },
+                                            {
+                                                fieldLabel: '维护状态',
+                                                name: 'status',
+                                                xtype: 'combobox',
+                                                autoRender: true,
+                                                autoShow: true,
+                                                store: 'dicts_mtstate',
+                                                displayField: 'fieldvaldis',
+                                                valueField: 'fieldvaldis',
+                                                emptyText: '维护状态'
+                                            },
+                                            {
+                                                fieldLabel: '所属后备库',
+                                                name: 'reserve',
+                                                xtype: 'combobox',
+                                                autoRender: true,
+                                                autoShow: true,
+                                                store: 'dicts_reservedb',
+                                                displayField: 'fieldvaldis',
+                                                valueField: 'fieldvaldis',
+                                                emptyText: '所属后备库'
+                                            },
                                             {
                                                 xtype: 'datefield',
-                                                fieldLabel: '期限',
-                                                anchor: '100%',
+                                                fieldLabel: '注册时间',
                                                 allowBlank: false,
-                                                name: 'deadline',
+                                                name: 'regdate',
                                                 value: new Date(),
-                                                format: 'Y-m-d H:i:s'
+                                                format: 'Y-m-d'
                                             },
                                             {
-                                                anchor: '100%',
-                                                fieldLabel: '内容',
-                                                allowBlank: false,
-                                                name: 'content'
+                                                fieldLabel: '是否已标记',
+                                                name: 'markstat'
+                                            },
+                                            {
+                                                fieldLabel: '完成回访状态',
+                                                name: 'visitstat'
+                                            },
+                                            {
+                                                fieldLabel: '备注',
+                                                name: 'remark'
                                             }
                                         ],
                                         buttonAlign : "center",
@@ -95,12 +143,12 @@ Ext.define('App.view.enterprise.Query', {
                                                             url: 'add_enterprise_info',
                                                             waitenterprise: '正在保存数据...',
                                                             success: function(form, action){
-                                                                Ext.enterprise.alert("成功", "数据保存成功!");
+                                                                Ext.Msg.alert("成功", "数据保存成功!");
                                                                 //重新载入渠道信息
                                                                 Ext.getCmp('grid_enterprise').getStore().reload();
                                                             },
                                                             failure: function(form, action){
-                                                                Ext.enterprise.alert("失败", "数据保存失败!");
+                                                                Ext.Msg.alert("失败", "数据保存失败!");
                                                             }
                                                         });
                                                     }
@@ -153,38 +201,85 @@ Ext.define('App.view.enterprise.Query', {
                                     name: 'id'
                                 },
                                 {
-                                    anchor: '100%',
-                                    name: 'ruser_id',
-                                    fieldLabel: '用户',
+                                    allowBlank: false,
+                                    fieldLabel: '企业名称',
+                                    name: 'name'
+                                },
+                                {
+                                    fieldLabel: '企业简称',
+                                    name: 'nos'
+                                },
+                                {
+                                    allowBlank: false,
+                                    fieldLabel: '企业类型',
+                                    name: 'etype'
+                                },
+                                {
+                                    fieldLabel: '挂牌代码',
+                                    name: 'listcode'
+                                },
+                                {
+                                    fieldLabel: '挂牌价格',
+                                    name: 'listprice'
+                                },
+                                {
+                                    allowBlank: false,
+                                    fieldLabel: '企业性质',
+                                    name: 'nature',
                                     xtype: 'combobox',
                                     autoRender: true,
                                     autoShow: true,
-                                    store: 'syj_users',
-                                    displayField: 'name',
-                                    valueField: 'id',
-                                    emptyText: '部门主管',
-                                    listConfig: {
-                                        getInnerTpl: function () {
-                                            return '<div><span style="font-weight: bold">{id}' +
-                                                '</span><br><span style="color: green;">' + '({name})</span></div>'
-                                        }
-                                    }
+                                    store: 'dicts_etype',
+                                    displayField: 'fieldvaldis',
+                                    valueField: 'fieldvaldis',
+                                    emptyText: '企业性质',
                                 },
-
+                                {
+                                    allowBlank: false,
+                                    fieldLabel: '营业执照号',
+                                    name: 'buslic'
+                                },
+                                {
+                                    fieldLabel: '维护状态',
+                                    name: 'status',
+                                    xtype: 'combobox',
+                                    autoRender: true,
+                                    autoShow: true,
+                                    store: 'dicts_mtstate',
+                                    displayField: 'fieldvaldis',
+                                    valueField: 'fieldvaldis',
+                                    emptyText: '维护状态',
+                                },
+                                {
+                                    fieldLabel: '所属后备库',
+                                    name: 'reserve',
+                                    xtype: 'combobox',
+                                    autoRender: true,
+                                    autoShow: true,
+                                    store: 'dicts_reservedb',
+                                    displayField: 'fieldvaldis',
+                                    valueField: 'fieldvaldis',
+                                    emptyText: '所属后备库',
+                                },
                                 {
                                     xtype: 'datefield',
-                                    fieldLabel: '期限',
-                                    anchor: '100%',
+                                    fieldLabel: '注册时间',
                                     allowBlank: false,
-                                    name: 'deadline',
+                                    name: 'regdate',
                                     value: new Date(),
-                                    format: 'Y-m-d H:i:s'
+                                    format: 'Y-m-d'
                                 },
                                 {
-                                    anchor: '100%',
-                                    fieldLabel: '内容',
-                                    allowBlank: false,
-                                    name: 'content'
+                                    fieldLabel: '是否已标记',
+                                    name: 'markstat'
+                                },
+                                {
+                                    fieldLabel: '完成回访状态',
+                                    name: 'visitstat'
+                                },
+                                {
+                                    fieldLabel: '备注',
+                                    name: 'remark'
                                 }
                             ],
                             buttonAlign : "center",
@@ -199,11 +294,11 @@ Ext.define('App.view.enterprise.Query', {
                                                 url: 'update_enterprise_info',
                                                 waitenterprise: '正在保存数据...',
                                                 success: function(form, action){
-                                                    Ext.enterprise.alert("成功", "数据保存成功!");
+                                                    Ext.Msg.alert("成功", "数据保存成功!");
                                                     Ext.getCmp('grid_enterprise').getStore().reload();
                                                 },
                                                 failure: function(form, action){
-                                                    Ext.enterprise.alert("失败", "数据保存失败!");
+                                                    Ext.Msg.alert("失败", "数据保存失败!");
                                                 }
                                             });
                                         }
@@ -220,8 +315,8 @@ Ext.define('App.view.enterprise.Query', {
                         });
                         editWindow = new Ext.Window({
                             layout: 'fit',
-                            width: 350,
-                            height: 350,
+                            width: 300,
+                            height: 450,
                             modal: true,
                             title: '修改信息',
                             items: [editForm]
@@ -260,11 +355,11 @@ Ext.define('App.view.enterprise.Query', {
                                             },
                                             waitenterprise: '正在删除数据...',
                                             success: function (form, action) {
-                                                Ext.enterprise.alert("成功", "数据删除成功!");
+                                                Ext.Msg.alert("成功", "数据删除成功!");
                                                 Ext.getCmp('grid_enterprise').getStore().reload();
                                             },
                                             failure: function (form, action) {
-                                                Ext.enterprise.alert("失败", "数据删除失败!");
+                                                Ext.Msg.alert("失败", "数据删除失败!");
                                             }
                                         });
                                     }
@@ -292,15 +387,53 @@ Ext.define('App.view.enterprise.Query', {
             items: [
                 {
                     allowBlank: true,
-                    fieldLabel: '资料类型',
-                    id: 'query_enterprise_ctype',
-                    emptyText: '资料类型'
+                    fieldLabel: '公司名称',
+                    id: 'query_enterprise_name',
+                    emptyText: '公司名称'
                 },
                 {
                     allowBlank: true,
-                    fieldLabel: '资料名称',
-                    id: 'query_enterprise_file',
-                    emptyText: '资料名称'
+                    fieldLabel: '公司简称',
+                    id: 'query_enterprise_nos',
+                    emptyText: '公司简称'
+                }
+
+            ]
+        },
+        {
+            xtype: 'panel',
+            columnWidth: .4,
+            border: false,
+            defaultType: 'textfield',
+            layout: {
+                type: 'vbox',
+                align: 'strech',
+                pack: 'start'
+            },
+            items: [
+                {
+                    fieldLabel: '维护状态',
+                    id: 'query_enterprise_status',
+                    name: 'status',
+                    xtype: 'combobox',
+                    autoRender: true,
+                    autoShow: true,
+                    store: 'dicts_mtstate',
+                    displayField: 'fieldvaldis',
+                    valueField: 'fieldvaldis',
+                    emptyText: '维护状态'
+                },
+                {
+                    id: 'query_enterprise_reserve',
+                    fieldLabel: '所属后备库',
+                    name: 'reserve',
+                    xtype: 'combobox',
+                    autoRender: true,
+                    autoShow: true,
+                    store: 'dicts_reservedb',
+                    displayField: 'fieldvaldis',
+                    valueField: 'fieldvaldis',
+                    emptyText: '所属后备库'
                 }
 
             ]
@@ -318,8 +451,11 @@ Ext.define('App.view.enterprise.Query', {
                             var store = Ext.getCmp('grid_enterprise').getStore();
                             store.load({
                                 params: {
-                                    c_type: Ext.getCmp('query_enterprise_ctype').getValue(),
-                                    file: Ext.getCmp('query_enterprise_file').getValue()
+                                    name: Ext.getCmp('query_enterprise_name').getValue(),
+                                    nos: Ext.getCmp('query_enterprise_nos').getValue(),
+                                    reserve: Ext.getCmp('query_enterprise_reserve').getValue(),
+                                    status: Ext.getCmp('query_enterprise_status').getValue()
+
                                 }
                             });
                         }

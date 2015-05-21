@@ -21,9 +21,13 @@ Ext.define('app.view.main.region.Top', {
         this.callParent(arguments);
     },
     height: 40,
-    items: [
 
+items: [
 
+        {
+            text: '甘肃中心企业信息管理系统'
+
+        },
                         {
                             text: '首页',
                             glyph: 0xf015

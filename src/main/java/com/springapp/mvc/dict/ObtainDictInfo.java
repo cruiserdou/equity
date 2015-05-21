@@ -25,7 +25,7 @@ public class ObtainDictInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
-            @RequestParam(value = "fieldnm", required = false) String fieldnm
+            @RequestParam(value = "field", required = false) String field
   ) throws Exception{
         Connection conn = null;
         Statement stmt = null;
@@ -52,8 +52,8 @@ public class ObtainDictInfo {
 
 
             String sql = "select * from work.dicts WHERE 1 = 1 ";
-            if (fieldnm != null && fieldnm.length() != 0)
-                sql += " and fieldnm like '%" + fieldnm + "%'";
+            if (field != null && field.length() != 0)
+                sql += " and field like '%" + field + "%'";
 
             sql += " order by id, field  ";
             rs = stmt.executeQuery(sql);

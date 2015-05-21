@@ -12,6 +12,7 @@ Ext.define('App.controller.Tabitem', {
     stores: [
         'syj_depts','syj_users','syj_menu','Dept_store','syj_dicts'
         ,'syj_roles','syj_userroles','syj_rolepermissions'
+        ,'dicts_etype','dicts_mtstate','dicts_reservedb'
         ,'msg','enterprise','login_log'
     ],
 

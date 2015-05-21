@@ -76,7 +76,10 @@ public class AddEnterpriseInfo {
             pst.setString(6, buslic);
             pst.setString(7, status);
             pst.setString(8, reserve);
-            pst.setString(9, regdate);
+            java.sql.Date d_regdat = null;
+            if (regdate != null && regdate.length() > 2)
+                d_regdat = java.sql.Date.valueOf(regdate);
+            pst.setDate(9, d_regdat);
             pst.setString(10,markstat);
             pst.setString(11, visitstat);
             java.util.Date date = new java.util.Date();

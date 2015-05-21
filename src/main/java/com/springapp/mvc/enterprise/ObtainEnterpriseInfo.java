@@ -25,8 +25,10 @@ public class ObtainEnterpriseInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
-           @RequestParam(value = "stat", required = false) String stat,
-           @RequestParam(value = "type", required = false) String type
+           @RequestParam(value = "name", required = false) String name,
+           @RequestParam(value = "nos", required = false) String nos,
+           @RequestParam(value = "reserve", required = false) String reserve,
+           @RequestParam(value = "status", required = false) String status
     ) throws Exception{
         Connection conn = null;
         Statement stmt = null;
@@ -48,12 +50,18 @@ public class ObtainEnterpriseInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-            String sql = "select  id, user_id, ruser_id,TO_CHAR(deadline,'yyyy-mm-dd hh24:mi:ss') as  deadline, content, stat, remark, TO_CHAR(rtdate,'yyyy-mm-dd hh24:mi:ss') as rtdate, \n" +
-                    "       type  from work.tb_enterprise WHERE 1 = 1 ";
-//            if (stat != null && stat.length() != 0)
-//                sql += " and stat like '%" + stat + "%'";
-//            if (type != null && type.length() != 0)
-//                sql += " and type like '%" + type + "%'";
+            String sql = "select  " +
+                    "id, name, nos, etype, listcode, listprice, buslic, status, reserve, \n" +
+                    "       regdate, markstat, visitstat,TO_CHAR(rtdate,'yyyy-mm-dd hh24:mi:ss') as  rtdate,nature, remark  \n" +
+                    "          from work.tb_enterprise WHERE 1 = 1 ";
+            if (name != null && name.length() != 0)
+                sql += " and name like '%" + name + "%'";
+            if (nos != null && nos.length() != 0)
+                sql += " and nos like '%" + nos + "%'";
+            if (reserve != null && reserve.length() != 0)
+                sql += " and reserve like '%" + reserve + "%'";
+            if (status != null && status.length() != 0)
+                sql += " and status like '%" + status + "%'";
 
             rs = stmt.executeQuery(sql);
 
