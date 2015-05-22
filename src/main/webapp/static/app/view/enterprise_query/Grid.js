@@ -8,99 +8,372 @@ Ext.define('App.view.enterprise_query.Grid', {
         'itemdblclick': function (view, record, item, index, e) {
             //创建模板
             var apply_edits = new Ext.XTemplate(
-                '<div>',
-                '<div class="wrap_center">',
-                '<h2>企业信息查看</h2>',
-                '<table class="enter_table">',
-                '<tr>',
-                '<th class="table_header" colspan="4">基本信息</th>',
-                '</tr>',
-                '<tr>',
-                '<th>公司中文简称</th>',
-                '<td>中国石化</td>',
-                '<th>成立日期</th>',
-                '<td>1998-07-27</td>',
-                '</tr>',
-                '<tr>',
-                '<th>英文名称</th>',
-                '<td>China Petrochemical Corporation</td>',
-                '<th>法人代表</th>',
-                '<td>傅成玉</td>',
-                '</tr>',
-                '<tr>',
-                '<th>英文名称缩写</th>',
-                '<td>CHINA PETROCHEMICAL</td>',
-                '<th>所属行业</th>',
-                '<td>综合性天然气</td>',
-                '</tr>',
-                '<tr>',
-                '<th>交易性质</th>',
-                '<td>并购，债券</td>',
-                '<th>注册地点</th>',
-                '<td>北京朝阳区朝阳门北大街22号</td>',
-                '</tr>',
-                '<tr>',
-                '<th>上市状态</th>',
-                '<td>非上市企业</td>',
-                '<th>注册资本</th>',
-                '<td>23162058万元</td>',
-                '</tr>',
-                '<tr>',
-                '<th>发行证券</th>',
-                '<td>--</td>',
-                '<th>所属集团系</th>',
-                '<td>--</td>',
-                '</tr>',
-                '<tr>',
-                '<th>工商注册ID</th>',
-                '<td>100000000244</td>',
-                '<th>员工人数</th>',
-                '<td>1060000</td>',
-                '</tr>',
-                '<tr>',
-                '<th>主营业务</th>',
-                '<td></td>',
-                '<th>公司简介</th>',
-                '<td></td>',
-                '</tr>',
-                '</table>',
+                '<div class="wrap_center">' +
+                '<h2>企业信息查看</h2>' +
+                '<table class="enter_table" id="table_base">' +
+                '<tr>' +
+                '<th class="table_header" colspan="4">基本信息</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>公司中文简称</th>' +
+                '<td>中国石化</td>' +
+                '<th>成立日期</th>' +
+                '<td>1998-07-27</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>英文名称</th>' +
+                '<td>China Petrochemical Corporation</td>' +
+                '<th>法人代表</th>' +
+                '<td>傅成玉</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>英文名称缩写</th>' +
+                '<td>CHINA PETROCHEMICAL</td>' +
+                '<th>所属行业</th>' +
+                '<td>综合性天然气</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>交易性质</th>' +
+                '<td>并购，债券</td>' +
+                '<th>注册地点</th>' +
+                '<td>北京朝阳区朝阳门北大街22号</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>上市状态</th>' +
+                '<td>非上市企业</td>' +
+                '<th>注册资本</th>' +
+                '<td>23162058万元</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>发行证券</th>' +
+                '<td>--</td>' +
+                '<th>所属集团系</th>' +
+                '<td>--</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>工商注册ID</th>' +
+                '<td>100000000244</td>' +
+                '<th>员工人数</th>' +
+                '<td>1060000</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>主营业务</th>' +
+                '<td></td>' +
+                '<th>公司简介</th>' +
+                '<td></td>' +
+                '</tr>' +
+                '</table>' +
 
 
-                '<table class="enter_table">',
-                '<tr>',
-                '<th class="table_header" colspan="4">联系方式</th>',
-                '</tr>',
-                '<tr>',
-                '<th>国际</th>',
-                '<td>中国</td>',
-                '<th>省份</th>',
-                '<td>北京</td>',
-                '</tr>',
-                '<tr>',
-                '<th>城市</th>',
-                '<td>北京</td>',
-                '<th>公司地址</th>',
-                '<td>北京市朝阳区朝阳门北大街22号</td>',
-                '</tr>',
-                '<tr>',
-                '<th>公司网址</th>',
-                '<td>www.sinopecgroup.cn</td>',
-                '<th>邮编</th>',
-                '<td>100728</td>',
-                '</tr>',
-                '<tr>',
-                '<th>联系电话</th>',
-                '<td>86-10-59969297</td>',
-                '<th></th>',
-                '<td></td>',
-                '</tr>',
-                '</table>',
-                '</div>',
-                '<div style="position: fixed; top: 7em; right: 6em">',
-                '<ul>',
-                '<li>基本信息</li><li>联系方式</li><li>主要股东</li>',
-                '</ul>',
-                '</div>',
+                '<table class="enter_table" id="table_link">' +
+                '<tr>' +
+                '<th class="table_header" colspan="4">联系方式</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>国际</th>' +
+                '<td>中国</td>' +
+                '<th>省份</th>' +
+                '<td>北京</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>城市</th>' +
+                '<td>北京</td>' +
+                '<th>公司地址</th>' +
+                '<td>北京市朝阳区朝阳门北大街22号</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>公司网址</th>' +
+                '<td>www.sinopecgroup.cn</td>' +
+                '<th>邮编</th>' +
+                '<td>100728</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>联系电话</th>' +
+                '<td>86-10-59969297</td>' +
+                '<th></th>' +
+                '<td></td>' +
+                '</tr>' +
+                '</table>' +
+
+                '<table class="enter_table" id="table_ocompay">' +
+                '<tr>' +
+                '<th class="table_header" colspan="4">主要股东</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>公司中文简称</th>' +
+                '<td>中国石化</td>' +
+                '<th>成立日期</th>' +
+                '<td>1998-07-27</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>英文名称</th>' +
+                '<td>China Petrochemical Corporation</td>' +
+                '<th>法人代表</th>' +
+                '<td>傅成玉</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>英文名称缩写</th>' +
+                '<td>CHINA PETROCHEMICAL</td>' +
+                '<th>所属行业</th>' +
+                '<td>综合性天然气</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>交易性质</th>' +
+                '<td>并购，债券</td>' +
+                '<th>注册地点</th>' +
+                '<td>北京朝阳区朝阳门北大街22号</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>上市状态</th>' +
+                '<td>非上市企业</td>' +
+                '<th>注册资本</th>' +
+                '<td>23162058万元</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>发行证券</th>' +
+                '<td>--</td>' +
+                '<th>所属集团系</th>' +
+                '<td>--</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>工商注册ID</th>' +
+                '<td>100000000244</td>' +
+                '<th>员工人数</th>' +
+                '<td>1060000</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>主营业务</th>' +
+                '<td></td>' +
+                '<th>公司简介</th>' +
+                '<td></td>' +
+                '</tr>' +
+                '</table>' +
+
+                '<table class="enter_table" id="table_acount">' +
+                '<tr>' +
+                '<th class="table_header" colspan="4">财务信息</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>公司中文简称</th>' +
+                '<td>中国石化</td>' +
+                '<th>成立日期</th>' +
+                '<td>1998-07-27</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>英文名称</th>' +
+                '<td>China Petrochemical Corporation</td>' +
+                '<th>法人代表</th>' +
+                '<td>傅成玉</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>英文名称缩写</th>' +
+                '<td>CHINA PETROCHEMICAL</td>' +
+                '<th>所属行业</th>' +
+                '<td>综合性天然气</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>交易性质</th>' +
+                '<td>并购，债券</td>' +
+                '<th>注册地点</th>' +
+                '<td>北京朝阳区朝阳门北大街22号</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>上市状态</th>' +
+                '<td>非上市企业</td>' +
+                '<th>注册资本</th>' +
+                '<td>23162058万元</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>发行证券</th>' +
+                '<td>--</td>' +
+                '<th>所属集团系</th>' +
+                '<td>--</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>工商注册ID</th>' +
+                '<td>100000000244</td>' +
+                '<th>员工人数</th>' +
+                '<td>1060000</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>主营业务</th>' +
+                '<td></td>' +
+                '<th>公司简介</th>' +
+                '<td></td>' +
+                '</tr>' +
+                '</table>' +
+
+                '<table id="abc" class="enter_table">' +
+                '<tr>' +
+                '<th class="table_header" colspan="4">控参股公司</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>公司中文简称</th>' +
+                '<td>中国石化</td>' +
+                '<th>成立日期</th>' +
+                '<td>1998-07-27</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>英文名称</th>' +
+                '<td>China Petrochemical Corporation</td>' +
+                '<th>法人代表</th>' +
+                '<td>傅成玉</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>英文名称缩写</th>' +
+                '<td>CHINA PETROCHEMICAL</td>' +
+                '<th>所属行业</th>' +
+                '<td>综合性天然气</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>交易性质</th>' +
+                '<td>并购，债券</td>' +
+                '<th>注册地点</th>' +
+                '<td>北京朝阳区朝阳门北大街22号</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>上市状态</th>' +
+                '<td>非上市企业</td>' +
+                '<th>注册资本</th>' +
+                '<td>23162058万元</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>发行证券</th>' +
+                '<td>--</td>' +
+                '<th>所属集团系</th>' +
+                '<td>--</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>工商注册ID</th>' +
+                '<td>100000000244</td>' +
+                '<th>员工人数</th>' +
+                '<td>1060000</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>主营业务</th>' +
+                '<td></td>' +
+                '<th>公司简介</th>' +
+                '<td></td>' +
+                '</tr>' +
+                '</table>' +
+
+                '<table id="abc" class="enter_table">' +
+                '<tr>' +
+                '<th class="table_header" colspan="4">所属行业融资</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>公司中文简称</th>' +
+                '<td>中国石化</td>' +
+                '<th>成立日期</th>' +
+                '<td>1998-07-27</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>英文名称</th>' +
+                '<td>China Petrochemical Corporation</td>' +
+                '<th>法人代表</th>' +
+                '<td>傅成玉</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>英文名称缩写</th>' +
+                '<td>CHINA PETROCHEMICAL</td>' +
+                '<th>所属行业</th>' +
+                '<td>综合性天然气</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>交易性质</th>' +
+                '<td>并购，债券</td>' +
+                '<th>注册地点</th>' +
+                '<td>北京朝阳区朝阳门北大街22号</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>上市状态</th>' +
+                '<td>非上市企业</td>' +
+                '<th>注册资本</th>' +
+                '<td>23162058万元</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>发行证券</th>' +
+                '<td>--</td>' +
+                '<th>所属集团系</th>' +
+                '<td>--</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>工商注册ID</th>' +
+                '<td>100000000244</td>' +
+                '<th>员工人数</th>' +
+                '<td>1060000</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>主营业务</th>' +
+                '<td></td>' +
+                '<th>公司简介</th>' +
+                '<td></td>' +
+                '</tr>' +
+                '</table>' +
+
+                '<table id="table_anay" class="enter_table">' +
+                '<tr>' +
+                '<th class="table_header" colspan="4">同行分析</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>公司中文简称</th>' +
+                '<td>中国石化</td>' +
+                '<th>成立日期</th>' +
+                '<td>1998-07-27</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>英文名称</th>' +
+                '<td>China Petrochemical Corporation</td>' +
+                '<th>法人代表</th>' +
+                '<td>傅成玉</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>英文名称缩写</th>' +
+                '<td>CHINA PETROCHEMICAL</td>' +
+                '<th>所属行业</th>' +
+                '<td>综合性天然气</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>交易性质</th>' +
+                '<td>并购，债券</td>' +
+                '<th>注册地点</th>' +
+                '<td>北京朝阳区朝阳门北大街22号</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>上市状态</th>' +
+                '<td>非上市企业</td>' +
+                '<th>注册资本</th>' +
+                '<td>23162058万元</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>发行证券</th>' +
+                '<td>--</td>' +
+                '<th>所属集团系</th>' +
+                '<td>--</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>工商注册ID</th>' +
+                '<td>100000000244</td>' +
+                '<th>员工人数</th>' +
+                '<td>1060000</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>主营业务</th>' +
+                '<td></td>' +
+                '<th>公司简介</th>' +
+                '<td></td>' +
+                '</tr>' +
+                '</table>' +
+
+                '</div>' +
+                '<div style="position: fixed; top: 7em; right: 6em">' +
+                '<ul>' +
+                '<li><a href="#table_base">基本信息</a></li><li><a href="#table_link">联系方式</a></li>' +
+                '<li><a href="#abc">主要股东</a></li>' +
+                '<li><a href="#table_acount">财务信息</a></li><li><a href="#table_ocompay">控参股公司</li>' +
+                '<li><a href="#abc">所属行业融资</a></li>' +
+                '<li><a href="#table_anay">同业分析</a></li></li>' +
+                '</ul>' +
                 '</div>'
             );
 
