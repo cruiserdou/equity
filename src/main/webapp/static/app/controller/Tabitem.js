@@ -28,6 +28,7 @@ Ext.define('App.controller.Tabitem', {
         'msg.Msgf','msg.Grid','msg.Query',
         'enterprise.Enterprisef','enterprise.Grid','enterprise.Query',
         'login_log.Login_logf','login_log.Grid','login_log.Query',
+        'enterprise_query.Enterprise_queryf','enterprise_query.Grid','enterprise_query.Query'
   ],
 
     refs: [
