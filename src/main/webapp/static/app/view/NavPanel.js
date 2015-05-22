@@ -21,10 +21,7 @@ Ext.define('App.view.NavPanel', {
         this.store = 'Tree';
         this.callParent(arguments);
 
-
     }
-
-
 })
 
 
