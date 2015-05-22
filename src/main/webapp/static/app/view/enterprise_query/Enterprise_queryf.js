@@ -9,7 +9,6 @@ Ext.define('App.view.enterprise_query.Enterprise_queryf', {
         activate: function () {
             Ext.getCmp('grid_enterprise_query').getStore().load();
         }
-
     },
     items: [
         {
@@ -27,7 +26,6 @@ Ext.define('App.view.enterprise_query.Enterprise_queryf', {
                 xtype: 'enterprise_queryf_grid',
                 region: 'center'
             }
-
         ]
         this.callParent(arguments);
     }

@@ -1,22 +1,27 @@
-#appro_table{
-    width: 800px;
-    border: 1px solid #6678b1;
-    font-size: 12px;
-    background: #fff;
+.enter_table{
     border-collapse: collapse;
+    width: 800px;
+    font-size: 12px;
     text-align: left;
+    margin-bottom: 2em;
+    background-color: #CED9E6;
 }
 
-#appro_table td{
-    border: 1px solid #ccc;
+.enter_table td, .enter_table th{
+    border: 1px solid #9ABCE6;
+    border-collapse: collapse;
     padding: 9px 8px 8px 8px;
 }
 
-#appro_table input[type="text"]{
+.enter_table input[type="text"]{
     border:none;
     margin: 0;
     width: 99%;
     margin: 0;
+}
+
+.enter_table .table_header{
+    background-color: #9ABCE6;
 }
 
 .wrap_center{
@@ -651,8 +656,3 @@
     background-image: url(images/income.png) !important;
     background-repeat: no-repeat;
 }
-
-
-
-
-
