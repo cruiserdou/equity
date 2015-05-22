@@ -4,7 +4,7 @@
     font-size: 12px;
     text-align: left;
     margin-bottom: 2em;
-    background-color: #CED9E6;
+    background-color: #ecf2fb;
 }
 
 .enter_table td, .enter_table th{
@@ -13,11 +13,8 @@
     padding: 9px 8px 8px 8px;
 }
 
-.enter_table input[type="text"]{
-    border:none;
-    margin: 0;
-    width: 99%;
-    margin: 0;
+.enter_table th{
+    width: 10em;
 }
 
 .enter_table .table_header{
@@ -45,7 +42,6 @@
 .pubinfo_wrap_list #list_pubinfo {
     border: 1px solid #ccc;
     border-radius: 15px;
-    /*margin: 30px 35px 30px 0;*/
     margin-top: 30px;
     margin-right: 35px;
     margin-left: 0;
@@ -68,7 +64,7 @@
     width: 1000px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin: 10 10 30 10;
+    margin: 10px 10px 30px 10px;
     padding: 10px;
 }
 
@@ -80,7 +76,7 @@
     position: relative;
 }
 .info_detail .wrap img{
-    margin: 18 0 10 0;
+    margin: 18px 0px 10px 0;
 }
 
 .info_update {
@@ -123,18 +119,16 @@
     border-radius: 3px;
     margin: 15px;
     text-decoration: none;
-    padding: 2 5 2 5;
+    padding: 2px 5px 2px 5px;
 }
 
 
 .base_table{
-    /*width: 1000px;*/
     font-size: 12px;
     border: 1px solid #ccc;
     margin: 15px 30px;
     padding: 20px;
     border-radius: 5px;
-    /*background-image: linear-gradient(#DFE9F5, #C2D4E8);*/
 }
 .base_table td{
     padding: 5px 0;
@@ -514,11 +508,6 @@
 
 .icon_delete {
     background-image: url(images/delete.png) !important;
-    background-repeat: no-repeat;
-}
-
-.Linechart {
-    background-image: url(images/Linechart.png) !important;
     background-repeat: no-repeat;
 }
 
