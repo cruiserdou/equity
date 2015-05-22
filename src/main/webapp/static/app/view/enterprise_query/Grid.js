@@ -15,52 +15,68 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '<th class="table_header" colspan="4">基本信息</th>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>公司中文简称</th>' +
-                '<td>中国石化</td>' +
-                '<th>成立日期</th>' +
-                '<td>1998-07-27</td>' +
+                '<th>营业执照号码</th>' +
+                '<td>{buslicno}</td>' +
+                '<th>企业名称</th>' +
+                '<td>{name}</td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>英文名称</th>' +
-                '<td>China Petrochemical Corporation</td>' +
-                '<th>法人代表</th>' +
-                '<td>傅成玉</td>' +
+                '<th>单位类别</th>' +
+                '<td>{unit}</td>' +
+                '<th>法定代表人</th>' +
+                '<td>{legrep}</td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>英文名称缩写</th>' +
-                '<td>CHINA PETROCHEMICAL</td>' +
-                '<th>所属行业</th>' +
-                '<td>综合性天然气</td>' +
+                '<th>地域</th>' +
+                '<td>{region}</td>' +
+                '<th>公司简称</th>' +
+                '<td>{nos}</td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>交易性质</th>' +
-                '<td>并购，债券</td>' +
-                '<th>注册地点</th>' +
-                '<td>北京朝阳区朝阳门北大街22号</td>' +
+                '<th>邮政编码</th>' +
+                '<td>{postal}</td>' +
+                '<th>企业性质</th>' +
+                '<td>{nature}</td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>上市状态</th>' +
-                '<td>非上市企业</td>' +
-                '<th>注册资本</th>' +
-                '<td>23162058万元</td>' +
+                '<th>注册资本（万元）</th>' +
+                '<td>{regcap}</td>' +
+                '<th>注册日期</th>' +
+                '<td>{regdt}</td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>发行证券</th>' +
-                '<td>--</td>' +
-                '<th>所属集团系</th>' +
-                '<td>--</td>' +
+                '<th>营业期限自</th>' +
+                '<td>{bustermfdt}</td>' +
+                '<th>营业期限至</th>' +
+                '<td>{bustremtdt}</td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>工商注册ID</th>' +
-                '<td>100000000244</td>' +
+                '<th>挂牌代码</th>' +
+                '<td>{listcode}</td>' +
+                '<th>挂牌价格</th>' +
+                '<td>{listprice}</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>注册地址</th>' +
+                '<td>{regaddr}</td>' +
                 '<th>员工人数</th>' +
-                '<td>1060000</td>' +
+                '<td>{staffnum}</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>办公地址</th>' +
+                '<td colspan="3">{offaddr}</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>经营范围</th>' +
+                '<td colspan="3">{scope}</td>' +
                 '</tr>' +
                 '<tr>' +
                 '<th>主营业务</th>' +
-                '<td></td>' +
-                '<th>公司简介</th>' +
-                '<td></td>' +
+                '<td colspan="3">{mbus}</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>企业简介</th>' +
+                '<td colspan="3">{eprofile}</td>' +
                 '</tr>' +
                 '</table>' +
 

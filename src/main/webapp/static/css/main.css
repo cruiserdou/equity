@@ -26,6 +26,12 @@
     margin: 10px auto;
 }
 
+td input{
+    border:none;
+    width:100%;
+    height:150%;
+}
+
 
 .pubinfo_wrap #main_pubinfo {
     border: 1px solid #ccc;

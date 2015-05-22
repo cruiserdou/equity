@@ -17,6 +17,430 @@ Ext.define('App.view.enterprise.Query', {
             border: true,
             items: [
                 {
+                    id: 'enterprise_new_add',
+                    text: '添加',
+                    glyph: 0xf0f6,
+                    listeners: {
+                        click: function () {
+
+                                //创建模板
+                                var apply_edits = new Ext.XTemplate(
+                                    '<div class="wrap_center">' +
+                                    '<h2>企业信息查看</h2>' +
+                                    '<table class="enter_table" id="table_base">' +
+                                    '<tr>' +
+                                    '<th class="table_header" colspan="4">基本信息</th>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>营业执照号码<span style="color: red">*</span></th>' +
+                                    '<td><input id="buslicno"  name="buslicno"  type="text" value="{buslicno}"/></td>' +
+                                    '<th>企业名称</th>' +
+                                    '<td><input id="name" name="name"  type="text" value="{name}"/></td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>单位类别</th>' +
+                                    '<td><input id="unit" name="unit"  type="text" value="{unit}"/></td>' +
+                                    '<th>法定代表人</th>' +
+                                    '<td><input id="legrep" name="legrep"  type="text" value="{legrep}"/></td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>地域</th>' +
+                                    '<td><input id="region" name="region"  type="text" value="{region}"/></td>' +
+                                    '<th>公司简称</th>' +
+                                    '<td><input id="nos" name="nos"  type="text" value="{nos}"/></td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>邮政编码</th>' +
+                                    '<td><input id="postal" name="postal"  type="text" value="{postal}"/></td>' +
+                                    '<th>企业性质</th>' +
+                                    '<td><input id="nature" name="nature"  type="text" value="{nature}"/></td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>注册资本（万元）</th>' +
+                                    '<td><input id="regcap" name="regcap"  type="text" value="{regcap}"/></td>' +
+                                    '<th>注册日期</th>' +
+                                    '<td><input id="regdt" name="regdt"  type="text" value="{regdt}"/></td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>营业期限自</th>' +
+                                    '<td><input id="bustermfdt" name="bustermfdt"  type="text" value="{bustermfdt}"/></td>' +
+                                    '<th>营业期限至</th>' +
+                                    '<td><input id="bustremtdt" name="bustremtdt"  type="text" value="{bustremtdt}"/></td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>挂牌代码</th>' +
+                                    '<td><input id="listcode" name="listcode"  type="text" value="{listcode}"/></td>' +
+                                    '<th>挂牌价格</th>' +
+                                    '<td><input id="listprice" name="listprice"  type="text" value="{listprice}"/></td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>注册地址</th>' +
+                                    '<td><input id="regaddr" name="regaddr"  type="text" value="{regaddr}"/></td>' +
+                                    '<th>员工人数</th>' +
+                                    '<td><input id="staffnum" name="staffnum"  type="text" value="{staffnum}"/></td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>办公地址</th>' +
+                                    '<td colspan="3"><input id="offaddr" name="offaddr"  type="text" value="{offaddr}"/></td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>经营范围</th>' +
+                                    '<td colspan="3"><input id="scope" name="scope"  type="text" value="{scope}"/></td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>主营业务</th>' +
+                                    '<td colspan="3"><input id="mbus" name="mbus"  type="text" value="{mbus}"/></td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>企业简介</th>' +
+                                    '<td colspan="3"><input id="eprofile" name="eprofile"  type="text" value="{eprofile}"/></td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>企业照片资料</th>' +
+                                    '<td colspan="3"><img onclick="pub_upload_file(\'phoinf\')" id="phoinf" name="phoinf" value="{phoinf}" src=""   alt="点击上传照片"/> </td>' +
+                                    '</tr>' +
+                                    '</table>' +
+
+
+                                    '<table class="enter_table" id="table_link">' +
+                                    '<tr>' +
+                                    '<th class="table_header" colspan="4">联系方式</th>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>国际</th>' +
+                                    '<td>中国</td>' +
+                                    '<th>省份</th>' +
+                                    '<td>北京</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>城市</th>' +
+                                    '<td>北京</td>' +
+                                    '<th>公司地址</th>' +
+                                    '<td>北京市朝阳区朝阳门北大街22号</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>公司网址</th>' +
+                                    '<td>www.sinopecgroup.cn</td>' +
+                                    '<th>邮编</th>' +
+                                    '<td>100728</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>联系电话</th>' +
+                                    '<td>86-10-59969297</td>' +
+                                    '<th></th>' +
+                                    '<td></td>' +
+                                    '</tr>' +
+                                    '</table>' +
+
+                                    '<table class="enter_table" id="table_ocompay">' +
+                                    '<tr>' +
+                                    '<th class="table_header" colspan="4">主要股东</th>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>公司中文简称</th>' +
+                                    '<td>中国石化</td>' +
+                                    '<th>成立日期</th>' +
+                                    '<td>1998-07-27</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>英文名称</th>' +
+                                    '<td>China Petrochemical Corporation</td>' +
+                                    '<th>法人代表</th>' +
+                                    '<td>傅成玉</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>英文名称缩写</th>' +
+                                    '<td>CHINA PETROCHEMICAL</td>' +
+                                    '<th>所属行业</th>' +
+                                    '<td>综合性天然气</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>交易性质</th>' +
+                                    '<td>并购，债券</td>' +
+                                    '<th>注册地点</th>' +
+                                    '<td>北京朝阳区朝阳门北大街22号</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>上市状态</th>' +
+                                    '<td>非上市企业</td>' +
+                                    '<th>注册资本</th>' +
+                                    '<td>23162058万元</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>发行证券</th>' +
+                                    '<td>--</td>' +
+                                    '<th>所属集团系</th>' +
+                                    '<td>--</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>工商注册ID</th>' +
+                                    '<td>100000000244</td>' +
+                                    '<th>员工人数</th>' +
+                                    '<td>1060000</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>主营业务</th>' +
+                                    '<td></td>' +
+                                    '<th>公司简介</th>' +
+                                    '<td></td>' +
+                                    '</tr>' +
+                                    '</table>' +
+
+                                    '<table class="enter_table" id="table_acount">' +
+                                    '<tr>' +
+                                    '<th class="table_header" colspan="4">财务信息</th>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>公司中文简称</th>' +
+                                    '<td>中国石化</td>' +
+                                    '<th>成立日期</th>' +
+                                    '<td>1998-07-27</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>英文名称</th>' +
+                                    '<td>China Petrochemical Corporation</td>' +
+                                    '<th>法人代表</th>' +
+                                    '<td>傅成玉</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>英文名称缩写</th>' +
+                                    '<td>CHINA PETROCHEMICAL</td>' +
+                                    '<th>所属行业</th>' +
+                                    '<td>综合性天然气</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>交易性质</th>' +
+                                    '<td>并购，债券</td>' +
+                                    '<th>注册地点</th>' +
+                                    '<td>北京朝阳区朝阳门北大街22号</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>上市状态</th>' +
+                                    '<td>非上市企业</td>' +
+                                    '<th>注册资本</th>' +
+                                    '<td>23162058万元</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>发行证券</th>' +
+                                    '<td>--</td>' +
+                                    '<th>所属集团系</th>' +
+                                    '<td>--</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>工商注册ID</th>' +
+                                    '<td>100000000244</td>' +
+                                    '<th>员工人数</th>' +
+                                    '<td>1060000</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>主营业务</th>' +
+                                    '<td></td>' +
+                                    '<th>公司简介</th>' +
+                                    '<td></td>' +
+                                    '</tr>' +
+                                    '</table>' +
+
+                                    '<table id="abc" class="enter_table">' +
+                                    '<tr>' +
+                                    '<th class="table_header" colspan="4">控参股公司</th>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>公司中文简称</th>' +
+                                    '<td>中国石化</td>' +
+                                    '<th>成立日期</th>' +
+                                    '<td>1998-07-27</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>英文名称</th>' +
+                                    '<td>China Petrochemical Corporation</td>' +
+                                    '<th>法人代表</th>' +
+                                    '<td>傅成玉</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>英文名称缩写</th>' +
+                                    '<td>CHINA PETROCHEMICAL</td>' +
+                                    '<th>所属行业</th>' +
+                                    '<td>综合性天然气</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>交易性质</th>' +
+                                    '<td>并购，债券</td>' +
+                                    '<th>注册地点</th>' +
+                                    '<td>北京朝阳区朝阳门北大街22号</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>上市状态</th>' +
+                                    '<td>非上市企业</td>' +
+                                    '<th>注册资本</th>' +
+                                    '<td>23162058万元</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>发行证券</th>' +
+                                    '<td>--</td>' +
+                                    '<th>所属集团系</th>' +
+                                    '<td>--</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>工商注册ID</th>' +
+                                    '<td>100000000244</td>' +
+                                    '<th>员工人数</th>' +
+                                    '<td>1060000</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>主营业务</th>' +
+                                    '<td></td>' +
+                                    '<th>公司简介</th>' +
+                                    '<td></td>' +
+                                    '</tr>' +
+                                    '</table>' +
+
+                                    '<table id="abc" class="enter_table">' +
+                                    '<tr>' +
+                                    '<th class="table_header" colspan="4">所属行业融资</th>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>公司中文简称</th>' +
+                                    '<td>中国石化</td>' +
+                                    '<th>成立日期</th>' +
+                                    '<td>1998-07-27</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>英文名称</th>' +
+                                    '<td>China Petrochemical Corporation</td>' +
+                                    '<th>法人代表</th>' +
+                                    '<td>傅成玉</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>英文名称缩写</th>' +
+                                    '<td>CHINA PETROCHEMICAL</td>' +
+                                    '<th>所属行业</th>' +
+                                    '<td>综合性天然气</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>交易性质</th>' +
+                                    '<td>并购，债券</td>' +
+                                    '<th>注册地点</th>' +
+                                    '<td>北京朝阳区朝阳门北大街22号</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>上市状态</th>' +
+                                    '<td>非上市企业</td>' +
+                                    '<th>注册资本</th>' +
+                                    '<td>23162058万元</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>发行证券</th>' +
+                                    '<td>--</td>' +
+                                    '<th>所属集团系</th>' +
+                                    '<td>--</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>工商注册ID</th>' +
+                                    '<td>100000000244</td>' +
+                                    '<th>员工人数</th>' +
+                                    '<td>1060000</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>主营业务</th>' +
+                                    '<td></td>' +
+                                    '<th>公司简介</th>' +
+                                    '<td></td>' +
+                                    '</tr>' +
+                                    '</table>' +
+
+                                    '<table id="table_anay" class="enter_table">' +
+                                    '<tr>' +
+                                    '<th class="table_header" colspan="4">同行分析</th>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>公司中文简称</th>' +
+                                    '<td>中国石化</td>' +
+                                    '<th>成立日期</th>' +
+                                    '<td>1998-07-27</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>英文名称</th>' +
+                                    '<td>China Petrochemical Corporation</td>' +
+                                    '<th>法人代表</th>' +
+                                    '<td>傅成玉</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>英文名称缩写</th>' +
+                                    '<td>CHINA PETROCHEMICAL</td>' +
+                                    '<th>所属行业</th>' +
+                                    '<td>综合性天然气</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>交易性质</th>' +
+                                    '<td>并购，债券</td>' +
+                                    '<th>注册地点</th>' +
+                                    '<td>北京朝阳区朝阳门北大街22号</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>上市状态</th>' +
+                                    '<td>非上市企业</td>' +
+                                    '<th>注册资本</th>' +
+                                    '<td>23162058万元</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>发行证券</th>' +
+                                    '<td>--</td>' +
+                                    '<th>所属集团系</th>' +
+                                    '<td>--</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>工商注册ID</th>' +
+                                    '<td>100000000244</td>' +
+                                    '<th>员工人数</th>' +
+                                    '<td>1060000</td>' +
+                                    '</tr>' +
+                                    '<tr>' +
+                                    '<th>主营业务</th>' +
+                                    '<td></td>' +
+                                    '<th>公司简介</th>' +
+                                    '<td></td>' +
+                                    '</tr>' +
+                                    '</table>' +
+
+                                    '</div>' +
+                                    '<div style="position: fixed; top: 7em; right: 6em">' +
+                                    '<ul>' +
+                                    '<li><a href="#table_base">基本信息</a></li><li><a href="#table_link">联系方式</a></li>' +
+                                    '<li><a href="#abc">主要股东</a></li>' +
+                                    '<li><a href="#table_acount">财务信息</a></li><li><a href="#table_ocompay">控参股公司</li>' +
+                                    '<li><a href="#abc">所属行业融资</a></li>' +
+                                    '<li><a href="#table_anay">同业分析</a></li></li>' +
+                                    '</ul>' +
+                                    '</div>'
+                                );
+
+                                //呈现组件
+                                var mypanel = new Ext.form.FormPanel({
+                                    id: "mypanel",
+                                    width: 820,
+                                    frame: false,
+                                    height: 600,
+                                    border: false,
+                                    bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
+                                    renderTo: Ext.getBody()
+                                });
+                            apply_edits.overwrite(mypanel.body, {});
+                                var editWindow = new Ext.Window({
+                                    layout: 'fit',
+                                    width: 830,
+                                    height: 650,
+                                    modal: true,
+                                    title: '企业信息',
+                                    maximized: true,
+                                    maximizable: true,
+                                    items: [mypanel]
+                                });
+                                editWindow.show(Ext.get('body'));
+
+                            }
+                        }
+                },
+                {
                     id: 'enterprise_add',
                     text: '添加',
                     glyph: 0xf0f6,
@@ -259,7 +683,7 @@ Ext.define('App.view.enterprise.Query', {
                                     store: 'dicts_reservedb',
                                     displayField: 'fieldvaldis',
                                     valueField: 'fieldvaldis',
-                                    emptyText: '所属后备库',
+                                    emptyText: '所属后备库'
                                 },
                                 {
                                     xtype: 'datefield',
@@ -484,3 +908,92 @@ Ext.define('App.view.enterprise.Query', {
         this.callParent(arguments);
     }
 });
+
+
+
+function pub_upload_file(id) {
+
+
+
+    Ext.create('widget.window', {
+        title: '上传照片',
+        modal: true,
+        iconCls: 'icon_add',
+        id:'uploadpic_windows',
+        width: 270,
+        height: 120,
+        border: false,
+        layout: 'fit',
+        defaults: {
+            width: 200,
+            allowBlank: false
+        },
+        items: [
+            {
+                xtype: 'form',
+                frame: true,
+                bodyPadding: 10,
+                fieldDefaults: {
+                    labelAlign: 'left',
+                    labelWidth: 70
+                },
+                defaults: {
+                    labelAlign: 'right',
+                    xtype: 'textfield'
+                },
+                items: [
+                    {
+                        xtype: 'filefield',
+                        labelWidth: 60,
+                        name: 'file',
+                        fieldLabel: '照片上传',
+                        buttonText: '选择文件'
+                    }
+                ],
+                buttonAlign: "center",
+                buttons: [
+                    {
+                        text: '保存',
+                        iconCls: 'icon_save',
+                        handler: function () {
+                            var cust_id = document.getElementById('apply_form_id_card').value;
+                            if (cust_id != "") {
+                                var form = this.up('form').getForm();
+                                if (form.isValid()) {
+                                    form.submit({
+                                        url: 'upload_file_xwq',
+                                        method: 'POST',
+                                        params: {
+                                            card_id: cust_id
+                                        },
+                                        waitMsg: '正在保存...',
+                                        success: function (form, action) {
+                                            Ext.Msg.alert("成功", "保存成功!");
+                                            document.getElementById('apply_form_img').src = 'static/upload/'
+                                            + action.result.message;
+                                            photo_file=action.result.message;
+                                            Ext.getCmp('uploadpic_windows').close();
+                                        },
+                                        failure: function (form, action) {
+                                            Ext.Msg.alert("失败", "保存失败!");
+                                        }
+                                    });
+                                }
+                            } else {
+                                Ext.Msg.alert("提示", "请先输入身份证号！");
+                            }
+                        }
+                    },
+                    {
+                        text: '重置',
+                        iconCls: 'icon_reset',
+                        handler: function () {
+                            this.up('form').getForm().reset();
+                        }
+                    }
+                ]
+            }
+
+        ]
+    }).show(Ext.get(id));
+};
