@@ -69,331 +69,182 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>' +
                 '<tr>' +
                 '<th>经营范围</th>' +
-                '<td colspan="3"><input id="scope" name="scope"  type="text" value="{scope}"/></td>' +
+                '<td colspan="3"><input  id="scope" name="scope"  type="text" value="{scope}"/></td>' +
                 '</tr>' +
                 '<tr>' +
                 '<th>主营业务</th>' +
-                '<td colspan="3"><input id="mbus" name="mbus"  type="text" value="{mbus}"/></td>' +
+                '<td colspan="3"><input id="mbus" name="mbus"  type="text" value="{mbus}"/><</td>' +
                 '</tr>' +
                 '<tr>' +
                 '<th>企业简介</th>' +
-                '<td colspan="3"><input id="eprofile" name="eprofile"  type="text" value="{eprofile}"/></td>' +
+                '<td colspan="3"><input id="eprofile" name="eprofile"  type="text" value="{eprofile}"/><</td>' +
                 '</tr>' +
                 '<tr>' +
                 '<th>企业照片资料</th>' +
-                '<td colspan="3"><img onclick="pub_upload_file(\'phoinf\')" id="phoinf" name="phoinf" value="{phoinf}" src="" style="width: 136px; height: 139px;" alt="点击上传照片"/> </td>' +
+                '<td colspan="3"><img onclick="pub_upload_file(\'phoinf\')" id="phoinf" name="phoinf" value="{phoinf}" src=""   alt="点击上传照片"/> </td>' +
                 '</tr>' +
                 '</table>' +
+                    //<textarea disabled style="background:#FFFFFF" contenteditable="false" rows="3" name="remark"  type="text" value="""></textarea>
+
+                '<table class="enter_table" id="table_sh">' +
+                '<tr>' +
+                '<th class="table_header" colspan="8">股东信息</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>股东类型</th>' +
+                '<th>股东</th>' +
+                '<th>证照/证件类型</th>' +
+                '<th>证照/证件号码</th>' +
+                '<th>持股数量</th>' +
+                '<th>流通数量</th>' +
+                '<th>冻结数量</th>' +
+                '<th>详情</th>' +
+                '</tr>' +
+                '<tpl  for="list_sh">' +
+                '<tr>' +
+                '<td>{shtype}</td>' +
+                '<td>{shname}</td>' +
+                '<td>{shdoctype}</td>' +
+                '<td>{shdocnum}</td>' +
+                '<td>{shareholdnum}</td>' +
+                '<td>{currencynum}</td>' +
+                '<td>{freezenum}</td>' +
+                '<td>{remark}</td>' +
+                '</tr>' +
+                '</tpl>' +
+                '</table>' +
+
 
 
                 '<table class="enter_table" id="table_link">' +
                 '<tr>' +
-                '<th class="table_header" colspan="4">联系方式</th>' +
+                '<th class="table_header" colspan="4">法定代表人基本信息</th>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>国际</th>' +
-                '<td>中国</td>' +
-                '<th>省份</th>' +
-                '<td>北京</td>' +
+                '<th>职务</th>' +
+                '<td><input id="post" name="post"  type="text" value="{post}"/></td>' +
+                '<th>证件类型</th>' +
+                '<td><input id="doctype" name="doctype"  type="text" value="{doctype}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>城市</th>' +
-                '<td>北京</td>' +
-                '<th>公司地址</th>' +
-                '<td>北京市朝阳区朝阳门北大街22号</td>' +
+                '<th>姓名</th>' +
+                '<td><input id="contact" name="contact"  type="text" value="{contact}"/></td>' +
+                '<th>证件号码</th>' +
+                '<td><input id="docnum" name="docnum"  type="text" value="{docnum}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>公司网址</th>' +
-                '<td>www.sinopecgroup.cn</td>' +
-                '<th>邮编</th>' +
-                '<td>100728</td>' +
+                '<th>手机</th>' +
+                '<td><input id="phone" name="phone"  type="text" value="{phone}"/></td>' +
+                '<th>传真</th>' +
+                '<td><input id="fax" name="fax"  type="text" value="{fax}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>联系电话</th>' +
-                '<td>86-10-59969297</td>' +
-                '<th></th>' +
-                '<td></td>' +
+                '<th>E-mail</th>' +
+                '<td><input id="email" name="email"  type="text" value="{email}"/></td>' +
+                '<th>QQ</th>' +
+                '<td><input id="qq" name="qq"  type="text" value="{qq}"/></td>' +
                 '</tr>' +
                 '</table>' +
 
-                '<table class="enter_table" id="table_ocompay">' +
-                '<tr>' +
-                '<th class="table_header" colspan="4">主要股东</th>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>公司中文简称</th>' +
-                '<td>中国石化</td>' +
-                '<th>成立日期</th>' +
-                '<td>1998-07-27</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>英文名称</th>' +
-                '<td>China Petrochemical Corporation</td>' +
-                '<th>法人代表</th>' +
-                '<td>傅成玉</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>英文名称缩写</th>' +
-                '<td>CHINA PETROCHEMICAL</td>' +
-                '<th>所属行业</th>' +
-                '<td>综合性天然气</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>交易性质</th>' +
-                '<td>并购，债券</td>' +
-                '<th>注册地点</th>' +
-                '<td>北京朝阳区朝阳门北大街22号</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>上市状态</th>' +
-                '<td>非上市企业</td>' +
-                '<th>注册资本</th>' +
-                '<td>23162058万元</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>发行证券</th>' +
-                '<td>--</td>' +
-                '<th>所属集团系</th>' +
-                '<td>--</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>工商注册ID</th>' +
-                '<td>100000000244</td>' +
-                '<th>员工人数</th>' +
-                '<td>1060000</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>主营业务</th>' +
-                '<td></td>' +
-                '<th>公司简介</th>' +
-                '<td></td>' +
-                '</tr>' +
-                '</table>' +
 
                 '<table class="enter_table" id="table_acount">' +
                 '<tr>' +
-                '<th class="table_header" colspan="4">财务信息</th>' +
+                '<th class="table_header" colspan="4">国民经济行业分类信息</th>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>公司中文简称</th>' +
-                '<td>中国石化</td>' +
-                '<th>成立日期</th>' +
-                '<td>1998-07-27</td>' +
+                '<th>行业一级分类</th>' +
+                '<td><input id="indclass1" name="indclass1"  type="text" value="{indclass1}"/></td>' +
+                '<th>行业二级分类</th>' +
+                '<td><input id="indclass2" name="indclass2"  type="text" value="{indclass2}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>英文名称</th>' +
-                '<td>China Petrochemical Corporation</td>' +
+                '<th>行业三级分类</th>' +
+                '<td><input id="indclass3" name="indclass3"  type="text" value="{indclass3}"/></td>' +
                 '<th>法人代表</th>' +
-                '<td>傅成玉</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>英文名称缩写</th>' +
-                '<td>CHINA PETROCHEMICAL</td>' +
-                '<th>所属行业</th>' +
-                '<td>综合性天然气</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>交易性质</th>' +
-                '<td>并购，债券</td>' +
-                '<th>注册地点</th>' +
-                '<td>北京朝阳区朝阳门北大街22号</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>上市状态</th>' +
-                '<td>非上市企业</td>' +
-                '<th>注册资本</th>' +
-                '<td>23162058万元</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>发行证券</th>' +
-                '<td>--</td>' +
-                '<th>所属集团系</th>' +
-                '<td>--</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>工商注册ID</th>' +
-                '<td>100000000244</td>' +
-                '<th>员工人数</th>' +
-                '<td>1060000</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>主营业务</th>' +
-                '<td></td>' +
-                '<th>公司简介</th>' +
-                '<td></td>' +
+                '<td><input id="indclass4" name="indclass4"  type="text" value="{indclass4}"/></td>' +
                 '</tr>' +
                 '</table>' +
 
-                '<table id="abc" class="enter_table">' +
-                '<tr>' +
-                '<th class="table_header" colspan="4">控参股公司</th>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>公司中文简称</th>' +
-                '<td>中国石化</td>' +
-                '<th>成立日期</th>' +
-                '<td>1998-07-27</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>英文名称</th>' +
-                '<td>China Petrochemical Corporation</td>' +
-                '<th>法人代表</th>' +
-                '<td>傅成玉</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>英文名称缩写</th>' +
-                '<td>CHINA PETROCHEMICAL</td>' +
-                '<th>所属行业</th>' +
-                '<td>综合性天然气</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>交易性质</th>' +
-                '<td>并购，债券</td>' +
-                '<th>注册地点</th>' +
-                '<td>北京朝阳区朝阳门北大街22号</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>上市状态</th>' +
-                '<td>非上市企业</td>' +
-                '<th>注册资本</th>' +
-                '<td>23162058万元</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>发行证券</th>' +
-                '<td>--</td>' +
-                '<th>所属集团系</th>' +
-                '<td>--</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>工商注册ID</th>' +
-                '<td>100000000244</td>' +
-                '<th>员工人数</th>' +
-                '<td>1060000</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>主营业务</th>' +
-                '<td></td>' +
-                '<th>公司简介</th>' +
-                '<td></td>' +
-                '</tr>' +
-                '</table>' +
 
-                '<table id="abc" class="enter_table">' +
-                '<tr>' +
-                '<th class="table_header" colspan="4">所属行业融资</th>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>公司中文简称</th>' +
-                '<td>中国石化</td>' +
-                '<th>成立日期</th>' +
-                '<td>1998-07-27</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>英文名称</th>' +
-                '<td>China Petrochemical Corporation</td>' +
-                '<th>法人代表</th>' +
-                '<td>傅成玉</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>英文名称缩写</th>' +
-                '<td>CHINA PETROCHEMICAL</td>' +
-                '<th>所属行业</th>' +
-                '<td>综合性天然气</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>交易性质</th>' +
-                '<td>并购，债券</td>' +
-                '<th>注册地点</th>' +
-                '<td>北京朝阳区朝阳门北大街22号</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>上市状态</th>' +
-                '<td>非上市企业</td>' +
-                '<th>注册资本</th>' +
-                '<td>23162058万元</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>发行证券</th>' +
-                '<td>--</td>' +
-                '<th>所属集团系</th>' +
-                '<td>--</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>工商注册ID</th>' +
-                '<td>100000000244</td>' +
-                '<th>员工人数</th>' +
-                '<td>1060000</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>主营业务</th>' +
-                '<td></td>' +
-                '<th>公司简介</th>' +
-                '<td></td>' +
-                '</tr>' +
-                '</table>' +
 
-                '<table id="table_anay" class="enter_table">' +
+                '<table  class="enter_table" id="table_ocompay">' +
                 '<tr>' +
-                '<th class="table_header" colspan="4">同行分析</th>' +
+                '<th class="table_header" colspan="4">企业维护信息</th>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>公司中文简称</th>' +
-                '<td>中国石化</td>' +
-                '<th>成立日期</th>' +
-                '<td>1998-07-27</td>' +
+                '<th>企业来源</th>' +
+                '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>' +
+                '<th>推荐人</th>' +
+                '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>英文名称</th>' +
-                '<td>China Petrochemical Corporation</td>' +
-                '<th>法人代表</th>' +
-                '<td>傅成玉</td>' +
+                '<th>企业来源详情</th>' +
+                '<td colspan="3"><input id="esourcedesc" name="esourcedesc"  type="text" value="{esourcedesc}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>英文名称缩写</th>' +
-                '<td>CHINA PETROCHEMICAL</td>' +
-                '<th>所属行业</th>' +
-                '<td>综合性天然气</td>' +
+                '<th>推荐日期</th>' +
+                '<td><input id="recomdt" name="recomdt"  type="text" value="{recomdt}"/></td>' +
+                '<th>企业维护人</th>' +
+                '<td><input id="emaint" name="emaint"  type="text" value="{emaint}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>交易性质</th>' +
-                '<td>并购，债券</td>' +
-                '<th>注册地点</th>' +
-                '<td>北京朝阳区朝阳门北大街22号</td>' +
+                '<th>托管状态</th>' +
+                '<td><input id="trusteeship" name="trusteeship"  type="text" value="{trusteeship}"/></td>' +
+                '<th>挂牌状态</th>' +
+                '<td><input id="listst" name="listst"  type="text" value="{listst}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>上市状态</th>' +
-                '<td>非上市企业</td>' +
-                '<th>注册资本</th>' +
-                '<td>23162058万元</td>' +
+                '<th>企业等级</th>' +
+                '<td><input id="eclass" name="eclass"  type="text" value="{eclass}"/></td>' +
+                '<th>企业维护状态</th>' +
+                '<td><input id="maintain" name="maintain"  type="text" value="{maintain}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>发行证券</th>' +
-                '<td>--</td>' +
-                '<th>所属集团系</th>' +
-                '<td>--</td>' +
+                '<th>所属后备库</th>' +
+                '<td><input id="reserve" name="reserve"  type="text" value="{reserve}"/></td>' +
+                '<th>联系人</th>' +
+                '<td><input id="contacter" name="contacter"  type="text" value="{contacter}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>工商注册ID</th>' +
-                '<td>100000000244</td>' +
-                '<th>员工人数</th>' +
-                '<td>1060000</td>' +
+                '<th>部门</th>' +
+                '<td><input id="dept" name="dept"  type="text" value="{dept}"/></td>' +
+                '<th>职务</th>' +
+                '<td><input id="psotion" name="psotion"  type="text" value="{psotion}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>主营业务</th>' +
-                '<td></td>' +
-                '<th>公司简介</th>' +
-                '<td></td>' +
+                '<th>证件类型</th>' +
+                '<td><input id="edoctype" name="edoctype"  type="text" value="{edoctype}"/></td>' +
+                '<th>证件号码</th>' +
+                '<td><input id="edocnum" name="edocnum"  type="text" value="{edocnum}"/></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>固定电话</th>' +
+                '<td><input id="etel" name="etel"  type="text" value="{etel}"/></td>' +
+                '<th>手机号码</th>' +
+                '<td><input id="ephone" name="ephone"  type="text" value="{ephone}"/></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>传真</th>' +
+                '<td><input id="efax" name="efax"  type="text" value="{efax}"/></td>' +
+                '<th>E-mail</th>' +
+                '<td><input id="eemail" name="eemail"  type="text" value="{eemail}"/></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>QQ</th>' +
+                '<td><input id="eqq" name="eqq"  type="text" value="{eqq}"/></td>' +
+                '<th>备注</th>' +
+                '<td><input id="remark" name="remark"  type="text" value="{remark}"/></td>' +
                 '</tr>' +
                 '</table>' +
 
                 '</div>' +
                 '<div style="position: fixed; top: 7em; right: 6em">' +
                 '<ul>' +
-                '<li><a href="#table_base">基本信息</a></li><li><a href="#table_link">联系方式</a></li>' +
-                '<li><a href="#abc">主要股东</a></li>' +
-                '<li><a href="#table_acount">财务信息</a></li><li><a href="#table_ocompay">控参股公司</li>' +
-                '<li><a href="#abc">所属行业融资</a></li>' +
-                '<li><a href="#table_anay">同业分析</a></li></li>' +
+                '<li><a href="#table_base">基本信息</a></li>' +
+                '<li><a href="#table_sh">主要股东</a></li>' +
+                '<li><a href="#table_link">法人信息</a></li>' +
+                '<li><a href="#table_acount">行业分类</a></li>' +
+                '<li><a href="#table_ocompay">企业维护信息</li>' +
                 '</ul>' +
                 '</div>'
             );
@@ -429,22 +280,63 @@ Ext.define('App.view.enterprise.Grid', {
     initComponent: function () {
 
         this.columns = [
-            {text: 'ID', width: 80, dataIndex: 'id',hidden:true},
-            {text: '企业名称', width: 200, dataIndex: 'name'},
+
+
+            {text: 'ID', width: 120, dataIndex: 'id'},
+            {text: '营业执照号码', width: 120, dataIndex: 'buslicno'},
+            {text: '企业名称', width: 120, dataIndex: 'name'},
+            {text: '单位类别', width: 120, dataIndex: 'unit', hidden: true},
+            {text: '法定代表人', width: 120, dataIndex: 'legrep', hidden: true},
+            {text: '地域', width: 120, dataIndex: 'region', hidden: true},
             {text: '企业简称', width: 120, dataIndex: 'nos'},
-            {text: '企业类型', width: 120, dataIndex: 'etype'},
-            {text: '挂牌代码', width: 120, dataIndex: 'listcode'},
-            {text: '挂牌价格', width: 120, dataIndex: 'listprice'},
+            {text: '邮政编码', width: 120, dataIndex: 'postal', hidden: true},
             {text: '企业性质', width: 120, dataIndex: 'nature'},
-            {text: '营业执照号', width: 120, dataIndex: 'buslic'},
-            {text: '维护状态', width: 120, dataIndex: 'status'},
-            {text: '所属后备库', width: 120, dataIndex: 'reserve'},
-            {text: '注册时间', width: 120, dataIndex: 'regdate'},
-            {text: '是否已标记', width: 120, dataIndex: 'markstat'},
-            {text: '完成回访状态', width: 200, dataIndex: 'visitstat'},
-            {text: '备注', flex: 1, dataIndex: 'remark'}
-
-
+            {text: '注册资本（万元）', width: 120, dataIndex: 'regcap'},
+            {text: '营业期限自', width: 120, dataIndex: 'bustermfdt', hidden: true},
+            {text: '营业期限至', width: 120, dataIndex: 'bustremtdt', hidden: true},
+            {text: 'regdt', width: 120, dataIndex: 'regdt'},
+            {text: '挂牌代码', width: 120, dataIndex: 'listcode'},
+            {text: '注册地址', width: 120, dataIndex: 'regaddr', hidden: true},
+            {text: '办公地址', width: 120, dataIndex: 'offaddr', hidden: true},
+            {text: '挂牌价格', width: 120, dataIndex: 'listprice'},
+            {text: '员工人数', width: 120, dataIndex: 'staffnum', hidden: true},
+            {text: '经营范围', width: 120, dataIndex: 'scope', hidden: true},
+            {text: '主营业务', width: 120, dataIndex: 'mbus', hidden: true},
+            {text: '企业简介', width: 120, dataIndex: 'eprofile', hidden: true},
+            {text: '企业照片资料', width: 120, dataIndex: 'phoinf', hidden: true},
+            {text: '职务', width: 120, dataIndex: 'post', hidden: true},
+            {text: '证件类型', width: 120, dataIndex: 'doctype', hidden: true},
+            {text: '姓名', width: 120, dataIndex: 'contact', hidden: true},
+            {text: '证件号码', width: 120, dataIndex: 'docnum', hidden: true},
+            {text: '手机', width: 120, dataIndex: 'phone', hidden: true},
+            {text: '传真', width: 120, dataIndex: 'fax', hidden: true},
+            {text: 'E-mail', width: 120, dataIndex: 'email', hidden: true},
+            {text: 'QQ', width: 120, dataIndex: 'qq', hidden: true},
+            {text: '行业一级分类', width: 120, dataIndex: 'indclass1', hidden: true},
+            {text: '行业二级分类', width: 120, dataIndex: 'indclass2', hidden: true},
+            {text: '行业三级分类', width: 120, dataIndex: 'indclass3', hidden: true},
+            {text: '行业四级分类', width: 120, dataIndex: 'indclass4', hidden: true},
+            {text: '企业来源', width: 120, dataIndex: 'esource', hidden: true},
+            {text: '推荐人', width: 120, dataIndex: 'referee', hidden: true},
+            {text: '企业来源详情', width: 120, dataIndex: 'esourcedesc', hidden: true},
+            {text: '推荐日期', width: 120, dataIndex: 'recomdt', hidden: true},
+            {text: '企业维护人', width: 120, dataIndex: 'emaint', hidden: true},
+            {text: '托管状态', width: 120, dataIndex: 'trusteeship', hidden: true},
+            {text: '挂牌状态', width: 120, dataIndex: 'listst', hidden: true},
+            {text: '企业等级', width: 120, dataIndex: 'eclass', hidden: true},
+            {text: '企业维护状态', width: 120, dataIndex: 'maintain', hidden: true},
+            {text: '所属后备库', width: 120, dataIndex: 'reserve', hidden: true},
+            {text: '联系人', width: 120, dataIndex: 'contacter', hidden: true},
+            {text: '部门', width: 120, dataIndex: 'dept', hidden: true},
+            {text: '职务', width: 120, dataIndex: 'psotion', hidden: true},
+            {text: '证件类型', width: 120, dataIndex: 'edoctype', hidden: true},
+            {text: '证件号码', width: 120, dataIndex: 'edocnum', hidden: true},
+            {text: '固定电话', width: 120, dataIndex: 'etel', hidden: true},
+            {text: '手机号码', width: 120, dataIndex: 'ephone', hidden: true},
+            {text: '传真', width: 120, dataIndex: 'efax', hidden: true},
+            {text: 'E-mail', width: 120, dataIndex: 'eemail', hidden: true},
+            {text: 'QQ', width: 120, dataIndex: 'eqq', hidden: true},
+            {text: '备注', width: 120, dataIndex: 'remark', hidden: true}
 
         ];
 

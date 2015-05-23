@@ -84,7 +84,7 @@
         </fieldset>
 
     </form>
-    <a id="reg-btn" href="userregister"><span class="fa fa-user-plus"></span>注册新用户</a>
+    <%--<a id="reg-btn" href="userregister"><span class="fa fa-user-plus"></span>注册新用户</a>--%>
 
 </div>
 <!-- end login -->

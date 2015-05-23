@@ -18,9 +18,9 @@
   offaddr character varying(20), -- 办公地址
   listprice character varying(20), -- 挂牌价格
   staffnum character varying(20), -- 员工人数
-  scope character varying(20), -- 经营范围
-  mbus character varying(20), -- 主营业务
-  eprofile character varying(20), -- 企业简介
+  scope text, -- 经营范围
+  mbus text, -- 主营业务
+  eprofile text, -- 企业简介
   phoinf character varying(20), -- 企业照片资料
   post character varying(20), -- 职务
   doctype character varying(20), -- 证件类型

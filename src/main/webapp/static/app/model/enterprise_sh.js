@@ -1,6 +1,3 @@
-/**
- * Created by jj on 14-6-19.
- */
 Ext.define('App.model.enterprise_sh', {
     extend: 'Ext.data.Model',
     fields: [
@@ -16,11 +13,3 @@ Ext.define('App.model.enterprise_sh', {
         { name : 'remark'}
     ]
 });
-
-
-
-
-
-
-
-

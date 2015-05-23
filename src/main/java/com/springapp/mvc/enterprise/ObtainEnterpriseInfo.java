@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/obtain_enterprise_info")
@@ -50,10 +49,8 @@ public class ObtainEnterpriseInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-            String sql = "select  " +
-                    "id, name, nos, etype, listcode, listprice, buslic, status, reserve, \n" +
-                    "       regdate, markstat, visitstat,TO_CHAR(rtdate,'yyyy-mm-dd hh24:mi:ss') as  rtdate,nature, remark  \n" +
-                    "          from work.tb_enterprise WHERE 1 = 1 ";
+
+            String sql = "select *  from work.tb_enterprise WHERE 1 = 1 ";
             if (name != null && name.length() != 0)
                 sql += " and name like '%" + name + "%'";
             if (nos != null && nos.length() != 0)

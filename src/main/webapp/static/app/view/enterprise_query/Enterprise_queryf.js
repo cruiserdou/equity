@@ -30,6 +30,5 @@ Ext.define('App.view.enterprise_query.Enterprise_queryf', {
         this.callParent(arguments);
     }
 });
-
-
+ 
  
