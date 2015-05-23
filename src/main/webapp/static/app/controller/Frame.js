@@ -36,9 +36,9 @@ Ext.define('App.controller.Frame', {
                 },
                 afterrender: function () {
                     Ext.getCmp('tabPanel_id').add({
-                        xtype: 'worklogf',
-                        id: 'worklogf_id',
-                        title: '公司公告'
+                        xtype: 'enterprise_queryf',
+                        id: 'enterprise_queryf_id',
+                        title: '企业信息'
                     })
                 }
             }
