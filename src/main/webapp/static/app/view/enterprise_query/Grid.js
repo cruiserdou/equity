@@ -239,12 +239,14 @@ Ext.define('App.view.enterprise_query.Grid', {
 
                 '</div>' +
                 '<div style="position: fixed; top: 7em; right: 6em">' +
+                '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close_ch()"><i class="fa fa-pencil"></i>关闭</a>'+
+
                 '<ul>' +
-                '<li><a href="#table_base">基本信息</a></li>' +
-                '<li><a href="#table_sh">主要股东</a></li>' +
-                '<li><a href="#table_link">法人信息</a></li>' +
-                '<li><a href="#table_acount">行业分类</a></li>' +
-                '<li><a href="#table_ocompay">企业维护信息</li>' +
+                '<li><a href="#table_base" style="font-size:18px;">基本信息</a></li>' +
+                '<li><a href="#table_sh"  style="font-size:18px;">主要股东</a></li>' +
+                '<li><a href="#table_link"  style="font-size:18px;">法人信息</a></li>' +
+                '<li><a href="#table_acount"  style="font-size:18px;">行业分类</a></li>' +
+                '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</li>' +
                 '</ul>' +
                 '</div>'
             );
@@ -265,6 +267,7 @@ Ext.define('App.view.enterprise_query.Grid', {
             apply_edits.overwrite(mypanel.body, record.data);
             var editWindow = new Ext.Window({
                 layout: 'fit',
+                id:'enterprise_ch_id',
                 width: 830,
                 height: 650,
                 modal: true,
@@ -358,3 +361,9 @@ Ext.define('App.view.enterprise_query.Grid', {
         this.callParent(arguments);
     }
 });
+
+
+function win_close_ch() {
+    Ext.getCmp('enterprise_ch_id').close();
+
+}
