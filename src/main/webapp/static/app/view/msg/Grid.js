@@ -5,12 +5,12 @@ Ext.define('App.view.msg.Grid', {
     store: 'msg',
     selModel: new Ext.selection.CheckboxModel({checkOnly: false}),
     id :'grid_msg',
-    listeners: {
-        itemclick: function (this_, record_) {
-            var depts_panel = Ext.getCmp('msgf_info');
-            depts_panel.tpl.overwrite(depts_panel.body, record_.data);
-        }
-    },
+    //listeners: {
+    //    itemclick: function (this_, record_) {
+    //        var depts_panel = Ext.getCmp('msgf_info');
+    //        depts_panel.tpl.overwrite(depts_panel.body, record_.data);
+    //    }
+    //},
     initComponent: function () {
 
         this.columns = [

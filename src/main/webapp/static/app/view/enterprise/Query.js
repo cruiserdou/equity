@@ -263,7 +263,12 @@ Ext.define('App.view.enterprise.Query', {
                                 '<li><a href="#table_acount">行业分类</a></li>' +
                                 '<li><a href="#table_ocompay">企业维护信息</li>' +
                                 '</ul>' +
-                                '</div>'
+                                '</div>'+
+
+                                '</div>' +
+                                '<a href="#"  onclick="obt_apply_update(\'{card}\')">保存</a>'+
+                            '</div>'
+                            //'<a href="#" onclick="cust_save()" class="xwq_btn">保存</a>'
                             );
                                 //呈现组件
                                 var mypanel = new Ext.form.FormPanel({
@@ -284,7 +289,8 @@ Ext.define('App.view.enterprise.Query', {
                                     title: '企业信息',
                                     maximized: true,
                                     maximizable: true,
-                                    items: [mypanel]
+                                    items: [mypanel],
+
                                 });
                                 editWindow.show(Ext.get('body'));
 
