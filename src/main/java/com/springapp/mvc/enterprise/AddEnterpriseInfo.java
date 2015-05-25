@@ -19,28 +19,69 @@ import java.sql.*;
 @RequestMapping("/add_enterprise_info")
 public class AddEnterpriseInfo {
 
-    @RequestMapping( method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public
     @ResponseBody
     DataShop getShopInJSON(
             HttpSession session,
+
+            @RequestParam("buslicno") String buslicno,
             @RequestParam("name") String name,
+            @RequestParam("unit") String unit,
+            @RequestParam("legrep") String legrep,
+            @RequestParam("region") String region,
             @RequestParam("nos") String nos,
-            @RequestParam("etype") String etype,
-            @RequestParam("listcode") String listcode,
-            @RequestParam("listprice") String listprice,
-            @RequestParam("buslic") String buslic,
-            @RequestParam("status") String status,
-            @RequestParam("reserve") String reserve,
-            @RequestParam("regdate") String regdate,
-            @RequestParam("markstat") String markstat,
-            @RequestParam("visitstat") String visitstat,
+            @RequestParam("postal") String postal,
             @RequestParam("nature") String nature,
+            @RequestParam("regcap") String regcap,
+            @RequestParam("bustermfdt") String bustermfdt,
+            @RequestParam("bustremtdt") String bustremtdt,
+            @RequestParam("regdt") String regdt,
+            @RequestParam("listcode") String listcode,
+            @RequestParam("regaddr") String regaddr,
+            @RequestParam("offaddr") String offaddr,
+            @RequestParam("listprice") String listprice,
+            @RequestParam("staffnum") String staffnum,
+            @RequestParam("scope") String scope,
+            @RequestParam("mbus") String mbus,
+            @RequestParam("eprofile") String eprofile,
+            @RequestParam("phoinf") String phoinf,
+            @RequestParam("post") String post,
+            @RequestParam("doctype") String doctype,
+            @RequestParam("contact") String contact,
+            @RequestParam("docnum") String docnum,
+            @RequestParam("phone") String phone,
+            @RequestParam("fax") String fax,
+            @RequestParam("email") String email,
+            @RequestParam("qq") String qq,
+            @RequestParam("indclass1") String indclass1,
+            @RequestParam("indclass2") String indclass2,
+            @RequestParam("indclass3") String indclass3,
+            @RequestParam("indclass4") String indclass4,
+            @RequestParam("esource") String esource,
+            @RequestParam("referee") String referee,
+            @RequestParam("esourcedesc") String esourcedesc,
+            @RequestParam("recomdt") String recomdt,
+            @RequestParam("emaint") String emaint,
+            @RequestParam("trusteeship") String trusteeship,
+            @RequestParam("listst") String listst,
+            @RequestParam("eclass") String eclass,
+            @RequestParam("maintain") String maintain,
+            @RequestParam("reserve") String reserve,
+            @RequestParam("contacter") String contacter,
+            @RequestParam("dept") String dept,
+            @RequestParam("psotion") String psotion,
+            @RequestParam("edoctype") String edoctype,
+            @RequestParam("edocnum") String edocnum,
+            @RequestParam("etel") String etel,
+            @RequestParam("ephone") String ephone,
+            @RequestParam("efax") String efax,
+            @RequestParam("eemail") String eemail,
+            @RequestParam("eqq") String eqq,
             @RequestParam("remark") String remark
 
 
-
-    ) throws Exception{
+    ) throws Exception {
         DataShop dataShop = new DataShop();
         dataShop.setSuccess(true);
         Connection conn = null;
@@ -60,35 +101,92 @@ public class AddEnterpriseInfo {
             conn = DriverManager.getConnection(url, user, password);
 
 
-
-
             String sql = "INSERT INTO work.tb_enterprise(\n" +
-                    "              name, nos, etype, listcode, listprice, buslic, status, reserve, \n" +
-                    "            regdate, markstat, visitstat, rtdate,nature, remark)\n" +
+                    "              buslicno, name, unit, legrep, region, nos, postal, nature, \n" +
+                    "            regcap, bustermfdt, bustremtdt, regdt, listcode, regaddr, offaddr, \n" +
+                    "            listprice, staffnum, scope, mbus, eprofile, phoinf, post, doctype, \n" +
+                    "            contact, docnum, phone, fax, email, qq, indclass1, indclass2, \n" +
+                    "            indclass3, indclass4, esource, referee, esourcedesc, recomdt, \n" +
+                    "            emaint, trusteeship, listst, eclass, maintain, reserve, contacter, \n" +
+                    "            dept, psotion, edoctype, edocnum, etel, ephone, efax, eemail, \n" +
+                    "            eqq, remark)\n" +
                     "    VALUES (  ?, ?, ?, ?, ?, ?, ?, ?, \n" +
-                    "            ?, ?, ?, ?, ?, ?)";
+                    "            ?, ?, ?, ?, ?, ?, ?, \n" +
+                    "            ?, ?, ?, ?, ?, ?, ?, ?, \n" +
+                    "            ?, ?, ?, ?, ?, ?, ?, ?, \n" +
+                    "            ?, ?, ?, ?, ?, ?, \n" +
+                    "            ?, ?, ?, ?, ?, ?, ?, \n" +
+                    "            ?, ?, ?, ?, ?, ?, ?, ?, \n" +
+                    "            ?, ?)";
             pst = conn.prepareStatement(sql);
-            pst.setString(1, name);
-            pst.setString(2, nos);
-            pst.setString(3, etype);
-            pst.setString(4, listcode);
-            pst.setString(5, listprice);
-            pst.setString(6, buslic);
-            pst.setString(7, status);
-            pst.setString(8, reserve);
-            java.sql.Date d_regdat = null;
-            if (regdate != null && regdate.length() > 2)
-                d_regdat = java.sql.Date.valueOf(regdate);
-            pst.setDate(9, d_regdat);
-            pst.setString(10,markstat);
-            pst.setString(11, visitstat);
-            java.util.Date date = new java.util.Date();
-            Timestamp timestamp = new Timestamp(date.getTime());
-            pst.setTimestamp(12, timestamp);
-            pst.setString(13, remark);
-            pst.setString(14, remark);
-            pst.executeUpdate();
 
+            pst.setString(1 , buslicno);
+            pst.setString(2 , name);
+            pst.setString(3 , unit);
+            pst.setString(4 , legrep);
+            pst.setString(5 , region);
+            pst.setString(6 , nos);
+            pst.setString(7 , postal);
+            pst.setString(8 , nature);
+            pst.setString(9 , regcap);
+            java.sql.Date d_bustermfdt = null;
+            if (bustermfdt != null && bustermfdt.length() > 2)
+                d_bustermfdt = java.sql.Date.valueOf(bustermfdt);
+            pst.setDate(10, d_bustermfdt);
+            java.sql.Date d_bustremtdt = null;
+            if (bustremtdt != null && bustremtdt.length() > 2)
+                d_bustremtdt = java.sql.Date.valueOf(bustremtdt);
+            pst.setDate(11, d_bustremtdt);
+            java.sql.Date d_regdat = null;
+            if (regdt != null && regdt.length() > 2)
+                d_regdat = java.sql.Date.valueOf(regdt);
+            pst.setDate(12, d_regdat);
+            pst.setString(13, listcode);
+            pst.setString(14, regaddr);
+            pst.setString(15, offaddr);
+            pst.setString(16, listprice);
+            pst.setString(17, staffnum);
+            pst.setString(18, scope);
+            pst.setString(19, mbus);
+            pst.setString(20, eprofile);
+            pst.setString(21, phoinf);
+            pst.setString(22, post);
+            pst.setString(23, doctype);
+            pst.setString(24, contact);
+            pst.setString(25, docnum);
+            pst.setString(26, phone);
+            pst.setString(27, fax);
+            pst.setString(28, email);
+            pst.setString(29, qq);
+            pst.setString(30, indclass1);
+            pst.setString(31, indclass2);
+            pst.setString(32, indclass3);
+            pst.setString(33, indclass4);
+            pst.setString(34, esource);
+            pst.setString(35, referee);
+            pst.setString(36, esourcedesc);
+            java.sql.Date d_recomdt = null;
+            if (recomdt != null && recomdt.length() > 2)
+                d_recomdt = java.sql.Date.valueOf(recomdt);
+            pst.setDate(37, d_recomdt);
+            pst.setString(38, emaint);
+            pst.setString(39, trusteeship);
+            pst.setString(40, listst);
+            pst.setString(41, eclass);
+            pst.setString(42, maintain);
+            pst.setString(43, reserve);
+            pst.setString(44, contacter);
+            pst.setString(45, dept);
+            pst.setString(46, psotion);
+            pst.setString(47, edoctype);
+            pst.setString(48, edocnum);
+            pst.setString(49, etel);
+            pst.setString(50, ephone);
+            pst.setString(51, efax);
+            pst.setString(52, eemail);
+            pst.setString(53, eqq);
+            pst.setString(54, remark);
+            pst.executeUpdate();
 
 
             dataShop.setSuccess(true);

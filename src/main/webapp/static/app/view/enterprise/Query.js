@@ -254,6 +254,13 @@ Ext.define('App.view.enterprise.Query', {
                                 '</table>' +
 
 
+
+
+                                '<a href="#"  id="start_btn" onclick="save_cust_add()">保存</a>'+
+                                '<a href="#"  class="xwq_btn" onclick="win_close()">关闭</a>'+
+
+
+
                                 '</div>' +
                                 '<div style="position: fixed; top: 7em; right: 6em">' +
                                 '<ul>' +
@@ -263,12 +270,8 @@ Ext.define('App.view.enterprise.Query', {
                                 '<li><a href="#table_acount">行业分类</a></li>' +
                                 '<li><a href="#table_ocompay">企业维护信息</li>' +
                                 '</ul>' +
-                                '</div>'+
+                                '</div>'
 
-                                '</div>' +
-                                '<a href="#"  onclick="obt_apply_update(\'{card}\')">保存</a>'+
-                            '</div>'
-                            //'<a href="#" onclick="cust_save()" class="xwq_btn">保存</a>'
                             );
                                 //呈现组件
                                 var mypanel = new Ext.form.FormPanel({
@@ -283,13 +286,14 @@ Ext.define('App.view.enterprise.Query', {
                             apply_edits.overwrite(mypanel.body, {});
                                 var editWindow = new Ext.Window({
                                     layout: 'fit',
+                                    id:'cust_add_id',
                                     width: 830,
                                     height: 650,
                                     modal: true,
                                     title: '企业信息',
                                     maximized: true,
                                     maximizable: true,
-                                    items: [mypanel],
+                                    items: [mypanel]
 
                                 });
                                 editWindow.show(Ext.get('body'));
@@ -297,162 +301,6 @@ Ext.define('App.view.enterprise.Query', {
                             }
                         }
                 }, '-',
-                //{
-                //    text: '编辑',
-                //    id: 'enterprise_edit',
-                //    glyph: 0xf044,
-                //    handler: function(){
-                //        var sm = Ext.getCmp('grid_enterprise').getSelectionModel();
-                //        var record = sm.getSelection()[0];
-                //
-                //        if(!record){
-                //            Ext.enterprise.alert('信息','请选择要编辑的数据');
-                //            return;
-                //        }
-                //        var record = sm.getSelection()[0];
-                //
-                //        var editForm = null;
-                //        var editWindow = null;
-                //        editForm = new Ext.form.FormPanel({
-                //            frame: true,
-                //            fieldDefaults: {
-                //                labelAlign: 'right',
-                //                labelWidth: 70
-                //            },
-                //            defaults: {
-                //                xtype: 'textfield'
-                //            },
-                //            items: [
-                //                {
-                //                    hidden: 'true',
-                //                    fieldLabel: 'ID',
-                //                    name: 'id'
-                //                },
-                //                {
-                //                    allowBlank: false,
-                //                    fieldLabel: '企业名称',
-                //                    name: 'name'
-                //                },
-                //                {
-                //                    fieldLabel: '企业简称',
-                //                    name: 'nos'
-                //                },
-                //                {
-                //                    allowBlank: false,
-                //                    fieldLabel: '企业类型',
-                //                    name: 'etype'
-                //                },
-                //                {
-                //                    fieldLabel: '挂牌代码',
-                //                    name: 'listcode'
-                //                },
-                //                {
-                //                    fieldLabel: '挂牌价格',
-                //                    name: 'listprice'
-                //                },
-                //                {
-                //                    allowBlank: false,
-                //                    fieldLabel: '企业性质',
-                //                    name: 'nature',
-                //                    xtype: 'combobox',
-                //                    autoRender: true,
-                //                    autoShow: true,
-                //                    store: 'dicts_etype',
-                //                    displayField: 'fieldvaldis',
-                //                    valueField: 'fieldvaldis',
-                //                    emptyText: '企业性质',
-                //                },
-                //                {
-                //                    allowBlank: false,
-                //                    fieldLabel: '营业执照号',
-                //                    name: 'buslic'
-                //                },
-                //                {
-                //                    fieldLabel: '维护状态',
-                //                    name: 'status',
-                //                    xtype: 'combobox',
-                //                    autoRender: true,
-                //                    autoShow: true,
-                //                    store: 'dicts_mtstate',
-                //                    displayField: 'fieldvaldis',
-                //                    valueField: 'fieldvaldis',
-                //                    emptyText: '维护状态',
-                //                },
-                //                {
-                //                    fieldLabel: '所属后备库',
-                //                    name: 'reserve',
-                //                    xtype: 'combobox',
-                //                    autoRender: true,
-                //                    autoShow: true,
-                //                    store: 'dicts_reservedb',
-                //                    displayField: 'fieldvaldis',
-                //                    valueField: 'fieldvaldis',
-                //                    emptyText: '所属后备库'
-                //                },
-                //                {
-                //                    xtype: 'datefield',
-                //                    fieldLabel: '注册时间',
-                //                    allowBlank: false,
-                //                    name: 'regdate',
-                //                    value: new Date(),
-                //                    format: 'Y-m-d'
-                //                },
-                //                {
-                //                    fieldLabel: '是否已标记',
-                //                    name: 'markstat'
-                //                },
-                //                {
-                //                    fieldLabel: '完成回访状态',
-                //                    name: 'visitstat'
-                //                },
-                //                {
-                //                    fieldLabel: '备注',
-                //                    name: 'remark'
-                //                }
-                //            ],
-                //            buttonAlign : "center",
-                //            buttons: [
-                //                {
-                //                    text: '保存',
-                //                    iconCls: 'icon_save',
-                //                    handler: function(){
-                //                        var form = this.up('form').getForm();
-                //                        if (form.isValid()){
-                //                            form.submit({
-                //                                url: 'update_enterprise_info',
-                //                                waitenterprise: '正在保存数据...',
-                //                                success: function(form, action){
-                //                                    Ext.Msg.alert("成功", "数据保存成功!");
-                //                                    Ext.getCmp('grid_enterprise').getStore().reload();
-                //                                },
-                //                                failure: function(form, action){
-                //                                    Ext.Msg.alert("失败", "数据保存失败!");
-                //                                }
-                //                            });
-                //                        }
-                //                    }
-                //                },
-                //                {
-                //                    text: '重置',
-                //                    iconCls: 'icon_reset',
-                //                    handler: function () {
-                //                        this.up('form').getForm().reset();
-                //                    }
-                //                }
-                //            ]
-                //        });
-                //        editWindow = new Ext.Window({
-                //            layout: 'fit',
-                //            width: 300,
-                //            height: 450,
-                //            modal: true,
-                //            title: '修改信息',
-                //            items: [editForm]
-                //        });
-                //        editWindow.show(Ext.get('enterprise_edit'));
-                //        editForm.getForm().loadRecord(record);
-                //    }
-                //},'-',
                 {
                     text: '刷新',
                     glyph: 0xf021,
@@ -501,113 +349,7 @@ Ext.define('App.view.enterprise.Query', {
             ]
         }
     ],
-    //items: [
-    //    {
-    //        xtype: 'panel',
-    //        columnWidth: .4,
-    //        border: false,
-    //        defaultType: 'textfield',
-    //        layout: {
-    //            type: 'vbox',
-    //            align: 'strech',
-    //            pack: 'start'
-    //        },
-    //        items: [
-    //            {
-    //                allowBlank: true,
-    //                fieldLabel: '公司名称',
-    //                id: 'query_enterprise_name',
-    //                emptyText: '公司名称'
-    //            },
-    //            {
-    //                allowBlank: true,
-    //                fieldLabel: '公司简称',
-    //                id: 'query_enterprise_nos',
-    //                emptyText: '公司简称'
-    //            }
-    //
-    //        ]
-    //    },
-    //    {
-    //        xtype: 'panel',
-    //        columnWidth: .4,
-    //        border: false,
-    //        defaultType: 'textfield',
-    //        layout: {
-    //            type: 'vbox',
-    //            align: 'strech',
-    //            pack: 'start'
-    //        },
-    //        items: [
-    //            {
-    //                fieldLabel: '维护状态',
-    //                id: 'query_enterprise_status',
-    //                name: 'status',
-    //                xtype: 'combobox',
-    //                autoRender: true,
-    //                autoShow: true,
-    //                store: 'dicts_mtstate',
-    //                displayField: 'fieldvaldis',
-    //                valueField: 'fieldvaldis',
-    //                emptyText: '维护状态'
-    //            },
-    //            {
-    //                id: 'query_enterprise_reserve',
-    //                fieldLabel: '所属后备库',
-    //                name: 'reserve',
-    //                xtype: 'combobox',
-    //                autoRender: true,
-    //                autoShow: true,
-    //                store: 'dicts_reservedb',
-    //                displayField: 'fieldvaldis',
-    //                valueField: 'fieldvaldis',
-    //                emptyText: '所属后备库'
-    //            }
-    //
-    //        ]
-    //    }
-    //    //{
-    //    //    xtype: 'panel',
-    //    //    border: false,
-    //    //    items: [
-    //    //        {
-    //    //            xtype: 'button',
-    //    //            iconCls: 'icon_search',
-    //    //            text: '查找',
-    //    //            listeners: {
-    //    //                click: function(){
-    //    //                    var store = Ext.getCmp('grid_enterprise').getStore();
-    //    //                    store.load({
-    //    //                        params: {
-    //    //                            name: Ext.getCmp('query_enterprise_name').getValue(),
-    //    //                            nos: Ext.getCmp('query_enterprise_nos').getValue(),
-    //    //                            reserve: Ext.getCmp('query_enterprise_reserve').getValue(),
-    //    //                            status: Ext.getCmp('query_enterprise_status').getValue()
-    //    //
-    //    //                        }
-    //    //                    });
-    //    //                }
-    //    //            }
-    //    //        },
-    //    //        {
-    //    //            xtype: 'panel',
-    //    //            height: 10,
-    //    //            border: false
-    //    //        },
-    //    //        {
-    //    //            xtype: 'button',
-    //    //            iconCls: 'icon_reset',
-    //    //            text: '重置',
-    //    //            listeners: {
-    //    //                click: function(_this){
-    //    //                    _this.up('form').getForm().reset();
-    //    //                    Ext.getCmp('grid_enterprise').getStore().load();
-    //    //                }
-    //    //            }
-    //    //        }
-    //    //    ]
-    //    //}
-    //],
+
 
 
     items: [
@@ -684,7 +426,87 @@ Ext.define('App.view.enterprise.Query', {
     }
 });
 
+function win_close() {
 
+    Ext.getCmp('cust_add_id').close();
+
+}
+
+
+function save_cust_add() {
+    Ext.Msg.alert("提示", document.getElementById('name').value);
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            buslicno: document.getElementById('buslicno').value,
+            name: document.getElementById('name').value,
+            unit: document.getElementById('unit').value,
+            legrep: document.getElementById('legrep').value,
+            region: document.getElementById('region').value,
+            nos: document.getElementById('nos').value,
+            postal: document.getElementById('postal').value,
+            nature: document.getElementById('nature').value,
+            regcap: document.getElementById('regcap').value,
+            bustermfdt: document.getElementById('bustermfdt').value,
+            bustremtdt: document.getElementById('bustremtdt').value,
+            regdt: document.getElementById('regdt').value,
+            listcode: document.getElementById('listcode').value,
+            regaddr: document.getElementById('regaddr').value,
+            offaddr: document.getElementById('offaddr').value,
+            listprice: document.getElementById('listprice').value,
+            staffnum: document.getElementById('staffnum').value,
+            scope: document.getElementById('scope').value,
+            mbus: document.getElementById('mbus').value,
+            eprofile: document.getElementById('eprofile').value,
+            phoinf: document.getElementById('phoinf').value,
+            post: document.getElementById('post').value,
+            doctype: document.getElementById('doctype').value,
+            contact: document.getElementById('contact').value,
+            docnum: document.getElementById('docnum').value,
+            phone: document.getElementById('phone').value,
+            fax: document.getElementById('fax').value,
+            email: document.getElementById('email').value,
+            qq: document.getElementById('qq').value,
+            indclass1: document.getElementById('indclass1').value,
+            indclass2: document.getElementById('indclass2').value,
+            indclass3: document.getElementById('indclass3').value,
+            indclass4: document.getElementById('indclass4').value,
+            esource: document.getElementById('esource').value,
+            referee: document.getElementById('referee').value,
+            esourcedesc: document.getElementById('esourcedesc').value,
+            recomdt: document.getElementById('recomdt').value,
+            emaint: document.getElementById('emaint').value,
+            trusteeship: document.getElementById('trusteeship').value,
+            listst: document.getElementById('listst').value,
+            eclass: document.getElementById('eclass').value,
+            maintain: document.getElementById('maintain').value,
+            reserve: document.getElementById('reserve').value,
+            contacter: document.getElementById('contacter').value,
+            dept: document.getElementById('dept').value,
+            psotion: document.getElementById('psotion').value,
+            edoctype: document.getElementById('edoctype').value,
+            edocnum: document.getElementById('edocnum').value,
+            etel: document.getElementById('etel').value,
+            ephone: document.getElementById('ephone').value,
+            efax: document.getElementById('efax').value,
+            eemail: document.getElementById('eemail').value,
+            eqq: document.getElementById('eqq').value,
+            remark: document.getElementById('remark').value
+
+
+
+        },
+        url: 'add_enterprise_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+            //Ext.getCmp('cust_add_id').close();
+            Ext.getCmp('grid_enterprise').getStore().load();
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+}
 
 //function pub_upload_file(id) {
 //

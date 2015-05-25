@@ -14,6 +14,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '<table class="enter_table" id="table_base">' +
                 '<tr>' +
                 '<th class="table_header" colspan="4">基本信息</th>' +
+                '<td><input id="id"  name="id"  type="text" value="{id}"/></td>' +
                 '</tr>' +
                 '<tr>' +
                 '<th>营业执照号码<span style="color: red">*</span></th>' +
@@ -237,6 +238,12 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>' +
                 '</table>' +
 
+
+
+                '<a href="#"  id="start_btn" onclick="save_enterprise_edit()">保存</a>'+
+                '<a href="#"  id="start_btn" onclick="win_close_edit()">关闭</a>'+
+
+
                 '</div>' +
                 '<div style="position: fixed; top: 7em; right: 6em">' +
                 '<ul>' +
@@ -265,6 +272,7 @@ Ext.define('App.view.enterprise.Grid', {
             apply_edits.overwrite(mypanel.body, record.data);
             var editWindow = new Ext.Window({
                 layout: 'fit',
+                id:'enterprise_edit_id',
                 width: 830,
                 height: 650,
                 modal: true,
@@ -357,3 +365,83 @@ Ext.define('App.view.enterprise.Grid', {
         this.callParent(arguments);
     }
 });
+
+function win_close_edit() {
+Ext.getCmp('enterprise_edit_id').close();
+
+}
+
+function save_enterprise_edit() {
+    Ext.Msg.alert("提示", document.getElementById('name').value);
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            id: document.getElementById('id').value,
+            buslicno: document.getElementById('buslicno').value,
+            name: document.getElementById('name').value,
+            unit: document.getElementById('unit').value,
+            legrep: document.getElementById('legrep').value,
+            region: document.getElementById('region').value,
+            nos: document.getElementById('nos').value,
+            postal: document.getElementById('postal').value,
+            nature: document.getElementById('nature').value,
+            regcap: document.getElementById('regcap').value,
+            bustermfdt: document.getElementById('bustermfdt').value,
+            bustremtdt: document.getElementById('bustremtdt').value,
+            regdt: document.getElementById('regdt').value,
+            listcode: document.getElementById('listcode').value,
+            regaddr: document.getElementById('regaddr').value,
+            offaddr: document.getElementById('offaddr').value,
+            listprice: document.getElementById('listprice').value,
+            staffnum: document.getElementById('staffnum').value,
+            scope: document.getElementById('scope').value,
+            mbus: document.getElementById('mbus').value,
+            eprofile: document.getElementById('eprofile').value,
+            phoinf: document.getElementById('phoinf').value,
+            post: document.getElementById('post').value,
+            doctype: document.getElementById('doctype').value,
+            contact: document.getElementById('contact').value,
+            docnum: document.getElementById('docnum').value,
+            phone: document.getElementById('phone').value,
+            fax: document.getElementById('fax').value,
+            email: document.getElementById('email').value,
+            qq: document.getElementById('qq').value,
+            indclass1: document.getElementById('indclass1').value,
+            indclass2: document.getElementById('indclass2').value,
+            indclass3: document.getElementById('indclass3').value,
+            indclass4: document.getElementById('indclass4').value,
+            esource: document.getElementById('esource').value,
+            referee: document.getElementById('referee').value,
+            esourcedesc: document.getElementById('esourcedesc').value,
+            recomdt: document.getElementById('recomdt').value,
+            emaint: document.getElementById('emaint').value,
+            trusteeship: document.getElementById('trusteeship').value,
+            listst: document.getElementById('listst').value,
+            eclass: document.getElementById('eclass').value,
+            maintain: document.getElementById('maintain').value,
+            reserve: document.getElementById('reserve').value,
+            contacter: document.getElementById('contacter').value,
+            dept: document.getElementById('dept').value,
+            psotion: document.getElementById('psotion').value,
+            edoctype: document.getElementById('edoctype').value,
+            edocnum: document.getElementById('edocnum').value,
+            etel: document.getElementById('etel').value,
+            ephone: document.getElementById('ephone').value,
+            efax: document.getElementById('efax').value,
+            eemail: document.getElementById('eemail').value,
+            eqq: document.getElementById('eqq').value,
+            remark: document.getElementById('remark').value
+
+
+
+        },
+        url: 'update_enterprise_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+            Ext.getCmp('grid_enterprise').getStore().load();
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+}
