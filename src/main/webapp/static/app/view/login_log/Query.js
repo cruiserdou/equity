@@ -18,7 +18,6 @@ Ext.define('App.view.login_log.Query', {
             items: [
                 {
                     text: '刷新',
-                    glyph: 0xf021,
                     listeners: {
                         click: function(_this){
                             _this.up('form').getForm().reset();
@@ -28,7 +27,6 @@ Ext.define('App.view.login_log.Query', {
                 },'-',
                 {
                     text: '删除',
-                    glyph: 0xf014,
                     handler: function () {
                         Ext.login_log.confirm('信息', '确定要删除？', function (btn) {
                             if (btn == 'yes') {

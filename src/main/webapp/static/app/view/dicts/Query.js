@@ -20,7 +20,6 @@ Ext.define('App.view.dicts.Query', {
                 {
                     id: 'dicts_add',
                     text: '添加',
-                    glyph: 0xf0f6,
                     listeners: {
                         click: function () {
                             Ext.create('widget.window', {
@@ -122,7 +121,6 @@ Ext.define('App.view.dicts.Query', {
                 {
                     text: '编辑',
                     id: 'dicts_edit',
-                    iconCls: 'icon_edit',
                     handler: function(){
                         var sm = Ext.getCmp('grid_dicts').getSelectionModel();
                         var record = sm.getSelection()[0];
@@ -229,7 +227,6 @@ Ext.define('App.view.dicts.Query', {
 
                 {
                     text: '刷新',
-                    glyph: 0xf021,
                     listeners: {
                         click: function(_this){
                             _this.up('form').getForm().reset();
@@ -239,7 +236,6 @@ Ext.define('App.view.dicts.Query', {
                 },'-',
                 {
                     text: '删除',
-                    glyph: 0xf014,
                     handler: function () {
                         var sm = Ext.getCmp('grid_dicts').getSelectionModel();
                         var rows = sm.getSelection();

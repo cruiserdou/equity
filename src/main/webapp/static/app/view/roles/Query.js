@@ -12,7 +12,6 @@ Ext.define('App.view.roles.Query', {
                 {
                     id: 'roles_add',
                     text: '添加',
-                    glyph: 0xf0f6,
                     listeners: {
                         click: function () {
                             Ext.create('widget.window', {
@@ -106,7 +105,6 @@ Ext.define('App.view.roles.Query', {
                 {
                     text: '编辑',
                     id: 'roles_edit',
-                    iconCls: 'icon_edit',
                     handler: function(){
                         var sm = Ext.getCmp('grid_roles').getSelectionModel();
                         var record = sm.getSelection()[0];
@@ -198,7 +196,6 @@ Ext.define('App.view.roles.Query', {
                 },'-',
                 {
                     text: '刷新',
-                    glyph: 0xf021,
                     listeners: {
                         click: function(_this){
                             _this.up('form').getForm().reset();
@@ -208,7 +205,6 @@ Ext.define('App.view.roles.Query', {
                 },'-',
                 {
                     text: '删除',
-                    glyph: 0xf014,
                     handler: function () {
                         Ext.Msg.confirm('信息', '确定要删除？', function (btn) {
                             if (btn == 'yes') {

@@ -243,8 +243,8 @@ Ext.define('App.view.enterprise_query.Grid', {
 
                 '<ul>' +
                 '<li><a href="#table_base" style="font-size:18px;">基本信息</a></li>' +
-                '<li><a href="#table_sh"  style="font-size:18px;">主要股东</a></li>' +
-                '<li><a href="#table_link"  style="font-size:18px;">法人信息</a></li>' +
+                '<li><a href="#table_sh"  style="font-size:18px;">股东名册</a></li>' +
+                '<li><a href="#table_link"  style="font-size:18px;">法定代表人</a></li>' +
                 '<li><a href="#table_acount"  style="font-size:18px;">行业分类</a></li>' +
                 '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</li>' +
                 '</ul>' +

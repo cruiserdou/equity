@@ -19,7 +19,6 @@ Ext.define('App.view.enterprise_query.Query', {
 
                 {
                     text: '刷新',
-                    glyph: 0xf021,
                     listeners: {
                         click: function(_this){
                             _this.up('form').getForm().reset();
