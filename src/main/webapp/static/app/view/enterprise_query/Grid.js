@@ -5,6 +5,14 @@ Ext.define('App.view.enterprise_query.Grid', {
     selModel: new Ext.selection.CheckboxModel({checkOnly: false}),
     id: 'grid_enterprise_query',
     listeners: {
+        itemclick: function (this_, record_) {
+            var store = Ext.getCmp('enterprise_change_grid_id').getStore();
+            store.load({
+                params: {
+                    enterprise_id: record_.get('id')
+                }
+            })
+        },
         'itemdblclick': function (view, record, item, index, e) {
             //创建模板
             var apply_edits = new Ext.XTemplate(
@@ -298,7 +306,7 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '注册资本（万元）', width: 120, dataIndex: 'regcap'},
             {text: '营业期限自', width: 120, dataIndex: 'bustermfdt', hidden: true},
             {text: '营业期限至', width: 120, dataIndex: 'bustremtdt', hidden: true},
-            {text: 'regdt', width: 120, dataIndex: 'regdt'},
+            {text: '注册日期', width: 120, dataIndex: 'regdt'},
             {text: '挂牌代码', width: 120, dataIndex: 'listcode'},
             {text: '注册地址', width: 120, dataIndex: 'regaddr', hidden: true},
             {text: '办公地址', width: 120, dataIndex: 'offaddr', hidden: true},
@@ -358,8 +366,10 @@ Ext.define('App.view.enterprise_query.Grid', {
             enableLocking: true
         });
 
+
         this.callParent(arguments);
-    }
+    },
+
 });
 
 

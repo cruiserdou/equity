@@ -25,6 +25,93 @@ Ext.define('App.view.enterprise_query.Query', {
                             Ext.getCmp('grid_enterprise_query').getStore().load();
                         }
                     }
+                },
+                {
+                    text: '条件查询',
+                    id: 'conditions_query_id',
+                    listeners: {
+                        click: function () {
+                            Ext.create('widget.window', {
+                                title: '条件查询',
+                                id:'conditions_query_win_id',
+                                modal: true,
+                                width: 280,
+                                height: 290,
+                                border: false,
+                                layout: 'fit',
+                                items: [
+                                    {
+                                        xtype: 'form',
+                                        frame: true,
+                                        bodyPadding: 20,
+                                        defaults: {
+                                            labelWidth: 60,
+                                            xtype: 'combobox'
+                                        },
+                                        items: [
+
+                                            {
+                                                fieldLabel: '注册资本（万元）',
+                                                id :'query_regcap_id',
+                                                xtype: 'numberfield',
+                                                emptyText: '请输入数字',
+                                                regex : /^[0-9]*$/,
+                                                regexText : '请输入数字'
+                                            }
+                                            //{
+                                            //    fieldLabel: '注册资本（万元）',
+                                            //    id :'regcap_id',
+                                            //    xtype: 'numberfield',
+                                            //    emptyText: '请输入数字',
+                                            //    regex : /^[0-9]*$/,
+                                            //    regexText : '请输入数字'
+                                            //}
+                                            //{
+                                            //    fieldLabel: '处理人',
+                                            //    name: 'user_id',
+                                            //    store: 'User',
+                                            //    allowBlank: false,
+                                            //    displayField: 'name',
+                                            //    valueField: 'user_nm'
+                                            //}
+
+                                        ],
+                                        buttonAlign: 'center',
+                                        buttons: [
+                                            {
+                                                text: '确定',
+                                                iconCls: 'icon_save',
+
+                                                    listeners: {
+
+                                                        click: function() {
+
+                                                            var store = Ext.getCmp('grid_enterprise_query').getStore();
+                                                            store.load({
+                                                                params: {
+                                                                    regcap: Ext.getCmp('query_regcap_id').getValue()
+                                                                    //nos: Ext.getCmp('query_enterprise_query_nos').getValue(),
+                                                                    //buslicno: Ext.getCmp('query_enterprise_query_buslicno').getValue(),
+                                                                    //listcode: Ext.getCmp('query_enterprise_query_listcode').getValue()
+
+                                                                }
+                                                            });
+                                                            Ext.getCmp('conditions_query_win_id').close();
+                                                        }
+                                                    }
+                                            },
+                                            {
+                                                text: '重置',
+                                                handler: function () {
+                                                    this.up('form').getForm().reset();
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }).show(Ext.get("conditions_query_id"));
+                        }
+                    }
                 }
             ]
         }
@@ -32,7 +119,7 @@ Ext.define('App.view.enterprise_query.Query', {
     items: [
         {
             xtype: 'panel',
-            columnWidth: .4,
+            columnWidth: .3,
             border: false,
             defaultType: 'textfield',
             layout: {
@@ -58,6 +145,32 @@ Ext.define('App.view.enterprise_query.Query', {
         },
         {
             xtype: 'panel',
+            columnWidth: .3,
+            border: false,
+            defaultType: 'textfield',
+            layout: {
+                type: 'vbox',
+                align: 'strech',
+                pack: 'start'
+            },
+            items: [
+                {
+                    allowBlank: true,
+                    fieldLabel: '营业执照号码',
+                    id: 'query_enterprise_query_buslicno',
+                    emptyText: '营业执照号码'
+                },
+                {
+                    allowBlank: true,
+                    fieldLabel: '挂牌代码',
+                    id: 'query_enterprise_query_listcode',
+                    emptyText: '挂牌代码'
+                }
+
+            ]
+        },
+        {
+            xtype: 'panel',
             border: false,
             items: [
                 {
@@ -70,9 +183,9 @@ Ext.define('App.view.enterprise_query.Query', {
                             store.load({
                                 params: {
                                     name: Ext.getCmp('query_enterprise_query_name').getValue(),
-                                    nos: Ext.getCmp('query_enterprise_query_nos').getValue()
-                                    //reserve: Ext.getCmp('query_enterprise_query_reserve').getValue(),
-                                    //status: Ext.getCmp('query_enterprise_query_status').getValue()
+                                    nos: Ext.getCmp('query_enterprise_query_nos').getValue(),
+                                    buslicno: Ext.getCmp('query_enterprise_query_buslicno').getValue(),
+                                    listcode: Ext.getCmp('query_enterprise_query_listcode').getValue()
 
                                 }
                             });

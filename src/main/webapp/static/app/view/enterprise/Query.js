@@ -69,7 +69,7 @@ Ext.define('App.view.enterprise.Query', {
     items: [
         {
             xtype: 'panel',
-            columnWidth: .4,
+            columnWidth: .3,
             border: false,
             defaultType: 'textfield',
             layout: {
@@ -95,6 +95,32 @@ Ext.define('App.view.enterprise.Query', {
         },
         {
             xtype: 'panel',
+            columnWidth: .3,
+            border: false,
+            defaultType: 'textfield',
+            layout: {
+                type: 'vbox',
+                align: 'strech',
+                pack: 'start'
+            },
+            items: [
+                {
+                    allowBlank: true,
+                    fieldLabel: '营业执照号码',
+                    id: 'query_enterprise_buslicno',
+                    emptyText: '营业执照号码'
+                },
+                {
+                    allowBlank: true,
+                    fieldLabel: '挂牌代码',
+                    id: 'query_enterprise_listcode',
+                    emptyText: '挂牌代码'
+                }
+
+            ]
+        },
+        {
+            xtype: 'panel',
             border: false,
             items: [
                 {
@@ -107,9 +133,9 @@ Ext.define('App.view.enterprise.Query', {
                             store.load({
                                 params: {
                                     name: Ext.getCmp('query_enterprise_name').getValue(),
-                                    nos: Ext.getCmp('query_enterprise_nos').getValue()
-                                    //reserve: Ext.getCmp('query_enterprise_reserve').getValue(),
-                                    //status: Ext.getCmp('query_enterprise_status').getValue()
+                                    nos: Ext.getCmp('query_enterprise_nos').getValue(),
+                                    buslicno: Ext.getCmp('query_enterprise_buslicno').getValue(),
+                                    listcode: Ext.getCmp('query_enterprise_listcode').getValue()
 
                                 }
                             });

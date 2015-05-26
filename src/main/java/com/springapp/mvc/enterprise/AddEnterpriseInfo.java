@@ -109,7 +109,7 @@ public class AddEnterpriseInfo {
                     "            indclass3, indclass4, esource, referee, esourcedesc, recomdt, \n" +
                     "            emaint, trusteeship, listst, eclass, maintain, reserve, contacter, \n" +
                     "            dept, psotion, edoctype, edocnum, etel, ephone, efax, eemail, \n" +
-                    "            eqq, remark)\n" +
+                    "            eqq, remark,inputdt)\n" +
                     "    VALUES (  ?, ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, ?, \n" +
@@ -117,7 +117,7 @@ public class AddEnterpriseInfo {
                     "            ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, ?, \n" +
-                    "            ?, ?)";
+                    "            ?, ?, ?)";
             pst = conn.prepareStatement(sql);
 
             pst.setString(1 , buslicno);
@@ -186,6 +186,9 @@ public class AddEnterpriseInfo {
             pst.setString(52, eemail);
             pst.setString(53, eqq);
             pst.setString(54, remark);
+            java.util.Date date = new java.util.Date();
+            Timestamp timestamp = new Timestamp(date.getTime());
+            pst.setTimestamp(55, timestamp);
             pst.executeUpdate();
 
 

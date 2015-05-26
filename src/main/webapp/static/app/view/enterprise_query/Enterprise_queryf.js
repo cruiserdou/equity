@@ -25,6 +25,14 @@ Ext.define('App.view.enterprise_query.Enterprise_queryf', {
             {
                 xtype: 'enterprise_queryf_grid',
                 region: 'center'
+            },
+            {
+                xtype: 'enterprise_change_grid',
+                title: '维护记录',
+                autoScroll: true,
+                margin: '5 0 0 0',
+                region: 'south',
+                height: 200
             }
         ]
         this.callParent(arguments);

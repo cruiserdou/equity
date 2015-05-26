@@ -59,8 +59,14 @@ Ext.define('App.model.enterprise', {
         {name: 'eemail'},
         {name: 'eqq'},
         {name: 'remark'},
+        {name: 'inputdt'},
         {name: 'list_sh'}
     ]
+    //associations:[{
+    //    type:'hasMany',
+    //    model:'change',
+    //    autoLoad:false
+    //}]
 });
 
 

@@ -178,6 +178,24 @@ public class UpdateEnterpriseInfo {
             pst.setString(53, eqq);
             pst.setString(54, remark);
             pst.setInt(55, id);
+
+
+
+
+            String sql_change = "INSERT INTO work.tb_change(\n" +
+                    "              enterprise_id, field, c_before, c_after, user_id, rtdate)\n" +
+                    "    VALUES ( ?, ?, ?, ?, ?, ?)";
+            pst = conn.prepareStatement(sql_change);
+            pst.setInt(1, id);
+            pst.setString(2, "");
+            pst.setString(3, "");
+            pst.setString(4, "");
+            pst.setInt(5, Integer.parseInt(session.getAttribute("id").toString()));
+            java.util.Date date = new java.util.Date();
+            Timestamp timestamp = new Timestamp(date.getTime());
+            pst.setTimestamp(6, timestamp);
+            pst.executeUpdate();
+
             pst.executeUpdate();
 
 

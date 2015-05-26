@@ -307,7 +307,7 @@ Ext.define('App.view.enterprise.Grid', {
             {text: '注册资本（万元）', width: 120, dataIndex: 'regcap'},
             {text: '营业期限自', width: 120, dataIndex: 'bustermfdt', hidden: true},
             {text: '营业期限至', width: 120, dataIndex: 'bustremtdt', hidden: true},
-            {text: 'regdt', width: 120, dataIndex: 'regdt'},
+            {text: '注册日期', width: 120, dataIndex: 'regdt'},
             {text: '挂牌代码', width: 120, dataIndex: 'listcode'},
             {text: '注册地址', width: 120, dataIndex: 'regaddr', hidden: true},
             {text: '办公地址', width: 120, dataIndex: 'offaddr', hidden: true},
