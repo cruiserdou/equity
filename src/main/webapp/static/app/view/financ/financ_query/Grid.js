@@ -29,14 +29,12 @@ Ext.define('App.view.financ.financ_query.Grid', {
                     xtype: 'numberfield',
                     emptyText: '请输入数字',
                     regex : /^[0-9]*$/,
-                    regexText : '请输入数字',
-                    allowBlank: false
+                    regexText : '请输入数字'
                 },
                 {
                     fieldLabel: '融资方式',
                     xtype: 'textarea',
-                    name:'fmode',
-                    allowBlank: false
+                    name:'fmode'
                 },
                 {
                     fieldLabel: '融资用途',
@@ -48,17 +46,11 @@ Ext.define('App.view.financ.financ_query.Grid', {
                     name:'ftermdt',
                     xtype: 'datefield',
                     value: new Date(),
-                    format: 'Y-m-d H:i:s',
-                    allowBlank: false
+                    format: 'Y-m-d H:i:s'
                 },
                 {
                     fieldLabel: '融资成本',
-                    name:'fcosts',
-                    xtype: 'numberfield',
-                    emptyText: '请输入数字',
-                    regex : /^[0-9]*$/,
-                    regexText : '请输入数字',
-                    allowBlank: false
+                    name:'fcosts'
                 },
                 {
                     fieldLabel: '偿付计划',
@@ -72,22 +64,15 @@ Ext.define('App.view.financ.financ_query.Grid', {
                 },
                 {
                     fieldLabel: '资金供给方',
-                    name:'supply_sd',
-                    allowBlank: false
+                    name:'supply_sd'
                 },
                 {
                     fieldLabel: '供给方式' ,
-                    name:'supply_md',
-                    allowBlank: false
+                    name:'supply_md'
                 },
                 {
                     fieldLabel: '成本',
-                    name:'costs',
-                    xtype: 'numberfield',
-                    emptyText: '请输入数字',
-                    regex : /^[0-9]*$/,
-                    regexText : '请输入数字',
-                    allowBlank: false
+                    name:'costs'
                 }
             ]
 

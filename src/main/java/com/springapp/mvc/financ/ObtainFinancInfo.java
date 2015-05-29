@@ -50,7 +50,7 @@ public class ObtainFinancInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-            String sql = "SELECT id, famount, fmode, fuse, ftermdt, fcosts, payment_pl, payment_gt, \n" +
+            String sql = "SELECT id, famount, fmode, fuse,TO_CHAR(ftermdt,'yyyy-mm-dd hh24:mi:ss') as   ftermdt, fcosts, payment_pl, payment_gt, \n" +
                     "       supply_sd, supply_md, costs\n" +
                     "  FROM work.tb_financ  WHERE 1 = 1 ";
             if (fuse != null && fuse.length() != 0)

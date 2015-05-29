@@ -24,12 +24,10 @@ Ext.define('App.view.service.service_query.Grid', {
                     name: 'id'
                 },
                 {
-                    allowBlank: false,
                     fieldLabel: '编号',
                     name: 'nos'
                 },
                 {
-                    allowBlank: false,
                     fieldLabel: '机构名称',
                     name: 'name'
                 },
@@ -42,8 +40,7 @@ Ext.define('App.view.service.service_query.Grid', {
                     store:'dicts_service',
                     triggerAction: 'all',
                     valueField: 'fieldvaldis',
-                    displayField: 'fieldvaldis',
-                    allowBlank:false
+                    displayField: 'fieldvaldis'
                 },
                 {
                     allowBlank: false,
@@ -51,7 +48,6 @@ Ext.define('App.view.service.service_query.Grid', {
                     name: 'levels'
                 },
                 {
-                    allowBlank: false,
                     fieldLabel: '业务内容',
                     xtype: 'textarea',
                     name: 'content'
