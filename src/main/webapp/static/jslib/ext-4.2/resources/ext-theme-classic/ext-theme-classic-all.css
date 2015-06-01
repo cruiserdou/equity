@@ -487,7 +487,7 @@ div.x-editor {
     padding-left: 20px;
     white-space: nowrap;
     color: #000;
-    font: normal 11px tahoma, arial, verdana, sans-serif;
+    font: normal 12px tahoma, arial, verdana, sans-serif;
     border: 1px solid;
     border-color: #ddd #bbb #bbb #ddd;
     background-color: #fff
@@ -1476,7 +1476,7 @@ svg, vml {
     border-color: #a3bad9;
     background-color: #eee;
     color: #222;
-    font: normal 11px tahoma, arial, verdana, sans-serif
+    font: normal 12px tahoma, arial, verdana, sans-serif
 }
 
 .x-mask-msg-text {
@@ -1515,7 +1515,7 @@ svg, vml {
 .x-progress-default .x-progress-text {
     color: white;
     font-weight: bold;
-    font-size: 11px;
+    font-size: 12px;
     text-align: center;
     line-height: 18px
 }
@@ -1652,7 +1652,7 @@ body.x-nbr .x-btn-default-small-frameInfo {
 }
 
 .x-btn-default-small .x-btn-inner {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: normal;
     font-family: tahoma, arial, verdana, sans-serif;
     color: #333;
@@ -2047,7 +2047,7 @@ body.x-nbr .x-btn-default-medium-frameInfo {
 }
 
 .x-btn-default-medium .x-btn-inner {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: normal;
     font-family: tahoma, arial, verdana, sans-serif;
     color: #333;
@@ -2442,7 +2442,7 @@ body.x-nbr .x-btn-default-large-frameInfo {
 }
 
 .x-btn-default-large .x-btn-inner {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: normal;
     font-family: tahoma, arial, verdana, sans-serif;
     color: #333;
@@ -2816,7 +2816,7 @@ body.x-nbr .x-btn-default-toolbar-small-frameInfo {
 }
 
 .x-btn-default-toolbar-small .x-btn-inner {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: normal;
     font-family: tahoma, arial, verdana, sans-serif;
     color: #333;
@@ -3184,7 +3184,7 @@ body.x-nbr .x-btn-default-toolbar-medium-frameInfo {
 }
 
 .x-btn-default-toolbar-medium .x-btn-inner {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: normal;
     font-family: tahoma, arial, verdana, sans-serif;
     color: #333;
@@ -3552,7 +3552,7 @@ body.x-nbr .x-btn-default-toolbar-large-frameInfo {
 }
 
 .x-btn-default-toolbar-large .x-btn-inner {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: normal;
     font-family: tahoma, arial, verdana, sans-serif;
     color: #333;
@@ -3865,7 +3865,7 @@ body.x-nbr .x-btn-default-toolbar-large-frameInfo {
 }
 
 .x-toolbar {
-    font-size: 11px;
+    font-size: 12px;
     border-style: solid;
     padding: 2px 0 2px 2px
 }
@@ -3879,7 +3879,7 @@ body.x-nbr .x-btn-default-toolbar-large-frameInfo {
     color: #4c4c4c;
     line-height: 16px;
     font-family: tahoma, arial, verdana, sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: normal
 }
 
@@ -4023,7 +4023,7 @@ body.x-nbr .x-btn-default-toolbar-large-frameInfo {
 }
 
 .x-panel-header-default {
-    font-size: 11px;
+    font-size: 12px;
     border: 1px solid #99bce8
 }
 
@@ -4045,7 +4045,7 @@ body.x-nbr .x-btn-default-toolbar-large-frameInfo {
 
 .x-panel-header-text-container-default {
     color: #04408c;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold;
     font-family: tahoma, arial, verdana, sans-serif;
     line-height: 15px;
@@ -4235,7 +4235,7 @@ body.x-nbr .x-btn-default-toolbar-large-frameInfo {
 }
 
 .x-panel-header-default-framed {
-    font-size: 11px;
+    font-size: 12px;
     border: 1px solid #99bce8
 }
 
@@ -4257,7 +4257,7 @@ body.x-nbr .x-btn-default-toolbar-large-frameInfo {
 
 .x-panel-header-text-container-default-framed {
     color: #04408c;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold;
     font-family: tahoma, arial, verdana, sans-serif;
     line-height: 15px;
@@ -5683,14 +5683,14 @@ body.x-nbr .x-tip-default-frameInfo {
 
 .x-tip-header-text-container-default {
     color: #444;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold
 }
 
 .x-tip-body-default {
     padding: 3px;
     color: #444;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: normal
 }
 
@@ -5827,14 +5827,14 @@ body.x-nbr .x-tip-form-invalid-frameInfo {
 
 .x-tip-header-text-container-form-invalid {
     color: #444;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold
 }
 
 .x-tip-body-form-invalid {
     padding: 3px 3px 3px 22px;
     color: #444;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: normal
 }
 
@@ -5880,7 +5880,7 @@ body.x-nbr .x-tip-form-invalid-frameInfo {
 }
 
 .x-btn-group-header-text-container-default {
-    font: normal 11px tahoma, arial, verdana, sans-serif;
+    font: normal 12px tahoma, arial, verdana, sans-serif;
     line-height: 15px;
     color: #3e6aaa
 }
@@ -6126,7 +6126,7 @@ body.x-nbr .x-btn-group-default-framed-notitle-frameInfo {
 }
 
 .x-btn-group-header-text-container-default-framed {
-    font: normal 11px tahoma, arial, verdana, sans-serif;
+    font: normal 12px tahoma, arial, verdana, sans-serif;
     line-height: 15px;
     color: #3e6aaa
 }
@@ -6269,7 +6269,7 @@ body.x-nbr .x-window-default-frameInfo {
 }
 
 .x-window-header-default {
-    font-size: 11px;
+    font-size: 12px;
     border-color: #a2b1c5;
     zoom: 1;
     background-color: #ced9e7
@@ -6300,7 +6300,7 @@ body.x-nbr .x-window-default-frameInfo {
     font-weight: bold;
     line-height: 15px;
     font-family: tahoma, arial, verdana, sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     padding: 0 2px 1px;
     text-transform: none
 }
@@ -7252,7 +7252,7 @@ body.x-nbr .x-window-header-default-collapsed-left-frameInfo {
 .x-form-invalid-under {
     padding: 2px 2px 2px 20px;
     color: #c0272b;
-    font: normal 11px tahoma, arial, verdana, sans-serif;
+    font: normal 12px tahoma, arial, verdana, sans-serif;
     line-height: 16px;
     background: no-repeat 0 2px;
     background-image: url(images/form/exclamation.gif)
@@ -7277,7 +7277,7 @@ div.x-lbl-top-err-icon {
 }
 
 .x-toolbar-item .x-form-item-label {
-    font: normal 11px/13px tahoma, arial, verdana, sans-serif;
+    font: normal 12px/13px tahoma, arial, verdana, sans-serif;
     margin-top: 4px
 }
 
@@ -7374,7 +7374,7 @@ div.x-lbl-top-err-icon {
 
 .x-toolbar-item .x-form-display-field {
     margin-top: 4px;
-    font: normal 11px/13px tahoma, arial, verdana, sans-serif
+    font: normal 12px/13px tahoma, arial, verdana, sans-serif
 }
 
 .x-message-box .x-window-body {
@@ -7443,7 +7443,7 @@ div.x-lbl-top-err-icon {
 }
 
 .x-toolbar-item .x-form-cb-label {
-    font: normal 11px/13px tahoma, arial, verdana, sans-serif;
+    font: normal 12px/13px tahoma, arial, verdana, sans-serif;
     margin-top: 4px
 }
 
@@ -7514,7 +7514,7 @@ div.x-lbl-top-err-icon {
 }
 
 .x-fieldset-header-text {
-    font: 11px/14px bold tahoma, arial, verdana, sans-serif;
+    font: 12px/14px bold tahoma, arial, verdana, sans-serif;
     color: #15428b;
     padding: 1px 0
 }
@@ -7684,27 +7684,27 @@ div.x-form-spinner-up, div.x-form-spinner-down {
     background-image: url(images/form/spinner.gif);
     background-color: white;
     width: 17px;
-    height: 11px
+    height: 12px
 }
 
 .x-form-spinner-down {
-    background-position: 0 -11px
+    background-position: 0 -12px
 }
 
 .x-form-trigger-wrap-focus .x-form-spinner-down {
-    background-position: -51px -11px
+    background-position: -51px -12px
 }
 
 .x-form-trigger-wrap .x-form-spinner-down-over {
-    background-position: -17px -11px
+    background-position: -17px -12px
 }
 
 .x-form-trigger-wrap-focus .x-form-spinner-down-over {
-    background-position: -68px -11px
+    background-position: -68px -12px
 }
 
 .x-form-trigger-wrap .x-form-spinner-down-click {
-    background-position: -34px -11px
+    background-position: -34px -12px
 }
 
 .x-toolbar-item div.x-form-spinner-up, .x-toolbar-item div.x-form-spinner-down {
@@ -7908,7 +7908,7 @@ a.x-datepicker-arrow:hover {
 
 .x-datepicker-date {
     padding: 0 4px 0 0;
-    font: normal 11px tahoma, arial, verdana, sans-serif;
+    font: normal 12px tahoma, arial, verdana, sans-serif;
     color: black;
     cursor: pointer;
     line-height: 18px
@@ -7996,7 +7996,7 @@ a.x-datepicker-date:hover {
 
 .x-monthpicker-item {
     margin: 5px 0 4px;
-    font: normal 11px tahoma, arial, verdana, sans-serif;
+    font: normal 12px tahoma, arial, verdana, sans-serif;
     text-align: center
 }
 
@@ -8223,7 +8223,7 @@ a.x-color-picker-item:hover {
 }
 
 .x-html-editor-tb .x-font-select {
-    font-size: 11px;
+    font-size: 12px;
     font-family: inherit
 }
 
@@ -8244,12 +8244,12 @@ a.x-color-picker-item:hover {
     padding: 10px;
     color: gray;
     background-color: white;
-    font: normal 11px tahoma, arial, verdana, sans-serif
+    font: normal 12px tahoma, arial, verdana, sans-serif
 }
 
 .x-grid-cell {
     color: null;
-    font: normal 11px/13px tahoma, arial, verdana, sans-serif;
+    font: normal 12px/13px tahoma, arial, verdana, sans-serif;
     background-color: white;
     border-color: #ededed #d0d0d0 #ededed #d0d0d0;
     border-style: solid
@@ -8431,7 +8431,7 @@ a.x-color-picker-item:hover {
 .x-grid-drop-indicator .x-grid-drop-indicator-right {
     position: absolute;
     top: -8px;
-    right: -11px;
+    right: -12px;
     background-image: url(images/grid/dd-insert-arrow-left.png);
     height: 16px;
     width: 16px
@@ -8498,7 +8498,7 @@ a.x-color-picker-item:hover {
 .x-column-header {
     border-right: 1px solid #c5c5c5;
     color: black;
-    font: normal 11px/13px tahoma, arial, verdana, sans-serif;
+    font: normal 12px/13px tahoma, arial, verdana, sans-serif;
     background-image: none;
     background-color: #c5c5c5;
     background-image: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #f9f9f9), color-stop(100%, #e3e4e6));
@@ -8652,7 +8652,7 @@ a.x-color-picker-item:hover {
 
 .x-grid-group-title {
     color: #3764a0;
-    font: bold 11px/13px tahoma, arial, verdana, sans-serif
+    font: bold 12px/13px tahoma, arial, verdana, sans-serif
 }
 
 .x-grid-group-hd-collapsed .x-grid-group-title {
@@ -8672,7 +8672,7 @@ a.x-color-picker-item:hover {
 }
 
 .x-grid-rowbody {
-    font: normal 11px/13px tahoma, arial, verdana, sans-serif;
+    font: normal 12px/13px tahoma, arial, verdana, sans-serif;
     padding: 5px 6px 5px 6px
 }
 
@@ -8704,7 +8704,7 @@ a.x-color-picker-item:hover {
     border-color: #ededed #d0d0d0 #ededed #d0d0d0;
     background-color: transparent !important;
     border-top-width: 0;
-    font: normal 11px/13px tahoma, arial, verdana, sans-serif
+    font: normal 12px/13px tahoma, arial, verdana, sans-serif
 }
 
 .x-grid-with-row-lines .x-grid-table-summary {
@@ -8729,7 +8729,7 @@ a.x-color-picker-item:hover {
 }
 
 .x-grid-editor .x-form-text {
-    font: normal 11px/15px tahoma, arial, verdana, sans-serif;
+    font: normal 12px/15px tahoma, arial, verdana, sans-serif;
     padding: 1px 5px 2px 5px;
     height: 20px
 }
@@ -8764,7 +8764,7 @@ a.x-color-picker-item:hover {
 }
 
 .x-grid-editor .x-form-display-field {
-    font: normal 11px/15px tahoma, arial, verdana, sans-serif;
+    font: normal 12px/15px tahoma, arial, verdana, sans-serif;
     padding: 2px 6px 3px 6px;
     text-overflow: ellipsis
 }
@@ -9300,7 +9300,7 @@ body.x-nbr .x-grid-row-editor-buttons-default-top-frameInfo {
 }
 
 .x-menu-item-text {
-    font-size: 11px;
+    font-size: 12px;
     color: #222;
     cursor: pointer;
     margin-right: 16px
@@ -9370,7 +9370,7 @@ body.x-nbr .x-grid-row-editor-buttons-default-top-frameInfo {
 }
 
 .x-menu-item .x-form-item-label {
-    font-size: 11px;
+    font-size: 12px;
     color: #222
 }
 
@@ -10388,7 +10388,7 @@ body.x-nbr .x-tab-default-right-frameInfo {
 }
 
 .x-tab-default .x-tab-inner {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold;
     font-family: tahoma, arial, verdana, sans-serif;
     color: #416da3;
@@ -10745,8 +10745,8 @@ body.x-nbr .x-tab-default-right-frameInfo {
 }
 
 .x-tab-default .x-tab-close-btn {
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
     background-image: url(images/tab/tab-default-close.gif);
     filter: alpha(opacity=60);
     opacity: .6
@@ -11196,7 +11196,7 @@ body.x-nbr .x-tab-default-right-frameInfo {
 }
 
 .x-tree-node-text {
-    font-size: 11px;
+    font-size: 12px;
     line-height: 13px;
     padding-left: 3px
 }

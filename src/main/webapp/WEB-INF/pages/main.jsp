@@ -12,7 +12,7 @@
     <title>甘肃中小微企业信息管理系统</title>
     <link href="static/css/css/font-awesome.css" rel="stylesheet">
     <link href="static/css/css/module.css" rel="stylesheet">
-    <link href="static/css/images/yg-logo32.jpg" rel="shortcut icon">
+    <link href="static/css/images/wq-icon.png" rel="shortcut icon">
 
     <link href="static/jslib/ext-4.2/resources/css/ext-all.css" rel="stylesheet">
     <link href="static/css/main.css" rel="stylesheet">
