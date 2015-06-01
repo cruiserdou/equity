@@ -1,4 +1,6 @@
 //var str = "static/upload/";
+
+
 Ext.define('App.view.enterprise.Applyf', {
     extend: 'Ext.form.FormPanel',
     alias: 'widget.applyf', 
@@ -6,13 +8,14 @@ Ext.define('App.view.enterprise.Applyf', {
     applyTpl: [
         '<div class="wrap_center">',
         '<h2>企业信息查看</h2>',
+        '<form id="apply_form">'+
         '<table class="enter_table" id="table_base">',
         '<tr>',
         '<th class="table_header" colspan="4">基本信息</th>',
         '</tr>',
         '<tr>',
         '<th>营业执照号码<span style="color: red">*</span></th>',
-        '<td><input id="buslicno"  name="buslicno"  type="text" value="{buslicno}"/></td>',
+        '<td><input id="buslicno"  name="buslicno" style="width:80%;" type="text" value="{buslicno}"/><input type="button" style="width:20%;" id="btn" value="有效性" onclick="show()"></td>',
         '<th>企业名称</th>',
         '<td><input id="name" name="name"  type="text" value="{name}"/></td>',
         '</tr>',
@@ -230,6 +233,7 @@ Ext.define('App.view.enterprise.Applyf', {
         '<th>备注</th>',
         '<td><input id="remark" name="remark"  type="text" value="{remark}"/></td>',
         '</tr>',
+        '</form>'+
         '</table>',
 
 
@@ -275,7 +279,7 @@ Ext.define('App.view.enterprise.Applyf', {
                                 text: '新建',
                                 handler: function () {
                                     document.getElementById('apply_form').reset();
-                                    document.getElementById('apply_form_img').src = '';
+                                    //document.getElementById('apply_form_img').src = '';
 
                                 }
                             },
@@ -290,7 +294,7 @@ Ext.define('App.view.enterprise.Applyf', {
                                     //    Ext.Msg.alert("提示", "<span style='color: red;'>申请类别不能为空！</span>")
                                     //    return;
                                     //} 
-                                    obt_apply_insert()
+                                    save_cust_add()
 
                                 }
                             }
@@ -319,7 +323,6 @@ function win_close() {
 
 
 function save_cust_add() {
-    Ext.Msg.alert("提示", document.getElementById('name').value);
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -389,6 +392,35 @@ function save_cust_add() {
         },
         failure: function () {
             Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+}
+
+
+function show()
+{
+    var form_obt_apply = document.getElementById("apply_form");
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            buslicno: form_obt_apply['buslicno'].value
+        },
+        url: 'check_buslicno_info',
+        success: function (response,opts) {
+            var obj=Ext.decode(response.responseText);
+
+            if(obj.success)
+            {
+                Ext.Msg.alert("提示", "该营业执照号码可用！");
+
+            }else{
+                Ext.Msg.alert("提示", "该营业执照号码已用！");
+                document.getElementById('apply_form')['buslicno'].value="";
+            }
+        },
+        failure: function (response,opts) {
+            Ext.Msg.alert("提示", "错");
+            //save_cust_add()
         }
     });
 }

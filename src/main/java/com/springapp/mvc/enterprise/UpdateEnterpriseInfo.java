@@ -98,7 +98,7 @@ public class UpdateEnterpriseInfo {
 
         try {
             conn = DriverManager.getConnection(url, user, password);
-
+            System.out.print(id);
             String sql = "UPDATE work.tb_enterprise\n" +
                     "   SET   buslicno=?, name=?, unit=?, legrep=?, region=?, nos=?, \n" +
                     "       postal=?, nature=?, regcap=?, bustermfdt=?, bustremtdt=?, regdt=?, \n" +
@@ -182,19 +182,19 @@ public class UpdateEnterpriseInfo {
             pst.executeUpdate();
 
 
-            String sql_change = "INSERT INTO work.tb_change(\n" +
-                    "              enterprise_id, field, c_before, c_after, user_id, rtdate)\n" +
-                    "    VALUES ( ?, ?, ?, ?, ?, ?)";
-            pst = conn.prepareStatement(sql_change);
-            pst.setInt(1, id);
-            pst.setString(2, "");
-            pst.setString(3, "");
-            pst.setString(4, "");
-            pst.setInt(5, Integer.parseInt(session.getAttribute("id").toString()));
-            java.util.Date date = new java.util.Date();
-            Timestamp timestamp = new Timestamp(date.getTime());
-            pst.setTimestamp(6, timestamp);
-            pst.executeUpdate();
+//            String sql_change = "INSERT INTO work.tb_change(\n" +
+//                    "              enterprise_id, field, c_before, c_after, user_id, rtdate)\n" +
+//                    "    VALUES ( ?, ?, ?, ?, ?, ?)";
+//            pst = conn.prepareStatement(sql_change);
+//            pst.setInt(1, id);
+//            pst.setString(2, "");
+//            pst.setString(3, "");
+//            pst.setString(4, "");
+//            pst.setInt(5, Integer.parseInt(session.getAttribute("id").toString()));
+//            java.util.Date date = new java.util.Date();
+//            Timestamp timestamp = new Timestamp(date.getTime());
+//            pst.setTimestamp(6, timestamp);
+//            pst.executeUpdate();
 
 
 

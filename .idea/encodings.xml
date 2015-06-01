@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/CommonThreadPool.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/GzipJsFilter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/UpdatePassword.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/enterprise/CheckBuslicnoInfo.java" charset="UTF-8" />
   </component>
 </project>

@@ -10,11 +10,12 @@ Ext.define('App.view.enterprise.Grid', {
             //创建模板
             var apply_edits = new Ext.XTemplate(
                 '<div class="wrap_center">' +
+                '<form id="apply_form">'+
                 '<h2>企业信息查看</h2>' +
                 '<table class="enter_table" id="table_base">' +
                 '<tr>' +
                 '<th class="table_header" colspan="4">基本信息</th>' +
-                '<td><input id="id"  name="id"  type="text" value="{id}"/></td>' +
+                //'<td><input id="id"  name="id"  type="text" value="{id}"/></td>' +
                 '</tr>' +
                 '<tr>' +
                 '<th>营业执照号码<span style="color: red">*</span></th>' +
@@ -243,7 +244,7 @@ Ext.define('App.view.enterprise.Grid', {
 
 
 
-            '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_enterprise_edit()">保存</a>'+
+            '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_enterprise_edit({id})">保存</a>'+
 
 
 
@@ -258,6 +259,7 @@ Ext.define('App.view.enterprise.Grid', {
             '<li><a href="#table_acount"  style="font-size:18px;">行业分类</a></li>' +
             '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</li>' +
             '</ul>' +
+            '</form>'+
             '</div>'
             );
 
@@ -376,66 +378,67 @@ Ext.getCmp('enterprise_edit_id').close();
 
 }
 
-function save_enterprise_edit() {
-    Ext.Msg.alert("提示", document.getElementById('name').value);
+function save_enterprise_edit(id) {
+    //Ext.Msg.alert("提示", id);
+    var form_obt_apply = document.getElementById("apply_form");
     Ext.Ajax.request({
         method: "POST",
         params: {
-            id: document.getElementById('id').value,
-            buslicno: document.getElementById('buslicno').value,
-            name: document.getElementById('name').value,
-            unit: document.getElementById('unit').value,
-            legrep: document.getElementById('legrep').value,
-            region: document.getElementById('region').value,
-            nos: document.getElementById('nos').value,
-            postal: document.getElementById('postal').value,
-            nature: document.getElementById('nature').value,
-            regcap: document.getElementById('regcap').value,
-            bustermfdt: document.getElementById('bustermfdt').value,
-            bustremtdt: document.getElementById('bustremtdt').value,
-            regdt: document.getElementById('regdt').value,
-            listcode: document.getElementById('listcode').value,
-            regaddr: document.getElementById('regaddr').value,
-            offaddr: document.getElementById('offaddr').value,
-            listprice: document.getElementById('listprice').value,
-            staffnum: document.getElementById('staffnum').value,
-            scope: document.getElementById('scope').value,
-            mbus: document.getElementById('mbus').value,
-            eprofile: document.getElementById('eprofile').value,
-            phoinf: document.getElementById('phoinf').value,
-            post: document.getElementById('post').value,
-            doctype: document.getElementById('doctype').value,
-            contact: document.getElementById('contact').value,
-            docnum: document.getElementById('docnum').value,
-            phone: document.getElementById('phone').value,
-            fax: document.getElementById('fax').value,
-            email: document.getElementById('email').value,
-            qq: document.getElementById('qq').value,
-            indclass1: document.getElementById('indclass1').value,
-            indclass2: document.getElementById('indclass2').value,
-            indclass3: document.getElementById('indclass3').value,
-            indclass4: document.getElementById('indclass4').value,
-            esource: document.getElementById('esource').value,
-            referee: document.getElementById('referee').value,
-            esourcedesc: document.getElementById('esourcedesc').value,
-            recomdt: document.getElementById('recomdt').value,
-            emaint: document.getElementById('emaint').value,
-            trusteeship: document.getElementById('trusteeship').value,
-            listst: document.getElementById('listst').value,
-            eclass: document.getElementById('eclass').value,
-            maintain: document.getElementById('maintain').value,
-            reserve: document.getElementById('reserve').value,
-            contacter: document.getElementById('contacter').value,
-            dept: document.getElementById('dept').value,
-            psotion: document.getElementById('psotion').value,
-            edoctype: document.getElementById('edoctype').value,
-            edocnum: document.getElementById('edocnum').value,
-            etel: document.getElementById('etel').value,
-            ephone: document.getElementById('ephone').value,
-            efax: document.getElementById('efax').value,
-            eemail: document.getElementById('eemail').value,
-            eqq: document.getElementById('eqq').value,
-            remark: document.getElementById('remark').value
+            id: id,
+            buslicno: form_obt_apply['buslicno'].value,
+            name: form_obt_apply['name'].value,
+            unit: form_obt_apply['unit'].value,
+            legrep: form_obt_apply['legrep'].value,
+            region: form_obt_apply['region'].value,
+            nos: form_obt_apply['nos'].value,
+            postal: form_obt_apply['postal'].value,
+            nature: form_obt_apply['nature'].value,
+            regcap: form_obt_apply['regcap'].value,
+            bustermfdt: form_obt_apply['bustermfdt'].value,
+            bustremtdt: form_obt_apply['bustremtdt'].value,
+            regdt: form_obt_apply['regdt'].value,
+            listcode: form_obt_apply['listcode'].value,
+            regaddr: form_obt_apply['regaddr'].value,
+            offaddr: form_obt_apply['offaddr'].value,
+            listprice: form_obt_apply['listprice'].value,
+            staffnum: form_obt_apply['staffnum'].value,
+            scope: form_obt_apply['scope'].value,
+            mbus: form_obt_apply['mbus'].value,
+            eprofile: form_obt_apply['eprofile'].value,
+            phoinf: form_obt_apply['phoinf'].value,
+            post: form_obt_apply['post'].value,
+            doctype: form_obt_apply['doctype'].value,
+            contact: form_obt_apply['contact'].value,
+            docnum: form_obt_apply['docnum'].value,
+            phone: form_obt_apply['phone'].value,
+            fax: form_obt_apply['fax'].value,
+            email: form_obt_apply['email'].value,
+            qq: form_obt_apply['qq'].value,
+            indclass1: form_obt_apply['indclass1'].value,
+            indclass2: form_obt_apply['indclass2'].value,
+            indclass3: form_obt_apply['indclass3'].value,
+            indclass4: form_obt_apply['indclass4'].value,
+            esource: form_obt_apply['esource'].value,
+            referee: form_obt_apply['referee'].value,
+            esourcedesc: form_obt_apply['esourcedesc'].value,
+            recomdt: form_obt_apply['recomdt'].value,
+            emaint: form_obt_apply['emaint'].value,
+            trusteeship: form_obt_apply['trusteeship'].value,
+            listst: form_obt_apply['listst'].value,
+            eclass: form_obt_apply['eclass'].value,
+            maintain: form_obt_apply['maintain'].value,
+            reserve: form_obt_apply['reserve'].value,
+            contacter: form_obt_apply['contacter'].value,
+            dept: form_obt_apply['dept'].value,
+            psotion: form_obt_apply['psotion'].value,
+            edoctype: form_obt_apply['edoctype'].value,
+            edocnum: form_obt_apply['edocnum'].value,
+            etel: form_obt_apply['etel'].value,
+            ephone: form_obt_apply['ephone'].value,
+            efax: form_obt_apply['efax'].value,
+            eemail: form_obt_apply['eemail'].value,
+            eqq: form_obt_apply['eqq'].value,
+            remark: form_obt_apply['remark'].value
 
 
 
