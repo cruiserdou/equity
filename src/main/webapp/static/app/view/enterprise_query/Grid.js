@@ -9,7 +9,7 @@ Ext.define('App.view.enterprise_query.Grid', {
             var store = Ext.getCmp('enterprise_change_grid_id').getStore();
             store.load({
                 params: {
-                    enterprise_id: record_.get('id')
+                    id: record_.get('id')
                 }
             })
         },

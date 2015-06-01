@@ -179,7 +179,7 @@ public class UpdateEnterpriseInfo {
             pst.setString(54, remark);
             pst.setInt(55, id);
 
-
+            pst.executeUpdate();
 
 
             String sql_change = "INSERT INTO work.tb_change(\n" +
@@ -196,7 +196,7 @@ public class UpdateEnterpriseInfo {
             pst.setTimestamp(6, timestamp);
             pst.executeUpdate();
 
-            pst.executeUpdate();
+
 
 
 
