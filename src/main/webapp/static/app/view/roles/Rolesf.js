@@ -1,7 +1,6 @@
 Ext.define('App.view.roles.Rolesf', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.rolesf',
-    "iconCls": "icon_truck",
     layout: 'border',
     border: false,
     initComponent: function () {

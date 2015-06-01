@@ -3,7 +3,6 @@ Ext.define('App.view.enterprise.Enterprisef', {
     border: false,
     alias: 'widget.enterprisef',
     id :'enterprisef_id',
-    "iconCls": "icon_edit_find_replace",
     layout: 'border',
     listeners: {
         activate: function () {

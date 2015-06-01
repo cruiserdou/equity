@@ -3,7 +3,6 @@ Ext.define('App.view.login_log.Login_logf', {
     border: false,
     alias: 'widget.login_logf',
     id :'login_logf_id',
-    "iconCls": "icon_edit_find_replace",
     layout: 'border',
     listeners: {
         activate: function () {

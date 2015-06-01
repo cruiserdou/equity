@@ -3,7 +3,6 @@ Ext.define('App.view.msg.Msgf', {
     border: false,
     alias: 'widget.msgf',
     id :'msgf_id',
-    "iconCls": "icon_edit_find_replace",
     layout: 'border',
     listeners: {
         activate: function () {

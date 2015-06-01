@@ -3,7 +3,6 @@ Ext.define('App.view.menu.Policef', {
     border: false,
     alias: 'widget.policef',
     layout: 'border',
-    iconCls: 'icon_paper_doc',
     listeners: {
         activate: function () {
             Ext.getCmp('grid_menu').getStore().load();

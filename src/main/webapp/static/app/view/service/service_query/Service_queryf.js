@@ -2,7 +2,6 @@ Ext.define('App.view.service.service_query.Service_queryf', {
     extend: 'Ext.panel.Panel',
     border: false,
     alias: 'widget.service_queryf',
-    "iconCls": "icon_edit_find_replace",
     layout: 'border',
     listeners: {
         activate: function () {

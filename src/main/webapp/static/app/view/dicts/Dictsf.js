@@ -2,7 +2,6 @@ Ext.define('App.view.dicts.Dictsf', {
     extend: 'Ext.panel.Panel',
     border: false,
     alias: 'widget.dictsf',
-    "iconCls": "icon_edit_find_replace",
     layout: 'border',
     listeners: {
         activate: function () {

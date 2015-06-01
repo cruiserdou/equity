@@ -3,7 +3,6 @@ Ext.define('App.view.enterprise_query.Enterprise_queryf', {
     border: false,
     alias: 'widget.enterprise_queryf',
     id :'enterprise_queryf_id',
-    "iconCls": "icon_edit_find_replace",
     layout: 'border',
     listeners: {
         activate: function () {

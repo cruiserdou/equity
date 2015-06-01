@@ -2,7 +2,6 @@ Ext.define('App.view.service.service_manage.Service_managef', {
     extend: 'Ext.panel.Panel',
     border: false,
     alias: 'widget.service_managef',
-    "iconCls": "icon_edit_find_replace",
     layout: 'border',
     listeners: {
         activate: function () {

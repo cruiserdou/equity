@@ -3,7 +3,6 @@ Ext.define('App.view.enterprise.Enterprise_typef', {
     border: false,
     alias: 'widget.enterprise_typef',
     id :'enterprise_type_id',
-    "iconCls": "icon_edit_find_replace",
     layout: 'border',
     listeners: {
         activate: function () {

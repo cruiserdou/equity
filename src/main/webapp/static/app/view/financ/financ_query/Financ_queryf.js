@@ -2,7 +2,6 @@ Ext.define('App.view.financ.financ_query.Financ_queryf', {
     extend: 'Ext.panel.Panel',
     border: false,
     alias: 'widget.financ_queryf',
-    "iconCls": "icon_edit_find_replace",
     layout: 'border',
     listeners: {
         activate: function () {
