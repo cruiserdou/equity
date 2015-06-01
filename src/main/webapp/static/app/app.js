@@ -294,7 +294,6 @@ Ext.application({
                     region: 'west',
                     collapsible: true,
                     width: 200
-
                 },
                 //{
                 //    layout : 'border',

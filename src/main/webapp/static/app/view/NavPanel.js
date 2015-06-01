@@ -23,12 +23,3 @@ Ext.define('App.view.NavPanel', {
 
     }
 })
-
-
-
-
-
-
-
-
-
