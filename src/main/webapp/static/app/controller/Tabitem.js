@@ -28,7 +28,7 @@ Ext.define('App.controller.Tabitem', {
         'menu.Policef', 'menu.Grid', 'menu.Query',
         'rolepermissions.Truckoutf', 'rolepermissions.Grid', 'rolepermissions.Query',
         'msg.Msgf','msg.Grid','msg.Query',
-        'enterprise.Enterprisef','enterprise.Grid','enterprise.Query','enterprise.Applyf',
+        'enterprise.Enterprisef','enterprise.Grid','enterprise.Query','enterprise.Applyf','enterprise.Enterprise_typef',
         'enterprise_query.Enterprise_queryf','enterprise_query.Grid','enterprise_query.Query','enterprise_query.ChangeGrid',
         'login_log.Login_logf','login_log.Grid','login_log.Query',
         'service.service_manage.Service_managef','service.service_manage.Grid','service.service_manage.Query',
