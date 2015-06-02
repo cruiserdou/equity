@@ -6,7 +6,7 @@ Ext.define('App.store.enterprise_assets_finance', {
     model: 'App.model.enterprise_assets_finance',
     proxy: {
         type: 'ajax',
-        url: 'obtain_enterprise_assets_finance',
+        url: 'obtain_enterprise_maintain_info',
         actionMethods: {
             read: 'POST'
         },

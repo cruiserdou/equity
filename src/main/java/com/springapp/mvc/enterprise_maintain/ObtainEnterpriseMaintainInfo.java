@@ -1,4 +1,4 @@
-package com.springapp.mvc.depts;
+package com.springapp.mvc.enterprise_maintain;
 
 /**
  * Created by xwq on 14-4-15.
@@ -18,15 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/obtain_depts_info")
-public class ObtainDeptsInfo {
+@RequestMapping("/obtain_enterprise_maintain_info")
+public class ObtainEnterpriseMaintainInfo {
 
     @RequestMapping(method = RequestMethod.POST)
     public
     @ResponseBody
     DataShop getShopInJSON(
-           @RequestParam(value = "deptname", required = false) String deptname,
-           @RequestParam(value = "nos", required = false) String nos
+            @RequestParam(value = "name", required = false) String name
     ) throws Exception{
         Connection conn = null;
         Statement stmt = null;
@@ -48,11 +47,11 @@ public class ObtainDeptsInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-            String sql = "select * from work.tb_depts WHERE 1 = 1 ";
-            if (deptname != null && deptname.length() != 0)
-                sql += " and deptname like '%" + deptname + "%'";
-            if (nos != null && nos.length() != 0)
-                sql += " and nos like '%" + nos + "%'";
+            String sql = "select enterprise.buslicno ,enterprise.name , enterprise_maintain.id, enterprise_maintain.enterprise_id, enterprise_maintain.receive_per, enterprise_maintain.maintain_date, enterprise_maintain.important_level, \n" +
+                    "       enterprise_maintain.content, enterprise_maintain.result, enterprise_maintain.next_plan, enterprise_maintain.next_date, enterprise_maintain.next_content, enterprise_maintain.phone_file, \n" +
+                    "       enterprise_maintain.remark  from work.tb_enterprise enterprise  left join  work.tb_enterprise_maintain enterprise_maintain  on enterprise.id =enterprise_maintain.enterprise_id ";
+//            if (name != null && name.length() != 0)
+//                sql += " and name like '%" + name + "%'";
 
             rs = stmt.executeQuery(sql);
 

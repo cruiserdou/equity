@@ -86,7 +86,7 @@ Ext.define('App.view.enterprise.Applyf', {
 
         '<table class="enter_table" id="table_sh">',
         '<tr>',
-        '<th class="table_header" colspan="8">股东信息</th>',
+        '<th class="table_header" colspan="8">股东名册</th>',
         '</tr>',
         '<tr>',
         '<th>股东类型</th>',
@@ -243,7 +243,7 @@ Ext.define('App.view.enterprise.Applyf', {
 
         '</div>',
         '<div style="position: fixed; top: 7em; right: 6em">',
-        '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close()"><i class="fa fa-pencil"></i>关闭</a>'+
+        //'<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close()"><i class="fa fa-pencil"></i>关闭</a>'+
 
         '<ul>',
         '<li><a href="#table_base" style="font-size:18px;">基本信息</a></li>',

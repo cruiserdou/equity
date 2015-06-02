@@ -45,55 +45,7 @@ Ext.define('App.view.users.Query', {
                                                 fieldLabel: '用户ID',
                                                 name: 'id'
                                             },
-                                            {
-                                                anchor: '100%',
-                                                name: 'deptid',
-                                                fieldLabel: '所属部门',
-                                                xtype: 'combo',
-                                                autoRender: true,
-                                                autoShow: true,
-                                                store: 'Dept_store',
-                                                triggerAction: 'all',
-                                                valueField: 'id',
-                                                displayField: 'deptname',
-                                                allowBlank: false,
-                                                listConfig: {
-                                                    getInnerTpl: function () {
-                                                        return '<div><span style="font-weight: bold">{id}' +
-                                                            '</span><br><span style="color: green;">' + '({deptname})</span></div>'
-                                                    }
-                                                },
-                                                listeners: {
-                                                    "blur": function (field) {
-                                                        if (field.getValue() != null) {
-                                                            Ext.Ajax.request({
-                                                                method: "POST",
-                                                                url: 'checked_user_id_info',
-                                                                params: {
-                                                                    depart_id: field.getValue()
-                                                                },
-                                                                success: function (response, opts) {
-                                                                    var obj = Ext.decode(response.responseText);
-                                                                    Ext.getCmp('nos_id').setValue(obj.name);
-                                                                },
-                                                                failure: function (form, action) {
-                                                                    Ext.Msg.alert("失败", "编号检验失败!");
-                                                                }
-                                                            });
-                                                        }
 
-                                                    }
-                                                }
-                                            },
-                                            {
-                                                anchor: '100%',
-                                                xtype: 'textfield',
-                                                readOnly:true,
-                                                name: 'nos',
-                                                id: 'nos_id',
-                                                fieldLabel: '员工编号',
-                                                allowBlank: false
-                                            },
                                             {
                                                 anchor: '100%',
                                                 fieldLabel: '员工账号',
@@ -267,55 +219,7 @@ Ext.define('App.view.users.Query', {
                                     fieldLabel: '用户ID',
                                     name: 'id'
                                 },
-                                {
-                                    anchor: '100%',
-                                    name: 'deptid',
-                                    fieldLabel: '所属部门',
-                                    xtype: 'combo',
-                                    autoRender: true,
-                                    autoShow: true,
-                                    store: 'Dept_store',
-                                    triggerAction: 'all',
-                                    valueField: 'id',
-                                    displayField: 'deptname',
-                                    allowBlank: false,
-                                    listConfig: {
-                                        getInnerTpl: function () {
-                                            return '<div><span style="font-weight: bold">{id}' +
-                                                '</span><br><span style="color: green;">' + '({deptname})</span></div>'
-                                        }
-                                    },
-                                    listeners: {
-                                        "blur": function (field) {
-                                            if (field.getValue() != null) {
-                                                Ext.Ajax.request({
-                                                    method: "POST",
-                                                    url: 'checked_user_id_info',
-                                                    params: {
-                                                        depart_id: field.getValue()
-                                                    },
-                                                    success: function (response, opts) {
-                                                        var obj = Ext.decode(response.responseText);
-                                                        Ext.getCmp('nos_id').setValue(obj.name);
-                                                    },
-                                                    failure: function (form, action) {
-                                                        Ext.Msg.alert("失败", "编号检验失败!");
-                                                    }
-                                                });
-                                            }
 
-                                        }
-                                    }
-                                },
-                                {
-                                    anchor: '100%',
-                                    xtype: 'textfield',
-                                    readOnly:true,
-                                    name: 'nos',
-                                    id: 'nos_id',
-                                    fieldLabel: '员工编号',
-                                    allowBlank: false
-                                },
                                 {
                                     anchor: '100%',
                                     fieldLabel: '员工账号',
@@ -521,12 +425,6 @@ Ext.define('App.view.users.Query', {
 
                 {
                     allowBlank: true,
-                    fieldLabel: '员工编号',
-                    id: 'query_usernos',
-                    emptyText: '员工编号'
-                },
-                {
-                    allowBlank: true,
                     fieldLabel: '员工姓名',
                     id: 'query_username',
                     emptyText: '员工姓名'
@@ -546,7 +444,6 @@ Ext.define('App.view.users.Query', {
                             var store = Ext.getCmp('grid_users').getStore();
                             store.load({
                                 params: {
-                                    nos: Ext.getCmp('query_usernos').getValue(),
                                     name: Ext.getCmp('query_username').getValue()
                                 }
                             });

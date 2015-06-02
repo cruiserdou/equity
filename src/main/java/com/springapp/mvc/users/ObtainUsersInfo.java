@@ -25,7 +25,6 @@ public class ObtainUsersInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
-            @RequestParam(value = "nos", required = false) String nos,
             @RequestParam(value = "name", required = false) String name
     ) throws Exception{
         Connection conn = null;
@@ -49,8 +48,6 @@ public class ObtainUsersInfo {
             stmt = conn.createStatement();
 
             String sql = "select * from work.users WHERE 1 = 1 ";
-            if (nos != null && nos.length() != 0)
-                sql += " and nos like '%" + nos + "%'";
             if (name != null && name.length() != 0)
                 sql += " and name like '%" + name + "%'";
 

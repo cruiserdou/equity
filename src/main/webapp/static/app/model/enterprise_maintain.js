@@ -3,8 +3,8 @@ Ext.define('App.model.enterprise_maintain', {
     fields: [
          {name: 'id'},
         { name : 'enterprise_id'},
-        { name : 'nos'},
-        { name : 'enterprise_nm'},
+        { name : 'buslicno'},
+        { name : 'name'},
         { name : 'receive_per'},
         { name : 'maintain_date'},
         { name : 'important_level'},

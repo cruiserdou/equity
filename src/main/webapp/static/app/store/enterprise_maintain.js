@@ -6,7 +6,7 @@ Ext.define('App.store.enterprise_maintain', {
     model: 'App.model.enterprise_maintain',
     proxy: {
         type: 'ajax',
-        url: 'obtain_enterprise_maintain',
+        url: 'obtain_enterprise_maintain_info',
         actionMethods: {
             read: 'POST'
         },

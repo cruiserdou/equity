@@ -33,9 +33,7 @@ public class UpdateUsersInfo {
             @RequestParam("sex") String sex,
             @RequestParam("phone") String phone,
             @RequestParam("address") String address,
-            @RequestParam("deptid") Integer deptid,
             @RequestParam("name") String name,
-            @RequestParam("nos") String nos,
             @RequestParam("remark") String remark,
             @RequestParam(value = "img", required = false) MultipartFile file ,
             HttpServletRequest request,
@@ -116,7 +114,7 @@ public class UpdateUsersInfo {
 
             String sql_insert = "update work.users set " +
                     "account=?, password=?, sex=?, phone=?, address=?, " +
-                    "   deptid=?,remark=?,nos=? ,name =?, img=? " +
+                    "    remark=?, name =?, img=? " +
                     " where id = ?";
             pst = conn.prepareStatement(sql_insert);
             pst.setString(1, account);
@@ -124,12 +122,10 @@ public class UpdateUsersInfo {
             pst.setString(3, sex);
             pst.setString(4, phone);
             pst.setString(5, address);
-            pst.setInt(6, deptid);
-            pst.setString(7, remark);
-            pst.setString(8, nos);
-            pst.setString(9, name);
-            pst.setString(10, filename);
-            pst.setInt(11, id);
+            pst.setString(6, remark);
+            pst.setString(7, name);
+            pst.setString(8, filename);
+            pst.setInt(9, id);
             pst.executeUpdate();
 
 

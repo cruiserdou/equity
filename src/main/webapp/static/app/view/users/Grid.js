@@ -14,11 +14,9 @@ Ext.define('App.view.users.Grid', {
     initComponent: function () {
         this.columns = [
             {text: '用户ID', width: 80, dataIndex: 'id', hidden:true},
-            {text: '员工编号', width: 80, dataIndex: 'nos'},
             {text: '员工姓名', width: 90, dataIndex: 'name'},
             {text: '性别', width: 80, dataIndex: 'sex'},
             {text: '手机号', width: 100, dataIndex: 'phone'},
-            {text: '部门', width: 100, dataIndex: 'deptid'},
             {text: '员工账号', width: 120, dataIndex: 'account', sortable: true},
             {text: '用户密码', width: 100, dataIndex: 'password',hidden:true},
             {text: '用户照片', width: 100, dataIndex: 'img',hidden:true},

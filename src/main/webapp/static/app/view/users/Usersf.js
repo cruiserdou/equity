@@ -66,13 +66,10 @@ var users_tpl = [
     "<tpl for='.'>" +
     '<div class="users_tpl_content" style="border-bottom: 1px solid #ccc; margin: 10px 0 10px 0;padding: 0 0 10px 0;">' +
     '<h3 style="color: #9999cc; margin-bottom: 1em;">{type}</h3>' +
-    '<h3 style="color: #996666;">员工编号:</h3>{nos}<br/>' +
     '<h3 style="color: #996666;">员工姓名:</h3>{name}<br/>' +
     '<h3 style="color: #cc6666;">性别:</h3>{sex}<br/>' +
     '<h3 style="color: #66cccc;">用户手机号:</h3>{phone}' +
-    '<h3 style="color: #66cccc;">联系地址:</h3>{address}' +
-    '<div style="color: grey; margin: 16px 0 0 0;">部门名称：{deptname}' +
-
+    '<div style="color: grey; margin: 16px 0 0 0;">联系地址：{address}' +
     '</div>' +
     '</div>' +
     "</tpl>" +

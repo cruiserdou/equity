@@ -89,7 +89,7 @@ Ext.define('App.view.enterprise.Grid', {
 
                 '<table class="enter_table" id="table_sh">' +
                 '<tr>' +
-                '<th class="table_header" colspan="8">股东信息</th>' +
+                '<th class="table_header" colspan="8">股东名册</th>' +
                 '</tr>' +
                 '<tr>' +
                 '<th>股东类型</th>' +

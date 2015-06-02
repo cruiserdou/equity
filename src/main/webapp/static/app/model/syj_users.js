@@ -7,13 +7,11 @@ Ext.define('App.model.syj_users', {
         {name: 'id'},
         {name: 'account'},
         {name: 'password'},
-        {name: 'nos'},
         {name: 'name'},
         {name: 'sex'},
         {name: 'phone'},
         {name: 'address'},
         {name: 'card'},
-        {name: 'deptid'},
         {name: 'img'},
         {name: 'remark'}
     ]

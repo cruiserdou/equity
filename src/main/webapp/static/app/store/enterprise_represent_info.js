@@ -6,7 +6,7 @@ Ext.define('App.store.enterprise_represent_info', {
     model: 'App.model.enterprise_represent_info',
     proxy: {
         type: 'ajax',
-        url: 'obtain_enterprise_represent_info',
+        url: 'obtain_enterprise_maintain_info',
         actionMethods: {
             read: 'POST'
         },

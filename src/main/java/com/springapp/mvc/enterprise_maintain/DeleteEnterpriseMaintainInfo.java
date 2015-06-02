@@ -1,4 +1,4 @@
-package com.springapp.mvc.depts;
+package com.springapp.mvc.enterprise_maintain;
 
 /**
  * Created by xwq on 14-4-15.
@@ -18,8 +18,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @Controller
-@RequestMapping("/delete_depts_info")
-public class DeleteDeptsInfo {
+@RequestMapping("/delete_enterprise_maintain_info")
+public class DeleteEnterpriseMaintainInfo {
 
     @RequestMapping(method = RequestMethod.POST)
     public
@@ -44,7 +44,7 @@ public class DeleteDeptsInfo {
         try {
             conn = DriverManager.getConnection(url, user, password);
 
-            String sql = "delete from work.tb_depts where id = ?";
+            String sql = "delete from work.tb_enterprise_maintain where id = ?";
             pst = conn.prepareStatement(sql);
             pst.setInt(1, id);
 
@@ -64,6 +64,7 @@ public class DeleteDeptsInfo {
                 System.out.print(e.getMessage());
             }
         }
+//        dataShop.setName(user_id);
 
         return dataShop;
     }
