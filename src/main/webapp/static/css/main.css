@@ -7,6 +7,14 @@
     background-color: #ecf2fb;
 }
 
+.enter_table input{
+    background-color: #ecf2fb;
+}
+
+.enter_table textarea{
+    background-color: #ecf2fb;
+}
+
 .enter_table td, .enter_table th{
     border: 1px solid #9ABCE6;
     border-collapse: collapse;
@@ -661,5 +669,10 @@ td textarea{
 
 .icon_income {
     background-image: url(images/income.png) !important;
+    background-repeat: no-repeat;
+}
+
+.icon_trans_icon{
+    background-image: url(images/trans-icon.png) !important;
     background-repeat: no-repeat;
 }

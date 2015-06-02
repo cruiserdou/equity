@@ -1,21 +1,20 @@
-
 Ext.define('App.view.enterprise.Grid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.enterprisef_grid',
     store: 'enterprise',
     selModel: new Ext.selection.CheckboxModel({checkOnly: false}),
-    id :'grid_enterprise',
+    id: 'grid_enterprise',
     listeners: {
         'itemdblclick': function (view, record, item, index, e) {
             //创建模板
             var apply_edits = new Ext.XTemplate(
                 '<div class="wrap_center">' +
-                '<form id="apply_form">'+
+                '<form id="apply_form">' +
                 '<h2>企业信息查看</h2>' +
                 '<table class="enter_table" id="table_base">' +
                 '<tr>' +
                 '<th class="table_header" colspan="4">基本信息</th>' +
-                //'<td><input id="id"  name="id"  type="text" value="{id}"/></td>' +
+                    //'<td><input id="id"  name="id"  type="text" value="{id}"/></td>' +
                 '</tr>' +
                 '<tr>' +
                 '<th>营业执照号码<span style="color: red">*</span></th>' +
@@ -117,7 +116,6 @@ Ext.define('App.view.enterprise.Grid', {
                 '</table>' +
 
 
-
                 '<table class="enter_table" id="table_link">' +
                 '<tr>' +
                 '<th class="table_header" colspan="4">法定代表人基本信息</th>' +
@@ -166,7 +164,6 @@ Ext.define('App.view.enterprise.Grid', {
                 '<td><input id="indclass4" name="indclass4"  type="text" value="{indclass4}"/></td>' +
                 '</tr>' +
                 '</table>' +
-
 
 
                 '<table  class="enter_table" id="table_ocompay">' +
@@ -240,27 +237,22 @@ Ext.define('App.view.enterprise.Grid', {
                 '</table>' +
 
 
+                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_enterprise_edit({id})">保存</a>' +
 
 
+                '</div>' +
+                '<div style="position: fixed; top: 7em; right: 6em">' +
 
-
-            '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_enterprise_edit({id})">保存</a>'+
-
-
-
-            '</div>' +
-            '<div style="position: fixed; top: 7em; right: 6em">' +
-            '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close_edit()"><i class="fa fa-pencil"></i>关闭</a>'+
-
-            '<ul>' +
-            '<li><a href="#table_base" style="font-size:18px;">基本信息</a></li>' +
-            '<li><a href="#table_sh"  style="font-size:18px;">股东名册</a></li>' +
-            '<li><a href="#table_link"  style="font-size:18px;">法定代表人</a></li>' +
-            '<li><a href="#table_acount"  style="font-size:18px;">行业分类</a></li>' +
-            '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</li>' +
-            '</ul>' +
-            '</form>'+
-            '</div>'
+                '<ul>' +
+                '<li><a href="#table_base" style="font-size:18px;">基本信息</a></li>' +
+                '<li><a href="#table_sh"  style="font-size:18px;">股东名册</a></li>' +
+                '<li><a href="#table_link"  style="font-size:18px;">法定代表人</a></li>' +
+                '<li><a href="#table_acount"  style="font-size:18px;">行业分类</a></li>' +
+                '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</li>' +
+                '</ul>' +
+                '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
+                '</form>' +
+                '</div>'
             );
 
             //呈现组件
@@ -279,7 +271,7 @@ Ext.define('App.view.enterprise.Grid', {
             apply_edits.overwrite(mypanel.body, record.data);
             var editWindow = new Ext.Window({
                 layout: 'fit',
-                id:'enterprise_edit_id',
+                id: 'enterprise_edit_id',
                 width: 830,
                 height: 650,
                 modal: true,
@@ -374,7 +366,7 @@ Ext.define('App.view.enterprise.Grid', {
 });
 
 function win_close_edit() {
-Ext.getCmp('enterprise_edit_id').close();
+    Ext.getCmp('enterprise_edit_id').close();
 
 }
 
@@ -439,7 +431,6 @@ function save_enterprise_edit(id) {
             eemail: form_obt_apply['eemail'].value,
             eqq: form_obt_apply['eqq'].value,
             remark: form_obt_apply['remark'].value
-
 
 
         },
