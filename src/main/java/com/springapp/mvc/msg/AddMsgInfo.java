@@ -24,12 +24,12 @@ public class AddMsgInfo {
     @ResponseBody
     DataShop getShopInJSON(
             HttpSession session,
-            @RequestParam("ruser_id") Integer ruser_id,
-            @RequestParam("type") String type,
-            @RequestParam("stat") String stat,
-            @RequestParam("deadline") String deadline,
-            @RequestParam("content") String content,
-            @RequestParam("remark") String remark
+            @RequestParam(value = "ruser_id", required = false) Integer ruser_id,
+            @RequestParam(value = "type", required = false) String type,
+            @RequestParam(value = "stat", required = false) String stat,
+            @RequestParam(value = "deadline", required = false) String deadline,
+            @RequestParam(value = "content", required = false) String content,
+            @RequestParam(value = "remark", required = false) String remark
 
     ) throws Exception{
         DataShop dataShop = new DataShop();

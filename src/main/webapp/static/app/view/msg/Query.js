@@ -92,11 +92,15 @@ Ext.define('App.view.msg.Query', {
                                                     if (form.isValid()){
                                                         form.submit({
                                                             url: 'add_msg_info',
+                                                            params: {
+                                                                "stat":'未阅'
+                                                            },
                                                             waitMsg: '正在保存数据...',
                                                             success: function(form, action){
                                                                 Ext.Msg.alert("成功", "数据保存成功!");
                                                                 //重新载入渠道信息
                                                                 Ext.getCmp('grid_msg').getStore().reload();
+
                                                             },
                                                             failure: function(form, action){
                                                                 Ext.Msg.alert("失败", "数据保存失败!");
@@ -253,6 +257,41 @@ Ext.define('App.view.msg.Query', {
                                             url: 'delete_msg_info',
                                             params: {
                                                 "id": id
+                                            },
+                                            waitMsg: '正在删除数据...',
+                                            success: function (form, action) {
+                                                Ext.Msg.alert("成功", "数据删除成功!");
+                                                Ext.getCmp('grid_msg').getStore().reload();
+                                            },
+                                            failure: function (form, action) {
+                                                Ext.Msg.alert("失败", "数据删除失败!");
+                                            }
+                                        });
+                                    }
+                                } else {
+                                    Ext.Msg.alert('提示', '请选择要删除的记录');
+                                }
+                            }
+                        });
+                    }
+                },'-',
+                {
+                    text: '已阅',
+                    handler: function () {
+                        Ext.Msg.confirm('信息', '确定要删除？', function (btn) {
+                            if (btn == 'yes') {
+                                var sm = Ext.getCmp('grid_msg').getSelectionModel();
+                                var rows = sm.getSelection();
+
+                                if (rows.length > 0) {
+                                    for (var i = 0; i < rows.length; i++) {
+                                        var row = rows[i];
+                                        var id = row.get('id');
+                                        Ext.Ajax.request({
+                                            url: 'readed_msg_info',
+                                            params: {
+                                                "id": id,
+                                                "stat":'已阅'
                                             },
                                             waitMsg: '正在删除数据...',
                                             success: function (form, action) {

@@ -10,6 +10,7 @@ Ext.define('App.view.enterprise_maintain.Grid', {
         this.columns = [
             {text: 'id', width: 80, dataIndex: 'id', hidden:true},
             {text: 'enterprise_id', width: 80, dataIndex: 'enterprise_id', hidden:true},
+            {text: 'enterid', width: 80, dataIndex: 'enterid', hidden:true},
             {text: '公司编号', width: 150, dataIndex: 'buslicno'},
             {text: '名称', width: 150, dataIndex: 'name'},
             {text: '接待人', width: 150, dataIndex: 'receive_per'},

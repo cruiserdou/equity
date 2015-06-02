@@ -4,6 +4,7 @@ Ext.define('App.model.enterprise_maintain', {
          {name: 'id'},
         { name : 'enterprise_id'},
         { name : 'buslicno'},
+        { name : 'enterid'},
         { name : 'name'},
         { name : 'receive_per'},
         { name : 'maintain_date'},

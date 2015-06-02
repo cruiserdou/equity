@@ -9,7 +9,7 @@ Ext.define('App.model.msg', {
         {name: 'ruser_id'},
         {name: 'deadline'},
         {name: 'content'},
-        {name: 'state'},
+        {name: 'stat'},
         {name: 'rtdate'},
         {name: 'type'},
         {name: 'remark'}

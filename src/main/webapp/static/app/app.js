@@ -354,3 +354,41 @@ Ext.application({
         });
     }
 });
+function msg_list_refresh() {
+    var sdata_msg = Ext.create('Ext.data.Store', {
+        model: 'App.model.msg',
+        proxy: {
+            type: 'ajax',
+            url: 'obtain_msg_list_info',
+            actionMethods: {
+                read: 'POST'
+            },
+            reader: {
+                type: 'json',
+                root: 'list'
+            }
+        },
+        autoLoad: true
+    });
+
+    sdata_msg.load({
+        callback: function (records, operation, success) {
+            if (success) {
+                var myarray = new Array();
+                for (var i = 0; i < sdata_msg.getCount(); i++) {
+                    myarray[i] = sdata_msg.getAt(i).getData();
+                    var msg_info_xwq = myarray[i].content;
+                    var msg_sendp_xwq = myarray[i].user_id;
+                    console.log(msg_sendp_xwq);
+                    Notification.requestPermission(function (status) {
+                        console.log(status); // notifications will  only be displayed if "granted"
+                        new Notification('消息提醒', {
+                            body: msg_info_xwq,
+                            icon: '/cloudl/static/upload/annex/per.jpg'
+                        })
+                    });
+                }
+            }
+        }
+    });
+}

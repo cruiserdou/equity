@@ -26,17 +26,20 @@ public class AddEnterpriseMaintainInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
-            @RequestParam("enterprise_id") Integer enterprise_id,
-            @RequestParam("receive_per") String receive_per,
-            @RequestParam("maintain_date") String maintain_date,
-            @RequestParam("important_level") String important_level,
-            @RequestParam("content") String content,
-            @RequestParam("result") String result,
-            @RequestParam("next_plan") String next_plan,
-            @RequestParam("next_date") String next_date,
-            @RequestParam("next_content") String next_content,
+            @RequestParam(value = "enterid", required = false) Integer enterid,
+            @RequestParam(value = "enterprise_id", required = false) Integer enterprise_id,
+            @RequestParam(value = "buslicno", required = false) String buslicno,
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "receive_per", required = false) String receive_per,
+            @RequestParam(value = "maintain_date", required = false) String maintain_date,
+            @RequestParam(value = "important_level", required = false) String important_level,
+            @RequestParam(value = "content", required = false) String content,
+            @RequestParam(value = "result", required = false) String result,
+            @RequestParam(value = "next_plan", required = false) String next_plan,
+            @RequestParam(value = "next_date", required = false) String next_date,
+            @RequestParam(value = "next_content", required = false) String next_content,
             @RequestParam(value = "phone_file", required = false) MultipartFile file,
-            @RequestParam("remark") String remark,
+            @RequestParam(value = "remark", required = false) String remark,
             HttpServletRequest request
 
 
@@ -83,7 +86,7 @@ public class AddEnterpriseMaintainInfo {
                     "            ?, ?, ?, ?, ?, ?, \n" +
                     "            ?)";
             pst = conn.prepareStatement(sql);
-            pst.setInt(1, enterprise_id);
+            pst.setInt(1, enterid);
             pst.setString(2, receive_per);
             Timestamp t_maintain_date = Timestamp.valueOf(maintain_date);
             pst.setTimestamp(3, t_maintain_date);

@@ -35,10 +35,17 @@ Ext.define('App.controller.Frame', {
                     Ext.getCmp('tabPanel_id').setActiveTab(tabitem);
                 },
                 afterrender: function () {
+                    setInterval("msg_list_refresh()",  3000);
                     Ext.getCmp('tabPanel_id').add({
                         xtype: 'enterprise_queryf',
                         id: 'enterprise_queryf_id',
-                        title: '企业信息'
+                        title: '企业信息',
+                        listeners: {
+                            activate: function () {
+                                msg_list_refresh();
+
+                            }
+                        }
                     })
                 }
             }

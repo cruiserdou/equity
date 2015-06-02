@@ -38,13 +38,13 @@ Ext.define('App.view.enterprise_maintain.Query', {
                             items: [
                                 {
                                     hidden: 'true',
-                                    fieldLabel: 'ID',
+                                    fieldLabel: 'id',
                                     name: 'id'
                                 },
                                 {
                                     hidden: 'true',
-                                    fieldLabel: 'id',
-                                    name: 'id'
+                                    fieldLabel: 'enterid',
+                                    name: 'enterid'
                                 },
                                 {
                                     hidden: 'true',
@@ -162,7 +162,7 @@ Ext.define('App.view.enterprise_maintain.Query', {
                                         var form = this.up('form').getForm();
                                         if (form.isValid()){
                                             form.submit({
-                                                url: 'update_enterprise_maintain_info',
+                                                url: 'add_enterprise_maintain_info',
                                                 waitMsg: '正在保存数据...',
                                                 success: function(form, action){
                                                     Ext.Msg.alert("成功", "数据保存成功!");
