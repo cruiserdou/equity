@@ -45,13 +45,15 @@ public class ObtainMsgListInfo {
         String password = connstr.getPassword();
         try{
             conn = DriverManager.getConnection(url, user, password);
-            stmt = conn.createStatement();
+
             java.util.Date date_deadline = new java.util.Date();
             Timestamp timestamp_date_deadline = new Timestamp(date_deadline.getTime());
 
             String sql = "SELECT id, user_id, ruser_id, deadline, content, stat, remark, rtdate, \n" +
-                    "       type FROM work.tb_msg where ruser_id = '"+user_id+"' ";
-            rs = stmt.executeQuery(sql);
+                    "       type FROM work.tb_msg where stat=? and ruser_id = '"+user_id+"' ";
+            pst = conn.prepareStatement(sql);
+            pst.setString(1,"未阅");
+            rs = pst.executeQuery();
             list = new ConvertToList().convertList(rs);
 
         }catch (SQLException e){
