@@ -7,15 +7,23 @@ Ext.define('App.controller.Tabitem', {
         'syj_depts','syj_users','syj_menu','Dept_store','syj_dicts'
         ,'syj_roles','syj_userroles','syj_rolepermissions'
         ,'msg','enterprise','login_log','enterprise_sh','change'
-        ,'service','financ'
+        ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
     ],
+
+
+
+
+
+
+
+
 
     stores: [
         'syj_depts','syj_users','syj_menu','Dept_store','syj_dicts'
         ,'dicts_service'
         ,'syj_roles','syj_userroles','syj_rolepermissions'
         ,'msg','enterprise','login_log','change'
-        ,'service','financ'
+        ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
     ],
 
     views: [
