@@ -676,3 +676,7 @@ td textarea{
     background-image: url(images/trans-icon.png) !important;
     background-repeat: no-repeat;
 }
+
+.x-tree-icon{
+    width: 0;
+}

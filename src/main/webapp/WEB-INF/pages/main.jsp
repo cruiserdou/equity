@@ -20,11 +20,6 @@
     <script src="static/jslib/ext-4.2/locale/ext-lang-zh_CN.js"></script>
 
     <script src="static/app/app.js"></script>
-    <style>
-        .x-tree-icon{
-            width: 0;
-        }
-    </style>
 </head>
 <body>
 <div id="container"></div>
