@@ -69,16 +69,16 @@
             font-weight: 800;
         }
 
-        /*.image-background {*/
-            /*position: fixed;*/
-            /*top: 0px;*/
-            /*left: 0px;*/
-            /*width: 100%;*/
-            /*height: 100%;*/
-            /*z-index: -1;*/
-        /*}*/
+        .image-background {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
 
-        .wrap a{
+        .wrap a {
             color: white;
             text-decoration: none;
             display: block;
@@ -86,10 +86,12 @@
             margin-top: 1em;
             font-family: 'Microsoft YaHei';
         }
-        .wrap a:visited{
+
+        .wrap a:visited {
             color: #ffffff;
         }
-        .wrap a:hover{
+
+        .wrap a:hover {
             color: #e2e2e2;
         }
     </style>
@@ -107,120 +109,120 @@
     <a href="#">忘 记 密 码？</a>
 </div>
 
-<%--<div id="banner"></div>--%>
-<%--<div id="image-background" class="image-background">--%>
-<%--<img src="static/css/images/17.jpg" class="centerImage">--%>
-<%--</div>--%>
-<%--<script>--%>
-<%--(function ($) {--%>
-<%--"use strict";--%>
-<%--var pluginName = 'centerImage';--%>
+<div id="banner"></div>
+<div id="image-background" class="image-background">
+    <img src="static/css/images/17.jpg" class="centerImage">
+</div>
+<script>
+    (function ($) {
+        "use strict";
+        var pluginName = 'centerImage';
 
-<%--var pluginController = function (element, theOptions) {--%>
+        var pluginController = function (element, theOptions) {
 
-<%--var $container = $(element);--%>
+            var $container = $(element);
 
-<%--var defaults = {--%>
-<%--imgClass: "centerImage"--%>
-<%--};--%>
-<%--// Get options saved within $container's data attributes--%>
-<%--var meta = $container.data(pluginName + '-options');--%>
-<%--var options = $.extend(defaults, meta, theOptions);--%>
+            var defaults = {
+                imgClass: "centerImage"
+            };
+            // Get options saved within $container's data attributes
+            var meta = $container.data(pluginName + '-options');
+            var options = $.extend(defaults, meta, theOptions);
 
-<%--var $img = $container.find("img." + options.imgClass);--%>
-<%--var tempImg = new Image();--%>
-<%--var init = function () {--%>
-<%--$img.css({--%>
-<%--position: "absolute",--%>
-<%--"max-width": "none",--%>
-<%--"max-height": "none"--%>
-<%--});--%>
+            var $img = $container.find("img." + options.imgClass);
+            var tempImg = new Image();
+            var init = function () {
+                $img.css({
+                    position: "absolute",
+                    "max-width": "none",
+                    "max-height": "none"
+                });
 
-<%--tempImg.src = $img.attr("src");--%>
-<%--centerImage();--%>
-<%--$(window).on('resize.' + pluginName + ' ' + 'orientationchange.' + pluginName, centerImage);--%>
-<%--};--%>
+                tempImg.src = $img.attr("src");
+                centerImage();
+                $(window).on('resize.' + pluginName + ' ' + 'orientationchange.' + pluginName, centerImage);
+            };
 
-<%--var getImageDim = function () {--%>
-<%--var $imgContainer = $container;--%>
-<%--var containerWidth = $imgContainer.width();--%>
-<%--var containerHeight = $imgContainer.height();--%>
-<%--var containerRatio = containerHeight / containerWidth;--%>
-<%--var imageWidth = tempImg.width;--%>
-<%--var imageHeight = tempImg.height;--%>
-<%--var imageRatio = imageHeight / imageWidth;--%>
-<%--var necontainerWidth;--%>
-<%--var necontainerHeight;--%>
+            var getImageDim = function () {
+                var $imgContainer = $container;
+                var containerWidth = $imgContainer.width();
+                var containerHeight = $imgContainer.height();
+                var containerRatio = containerHeight / containerWidth;
+                var imageWidth = tempImg.width;
+                var imageHeight = tempImg.height;
+                var imageRatio = imageHeight / imageWidth;
+                var necontainerWidth;
+                var necontainerHeight;
 
-<%--if (containerRatio > imageRatio) {--%>
-<%--necontainerHeight = containerHeight;--%>
-<%--necontainerWidth = containerHeight / imageRatio;--%>
-<%--} else {--%>
-<%--necontainerHeight = containerWidth * imageRatio;--%>
-<%--necontainerWidth = containerWidth;--%>
-<%--}--%>
+                if (containerRatio > imageRatio) {
+                    necontainerHeight = containerHeight;
+                    necontainerWidth = containerHeight / imageRatio;
+                } else {
+                    necontainerHeight = containerWidth * imageRatio;
+                    necontainerWidth = containerWidth;
+                }
 
-<%--return {--%>
-<%--width: necontainerWidth,--%>
-<%--height: necontainerHeight,--%>
-<%--left: (containerWidth - necontainerWidth ) / 2,--%>
-<%--top: (containerHeight - necontainerHeight ) / 2--%>
-<%--};--%>
-<%--};--%>
+                return {
+                    width: necontainerWidth,
+                    height: necontainerHeight,
+                    left: (containerWidth - necontainerWidth ) / 2,
+                    top: (containerHeight - necontainerHeight ) / 2
+                };
+            };
 
-<%--// apply style for bg image and canvas--%>
-<%--var centerImage = function () {--%>
-<%--var dim = getImageDim();--%>
-<%--var styleCSS = {--%>
-<%--width: dim.width,--%>
-<%--height: dim.height,--%>
-<%--left: dim.left,--%>
-<%--top: dim.top--%>
-<%--};--%>
+            // apply style for bg image and canvas
+            var centerImage = function () {
+                var dim = getImageDim();
+                var styleCSS = {
+                    width: dim.width,
+                    height: dim.height,
+                    left: dim.left,
+                    top: dim.top
+                };
 
-<%--$img.css(styleCSS);--%>
-<%--};--%>
+                $img.css(styleCSS);
+            };
 
-<%--// Destroy the warp object without removing elements--%>
-<%--var destroy = function () {--%>
-<%--// Unbind events--%>
-<%--$container.off('.' + pluginName);--%>
-<%--$container.find('*').off('.' + pluginName);--%>
-<%--// Remove data--%>
-<%--$container.removeData(pluginName);--%>
-<%--$container = null;--%>
-<%--};--%>
+            // Destroy the warp object without removing elements
+            var destroy = function () {
+                // Unbind events
+                $container.off('.' + pluginName);
+                $container.find('*').off('.' + pluginName);
+                // Remove data
+                $container.removeData(pluginName);
+                $container = null;
+            };
 
-<%--// Wapper object--%>
-<%--var that = {};--%>
-<%--that.options = options;--%>
-<%--that.destroy = destroy;--%>
+            // Wapper object
+            var that = {};
+            that.options = options;
+            that.destroy = destroy;
 
-<%--// Initialize the wrapper object to generate elements of the widget--%>
-<%--init();--%>
+            // Initialize the wrapper object to generate elements of the widget
+            init();
 
-<%--//--%>
-<%--// Store wrapper object in $container using jQuery's $.data function.--%>
-<%--// Usage: console.log($('#theListener').data('jqListener'));--%>
-<%--$container.data(pluginName, that);--%>
-<%--};--%>
+            //
+            // Store wrapper object in $container using jQuery's $.data function.
+            // Usage: console.log($('#theListener').data('jqListener'));
+            $container.data(pluginName, that);
+        };
 
-<%--//--%>
-<%--// jQuery function--%>
-<%--//--%>
-<%--$.fn[pluginName] = function (options) {--%>
-<%--this.each(function () {--%>
-<%--pluginController(this, options);--%>
-<%--});--%>
-<%--// Chain-ability of jQuery objects--%>
-<%--return this;--%>
-<%--};--%>
-<%--})(jQuery);--%>
+        //
+        // jQuery function
+        //
+        $.fn[pluginName] = function (options) {
+            this.each(function () {
+                pluginController(this, options);
+            });
+        // Chain-ability of jQuery objects
+            return this;
+        };
+    })(jQuery);
 
-<%--$(document).ready(function () {--%>
-<%--//debugger;--%>
-<%--jQuery("#image-background").centerImage();--%>
-<%--});--%>
-<%--</script>--%>
+    $(document).ready(function () {
+        //debugger;
+        jQuery("#image-background").centerImage();
+    });
+</script>
 </body>
 </html>
