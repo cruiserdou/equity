@@ -68,7 +68,7 @@ Ext.define('App.view.service.service_query.Query', {
                     text: '查找',
                     listeners: {
                         click: function(){
-                            var store = Ext.getCmp('grid_service_queryf').getStore();
+                            var store = Ext.getCmp('grid_service_query').getStore();
                             store.load({
                                 params: {
                                     name: Ext.getCmp('query_service_query_name').getValue(),
@@ -90,7 +90,7 @@ Ext.define('App.view.service.service_query.Query', {
                     listeners: {
                         click: function(_this){
                             _this.up('form').getForm().reset();
-                            Ext.getCmp('grid_service_queryf').getStore().load();
+                            Ext.getCmp('grid_service_query').getStore().load();
                         }
                     }
                 }

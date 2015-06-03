@@ -55,9 +55,9 @@ public class ObtainServiceInfo {
                     "  FROM work.tb_service service left join  work.tb_enterprise enterprise  on enterprise.id =service.enterprise_id\n" +
                     "\n   WHERE 1 = 1 ";
             if (name != null && name.length() != 0)
-                sql += " and name like '%" + name + "%'";
+                sql += " and service.name like '%" + name + "%'";
             if (type != null && type.length() != 0)
-                sql += " and type like '%" + type + "%'";
+                sql += " and service.type like '%" + type + "%'";
 
             rs = stmt.executeQuery(sql);
 
