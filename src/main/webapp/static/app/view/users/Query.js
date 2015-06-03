@@ -71,7 +71,7 @@ Ext.define('App.view.users.Query', {
                                                 items: [
                                                     {
                                                         layout: "column",
-                                                        fieldLabel: '性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别',
+                                                        fieldLabel: '性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别',
                                                         labelAlign: 'right',
                                                         xtype: 'radiogroup', anchor: '220%', columns: 20, items: [
                                                         {boxLabel: "男", name: 'sex', inputValue: '男',checked: true},
@@ -94,7 +94,7 @@ Ext.define('App.view.users.Query', {
 
                                             {anchor: '100%',
                                                 xtype: 'textarea',
-                                                fieldLabel: '备&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注',
+                                                fieldLabel: '备&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注',
                                                 name: 'remark'
                                             },
                                             {
@@ -135,7 +135,7 @@ Ext.define('App.view.users.Query', {
                                                         width:255,
                                                         margin:'10 10 10 10',
                                                         title: '图片预览',
-                                                        defaults: {margin:'0 0 0 80', width: 100,height:100},
+                                                        defaults: {margin:'10 0 10 20', width: 200,height:150},
                                                         items: [
                                                             {
                                                                 xtype: 'image',

@@ -60,7 +60,7 @@ Ext.define('App.view.roles.Query', {
                                             {
                                                 anchor: '100%',
                                                 xtype: 'textarea',
-                                                fieldLabel: '备&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注',
+                                                fieldLabel: '备&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注',
                                                 name: 'remark'
                                             }
                                         ],
