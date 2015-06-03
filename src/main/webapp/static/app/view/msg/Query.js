@@ -278,7 +278,7 @@ Ext.define('App.view.msg.Query', {
                 {
                     text: '已阅',
                     handler: function () {
-                        Ext.Msg.confirm('信息', '确定要删除？', function (btn) {
+                        Ext.Msg.confirm('信息', '确定要已阅吗？', function (btn) {
                             if (btn == 'yes') {
                                 var sm = Ext.getCmp('grid_msg').getSelectionModel();
                                 var rows = sm.getSelection();
@@ -293,13 +293,13 @@ Ext.define('App.view.msg.Query', {
                                                 "id": id,
                                                 "stat":'已阅'
                                             },
-                                            waitMsg: '正在删除数据...',
+                                            waitMsg: '正在已阅数据...',
                                             success: function (form, action) {
-                                                Ext.Msg.alert("成功", "数据删除成功!");
+                                                Ext.Msg.alert("成功", "数据已阅成功!");
                                                 Ext.getCmp('grid_msg').getStore().reload();
                                             },
                                             failure: function (form, action) {
-                                                Ext.Msg.alert("失败", "数据删除失败!");
+                                                Ext.Msg.alert("失败", "数据已阅失败!");
                                             }
                                         });
                                     }
