@@ -1,4 +1,3 @@
-
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -111,13 +110,10 @@
 </div>
 
 <div id="banner"></div>
-<div id="image-background" class="image-background">
-
-
-    <img src="static/css/images/17.jpg" class="centerImage">
+<div style="width: 100%;" id="image-background" class="image-background">
+    <img style="width: 100%;" src="static/css/images/login-back.png" class="centerImage">
 </div>
 <script>
-
     (function ($) {
         "use strict";
         var pluginName = 'centerImage';
