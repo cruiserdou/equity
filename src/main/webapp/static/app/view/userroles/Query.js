@@ -83,11 +83,9 @@ Ext.define('App.view.userroles.Query', {
                                                 store: 'syj_users',
                                                 displayField: 'name',
                                                 valueField: 'id',
-                                                emptyText: '部门主管',
                                                 listConfig: {
                                                     getInnerTpl: function () {
-                                                        return '<div><span style="font-weight: bold">{id}' +
-                                                            '</span><br><span style="color: green;">' + '({name})</span></div>'
+                                                        return '<div><span style="color: green;">' + '({name})</span></div>'
                                                     }
                                                 }
                                             },
