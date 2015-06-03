@@ -20,7 +20,7 @@ Ext.define('App.view.msg.Grid', {
             {text: '类型', width: 100, dataIndex: 'type'},
             {text: '接收人', width: 100, dataIndex: 'ruser_id'},
             {text: '内容', width: 100, dataIndex: 'content'},
-            {text: '期限', width: 100, dataIndex: 'deadline'},
+            {text: '期限', width: 100, dataIndex: 'deadline',hidden:true},
             {text: '发送时间', width: 200, dataIndex: 'rtdate'},
             {text: '备注', flex: 1, dataIndex: 'remark'}
 
