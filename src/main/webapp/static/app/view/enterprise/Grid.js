@@ -238,25 +238,6 @@ Ext.define('App.view.enterprise.Grid', {
 
 
 
-                '<table class="enter_table" id="table_server">' +
-                '<tr>' +
-                '<th class="table_header" colspan="4">服务机构</th>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>服务机构名称</th>' +
-                '<td><input id="name" name="name"  type="text" value="{name}"/></td>' +
-                '<th>行业二级分类</th>' +
-                '<td><input id="indclass2" name="indclass2"  type="text" value="{indclass2}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>行业三级分类</th>' +
-                '<td><input id="indclass3" name="indclass3"  type="text" value="{indclass3}"/></td>' +
-                '<th>法人代表</th>' +
-                '<td><input id="indclass4" name="indclass4"  type="text" value="{indclass4}"/></td>' +
-                '</tr>' +
-                '</table>' +
-
-
                 '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_enterprise_edit({id})">保存</a>' +
 
 
@@ -269,7 +250,6 @@ Ext.define('App.view.enterprise.Grid', {
                 '<li><a href="#table_link"  style="font-size:18px;">法定代表人</a></li>' +
                 '<li><a href="#table_acount"  style="font-size:18px;">行业分类</a></li>' +
                 '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</li>' +
-                '<li><a href="#table_server"  style="font-size:18px;">服务机构</li>' +
                 '</ul>' +
                 '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
                 '</form>' +

@@ -50,8 +50,10 @@ public class ObtainServiceInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-            String sql = "SELECT id, nos, name, type, content, levels, descs, domain, penalty,   remark " +
-                    "  FROM work.tb_service WHERE 1 = 1 ";
+            String sql = "SELECT service.id serviceid, service.nos servicenos, service.name servicename, service.type servicetype, service.content servicecontent, service.levels  servicelevels, \n" +
+                    "  service.descs servicedescs, service.domain servicedomain, service.penalty servicepenalty, service.remark serviceremark, service.enterprise_id serviceenterprise_id,enterprise.*\n" +
+                    "  FROM work.tb_service service left join  work.tb_enterprise enterprise  on enterprise.id =service.enterprise_id\n" +
+                    "\n   WHERE 1 = 1 ";
             if (name != null && name.length() != 0)
                 sql += " and name like '%" + name + "%'";
             if (type != null && type.length() != 0)

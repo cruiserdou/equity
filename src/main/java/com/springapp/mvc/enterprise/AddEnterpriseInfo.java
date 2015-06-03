@@ -24,7 +24,6 @@ public class AddEnterpriseInfo {
     @ResponseBody
     DataShop getShopInJSON(
             HttpSession session,
-
             @RequestParam("buslicno") String buslicno,
             @RequestParam("name") String name,
             @RequestParam("unit") String unit,
@@ -85,6 +84,7 @@ public class AddEnterpriseInfo {
         DataShop dataShop = new DataShop();
         dataShop.setSuccess(true);
         Connection conn = null;
+        ResultSet rs = null;
         PreparedStatement pst = null;
         try {
             Class.forName("org.postgresql.Driver").newInstance();
@@ -191,6 +191,17 @@ public class AddEnterpriseInfo {
             pst.setTimestamp(55, timestamp);
             pst.executeUpdate();
 
+            String sql_select = "select max(id) as maxid from work.tb_enterprise";
+            pst = conn.prepareStatement(sql_select);
+            rs = pst.executeQuery();
+            Integer maxid = null;
+            while (rs.next()){
+                maxid = rs.getInt("maxid");
+            }
+            String sql_insert = "INSERT INTO work.tb_service(enterprise_id) VALUES (?)";
+            pst = conn.prepareStatement(sql_insert);
+            pst.setInt(1,maxid);
+            pst.executeUpdate();
 
             dataShop.setSuccess(true);
 

@@ -24,16 +24,16 @@ public class UpdateServiceInfo {
     @ResponseBody
     DataShop getShopInJSON(
             HttpSession session,
-            @RequestParam("id") Integer id,
-            @RequestParam("nos") String nos,
-            @RequestParam("name") String name,
-            @RequestParam("type") String type,
-            @RequestParam("content") String content,
-            @RequestParam("levels") String levels,
-            @RequestParam("descs") String descs,
-            @RequestParam("domain") String domain,
-            @RequestParam("penalty") String penalty,
-            @RequestParam("remark") String remark
+            @RequestParam(value = "serviceid", required = false) Integer id,
+            @RequestParam(value = "servicenos", required = false) String nos,
+            @RequestParam(value = "servicename", required = false) String name,
+            @RequestParam(value = "servicetype", required = false) String type,
+            @RequestParam(value = "servicecontent", required = false) String content,
+            @RequestParam(value = "servicelevels", required = false) String levels,
+            @RequestParam(value = "servicedescs", required = false) String descs,
+            @RequestParam(value = "servicedomain", required = false) String domain,
+            @RequestParam(value = "servicepenalty", required = false) String penalty,
+            @RequestParam(value = "serviceremark", required = false) String remark
 
             ) throws Exception{
         DataShop dataShop = new DataShop();
