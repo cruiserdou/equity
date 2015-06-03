@@ -162,7 +162,7 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '<tr>' +
                 '<th>行业三级分类</th>' +
                 '<td><input id="indclass3" name="indclass3"  type="text" value="{indclass3}"/></td>' +
-                '<th>法人代表</th>' +
+                '<th>行业四级分类</th>' +
                 '<td><input id="indclass4" name="indclass4"  type="text" value="{indclass4}"/></td>' +
                 '</tr>' +
                 '</table>' +

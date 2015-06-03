@@ -75,7 +75,7 @@ public class AddUsersInfo {
                 filename = file.getOriginalFilename();
 
             }else{
-                filename = "";
+                filename = "per.png";
             }
 
             String sql = "INSERT INTO work.users(\n" +

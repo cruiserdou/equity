@@ -166,7 +166,7 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '<tr>' +
                 '<th>行业三级分类</th>' +
                 '<td>{indclass3}</td>' +
-                '<th>法人代表</th>' +
+                '<th>行业四级分类</th>' +
                 '<td>{indclass4}</td>' +
                 '</tr>' +
                 '</table>' +
