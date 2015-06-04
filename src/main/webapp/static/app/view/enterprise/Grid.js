@@ -280,7 +280,12 @@ Ext.define('App.view.enterprise.Grid', {
                 '</ul>' +
                 '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
                 '</form>' +
-                '</div>'
+                '</div>',
+            {
+                checkSex_f: function (sex) {
+                    return sex!="男";
+                }
+            }
             );
 
             //呈现组件
