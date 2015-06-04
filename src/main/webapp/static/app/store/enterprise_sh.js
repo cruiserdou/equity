@@ -6,7 +6,7 @@ Ext.define('App.store.enterprise_sh', {
     model: 'App.model.enterprise_sh',
     proxy: {
         type: 'ajax',
-        url: 'obtain_enterprise_sh',
+        url: 'obtain_enterprise_sh_info',
         actionMethods: {
             read: 'POST'
         },

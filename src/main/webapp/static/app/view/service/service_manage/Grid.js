@@ -353,6 +353,9 @@ Ext.define('App.view.service.service_manage.Grid', {
         this.columns = [
             {text: 'ID', width: 80, dataIndex: 'serviceid',hidden:true},
             {text: '企业ID', width: 80, dataIndex: 'serviceenterprise_id',hidden:true},
+
+            {text: '营业执照号码', width: 120, dataIndex: 'buslicno'},
+            {text: '企业名称', width: 120, dataIndex: 'name'},
             {text: '编号', width: 100, dataIndex: 'servicenos'},
             {text: '服务机构名称', width: 200, dataIndex: 'servicename'},
             {text: '服务机构类别', width: 200, dataIndex: 'servicetype'},
@@ -365,8 +368,6 @@ Ext.define('App.view.service.service_manage.Grid', {
 
 
             {text: 'ID', width: 120, dataIndex: 'id', hidden: true},
-            {text: '营业执照号码', width: 120, dataIndex: 'buslicno', hidden: true},
-            {text: '企业名称', width: 120, dataIndex: 'name', hidden: true},
             {text: '单位类别', width: 120, dataIndex: 'unit', hidden: true},
             {text: '法定代表人', width: 120, dataIndex: 'legrep', hidden: true},
             {text: '地域', width: 120, dataIndex: 'region', hidden: true},
