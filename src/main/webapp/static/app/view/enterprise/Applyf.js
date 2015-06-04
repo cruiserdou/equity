@@ -1,10 +1,15 @@
 //var str = "static/upload/";
 
-
 Ext.define('App.view.enterprise.Applyf', {
     extend: 'Ext.form.FormPanel',
     alias: 'widget.applyf', 
     layout: 'fit',
+    listeners: {
+
+        afterrender: function () {
+            setup();preselect('甘肃省');
+        }
+    },
     applyTpl: [
         '<div class="wrap_center">',
         '<h2>企业信息查看</h2>',
@@ -29,7 +34,17 @@ Ext.define('App.view.enterprise.Applyf', {
         '<th>地域</th>',
         '<td><input id="region" name="region"  type="text" value="{region}"/></td>',
         '<th>公司简称</th>',
-        '<td><input id="nos" name="nos"  type="text" value="{nos}"/></td>',
+        '<td>' +
+        '<select class="select" name="province" id="s1">' +
+        '<option>请选择省</option>' +
+        ' </select>' +
+        ' <select class="select" name="city" id="s2">' +
+        '<option>请选择市</option>' +
+        '</select>' +
+        '<select class="select" name="town" id="s3">' +
+        '<option>请选择县</option>' +
+        '</select>' +
+        '</td>',
         '</tr>',
         '<tr>',
         '<th>邮政编码</th>',
@@ -424,6 +439,8 @@ function show()
         }
     });
 }
+
+
 
  
  

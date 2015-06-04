@@ -18,7 +18,7 @@
     <link href="static/css/main.css" rel="stylesheet">
     <script src="static/jslib/ext-4.2/ext-all.js"></script>
     <script src="static/jslib/ext-4.2/locale/ext-lang-zh_CN.js"></script>
-
+    <script src="static/app/geo.js"></script>
     <script src="static/app/app.js"></script>
     <style>
         .x-tree-icon{
