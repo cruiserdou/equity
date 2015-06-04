@@ -30,6 +30,9 @@ public class UpdateEnterpriseInfo {
             @RequestParam("unit") String unit,
             @RequestParam("legrep") String legrep,
             @RequestParam("region") String region,
+            @RequestParam("province") String province,
+            @RequestParam("city") String city,
+            @RequestParam("county") String county,
             @RequestParam("nos") String nos,
             @RequestParam("postal") String postal,
             @RequestParam("nature") String nature,
@@ -108,7 +111,7 @@ public class UpdateEnterpriseInfo {
                     "       indclass4=?, esource=?, referee=?, esourcedesc=?, recomdt=?, \n" +
                     "       emaint=?, trusteeship=?, listst=?, eclass=?, maintain=?, reserve=?, \n" +
                     "       contacter=?, dept=?, psotion=?, edoctype=?, edocnum=?, etel=?, \n" +
-                    "       ephone=?, efax=?, eemail=?, eqq=?, remark=? " +
+                    "       ephone=?, efax=?, eemail=?, eqq=?, remark=? ,province=?,city=?,county=?" +
                     " where id = ?";
             pst = conn.prepareStatement(sql);
             pst.setString(1 , buslicno);
@@ -177,7 +180,10 @@ public class UpdateEnterpriseInfo {
             pst.setString(52, eemail);
             pst.setString(53, eqq);
             pst.setString(54, remark);
-            pst.setInt(55, id);
+            pst.setString(55, province);
+            pst.setString(56, city);
+            pst.setString(57, county);
+            pst.setInt(58, id);
 
             pst.executeUpdate();
 

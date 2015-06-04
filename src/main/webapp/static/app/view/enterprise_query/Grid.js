@@ -36,7 +36,18 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '</tr>' +
                 '<tr>' +
                 '<th>地域</th>' +
-                '<td>{region}</td>' +
+                //'<td>{region}</td>' +
+                '<td>' +
+                '<select class="select" name="province" id="s1">' +
+                '<option >{province}</option>' +
+                ' </select>' +
+                ' <select class="select" name="city" id="s2">' +
+                '<option>{city}</option>' +
+                '</select>' +
+                '<select class="select" name="county" id="s3">' +
+                '<option>{county}</option>' +
+                '</select>' +
+                '</td>',
                 '<th>公司简称</th>' +
                 '<td>{nos}</td>' +
                 '</tr>' +
@@ -156,19 +167,35 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '<table class="enter_table" id="table_acount">' +
                 '<tr>' +
                 '<th class="table_header" colspan="4">国民经济行业分类信息</th>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>行业一级分类</th>' +
-                '<td>{indclass1}</td>' +
-                '<th>行业二级分类</th>' +
-                '<td>{indclass2}</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>行业三级分类</th>' +
-                '<td>{indclass3}</td>' +
-                '<th>行业四级分类</th>' +
-                '<td>{indclass4}</td>' +
-                '</tr>' +
+                '</tr>',
+                '<tr>',
+                '<th>行业一级分类</th>',
+                '<td>    ' +
+                '<select class="select" name="indclass1" id="cl1">' +
+                '<option>{indclass1}</option>' +
+                ' </select>' +
+                '</td>',
+                '<th>行业二级分类</th>',
+                '<td>' +
+                '<select class="select" name="indclass2" id="cl2">' +
+                '<option>{indclass2}</option>' +
+                ' </select>' +
+                '</td>',
+                '</tr>',
+                '<tr>',
+                '<th>行业三级分类</th>',
+                '<td>' +
+                '<select class="select" name="indclass3" id="cl3">' +
+                '<option>{indclass3}</option>' +
+                ' </select>' +
+                '</td>',
+                '<th>行业四级分类</th>',
+                '<td>' +
+                '<select class="select" name="indclass4" id="cl4">' +
+                '<option>{indclass4}</option>' +
+                ' </select>' +
+                '</td>',
+                '</tr>',
                 '</table>' +
 
 
@@ -298,6 +325,9 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '单位类别', width: 120, dataIndex: 'unit', hidden: true},
             {text: '法定代表人', width: 120, dataIndex: 'legrep', hidden: true},
             {text: '地域', width: 120, dataIndex: 'region', hidden: true},
+            {text: '省', width: 120, dataIndex: 'province', hidden: true},
+            {text: '市', width: 120, dataIndex: 'city', hidden: true},
+            {text: '县', width: 120, dataIndex: 'county', hidden: true},
             {text: '企业简称', width: 120, dataIndex: 'nos'},
             {text: '邮政编码', width: 120, dataIndex: 'postal', hidden: true},
             {text: '企业性质', width: 120, dataIndex: 'nature'},

@@ -29,6 +29,9 @@ public class AddEnterpriseInfo {
             @RequestParam("unit") String unit,
             @RequestParam("legrep") String legrep,
             @RequestParam("region") String region,
+            @RequestParam("province") String province,
+            @RequestParam("city") String city,
+            @RequestParam("county") String county,
             @RequestParam("nos") String nos,
             @RequestParam("postal") String postal,
             @RequestParam("nature") String nature,
@@ -109,7 +112,7 @@ public class AddEnterpriseInfo {
                     "            indclass3, indclass4, esource, referee, esourcedesc, recomdt, \n" +
                     "            emaint, trusteeship, listst, eclass, maintain, reserve, contacter, \n" +
                     "            dept, psotion, edoctype, edocnum, etel, ephone, efax, eemail, \n" +
-                    "            eqq, remark,inputdt)\n" +
+                    "            eqq, remark,inputdt,province,city,county)\n" +
                     "    VALUES (  ?, ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, ?, \n" +
@@ -117,7 +120,7 @@ public class AddEnterpriseInfo {
                     "            ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, ?, \n" +
-                    "            ?, ?, ?)";
+                    "            ?, ?, ?,?,?,?)";
             pst = conn.prepareStatement(sql);
 
             pst.setString(1 , buslicno);
@@ -189,6 +192,9 @@ public class AddEnterpriseInfo {
             java.util.Date date = new java.util.Date();
             Timestamp timestamp = new Timestamp(date.getTime());
             pst.setTimestamp(55, timestamp);
+            pst.setString(56, province);
+            pst.setString(57, city);
+            pst.setString(58, county);
             pst.executeUpdate();
 
             String sql_select = "select max(id) as maxid from work.tb_enterprise";

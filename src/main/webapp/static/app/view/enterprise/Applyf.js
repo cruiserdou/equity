@@ -5,7 +5,6 @@ Ext.define('App.view.enterprise.Applyf', {
     alias: 'widget.applyf', 
     layout: 'fit',
     listeners: {
-
         afterrender: function () {
             setup();preselect('甘肃省');
             setup_cl();preselect_cl('农、林、牧、渔业');
@@ -33,19 +32,20 @@ Ext.define('App.view.enterprise.Applyf', {
         '</tr>',
         '<tr>',
         '<th>地域</th>',
-        '<td><input id="region" name="region"  type="text" value="{region}"/></td>',
-        '<th>公司简称</th>',
+        //'<td><input id="region" name="region"  type="text" value="{region}"/></td>',
         '<td>' +
-        '<select class="select" name="province" id="s1">' +
+        '<select class="select" style="width: 64px" name="province" id="s1">' +
         '<option>请选择省</option>' +
         ' </select>' +
-        ' <select class="select" name="city" id="s2">' +
+        ' <select class="select" style="width: 64px"  name="city" id="s2">' +
         '<option>请选择市</option>' +
         '</select>' +
-        '<select class="select" name="town" id="s3">' +
+        '<select class="select" style="width: 116px" name="county" id="s3">' +
         '<option>请选择县</option>' +
         '</select>' +
         '</td>',
+        '<th>公司简称</th>',
+        '<td><input id="nos" name="nos"  type="text" value="{nos}"/></td>',
         '</tr>',
         '<tr>',
         '<th>邮政编码</th>',
@@ -362,7 +362,10 @@ function save_cust_add() {
             name: document.getElementById('name').value,
             unit: document.getElementById('unit').value,
             legrep: document.getElementById('legrep').value,
-            region: document.getElementById('region').value,
+            region: "",
+            province: document.getElementById('s1').value,
+            city: document.getElementById('s2').value,
+            county: document.getElementById('s3').value,
             nos: document.getElementById('nos').value,
             postal: document.getElementById('postal').value,
             nature: document.getElementById('nature').value,
@@ -387,10 +390,10 @@ function save_cust_add() {
             fax: document.getElementById('fax').value,
             email: document.getElementById('email').value,
             qq: document.getElementById('qq').value,
-            indclass1: document.getElementById('indclass1').value,
-            indclass2: document.getElementById('indclass2').value,
-            indclass3: document.getElementById('indclass3').value,
-            indclass4: document.getElementById('indclass4').value,
+            indclass1: document.getElementById('cl1').value,
+            indclass2: document.getElementById('cl2').value,
+            indclass3: document.getElementById('cl3').value,
+            indclass4: document.getElementById('cl4').value,
             esource: document.getElementById('esource').value,
             referee: document.getElementById('referee').value,
             esourcedesc: document.getElementById('esourcedesc').value,
