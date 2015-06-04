@@ -8,6 +8,7 @@ Ext.define('App.view.enterprise.Applyf', {
 
         afterrender: function () {
             setup();preselect('甘肃省');
+            setup_cl();preselect_cl('农、林、牧、渔业');
         }
     },
     applyTpl: [
@@ -166,15 +167,31 @@ Ext.define('App.view.enterprise.Applyf', {
         '</tr>',
         '<tr>',
         '<th>行业一级分类</th>',
-        '<td><input id="indclass1" name="indclass1"  type="text" value="{indclass1}"/></td>',
+        '<td>    ' +
+        '<select class="select" name="indclass1" id="cl1">' +
+        '<option>-一级-</option>' +
+        ' </select>' +
+        '</td>',
         '<th>行业二级分类</th>',
-        '<td><input id="indclass2" name="indclass2"  type="text" value="{indclass2}"/></td>',
+        '<td>' +
+        '<select class="select" name="indclass2" id="cl2">' +
+        '<option>-2级-</option>' +
+        ' </select>' +
+        '</td>',
         '</tr>',
         '<tr>',
         '<th>行业三级分类</th>',
-        '<td><input id="indclass3" name="indclass3"  type="text" value="{indclass3}"/></td>',
+        '<td>' +
+        '<select class="select" name="indclass3" id="cl3">' +
+        '<option>-3级-</option>' +
+        ' </select>' +
+        '</td>',
         '<th>行业四级分类</th>',
-        '<td><input id="indclass4" name="indclass4"  type="text" value="{indclass4}"/></td>',
+        '<td>' +
+        '<select class="select" name="indclass4" id="cl4">' +
+        '<option>-4级-</option>' +
+        ' </select>' +
+        '</td>',
         '</tr>',
         '</table>',
 
