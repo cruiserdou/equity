@@ -20,7 +20,7 @@ Ext.define('App.view.enterprise.Applyf', {
         '</tr>',
         '<tr>',
         '<th>营业执照号码<span style="color: red">*</span></th>',
-        '<td><input id="buslicno"  name="buslicno" style="width:80%;" type="text" value="{buslicno}"/><input type="button" style="width:20%;" id="btn" value="有效性" onclick="show()"></td>',
+        '<td><input id="buslicno"  name="buslicno"  onblur="card_check()" style="width:80%;" type="text" value="{buslicno}"/><input type="button" style="width:20%;" id="btn" value="有效性" onclick="show()"></td>',
         '<th>企业名称</th>',
         '<td><input id="name" name="name"  type="text" value="{name}"/></td>',
         '</tr>',
@@ -72,6 +72,25 @@ Ext.define('App.view.enterprise.Applyf', {
         '<td><input id="listprice" name="listprice"  type="text" value="{listprice}"/></td>',
         '</tr>',
         '<tr>',
+        '<th>挂牌出资（元/元出资.股）</th>',
+        '<td><input id="list_contrib" name="list_contrib"  type="text" value="{list_contrib}"/></td>',
+        '<th>挂牌日期</th>',
+        '<td><input id="listdt" name="listdt"  type="date" value="{listdt}"/></td>',
+        '</tr>',
+
+        '<tr>',
+        '<th>微信号</th>',
+        '<td><input id="webchat" name="webchat"  type="text" value="{webchat}"/></td>',
+        '<th>推荐人</th>',
+        '<td><input id="refer" name="refer"  type="text" value="{refer}"/></td>',
+        '</tr>',
+        '<tr>',
+        '<th>负责人</th>',
+        '<td><input id="liabler" name="liabler"  type="text" value="{liabler}"/></td>',
+        '<th>推荐渠道</th>',
+        '<td><input id="channels" name="channels"  type="text" value="{channels}"/></td>',
+        '</tr>',
+        '<tr>',
         '<th>注册地址</th>',
         '<td><input id="regaddr" name="regaddr"  type="text" value="{regaddr}"/></td>',
         '<th>员工人数</th>',
@@ -79,7 +98,9 @@ Ext.define('App.view.enterprise.Applyf', {
         '</tr>',
         '<tr>',
         '<th>办公地址</th>',
-        '<td colspan="3"><input id="offaddr" name="offaddr"  type="text" value="{offaddr}"/></td>',
+        '<td><input id="offaddr" name="offaddr"  type="text" value="{offaddr}"/></td>',
+        '<th>证监会行业分类</th>',
+        '<td><input id="csrc_type" name="csrc_type"  type="text" value="{csrc_type}"/></td>',
         '</tr>',
         '<tr>',
         '<th>经营范围</th>',
@@ -92,6 +113,10 @@ Ext.define('App.view.enterprise.Applyf', {
         '<tr>',
         '<th>企业简介</th>',
         '<td colspan="3"><textarea id="eprofile" name="eprofile"  type="text" value="{eprofile}"></textarea></td>',
+        '</tr>',
+        '<tr>',
+        '<th>备注</th>',
+        '<td colspan="3"><textarea id="bz" name="bz"  type="text" value="{bz}"></textarea></td>',
         '</tr>',
         '<tr>',
         '<th>企业照片资料</th>',
@@ -213,7 +238,7 @@ Ext.define('App.view.enterprise.Applyf', {
         '</tr>',
         '<tr>',
         '<th>推荐日期</th>',
-        '<td><input id="recomdt" name="recomdt"  type="text" value="{recomdt}"/></td>',
+        '<td><input id="recomdt" name="recomdt"  type="date" value="{recomdt}"/></td>',
         '<th>企业维护人</th>',
         '<td><input id="emaint" name="emaint"  type="text" value="{emaint}"/></td>',
         '</tr>',
@@ -355,82 +380,110 @@ function win_close() {
 
 
 function save_cust_add() {
-    Ext.Ajax.request({
-        method: "POST",
-        params: {
-            buslicno: document.getElementById('buslicno').value,
-            name: document.getElementById('name').value,
-            unit: document.getElementById('unit').value,
-            legrep: document.getElementById('legrep').value,
-            region: "",
-            province: document.getElementById('s1').value,
-            city: document.getElementById('s2').value,
-            county: document.getElementById('s3').value,
-            nos: document.getElementById('nos').value,
-            postal: document.getElementById('postal').value,
-            nature: document.getElementById('nature').value,
-            regcap: document.getElementById('regcap').value,
-            bustermfdt: document.getElementById('bustermfdt').value,
-            bustremtdt: document.getElementById('bustremtdt').value,
-            regdt: document.getElementById('regdt').value,
-            listcode: document.getElementById('listcode').value,
-            regaddr: document.getElementById('regaddr').value,
-            offaddr: document.getElementById('offaddr').value,
-            listprice: document.getElementById('listprice').value,
-            staffnum: document.getElementById('staffnum').value,
-            scope: document.getElementById('scope').value,
-            mbus: document.getElementById('mbus').value,
-            eprofile: document.getElementById('eprofile').value,
-            phoinf: document.getElementById('phoinf').value,
-            post: document.getElementById('post').value,
-            doctype: document.getElementById('doctype').value,
-            contact: document.getElementById('contact').value,
-            docnum: document.getElementById('docnum').value,
-            phone: document.getElementById('phone').value,
-            fax: document.getElementById('fax').value,
-            email: document.getElementById('email').value,
-            qq: document.getElementById('qq').value,
-            indclass1: document.getElementById('cl1').value,
-            indclass2: document.getElementById('cl2').value,
-            indclass3: document.getElementById('cl3').value,
-            indclass4: document.getElementById('cl4').value,
-            esource: document.getElementById('esource').value,
-            referee: document.getElementById('referee').value,
-            esourcedesc: document.getElementById('esourcedesc').value,
-            recomdt: document.getElementById('recomdt').value,
-            emaint: document.getElementById('emaint').value,
-            trusteeship: document.getElementById('trusteeship').value,
-            listst: document.getElementById('listst').value,
-            eclass: document.getElementById('eclass').value,
-            maintain: document.getElementById('maintain').value,
-            reserve: document.getElementById('reserve').value,
-            contacter: document.getElementById('contacter').value,
-            dept: document.getElementById('dept').value,
-            psotion: document.getElementById('psotion').value,
-            edoctype: document.getElementById('edoctype').value,
-            edocnum: document.getElementById('edocnum').value,
-            etel: document.getElementById('etel').value,
-            ephone: document.getElementById('ephone').value,
-            efax: document.getElementById('efax').value,
-            eemail: document.getElementById('eemail').value,
-            eqq: document.getElementById('eqq').value,
-            remark: document.getElementById('remark').value
+
+    if(document.getElementById('apply_form')['buslicno'].value==null && document.getElementById('apply_form')['buslicno'].value==""){
+        Ext.Msg.alert("提示", "请填写营业执照号码！");
+        return;
+    }else{
+        Ext.Ajax.request({
+            method: "POST",
+            params: {
+                buslicno: document.getElementById('buslicno').value,
+                name: document.getElementById('name').value,
+                unit: document.getElementById('unit').value,
+                legrep: document.getElementById('legrep').value,
+                region: "",
+                province: document.getElementById('s1').value,
+                city: document.getElementById('s2').value,
+                county: document.getElementById('s3').value,
+                nos: document.getElementById('nos').value,
+                postal: document.getElementById('postal').value,
+                nature: document.getElementById('nature').value,
+                regcap: document.getElementById('regcap').value,
+                bustermfdt: document.getElementById('bustermfdt').value,
+                bustremtdt: document.getElementById('bustremtdt').value,
+                regdt: document.getElementById('regdt').value,
+                listcode: document.getElementById('listcode').value,
+                regaddr: document.getElementById('regaddr').value,
+                offaddr: document.getElementById('offaddr').value,
+                listprice: document.getElementById('listprice').value,
+                staffnum: document.getElementById('staffnum').value,
+                scope: document.getElementById('scope').value,
+                mbus: document.getElementById('mbus').value,
+                eprofile: document.getElementById('eprofile').value,
+                phoinf: document.getElementById('phoinf').value,
+                post: document.getElementById('post').value,
+                doctype: document.getElementById('doctype').value,
+                contact: document.getElementById('contact').value,
+                docnum: document.getElementById('docnum').value,
+                phone: document.getElementById('phone').value,
+                fax: document.getElementById('fax').value,
+                email: document.getElementById('email').value,
+                qq: document.getElementById('qq').value,
+                indclass1: document.getElementById('cl1').value,
+                indclass2: document.getElementById('cl2').value,
+                indclass3: document.getElementById('cl3').value,
+                indclass4: document.getElementById('cl4').value,
+                esource: document.getElementById('esource').value,
+                referee: document.getElementById('referee').value,
+                esourcedesc: document.getElementById('esourcedesc').value,
+                recomdt: document.getElementById('recomdt').value,
+                emaint: document.getElementById('emaint').value,
+                trusteeship: document.getElementById('trusteeship').value,
+                listst: document.getElementById('listst').value,
+                eclass: document.getElementById('eclass').value,
+                maintain: document.getElementById('maintain').value,
+                reserve: document.getElementById('reserve').value,
+                contacter: document.getElementById('contacter').value,
+                dept: document.getElementById('dept').value,
+                psotion: document.getElementById('psotion').value,
+                edoctype: document.getElementById('edoctype').value,
+                edocnum: document.getElementById('edocnum').value,
+                etel: document.getElementById('etel').value,
+                ephone: document.getElementById('ephone').value,
+                efax: document.getElementById('efax').value,
+                eemail: document.getElementById('eemail').value,
+                eqq: document.getElementById('eqq').value,
+                remark: document.getElementById('remark').value,
+
+                webchat: document.getElementById('webchat').value,
+                refer: document.getElementById('refer').value,
+                liabler: document.getElementById('liabler').value,
+                channels: document.getElementById('channels').value,
+                listdt: document.getElementById('listdt').value,
+                list_contrib: document.getElementById('list_contrib').value,
+                csrc_type: document.getElementById('csrc_type').value,
+                bz: document.getElementById('remark').bz
 
 
 
-        },
-        url: 'add_enterprise_info',
-        success: function () {
-            Ext.Msg.alert("提示", "保存成功！");
-            //Ext.getCmp('cust_add_id').close();
-            Ext.getCmp('grid_enterprise').getStore().load();
-        },
-        failure: function () {
-            Ext.Msg.alert("提示", "保存失败！");
-        }
-    });
+
+
+
+
+
+
+
+            },
+            url: 'add_enterprise_info',
+            success: function () {
+                Ext.Msg.alert("提示", "保存成功！");
+                //Ext.getCmp('cust_add_id').close();
+                Ext.getCmp('grid_enterprise').getStore().load();
+                document.getElementById('apply_form').reset();
+            },
+            failure: function () {
+                Ext.Msg.alert("提示", "保存失败！");
+            }
+        });
+    }
+
+
 }
+function card_check() {
+    show();
 
+}
 
 function show()
 {

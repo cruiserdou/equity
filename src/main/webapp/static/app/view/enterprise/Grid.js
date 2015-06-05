@@ -55,42 +55,66 @@ Ext.define('App.view.enterprise.Grid', {
                 '<th>注册资本（万元）</th>' +
                 '<td><input id="regcap" name="regcap"  type="text" value="{regcap}"/></td>' +
                 '<th>注册日期</th>' +
-                '<td><input id="regdt" name="regdt"  type="text" value="{regdt}"/></td>' +
+                '<td><input id="regdt" name="regdt"  type="date" value="{regdt}"/></td>' +
                 '</tr>' +
                 '<tr>' +
                 '<th>营业期限自</th>' +
-                '<td><input id="bustermfdt" name="bustermfdt"  type="text" value="{bustermfdt}"/></td>' +
+                '<td><input id="bustermfdt" name="bustermfdt"  type="date" value="{bustermfdt}"/></td>' +
                 '<th>营业期限至</th>' +
-                '<td><input id="bustremtdt" name="bustremtdt"  type="text" value="{bustremtdt}"/></td>' +
+                '<td><input id="bustremtdt" name="bustremtdt"  type="date" value="{bustremtdt}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>挂牌代码</th>' +
-                '<td><input id="listcode" name="listcode"  type="text" value="{listcode}"/></td>' +
-                '<th>挂牌价格</th>' +
-                '<td><input id="listprice" name="listprice"  type="text" value="{listprice}"/></td>' +
-                '</tr>' +
+                '<th>挂牌代码</th>'+
+                '<td><input id="listcode" name="listcode"  type="text" value="{listcode}"/></td>'+
+                '<th>挂牌价格</th>'+
+                '<td><input id="listprice" name="listprice"  type="text" value="{listprice}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>挂牌出资（元/元出资.股）</th>'+
+                '<td><input id="list_contrib" name="list_contrib"  type="text" value="{list_contrib}"/></td>'+
+                '<th>挂牌日期</th>'+
+                '<td><input id="listdt" name="listdt"  type="date" value="{listdt}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>微信号</th>',
+                '<td><input id="webchat" name="webchat"  type="text" value="{webchat}"/></td>'+
+                '<th>推荐人</th>'+
+                '<td><input id="refer" name="refer"  type="text" value="{refer}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>负责人</th>'+
+                '<td><input id="liabler" name="liabler"  type="text" value="{liabler}"/></td>'+
+                '<th>推荐渠道</th>'+
+                '<td><input id="channels" name="channels"  type="text" value="{channels}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>注册地址</th>'+
+                '<td><input id="regaddr" name="regaddr"  type="text" value="{regaddr}"/></td>'+
+                '<th>员工人数</th>'+
+                '<td><input id="staffnum" name="staffnum"  type="text" value="{staffnum}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>办公地址</th>'+
+                '<td><input id="offaddr" name="offaddr"  type="text" value="{offaddr}"/></td>'+
+                '<th>证监会行业分类</th>'+
+                '<td><input id="csrc_type" name="csrc_type"  type="text" value="{csrc_type}"/></td>'+
+                '</tr>'+
                 '<tr>' +
-                '<th>注册地址</th>' +
-                '<td><input id="regaddr" name="regaddr"  type="text" value="{regaddr}"/></td>' +
-                '<th>员工人数</th>' +
-                '<td><input id="staffnum" name="staffnum"  type="text" value="{staffnum}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>办公地址</th>' +
-                '<td colspan="3"><input id="offaddr" name="offaddr"  type="text" value="{offaddr}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>经营范围</th>' +
-                '<td colspan="3"><input  id="scope" name="scope"  type="text" value="{scope}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>主营业务</th>' +
-                '<td colspan="3"><input id="mbus" name="mbus"  type="text" value="{mbus}"/><</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>企业简介</th>' +
-                '<td colspan="3"><input id="eprofile" name="eprofile"  type="text" value="{eprofile}"/><</td>' +
-                '</tr>' +
+                '<th>经营范围</th>'+
+                '<td colspan="3"><textarea id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>主营业务</th>'+
+                '<td colspan="3"><textarea id="mbus" name="mbus"  type="text" value="{mbus}">{mbus}</textarea></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>企业简介</th>'+
+                '<td colspan="3"><textarea id="eprofile" name="eprofile"  type="text" value="{eprofile}">{eprofile}</textarea></td>'+
+                '</tr>'+
+                '<tr>',
+                '<th>备注</th>',
+                '<td colspan="3"><textarea id="bz" name="bz"  type="text" value="{bz}"></textarea></td>',
+                '</tr>',
                 '<tr>' +
                 '<th>企业照片资料</th>' +
                 '<td colspan="3"><img onclick="pub_upload_file(\'phoinf\')" id="phoinf" name="phoinf" value="{phoinf}" src=""   alt="点击上传照片"/> </td>' +
@@ -209,7 +233,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>' +
                 '<tr>' +
                 '<th>推荐日期</th>' +
-                '<td><input id="recomdt" name="recomdt"  type="text" value="{recomdt}"/></td>' +
+                '<td><input id="recomdt" name="recomdt"  type="date" value="{recomdt}"/></td>' +
                 '<th>企业维护人</th>' +
                 '<td><input id="emaint" name="emaint"  type="text" value="{emaint}"/></td>' +
                 '</tr>' +
@@ -381,6 +405,17 @@ Ext.define('App.view.enterprise.Grid', {
             {text: '传真', width: 120, dataIndex: 'efax', hidden: true},
             {text: 'E-mail', width: 120, dataIndex: 'eemail', hidden: true},
             {text: 'QQ', width: 120, dataIndex: 'eqq', hidden: true},
+
+            {text: '微信号', width: 120, dataIndex: 'webchat', hidden: true},
+            {text: '推荐人', width: 120, dataIndex: 'refer', hidden: true},
+            {text: '负责人', width: 120, dataIndex: 'liabler', hidden: true},
+            {text: '推荐渠道', width: 120, dataIndex: 'channels', hidden: true},
+            {text: '挂牌日期', width: 120, dataIndex: 'listdt', hidden: true},
+            {text: '挂牌出资（元/元出资.股）', width: 120, dataIndex: 'list_contrib', hidden: true},
+            {text: '证监会行业分类', width: 120, dataIndex: 'csrc_type', hidden: true},
+            {text: '备注', width: 120, dataIndex: 'bz', hidden: true},
+
+
             {text: '备注', width: 120, dataIndex: 'remark', hidden: true}
 
         ];
@@ -471,7 +506,16 @@ function save_enterprise_edit(id) {
             efax: form_obt_apply['efax'].value,
             eemail: form_obt_apply['eemail'].value,
             eqq: form_obt_apply['eqq'].value,
-            remark: form_obt_apply['remark'].value
+            remark: form_obt_apply['remark'].value,
+
+            webchat: form_obt_apply['webchat'].value,
+            refer: form_obt_apply['refer'].value,
+            liabler: form_obt_apply['liabler'].value,
+            channels: form_obt_apply['channels'].value,
+            listdt: form_obt_apply['listdt'].value,
+            list_contrib: form_obt_apply['list_contrib'].value,
+            csrc_type: form_obt_apply['csrc_type'].value,
+            bz: form_obt_apply['remark'].bz
 
 
         },

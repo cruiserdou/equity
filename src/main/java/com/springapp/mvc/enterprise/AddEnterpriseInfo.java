@@ -80,8 +80,16 @@ public class AddEnterpriseInfo {
             @RequestParam("efax") String efax,
             @RequestParam("eemail") String eemail,
             @RequestParam("eqq") String eqq,
-            @RequestParam("remark") String remark
+            @RequestParam("remark") String remark,
 
+            @RequestParam("webchat") String webchat,
+            @RequestParam("refer") String refer,
+            @RequestParam("liabler") String liabler,
+            @RequestParam("channels") String channels,
+            @RequestParam("listdt") String listdt,
+            @RequestParam("list_contrib") String list_contrib,
+            @RequestParam("csrc_type") String csrc_type,
+            @RequestParam("bz") String bz
 
     ) throws Exception {
         DataShop dataShop = new DataShop();
@@ -112,7 +120,8 @@ public class AddEnterpriseInfo {
                     "            indclass3, indclass4, esource, referee, esourcedesc, recomdt, \n" +
                     "            emaint, trusteeship, listst, eclass, maintain, reserve, contacter, \n" +
                     "            dept, psotion, edoctype, edocnum, etel, ephone, efax, eemail, \n" +
-                    "            eqq, remark,inputdt,province,city,county)\n" +
+                    "            eqq, remark,inputdt,province,city,county, webchat, bz, refer, \n" +
+                    "            liabler, channels,  list_contrib, csrc_type )\n" +
                     "    VALUES (  ?, ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, ?, \n" +
@@ -120,7 +129,7 @@ public class AddEnterpriseInfo {
                     "            ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, ?, \n" +
-                    "            ?, ?, ?,?,?,?)";
+                    "            ?, ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?, ?, ? )";
             pst = conn.prepareStatement(sql);
 
             pst.setString(1 , buslicno);
@@ -195,7 +204,28 @@ public class AddEnterpriseInfo {
             pst.setString(56, province);
             pst.setString(57, city);
             pst.setString(58, county);
+            pst.setString(59, webchat);
+            pst.setString(60, refer);
+            pst.setString(61, liabler);
+            pst.setString(62, channels);
+//            java.sql.Date d_listdt = null;
+//            if (listdt != null && listdt.length() > 2)
+//                d_listdt = java.sql.Date.valueOf(listdt);
+//            pst.setDate(63, d_listdt);
+            pst.setString(63, list_contrib);
+            pst.setString(64, csrc_type);
+            pst.setString(65, bz);
             pst.executeUpdate();
+
+
+
+
+
+
+
+
+
+
 
             String sql_select = "select max(id) as maxid from work.tb_enterprise";
             pst = conn.prepareStatement(sql_select);

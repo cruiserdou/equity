@@ -70,33 +70,58 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '<td>{bustremtdt}</td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>挂牌代码</th>' +
-                '<td>{listcode}</td>' +
-                '<th>挂牌价格</th>' +
-                '<td>{listprice}</td>' +
-                '</tr>' +
+                '<th>挂牌代码</th>'+
+                '<td>{listcode}</td>'+
+                '<th>挂牌价格</th>'+
+                '<td>{listprice}</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>挂牌出资（元/元出资.股）</th>'+
+                '<td>{list_contrib}</td>'+
+                '<th>挂牌日期</th>'+
+                '<td>{listdt}</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>微信号</th>',
+                '<td>{webchat}</td>'+
+                '<th>推荐人</th>'+
+                '<td>{refer}</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>负责人</th>'+
+                '<td>{liabler}</td>'+
+                '<th>推荐渠道</th>'+
+                '<td>{channels}</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>注册地址</th>'+
+                '<td>{regaddr}</td>'+
+                '<th>员工人数</th>'+
+                '<td>{staffnum}</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>办公地址</th>'+
+                '<td>{offaddr}</td>'+
+                '<th>证监会行业分类</th>'+
+                '<td>{csrc_type}</td>'+
+                '</tr>'+
                 '<tr>' +
-                '<th>注册地址</th>' +
-                '<td>{regaddr}</td>' +
-                '<th>员工人数</th>' +
-                '<td>{staffnum}</td>' +
-                '</tr>' +
                 '<tr>' +
-                '<th>办公地址</th>' +
-                '<td colspan="3">{offaddr}</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>经营范围</th>' +
-                '<td colspan="3">{scope}</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>主营业务</th>' +
-                '<td colspan="3">{mbus}</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>企业简介</th>' +
-                '<td colspan="3">{eprofile}</td>' +
-                '</tr>' +
+                '<th>经营范围</th>'+
+                '<td colspan="3"><textarea id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>主营业务</th>'+
+                '<td colspan="3"><textarea id="mbus" name="mbus"  type="text" value="{mbus}">{mbus}</textarea></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>企业简介</th>'+
+                '<td colspan="3"><textarea id="eprofile" name="eprofile"  type="text" value="{eprofile}">{eprofile}</textarea></td>'+
+                '</tr>'+
+                '<tr>',
+                '<th>备注</th>',
+                '<td colspan="3"><textarea id="bz" name="bz"  type="text" value="{bz}"></textarea></td>',
+                '</tr>',
                 '<tr>' +
                 '<th>企业照片资料</th>' +
                 '<td colspan="3">{phoinf}</td>' +
@@ -376,6 +401,16 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '传真', width: 120, dataIndex: 'efax', hidden: true},
             {text: 'E-mail', width: 120, dataIndex: 'eemail', hidden: true},
             {text: 'QQ', width: 120, dataIndex: 'eqq', hidden: true},
+
+            {text: '微信号', width: 120, dataIndex: 'webchat', hidden: true},
+            {text: '推荐人', width: 120, dataIndex: 'refer', hidden: true},
+            {text: '负责人', width: 120, dataIndex: 'liabler', hidden: true},
+            {text: '推荐渠道', width: 120, dataIndex: 'channels', hidden: true},
+            {text: '挂牌日期', width: 120, dataIndex: 'listdt', hidden: true},
+            {text: '挂牌出资（元/元出资.股）', width: 120, dataIndex: 'list_contrib', hidden: true},
+            {text: '证监会行业分类', width: 120, dataIndex: 'csrc_type', hidden: true},
+            {text: '备注', width: 120, dataIndex: 'bz', hidden: true},
+
             {text: '备注', width: 120, dataIndex: 'remark', hidden: true}
 
         ];

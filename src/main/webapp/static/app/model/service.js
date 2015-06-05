@@ -76,7 +76,16 @@ Ext.define('App.model.service', {
         {name: 'eqq'},
         {name: 'remark'},
         {name: 'inputdt'},
-        {name: 'list_sh'}
+        {name: 'list_sh'},
+
+        {name: 'webchat'},
+        {name: 'refer'},
+        {name: 'liabler'},
+        {name: 'channels'},
+        {name: 'listdt'},
+        {name: 'list_contrib'},
+        {name: 'csrc_type'},
+        {name: 'bz'}
     ]
 });
 

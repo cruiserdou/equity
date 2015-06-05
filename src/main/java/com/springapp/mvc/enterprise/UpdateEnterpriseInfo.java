@@ -81,7 +81,16 @@ public class UpdateEnterpriseInfo {
             @RequestParam("efax") String efax,
             @RequestParam("eemail") String eemail,
             @RequestParam("eqq") String eqq,
-            @RequestParam("remark") String remark
+            @RequestParam("remark") String remark,
+
+            @RequestParam("webchat") String webchat,
+            @RequestParam("refer") String refer,
+            @RequestParam("liabler") String liabler,
+            @RequestParam("channels") String channels,
+            @RequestParam("listdt") String listdt,
+            @RequestParam("list_contrib") String list_contrib,
+            @RequestParam("csrc_type") String csrc_type,
+            @RequestParam("bz") String bz
 
             ) throws Exception{
         DataShop dataShop = new DataShop();
@@ -111,7 +120,9 @@ public class UpdateEnterpriseInfo {
                     "       indclass4=?, esource=?, referee=?, esourcedesc=?, recomdt=?, \n" +
                     "       emaint=?, trusteeship=?, listst=?, eclass=?, maintain=?, reserve=?, \n" +
                     "       contacter=?, dept=?, psotion=?, edoctype=?, edocnum=?, etel=?, \n" +
-                    "       ephone=?, efax=?, eemail=?, eqq=?, remark=? ,province=?,city=?,county=?" +
+                    "       ephone=?, efax=?, eemail=?, eqq=?, remark=? ,province=?,city=?,county=?, " +
+                    "       webchat=?, bz=?, refer=?, liabler=?, channels=?, \n" +
+                    "         list_contrib=?, csrc_type=?" +
                     " where id = ?";
             pst = conn.prepareStatement(sql);
             pst.setString(1 , buslicno);
@@ -183,7 +194,18 @@ public class UpdateEnterpriseInfo {
             pst.setString(55, province);
             pst.setString(56, city);
             pst.setString(57, county);
-            pst.setInt(58, id);
+            pst.setString(58, webchat);
+            pst.setString(59, refer);
+            pst.setString(60, liabler);
+            pst.setString(61, channels);
+//            java.sql.Date d_listdt = null;
+//            if (listdt != null && listdt.length() > 2)
+//                d_listdt = java.sql.Date.valueOf(listdt);
+//            pst.setDate(62, d_listdt);
+            pst.setString(62, list_contrib);
+            pst.setString(63, csrc_type);
+            pst.setString(64, bz);
+            pst.setInt(65, id);
 
             pst.executeUpdate();
 

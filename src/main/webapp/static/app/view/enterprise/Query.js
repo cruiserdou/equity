@@ -29,7 +29,7 @@ Ext.define('App.view.enterprise.Query', {
                 {
                     text: '删除',
                     handler: function () {
-                        Ext.enterprise.confirm('信息', '确定要删除？', function (btn) {
+                        Ext.Msg.confirm('信息', '确定要删除？', function (btn) {
                             if (btn == 'yes') {
                                 var sm = Ext.getCmp('grid_enterprise').getSelectionModel();
                                 var rows = sm.getSelection();

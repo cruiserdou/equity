@@ -61,44 +61,67 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '</tr>' +
                 '<tr>' +
                 '<th>营业期限自</th>' +
-                '<td><input id="bustermfdt" name="bustermfdt"  type="text" value="{bustermfdt}"/></td>' +
+                '<td><input id="bustermfdt" name="bustermfdt"  type="date" value="{bustermfdt}"/></td>' +
                 '<th>营业期限至</th>' +
-                '<td><input id="bustremtdt" name="bustremtdt"  type="text" value="{bustremtdt}"/></td>' +
+                '<td><input id="bustremtdt" name="bustremtdt"  type="date" value="{bustremtdt}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>挂牌代码</th>' +
-                '<td><input id="listcode" name="listcode"  type="text" value="{listcode}"/></td>' +
-                '<th>挂牌价格</th>' +
-                '<td><input id="listprice" name="listprice"  type="text" value="{listprice}"/></td>' +
-                '</tr>' +
+                '<th>挂牌代码</th>'+
+                '<td><input id="listcode" name="listcode"  type="text" value="{listcode}"/></td>'+
+                '<th>挂牌价格</th>'+
+                '<td><input id="listprice" name="listprice"  type="text" value="{listprice}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>挂牌出资（元/元出资.股）</th>'+
+                '<td><input id="list_contrib" name="list_contrib"  type="text" value="{list_contrib}"/></td>'+
+                '<th>挂牌日期</th>'+
+                '<td><input id="listdt" name="listdt"  type="date" value="{listdt}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>微信号</th>',
+                '<td><input id="webchat" name="webchat"  type="text" value="{webchat}"/></td>'+
+                '<th>推荐人</th>'+
+                '<td><input id="refer" name="refer"  type="text" value="{refer}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>负责人</th>'+
+                '<td><input id="liabler" name="liabler"  type="text" value="{liabler}"/></td>'+
+                '<th>推荐渠道</th>'+
+                '<td><input id="channels" name="channels"  type="text" value="{channels}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>注册地址</th>'+
+                '<td><input id="regaddr" name="regaddr"  type="text" value="{regaddr}"/></td>'+
+                '<th>员工人数</th>'+
+                '<td><input id="staffnum" name="staffnum"  type="text" value="{staffnum}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>办公地址</th>'+
+                '<td><input id="offaddr" name="offaddr"  type="text" value="{offaddr}"/></td>'+
+                '<th>证监会行业分类</th>'+
+                '<td><input id="csrc_type" name="csrc_type"  type="text" value="{csrc_type}"/></td>'+
+                '</tr>'+
                 '<tr>' +
-                '<th>注册地址</th>' +
-                '<td><input id="regaddr" name="regaddr"  type="text" value="{regaddr}"/></td>' +
-                '<th>员工人数</th>' +
-                '<td><input id="staffnum" name="staffnum"  type="text" value="{staffnum}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>办公地址</th>' +
-                '<td colspan="3"><input id="offaddr" name="offaddr"  type="text" value="{offaddr}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>经营范围</th>' +
-                '<td colspan="3"><input  id="scope" name="scope"  type="text" value="{scope}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>主营业务</th>' +
-                '<td colspan="3"><input id="mbus" name="mbus"  type="text" value="{mbus}"/><</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>企业简介</th>' +
-                '<td colspan="3"><input id="eprofile" name="eprofile"  type="text" value="{eprofile}"/><</td>' +
-                '</tr>' +
+                '<th>经营范围</th>'+
+                '<td colspan="3"><textarea id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>主营业务</th>'+
+                '<td colspan="3"><textarea id="mbus" name="mbus"  type="text" value="{mbus}">{mbus}</textarea></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>企业简介</th>'+
+                '<td colspan="3"><textarea id="eprofile" name="eprofile"  type="text" value="{eprofile}">{eprofile}</textarea></td>'+
+                '</tr>'+
+                '<tr>',
+                '<th>备注</th>',
+                '<td colspan="3"><textarea id="bz" name="bz"  type="text" value="{bz}"></textarea></td>',
+                '</tr>',
                 '<tr>' +
                 '<th>企业照片资料</th>' +
                 '<td colspan="3"><img onclick="pub_upload_file(\'phoinf\')" id="phoinf" name="phoinf" value="{phoinf}" src=""   alt="点击上传照片"/> </td>' +
                 '</tr>' +
                 '</table>' +
-                    //<textarea disabled style="background:#FFFFFF" contenteditable="false" rows="3" name="remark"  type="text" value="""></textarea>
 
                 '<table class="enter_table" id="table_sh">' +
                 '<tr>' +
@@ -422,6 +445,16 @@ Ext.define('App.view.service.service_manage.Grid', {
             {text: '传真', width: 120, dataIndex: 'efax', hidden: true},
             {text: 'E-mail', width: 120, dataIndex: 'eemail', hidden: true},
             {text: 'QQ', width: 120, dataIndex: 'eqq', hidden: true},
+
+            {text: '微信号', width: 120, dataIndex: 'webchat', hidden: true},
+            {text: '推荐人', width: 120, dataIndex: 'refer', hidden: true},
+            {text: '负责人', width: 120, dataIndex: 'liabler', hidden: true},
+            {text: '推荐渠道', width: 120, dataIndex: 'channels', hidden: true},
+            {text: '挂牌日期', width: 120, dataIndex: 'listdt', hidden: true},
+            {text: '挂牌出资（元/元出资.股）', width: 120, dataIndex: 'list_contrib', hidden: true},
+            {text: '证监会行业分类', width: 120, dataIndex: 'csrc_type', hidden: true},
+            {text: '备注', width: 120, dataIndex: 'bz', hidden: true},
+
             {text: '备注', width: 120, dataIndex: 'remark', hidden: true}
 
         ];
