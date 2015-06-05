@@ -9,7 +9,7 @@ Ext.define('App.view.enterprise.Grid', {
             //创建模板
             var apply_edits = new Ext.XTemplate(
                 '<div class="wrap_center">' +
-                '<form id="apply_form">' +
+                '<form id="apply_form_edit">' +
                 '<h2>企业信息查看</h2>' +
                 '<table class="enter_table" id="table_base">' +
                 '<tr>' +
@@ -410,7 +410,7 @@ function win_close_edit() {
 
 function save_enterprise_edit(id) {
     //Ext.Msg.alert("提示", id);
-    var form_obt_apply = document.getElementById("apply_form");
+    var form_obt_apply = document.getElementById("apply_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -420,9 +420,9 @@ function save_enterprise_edit(id) {
             unit: form_obt_apply['unit'].value,
             legrep: form_obt_apply['legrep'].value,
             region: "",
-            province: document.getElementById('s1').value,
-            city: document.getElementById('s2').value,
-            county: document.getElementById('s3').value,
+            province: form_obt_apply['s1'].value,
+            city: form_obt_apply['s2'].value,
+            county: form_obt_apply['s3'].value,
             nos: form_obt_apply['nos'].value,
             postal: form_obt_apply['postal'].value,
             nature: form_obt_apply['nature'].value,
