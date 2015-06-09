@@ -12,18 +12,18 @@
     <meta http-equiv="Access-Control-Allow-Origin" content="http://dx.ipyy.net">
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <link rel="icon" href="/cloudl/static/css/images/sti.png">
-    <link type="text/css" rel="stylesheet" href="static/css/font_awesome/css/font-awesome.css">
-    <link type="text/css" rel="stylesheet" href="static/css/global.css">
-    <link type="text/css" rel="stylesheet" href="static/css/desktop.css">
+    <link rel="stylesheet" href="static/css/font_awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="static/css/global.css">
+    <link rel="stylesheet" href="static/css/desktop.css">
 
     <style>
         #center-content{
             padding-top: 9em;
         }
-        /*#center-content span {*/
-            /*margin-top: 10px;*/
-            /*margin-left: 50px;*/
-        /*}*/
+        #center-content span {
+            margin-top: 10px;
+            margin-left: 50px;
+        }
 
         .signin {
             border: 1px solid #ccc;
@@ -88,9 +88,18 @@
             font-size: 1.6em;
             width: 100%;
         }
+
+        .image-background {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
     </style>
-    <script type="text/javascript" src="/cloudl/static/jslib/jquery.min.js"></script>
-    <script src="/cloudl/static/jslib/slides.min.jquery.js"></script>
+    <script type="text/javascript" src="static/jslib/jquery.mini.js"></script>
+    <%--<script src="static/jslib/slides.min.jquery.js"></script>--%>
 
     <script>
         var Account = null;
@@ -288,30 +297,30 @@
             });
 
             //校验推荐码
-            $('#refercode').focusout(function () {
-
-                if ($('#refercode').val() == '') {
-                    alert("请输入推荐码！")
-                    return;
-                }
-
-                $.ajax({
-                    url: 'validcheckrefercode',
-                    type: 'post',
-                    data: {
-                        'refercode': $('#refercode').val()
-                    },
-                    success: function (data, statusText) {
-                        if (data == "success") {
-                            boolrefercode = true;
-                            $('#refercodespan').html("<span style='color:darkorange;font-size:13px;'> </span>");
-
-                        } else if (data == "fail") {
-                            $('#refercodespan').html("<span style='color:darkorange;font-size:13px;'>对不起，你所输入的推荐码不存在！</span>");
-                        }
-                    }
-                });
-            });
+//            $('#refercode').focusout(function () {
+//
+//                if ($('#refercode').val() == '') {
+//                    alert("请输入推荐码！")
+//                    return;
+//                }
+//
+//                $.ajax({
+//                    url: 'validcheckrefercode',
+//                    type: 'post',
+//                    data: {
+//                        'refercode': $('#refercode').val()
+//                    },
+//                    success: function (data, statusText) {
+//                        if (data == "success") {
+//                            boolrefercode = true;
+//                            $('#refercodespan').html("<span style='color:darkorange;font-size:13px;'> </span>");
+//
+//                        } else if (data == "fail") {
+//                            $('#refercodespan').html("<span style='color:darkorange;font-size:13px;'>对不起，你所输入的推荐码不存在！</span>");
+//                        }
+//                    }
+//                });
+//            });
         })
 
 
@@ -367,12 +376,126 @@
                 <p id="passwordspan"></p>
                 <input type="password" id="password" name="password" placeholder="密码">
                 <p id="passwdagainspan"></p>
-                <input type="password" id="passwdagain" name="passwdagain" maxlength="20" placeholder="重新输入">
+                <input type="password" id="passwdagain" name="passwdagain" maxlength="20" placeholder="再次输入">
                 <button id="tijiao">提交</button>
             </fieldset>
         </form>
     </div>
 </div>
+<div id="banner"></div>
+<div style="width: 100%;" id="image-background" class="image-background">
+    <img style="width: 100%;" src="static/css/images/login-back.png" class="centerImage">
+</div>
+<script>
+    (function ($) {
+        "use strict";
+        var pluginName = 'centerImage';
 
+        var pluginController = function (element, theOptions) {
+
+            var $container = $(element);
+
+            var defaults = {
+                imgClass: "centerImage"
+            };
+            // Get options saved within $container's data attributes
+            var meta = $container.data(pluginName + '-options');
+            var options = $.extend(defaults, meta, theOptions);
+
+            var $img = $container.find("img." + options.imgClass);
+            var tempImg = new Image();
+            var init = function () {
+                $img.css({
+                    position: "absolute",
+                    "max-width": "none",
+                    "max-height": "none"
+                });
+
+                tempImg.src = $img.attr("src");
+                centerImage();
+                $(window).on('resize.' + pluginName + ' ' + 'orientationchange.' + pluginName, centerImage);
+            };
+
+            var getImageDim = function () {
+                var $imgContainer = $container;
+                var containerWidth = $imgContainer.width();
+                var containerHeight = $imgContainer.height();
+                var containerRatio = containerHeight / containerWidth;
+                var imageWidth = tempImg.width;
+                var imageHeight = tempImg.height;
+                var imageRatio = imageHeight / imageWidth;
+                var necontainerWidth;
+                var necontainerHeight;
+
+                if (containerRatio > imageRatio) {
+                    necontainerHeight = containerHeight;
+                    necontainerWidth = containerHeight / imageRatio;
+                } else {
+                    necontainerHeight = containerWidth * imageRatio;
+                    necontainerWidth = containerWidth;
+                }
+
+                return {
+                    width: necontainerWidth,
+                    height: necontainerHeight,
+                    left: (containerWidth - necontainerWidth ) / 2,
+                    top: (containerHeight - necontainerHeight ) / 2
+                };
+            };
+
+            // apply style for bg image and canvas
+            var centerImage = function () {
+                var dim = getImageDim();
+                var styleCSS = {
+                    width: dim.width,
+                    height: dim.height,
+                    left: dim.left,
+                    top: dim.top
+                };
+
+                $img.css(styleCSS);
+            };
+
+            // Destroy the warp object without removing elements
+            var destroy = function () {
+                // Unbind events
+                $container.off('.' + pluginName);
+                $container.find('*').off('.' + pluginName);
+                // Remove data
+                $container.removeData(pluginName);
+                $container = null;
+            };
+
+            // Wapper object
+            var that = {};
+            that.options = options;
+            that.destroy = destroy;
+
+            // Initialize the wrapper object to generate elements of the widget
+            init();
+
+            //
+            // Store wrapper object in $container using jQuery's $.data function.
+            // Usage: console.log($('#theListener').data('jqListener'));
+            $container.data(pluginName, that);
+        };
+
+        //
+        // jQuery function
+        //
+        $.fn[pluginName] = function (options) {
+            this.each(function () {
+                pluginController(this, options);
+            });
+            // Chain-ability of jQuery objects
+            return this;
+        };
+    })(jQuery);
+
+    $(document).ready(function () {
+        //debugger;
+        jQuery("#image-background").centerImage();
+    });
+</script>
 </body>
 </html>
