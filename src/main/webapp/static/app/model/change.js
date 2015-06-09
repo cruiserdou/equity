@@ -6,11 +6,14 @@ Ext.define('App.model.change', {
     fields: [
         {name: 'id'},
         {name: 'enterprise_id'},
+        {name: 'changer_type'},
+        {name: 'changer_id'},
+        {name: 'changer_dt'},
+        {name: 'changer_ip'},
         {name: 'field'},
+        {name: 'field_name'},
         {name: 'c_before'},
-        {name: 'c_after'},
-        {name: 'user_id'},
-        {name: 'rtdate'}
+        {name: 'c_after'}
     ]
     //belongsTo:'enterprise'
 });

@@ -106,7 +106,8 @@
         <input type="submit" value="登录">
     </form>
 
-    <a href="#">忘 记 密 码？</a>
+    <%--<a href="#">忘 记 密 码？</a>--%>
+    <a id="reg-btn" href="userregister"><span class="fa fa-user-plus"></span> 注册新用户</a>
 </div>
 
 <div id="banner"></div>

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.net.InetAddress;
 import java.sql.*;
 
 @Controller
@@ -23,6 +25,7 @@ public class UpdateEnterpriseInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
+            HttpServletRequest request,
             HttpSession session,
             @RequestParam("id") Integer id,
             @RequestParam("buslicno") String buslicno,
@@ -110,7 +113,6 @@ public class UpdateEnterpriseInfo {
 
         try {
             conn = DriverManager.getConnection(url, user, password);
-            System.out.print(id);
             String sql = "UPDATE work.tb_enterprise\n" +
                     "   SET   buslicno=?, name=?, unit=?, legrep=?, region=?, nos=?, \n" +
                     "       postal=?, nature=?, regcap=?, bustermfdt=?, bustremtdt=?, regdt=?, \n" +
@@ -122,7 +124,8 @@ public class UpdateEnterpriseInfo {
                     "       contacter=?, dept=?, psotion=?, edoctype=?, edocnum=?, etel=?, \n" +
                     "       ephone=?, efax=?, eemail=?, eqq=?, remark=? ,province=?,city=?,county=?, " +
                     "       webchat=?, bz=?, refer=?, liabler=?, channels=?, \n" +
-                    "         list_contrib=?, csrc_type=?" +
+                    "         list_contrib=?, csrc_type=? ,changer_id=?, changer_dt=?, \n" +
+                    "         changer_ip=? " +
                     " where id = ?";
             pst = conn.prepareStatement(sql);
             pst.setString(1 , buslicno);
@@ -205,9 +208,37 @@ public class UpdateEnterpriseInfo {
             pst.setString(62, list_contrib);
             pst.setString(63, csrc_type);
             pst.setString(64, bz);
-            pst.setInt(65, id);
+
+            pst.setInt(65, Integer.parseInt(session.getAttribute("id").toString()));
+            java.util.Date date = new java.util.Date();
+            Timestamp timestamp = new Timestamp(date.getTime());
+            pst.setTimestamp(66, timestamp);
+
+            String ip = request.getHeader("x-forwarded-for");
+            if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getHeader("Proxy-Client-IP");
+            }
+            if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getHeader("WL-Proxy-Client-IP");
+            }
+            if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getHeader("HTTP_CLIENT_IP");
+            }
+            if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+            }
+            if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getRemoteAddr();
+            }
+            pst.setString(67, ip);
+            pst.setInt(68, id);
 
             pst.executeUpdate();
+
+
+
+
+
 
 
 //            String sql_change = "INSERT INTO work.tb_change(\n" +

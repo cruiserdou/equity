@@ -34,13 +34,13 @@ Ext.define('App.view.enterprise.Applyf', {
         '<th>地域</th>',
         //'<td><input id="region" name="region"  type="text" value="{region}"/></td>',
         '<td>' +
-        '<select class="select" style="width: 64px" name="province" id="s1">' +
+        '<select class="select" style="width: 30%" name="province" id="s1">' +
         '<option>请选择省</option>' +
         ' </select>' +
-        ' <select class="select" style="width: 64px"  name="city" id="s2">' +
+        ' <select class="select" style="width:30%"  name="city" id="s2">' +
         '<option>请选择市</option>' +
         '</select>' +
-        '<select class="select" style="width: 116px" name="county" id="s3">' +
+        '<select class="select" style="width: 40%" name="county" id="s3">' +
         '<option>请选择县</option>' +
         '</select>' +
         '</td>',

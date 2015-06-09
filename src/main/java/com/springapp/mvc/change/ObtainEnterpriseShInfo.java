@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/obtain_change_info")
-public class ObtainChangeInfo {
+@RequestMapping("/obtain_enterprise_sh_info")
+public class ObtainEnterpriseShInfo {
 
     @RequestMapping(method = RequestMethod.POST)
     public
@@ -47,9 +47,9 @@ public class ObtainChangeInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-            String sql = "SELECT id, enterprise_id, changer_type, changer_id, TO_CHAR(changer_dt,'yyyy-mm-dd hh24:mi:ss') as  changer_dt, changer_ip, \n" +
-                    "       field, c_before, c_after, field_name\n" +
-                    "  FROM work.tb_enterprise_change  WHERE 1 = 1 ";
+            String sql = "SELECT id, enterprise_id, shtype, shname, shdoctype, shdocnum, shareholdnum, \n" +
+                    "       currencynum, freezenum, remark\n" +
+                    "  FROM work.tb_enterprise_sh  WHERE 1 = 1 ";
             if (enterprise_id != null )
                 sql += " and  enterprise_id ="+enterprise_id;
 //            if (stat != null && stat.length() != 0)
