@@ -11,7 +11,7 @@
 <head>
     <meta http-equiv="Access-Control-Allow-Origin" content="http://dx.ipyy.net">
     <meta content="yes" name="apple-mobile-web-app-capable"/>
-    <link rel="icon" href="/cloudl/static/css/images/sti.png">
+    <link href="static/css/images/wq-icon.png" rel="shortcut icon">
     <link rel="stylesheet" href="static/css/font_awesome/css/font-awesome.css">
     <link rel="stylesheet" href="static/css/global.css">
     <link rel="stylesheet" href="static/css/desktop.css">
@@ -296,31 +296,7 @@
                 });
             });
 
-            //校验推荐码
-//            $('#refercode').focusout(function () {
-//
-//                if ($('#refercode').val() == '') {
-//                    alert("请输入推荐码！")
-//                    return;
-//                }
-//
-//                $.ajax({
-//                    url: 'validcheckrefercode',
-//                    type: 'post',
-//                    data: {
-//                        'refercode': $('#refercode').val()
-//                    },
-//                    success: function (data, statusText) {
-//                        if (data == "success") {
-//                            boolrefercode = true;
-//                            $('#refercodespan').html("<span style='color:darkorange;font-size:13px;'> </span>");
-//
-//                        } else if (data == "fail") {
-//                            $('#refercodespan').html("<span style='color:darkorange;font-size:13px;'>对不起，你所输入的推荐码不存在！</span>");
-//                        }
-//                    }
-//                });
-//            });
+
         })
 
 

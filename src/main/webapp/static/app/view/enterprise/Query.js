@@ -16,7 +16,82 @@ Ext.define('App.view.enterprise.Query', {
             dock: 'top',
             border: true,
             items: [
+                {
+                    id: 'enterprise_import',
+                    text: '导入',
+                    listeners: {
+                        click: function () {
+                            Ext.create('widget.window', {
+                                title: '导入企业信息',
+                                modal: true,
+                                width: 300,
+                                height: 200,
+                                border: false,
+                                layout: 'fit',
+                                defaults: {
+                                    width: 200,
+                                    allowBlank: false
+                                },
+                                items: [
+                                    {
+                                        xtype: 'form',
+                                        frame: true,
+                                        bodyPadding: 10,
+                                        fieldDefaults: {
+                                            labelAlign: 'left',
+                                            labelWidth: 70
+                                        },
+                                        defaults: {
+                                            labelAlign: 'right',
+                                            xtype: 'textfield'
+                                        },
+                                        items: [
+                                            {
+                                                anchor: '100%',
+                                                xtype: 'filefield',
+                                                fieldLabel: '导入文件',
+                                                buttonText:'选择文件',
+                                                name: 'file',
+                                                allowBlank:false
+                                            }
+                                        ],
+                                        buttonAlign : "center",
+                                        buttons: [
+                                            {
+                                                text: '导入',
+                                                iconCls: 'icon_save',
+                                                handler: function(){
+                                                    var form = this.up('form').getForm();
+                                                    if (form.isValid()){
+                                                        form.submit({
+                                                            url: 'import_enterprise_xls',
+                                                            waitMsg: '正在保存数据...',
+                                                            success: function(form, action){
+                                                                Ext.Msg.alert("成功", "数据保存成功!");
+                                                                Ext.getCmp('grid_enterprise').getStore().reload();
+                                                            },
+                                                            failure: function(form, action){
+                                                                Ext.Msg.alert("失败", "数据保存失败!");
+                                                            }
+                                                        });
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                text: '重置',
+                                                glyph: 0xf021,
+                                                handler: function () {
+                                                    this.up('form').getForm().reset();
+                                                }
+                                            }
+                                        ]
+                                    }
 
+                                ]
+                            }).show(Ext.get('enterprise_import'));
+                        }
+                    }
+                },'-',
                 {
                     text: '刷新',
                     listeners: {
