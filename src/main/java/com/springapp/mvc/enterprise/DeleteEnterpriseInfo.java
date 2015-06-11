@@ -47,8 +47,13 @@ public class DeleteEnterpriseInfo {
             String sql = "delete from work.tb_enterprise where id = ?";
             pst = conn.prepareStatement(sql);
             pst.setInt(1, id);
-
             pst.executeUpdate();
+
+            String sql_server = "delete from work.tb_service where enterprise_id = ?";
+            pst = conn.prepareStatement(sql_server);
+            pst.setInt(1, id);
+            pst.executeUpdate();
+
 
 
 

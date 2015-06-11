@@ -10,11 +10,10 @@ Ext.define('App.view.enterprise.Grid', {
             var apply_edits = new Ext.XTemplate(
                 '<div class="wrap_center">' +
                 '<form id="apply_form_edit">' +
-                '<h2>企业信息查看</h2>' +
+                '<h2>企业信息</h2>' +
                 '<table class="enter_table" id="table_base">' +
                 '<tr>' +
                 '<th class="table_header" colspan="4">基本信息</th>' +
-                    //'<td><input id="id"  name="id"  type="text" value="{id}"/></td>' +
                 '</tr>' +
                 '<tr>' +
                 '<th>营业执照号码<span style="color: red">*</span></th>' +
@@ -41,7 +40,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '<select class="select" name="county" id="s3">' +
                 '<option>{county}</option>' +
                 '</select>' +
-                '</td>',
+                '</td>' +
                 '<th>公司简称</th>' +
                 '<td><input id="nos" name="nos"  type="text" value="{nos}"/></td>' +
                 '</tr>' +
@@ -76,15 +75,15 @@ Ext.define('App.view.enterprise.Grid', {
                 '<td><input id="listdt" name="listdt"  type="date" value="{listdt}"/></td>'+
                 '</tr>'+
                 '<tr>'+
-                '<th>微信号</th>',
+                '<th>企业微信号</th>' +
                 '<td><input id="webchat" name="webchat"  type="text" value="{webchat}"/></td>'+
-                '<th>推荐人</th>'+
+                '<th>挂牌推荐人</th>'+
                 '<td><input id="refer" name="refer"  type="text" value="{refer}"/></td>'+
                 '</tr>'+
                 '<tr>'+
                 '<th>负责人</th>'+
                 '<td><input id="liabler" name="liabler"  type="text" value="{liabler}"/></td>'+
-                '<th>推荐渠道</th>'+
+                '<th>推荐单位</th>'+
                 '<td><input id="channels" name="channels"  type="text" value="{channels}"/></td>'+
                 '</tr>'+
                 '<tr>'+
@@ -104,6 +103,10 @@ Ext.define('App.view.enterprise.Grid', {
                 '<td colspan="3"><textarea id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>'+
                 '</tr>'+
                 '<tr>'+
+                '<th>登记机关</th>'+
+                '<td colspan="3"><input id="regist_organ" name="regist_organ"  type="text" value="{regist_organ}"/></td>'+
+                '</tr>'+
+                '<tr>'+
                 '<th>主营业务</th>'+
                 '<td colspan="3"><textarea id="mbus" name="mbus"  type="text" value="{mbus}">{mbus}</textarea></td>'+
                 '</tr>'+
@@ -111,10 +114,10 @@ Ext.define('App.view.enterprise.Grid', {
                 '<th>企业简介</th>'+
                 '<td colspan="3"><textarea id="eprofile" name="eprofile"  type="text" value="{eprofile}">{eprofile}</textarea></td>'+
                 '</tr>'+
-                '<tr>',
-                '<th>备注</th>',
-                '<td colspan="3"><textarea id="bz" name="bz"  type="text" value="{bz}"></textarea></td>',
-                '</tr>',
+                '<tr>' +
+                '<th>备注</th>' +
+                '<td colspan="3"><textarea id="bz" name="bz"  type="text" value="{bz}"></textarea></td>' +
+                '</tr>' +
                 '<tr>' +
                 '<th>企业照片资料</th>' +
                 '<td colspan="3"><img onclick="pub_upload_file(\'phoinf\')" id="phoinf" name="phoinf" value="{phoinf}" src=""   alt="点击上传照片"/> </td>' +
@@ -156,14 +159,14 @@ Ext.define('App.view.enterprise.Grid', {
                 '<th class="table_header" colspan="4">法定代表人基本信息</th>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>职务</th>' +
-                '<td><input id="post" name="post"  type="text" value="{post}"/></td>' +
+                '<th>姓名</th>' +
+                '<td><input id="contact" name="contact"  type="text" value="{contact}"/></td>' +
                 '<th>证件类型</th>' +
                 '<td><input id="doctype" name="doctype"  type="text" value="{doctype}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>姓名</th>' +
-                '<td><input id="contact" name="contact"  type="text" value="{contact}"/></td>' +
+                '<th>职务</th>' +
+                '<td><input id="post" name="post"  type="text" value="{post}"/></td>' +
                 '<th>证件号码</th>' +
                 '<td><input id="docnum" name="docnum"  type="text" value="{docnum}"/></td>' +
                 '</tr>' +
@@ -182,38 +185,75 @@ Ext.define('App.view.enterprise.Grid', {
                 '</table>' +
 
 
+            
+
                 '<table class="enter_table" id="table_acount">' +
                 '<tr>' +
                 '<th class="table_header" colspan="4">国民经济行业分类信息</th>' +
-                '</tr>',
-                '<tr>',
-                '<th>行业一级分类</th>',
+                '</tr>' +
+                '<tr>' +
+                '<th>行业一级分类</th>' +
                 '<td>    ' +
                 '<select class="select" name="indclass1" id="cl1">' +
                 '<option>{indclass1}</option>' +
                 ' </select>' +
-                '</td>',
-                '<th>行业二级分类</th>',
+                '</td>' +
+                '<th>行业二级分类</th>' +
                 '<td>' +
                 '<select class="select" name="indclass2" id="cl2">' +
                 '<option>{indclass2}</option>' +
                 ' </select>' +
-                '</td>',
-                '</tr>',
-                '<tr>',
-                '<th>行业三级分类</th>',
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>行业三级分类</th>' +
                 '<td>' +
                 '<select class="select" name="indclass3" id="cl3">' +
                 '<option>{indclass3}</option>' +
                 ' </select>' +
-                '</td>',
-                '<th>行业四级分类</th>',
+                '</td>' +
+                '<th>行业四级分类</th>' +
                 '<td>' +
                 '<select class="select" name="indclass4" id="cl4">' +
                 '<option>{indclass4}</option>' +
                 ' </select>' +
-                '</td>',
-                '</tr>',
+                '</td>' +
+                '</tr>' +
+                '</table>' +
+
+
+                '<table class="enter_table" id="table_csrc_type">' +
+                '<tr>' +
+                '<th class="table_header" colspan="4">证监会行业分类信息</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>证监会行业一级分类</th>' +
+                '<td>    ' +
+                '<select class="select" name="indclass1" id="cl1">' +
+                '<option>{csrc_type}</option>' +
+                ' </select>' +
+                '</td>' +
+                '<th>证监会行业二级分类</th>' +
+                '<td>' +
+                '<select class="select" name="indclass2" id="cl2">' +
+                '<option>{csrc_typ2}</option>' +
+                ' </select>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>证监会行业三级分类</th>' +
+                '<td>' +
+                '<select class="select" name="indclass3" id="cl3">' +
+                '<option>{csrc_typ3}</option>' +
+                ' </select>' +
+                '</td>' +
+                '<th>证监会行业四级分类</th>' +
+                '<td>' +
+                '<select class="select" name="indclass4" id="cl4">' +
+                '<option>{csrc_typ4}</option>' +
+                ' </select>' +
+                '</td>' +
+                '</tr>' +
                 '</table>' +
 
 
@@ -224,7 +264,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '<tr>' +
                 '<th>企业来源</th>' +
                 '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>' +
-                '<th>推荐人</th>' +
+                '<th>挂牌推荐人</th>' +
                 '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>' +
                 '</tr>' +
                 '<tr>' +
@@ -300,11 +340,12 @@ Ext.define('App.view.enterprise.Grid', {
                 '<li><a href="#table_sh"  style="font-size:18px;">股东名册</a></li>' +
                 '<li><a href="#table_link"  style="font-size:18px;">法定代表人</a></li>' +
                 '<li><a href="#table_acount"  style="font-size:18px;">行业分类</a></li>' +
-                '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</li>' +
+                '<li><a href="#table_csrc_type"  style="font-size:18px;">证监会行业分类</a></li>' +
+                '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</li>' + 
                 '</ul>' +
                 '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
                 '</form>' +
-                '</div>',
+                '</div>' +
             {
                 checkSex_f: function (sex) {
                     return sex!="男";
@@ -386,7 +427,7 @@ Ext.define('App.view.enterprise.Grid', {
             {text: '行业三级分类', width: 120, dataIndex: 'indclass3', hidden: true},
             {text: '行业四级分类', width: 120, dataIndex: 'indclass4', hidden: true},
             {text: '企业来源', width: 120, dataIndex: 'esource', hidden: true},
-            {text: '推荐人', width: 120, dataIndex: 'referee', hidden: true},
+            {text: '挂牌推荐人', width: 120, dataIndex: 'referee', hidden: true},
             {text: '企业来源详情', width: 120, dataIndex: 'esourcedesc', hidden: true},
             {text: '推荐日期', width: 120, dataIndex: 'recomdt', hidden: true},
             {text: '企业维护人', width: 120, dataIndex: 'emaint', hidden: true},
@@ -406,16 +447,18 @@ Ext.define('App.view.enterprise.Grid', {
             {text: 'E-mail', width: 120, dataIndex: 'eemail', hidden: true},
             {text: 'QQ', width: 120, dataIndex: 'eqq', hidden: true},
 
-            {text: '微信号', width: 120, dataIndex: 'webchat', hidden: true},
-            {text: '推荐人', width: 120, dataIndex: 'refer', hidden: true},
+            {text: '企业微信号', width: 120, dataIndex: 'webchat', hidden: true},
+            {text: '挂牌推荐人', width: 120, dataIndex: 'refer', hidden: true},
             {text: '负责人', width: 120, dataIndex: 'liabler', hidden: true},
-            {text: '推荐渠道', width: 120, dataIndex: 'channels', hidden: true},
+            {text: '推荐单位', width: 120, dataIndex: 'channels', hidden: true},
             {text: '挂牌日期', width: 120, dataIndex: 'listdt', hidden: true},
             {text: '挂牌出资（元/元出资.股）', width: 120, dataIndex: 'list_contrib', hidden: true},
             {text: '证监会行业分类', width: 120, dataIndex: 'csrc_type', hidden: true},
+            {text: '证监会行业分类2', width: 120, dataIndex: 'csrc_type2', hidden: true},
+            {text: '证监会行业分类3', width: 120, dataIndex: 'csrc_type3', hidden: true},
+            {text: '证监会行业分类4', width: 120, dataIndex: 'csrc_type4', hidden: true},
             {text: '备注', width: 120, dataIndex: 'bz', hidden: true},
-
-
+            {text: '登记机关', width: 120, dataIndex: 'regist_organ', hidden: true},
             {text: '备注', width: 120, dataIndex: 'remark', hidden: true}
 
         ];
@@ -514,9 +557,13 @@ function save_enterprise_edit(id) {
             channels: form_obt_apply['channels'].value,
             listdt: form_obt_apply['listdt'].value,
             list_contrib: form_obt_apply['list_contrib'].value,
-            csrc_type: form_obt_apply['csrc_type'].value,
-            bz: form_obt_apply['remark'].bz
+            bz: form_obt_apply['remark'].value,
+            regist_organ: form_obt_apply['regist_organ'].value,
 
+            csrc_type: form_obt_apply['csrc_type'].value,
+            csrc_type2: form_obt_apply['csrc_type2'].value,
+            csrc_type3: form_obt_apply['csrc_type3'].value,
+            csrc_type4: form_obt_apply['csrc_type4'].value
 
         },
         url: 'update_enterprise_info',

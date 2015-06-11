@@ -93,7 +93,11 @@ public class UpdateEnterpriseInfo {
             @RequestParam("listdt") String listdt,
             @RequestParam("list_contrib") String list_contrib,
             @RequestParam("csrc_type") String csrc_type,
-            @RequestParam("bz") String bz
+            @RequestParam("csrc_type2") String csrc_type2,
+            @RequestParam("csrc_type3") String csrc_type3,
+            @RequestParam("csrc_type4") String csrc_type4,
+            @RequestParam("bz") String bz,
+            @RequestParam("regist_organ") String regist_organ
 
             ) throws Exception{
         DataShop dataShop = new DataShop();
@@ -124,8 +128,8 @@ public class UpdateEnterpriseInfo {
                     "       contacter=?, dept=?, psotion=?, edoctype=?, edocnum=?, etel=?, \n" +
                     "       ephone=?, efax=?, eemail=?, eqq=?, remark=? ,province=?,city=?,county=?, " +
                     "       webchat=?, bz=?, refer=?, liabler=?, channels=?, \n" +
-                    "         list_contrib=?, csrc_type=? ,changer_id=?, changer_dt=?, \n" +
-                    "         changer_ip=? " +
+                    "         list_contrib=? ,changer_id=?, changer_dt=?, \n" +
+                    "         changer_ip=? ,regist_organ=?, csrc_type=?, csrc_type2=?, csrc_type3=?, csrc_type4=? " +
                     " where id = ?";
             pst = conn.prepareStatement(sql);
             pst.setString(1 , buslicno);
@@ -206,13 +210,12 @@ public class UpdateEnterpriseInfo {
 //                d_listdt = java.sql.Date.valueOf(listdt);
 //            pst.setDate(62, d_listdt);
             pst.setString(62, list_contrib);
-            pst.setString(63, csrc_type);
-            pst.setString(64, bz);
+            pst.setString(63, bz);
 
-            pst.setInt(65, Integer.parseInt(session.getAttribute("id").toString()));
+            pst.setInt(64, Integer.parseInt(session.getAttribute("id").toString()));
             java.util.Date date = new java.util.Date();
             Timestamp timestamp = new Timestamp(date.getTime());
-            pst.setTimestamp(66, timestamp);
+            pst.setTimestamp(65, timestamp);
 
             String ip = request.getHeader("x-forwarded-for");
             if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
@@ -230,35 +233,15 @@ public class UpdateEnterpriseInfo {
             if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
                 ip = request.getRemoteAddr();
             }
-            pst.setString(67, ip);
-            pst.setInt(68, id);
+            pst.setString(66, ip);
+            pst.setString(67, regist_organ);
+            pst.setString(68, csrc_type);
+            pst.setString(69, csrc_type2);
+            pst.setString(70, csrc_type3);
+            pst.setString(71, csrc_type4);
+            pst.setInt(72, id);
 
             pst.executeUpdate();
-
-
-
-
-
-
-
-//            String sql_change = "INSERT INTO work.tb_change(\n" +
-//                    "              enterprise_id, field, c_before, c_after, user_id, rtdate)\n" +
-//                    "    VALUES ( ?, ?, ?, ?, ?, ?)";
-//            pst = conn.prepareStatement(sql_change);
-//            pst.setInt(1, id);
-//            pst.setString(2, "");
-//            pst.setString(3, "");
-//            pst.setString(4, "");
-//            pst.setInt(5, Integer.parseInt(session.getAttribute("id").toString()));
-//            java.util.Date date = new java.util.Date();
-//            Timestamp timestamp = new Timestamp(date.getTime());
-//            pst.setTimestamp(6, timestamp);
-//            pst.executeUpdate();
-
-
-
-
-
             dataShop.setSuccess(true);
 
         } catch (SQLException e) {

@@ -25,7 +25,6 @@ Ext.define('App.view.financ.financ_manage.Query', {
                             Ext.create('widget.window', {
                                 title: '添加信息',
                                 modal: true,
-                                iconCls: 'icon_add',
                                 width: 350,
                                 height: 530,
                                 border: false,
@@ -120,7 +119,6 @@ Ext.define('App.view.financ.financ_manage.Query', {
                                         buttons: [
                                             {
                                                 text: '保存',
-                                                iconCls: 'icon_save',
                                                 handler: function(){
                                                     var form = this.up('form').getForm();
                                                     if (form.isValid()){
@@ -141,7 +139,6 @@ Ext.define('App.view.financ.financ_manage.Query', {
                                             },
                                             {
                                                 text: '重置',
-                                                iconCls: 'icon_reset',
                                                 handler: function () {
                                                     this.up('form').getForm().reset();
                                                 }
@@ -250,7 +247,6 @@ Ext.define('App.view.financ.financ_manage.Query', {
                             buttons: [
                                 {
                                     text: '保存',
-                                    iconCls: 'icon_save',
                                     handler: function(){
                                         var form = this.up('form').getForm();
                                         if (form.isValid()){
@@ -270,7 +266,6 @@ Ext.define('App.view.financ.financ_manage.Query', {
                                 },
                                 {
                                     text: '重置',
-                                    iconCls: 'icon_reset',
                                     handler: function () {
                                         this.up('form').getForm().reset();
                                     }
@@ -368,7 +363,6 @@ Ext.define('App.view.financ.financ_manage.Query', {
             items: [
                 {
                     xtype: 'button',
-                    iconCls: 'icon_search',
                     text: '查找',
                     listeners: {
                         click: function(){
@@ -389,7 +383,6 @@ Ext.define('App.view.financ.financ_manage.Query', {
                 },
                 {
                     xtype: 'button',
-                    iconCls: 'icon_reset',
                     text: '重置',
                     listeners: {
                         click: function(_this){

@@ -59,7 +59,6 @@ Ext.define('App.view.enterprise.Query', {
                                         buttons: [
                                             {
                                                 text: '导入',
-                                                iconCls: 'icon_save',
                                                 handler: function(){
                                                     var form = this.up('form').getForm();
                                                     if (form.isValid()){
@@ -200,7 +199,6 @@ Ext.define('App.view.enterprise.Query', {
             items: [
                 {
                     xtype: 'button',
-                    iconCls: 'icon_search',
                     text: '查找',
                     listeners: {
                         click: function() {
@@ -224,7 +222,6 @@ Ext.define('App.view.enterprise.Query', {
                 },
                 {
                     xtype: 'button',
-                    iconCls: 'icon_reset',
                     text: '重置',
                     listeners: {
                         click: function(_this){

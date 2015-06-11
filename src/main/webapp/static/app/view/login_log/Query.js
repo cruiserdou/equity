@@ -95,7 +95,6 @@ Ext.define('App.view.login_log.Query', {
             items: [
                 {
                     xtype: 'button',
-                    iconCls: 'icon_search',
                     text: '查找',
                     listeners: {
                         click: function(){
@@ -116,7 +115,6 @@ Ext.define('App.view.login_log.Query', {
                 },
                 {
                     xtype: 'button',
-                    iconCls: 'icon_reset',
                     text: '重置',
                     listeners: {
                         click: function(_this){

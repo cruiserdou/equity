@@ -28,39 +28,8 @@ Ext.define('app.view.main.region.Top', {
         {
             text: '甘肃中小企业信息管理系统'
         },
-        {
-            text: '首页',
-            glyph: 0xf015
-        },
-        {
-            text: '帮助',
-            glyph: 0xf059
-        },
-        {
-            text: '关于',
-            id: 'main-bar-about',
-            glyph: 0xf06a,
-            handler: function () {
-                Ext.create('widget.window', {
-                    title: '关于',
-                    modal: true,
-                    glyph: 0xf06a,
-                    width: 380,
-                    height: 240,
-                    border: false,
-                    layout: 'fit',
-                    defaults: {
-                        width: 200,
-                        allowBlank: false
-                    },
-                    items: [
-                        {
-                            xtype: 'panel'
-                        }
-                    ]
-                }).show(Ext.get('main-bar-about'));
-            }
-        },
+
+
 
         {
             xtype: 'label',

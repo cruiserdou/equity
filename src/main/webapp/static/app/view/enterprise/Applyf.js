@@ -12,7 +12,7 @@ Ext.define('App.view.enterprise.Applyf', {
     },
     applyTpl: [
         '<div class="wrap_center">',
-        '<h2>企业信息查看</h2>',
+        '<h2>企业信息</h2>',
         '<form id="apply_form">'+
         '<table class="enter_table" id="table_base">',
         '<tr>',
@@ -33,16 +33,16 @@ Ext.define('App.view.enterprise.Applyf', {
         '<tr>',
         '<th>地域</th>',
         //'<td><input id="region" name="region"  type="text" value="{region}"/></td>',
-        '<td>' +
-        '<select class="select" style="width: 30%" name="province" id="s1">' +
-        '<option>请选择省</option>' +
-        ' </select>' +
-        ' <select class="select" style="width:30%"  name="city" id="s2">' +
-        '<option>请选择市</option>' +
-        '</select>' +
-        '<select class="select" style="width: 40%" name="county" id="s3">' +
-        '<option>请选择县</option>' +
-        '</select>' +
+        '<td>',
+        '<select class="select" style="width: 70px" name="province" id="s1">',
+        '<option>请选择省</option>',
+        ' </select>',
+        ' <select class="select" style="width: 70px"  name="city" id="s2">',
+        '<option>请选择市</option>',
+        '</select>',
+        '<select class="select" style="width: 70px" name="county" id="s3">',
+        '<option>请选择县</option>',
+        '</select>',
         '</td>',
         '<th>公司简称</th>',
         '<td><input id="nos" name="nos"  type="text" value="{nos}"/></td>',
@@ -79,15 +79,15 @@ Ext.define('App.view.enterprise.Applyf', {
         '</tr>',
 
         '<tr>',
-        '<th>微信号</th>',
+        '<th>企业微信号</th>',
         '<td><input id="webchat" name="webchat"  type="text" value="{webchat}"/></td>',
-        '<th>推荐人</th>',
+        '<th>挂牌推荐人</th>',
         '<td><input id="refer" name="refer"  type="text" value="{refer}"/></td>',
         '</tr>',
         '<tr>',
         '<th>负责人</th>',
         '<td><input id="liabler" name="liabler"  type="text" value="{liabler}"/></td>',
-        '<th>推荐渠道</th>',
+        '<th>推荐单位</th>',
         '<td><input id="channels" name="channels"  type="text" value="{channels}"/></td>',
         '</tr>',
         '<tr>',
@@ -105,6 +105,10 @@ Ext.define('App.view.enterprise.Applyf', {
         '<tr>',
         '<th>经营范围</th>',
         '<td colspan="3"><textarea id="scope" name="scope"  type="text" value="{scope}"></textarea></td>',
+        '</tr>',
+        '<tr>',
+        '<th>登记机关</th>',
+        '<td colspan="3"><input id="regist_organ" name="regist_organ"  type="text" value="{regist_organ}"/></td>',
         '</tr>',
         '<tr>',
         '<th>主营业务</th>',
@@ -160,14 +164,14 @@ Ext.define('App.view.enterprise.Applyf', {
         '<th class="table_header" colspan="4">法定代表人基本信息</th>',
         '</tr>',
         '<tr>',
-        '<th>职务</th>',
-        '<td><input id="post" name="post"  type="text" value="{post}"/></td>',
+        '<th>姓名</th>',
+        '<td><input id="contact" name="contact"  type="text" value="{contact}"/></td>',
         '<th>证件类型</th>',
         '<td><input id="doctype" name="doctype"  type="text" value="{doctype}"/></td>',
         '</tr>',
         '<tr>',
-        '<th>姓名</th>',
-        '<td><input id="contact" name="contact"  type="text" value="{contact}"/></td>',
+        '<th>职务</th>',
+        '<td><input id="post" name="post"  type="text" value="{post}"/></td>',
         '<th>证件号码</th>',
         '<td><input id="docnum" name="docnum"  type="text" value="{docnum}"/></td>',
         '</tr>',
@@ -193,29 +197,63 @@ Ext.define('App.view.enterprise.Applyf', {
         '<tr>',
         '<th>行业一级分类</th>',
         '<td>    ' +
-        '<select class="select" name="indclass1" id="cl1">' +
-        '<option>-一级-</option>' +
-        ' </select>' +
+        '<select class="select" name="indclass1" id="cl1">',
+        '<option>-一级-</option>',
+        ' </select>',
         '</td>',
         '<th>行业二级分类</th>',
-        '<td>' +
-        '<select class="select" name="indclass2" id="cl2">' +
-        '<option>-2级-</option>' +
-        ' </select>' +
+        '<td>',
+        '<select class="select" name="indclass2" id="cl2">',
+        '<option>-2级-</option>',
+        ' </select>',
         '</td>',
         '</tr>',
         '<tr>',
         '<th>行业三级分类</th>',
-        '<td>' +
-        '<select class="select" name="indclass3" id="cl3">' +
-        '<option>-3级-</option>' +
-        ' </select>' +
+        '<td>',
+        '<select class="select" name="indclass3" id="cl3">',
+        '<option>-3级-</option>',
+        ' </select>',
         '</td>',
         '<th>行业四级分类</th>',
-        '<td>' +
-        '<select class="select" name="indclass4" id="cl4">' +
-        '<option>-4级-</option>' +
-        ' </select>' +
+        '<td>',
+        '<select class="select" name="indclass4" id="cl4">',
+        '<option>-4级-</option>',
+        ' </select>',
+        '</td>',
+        '</tr>',
+        '</table>',
+
+        '<table class="enter_table" id="table_csrc_type">',
+        '<tr>',
+        '<th class="table_header" colspan="4">证监会行业分类信息</th>',
+        '</tr>',
+        '<tr>',
+        '<th>证监会行业一级分类</th>',
+        '<td>    ' +
+        '<select class="select" name="csrc1" id="csrc1">',
+        '<option>{csrc_type}</option>',
+        ' </select>',
+        '</td>',
+        '<th>证监会行业二级分类</th>',
+        '<td>',
+        '<select class="select" name="csrc2" id="csrc2">',
+        '<option>{csrc_typ2}</option>',
+        ' </select>',
+        '</td>',
+        '</tr>',
+        '<tr>',
+        '<th>证监会行业三级分类</th>',
+        '<td>',
+        '<select class="select" name="csrc3" id="csrc3">',
+        '<option>{csrc_typ3}</option>',
+        ' </select>',
+        '</td>',
+        '<th>证监会行业四级分类</th>',
+        '<td>',
+        '<select class="select" name="csrc4" id="csrc4">',
+        '<option>{csrc_typ4}</option>',
+        ' </select>',
         '</td>',
         '</tr>',
         '</table>',
@@ -229,7 +267,7 @@ Ext.define('App.view.enterprise.Applyf', {
         '<tr>',
         '<th>企业来源</th>',
         '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>',
-        '<th>推荐人</th>',
+        '<th>挂牌推荐人</th>',
         '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>',
         '</tr>',
         '<tr>',
@@ -295,18 +333,15 @@ Ext.define('App.view.enterprise.Applyf', {
 
 
         '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_cust_add()">保存</a>'+
-
-
-
         '</div>',
         '<div style="position: fixed; top: 7em; right: 6em">',
-        //'<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close()"><i class="fa fa-pencil"></i>关闭</a>'+
 
         '<ul>',
         '<li><a href="#table_base" style="font-size:18px;">基本信息</a></li>',
         '<li><a href="#table_sh"  style="font-size:18px;">股东名册</a></li>',
         '<li><a href="#table_link"  style="font-size:18px;">法定代表人</a></li>',
         '<li><a href="#table_acount"  style="font-size:18px;">行业分类</a></li>',
+        '<li><a href="#table_csrc_type"  style="font-size:18px;">证监会行业分类</a></li>',
         '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</li>',
         '</ul>',
         '</div>'
@@ -452,17 +487,13 @@ function save_cust_add() {
                 channels: document.getElementById('channels').value,
                 listdt: document.getElementById('listdt').value,
                 list_contrib: document.getElementById('list_contrib').value,
+                bz: document.getElementById('remark').value,
+                regist_organ: document.getElementById('regist_organ').value,
+
                 csrc_type: document.getElementById('csrc_type').value,
-                bz: document.getElementById('remark').bz
-
-
-
-
-
-
-
-
-
+                csrc_type2: document.getElementById('csrc_type2').value,
+                csrc_type3: document.getElementById('csrc_type3').value,
+                csrc_type4: document.getElementById('csrc_type4').value
 
             },
             url: 'add_enterprise_info',
@@ -497,18 +528,14 @@ function show()
         success: function (response,opts) {
             var obj=Ext.decode(response.responseText);
 
-            if(obj.success)
+            if(!obj.success)
             {
-                Ext.Msg.alert("提示", "该营业执照号码可用！");
-
-            }else{
                 Ext.Msg.alert("提示", "该营业执照号码已用！");
                 document.getElementById('apply_form')['buslicno'].value="";
             }
         },
         failure: function (response,opts) {
             Ext.Msg.alert("提示", "错");
-            //save_cust_add()
         }
     });
 }

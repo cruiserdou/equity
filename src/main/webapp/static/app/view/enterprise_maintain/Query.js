@@ -157,7 +157,6 @@ Ext.define('App.view.enterprise_maintain.Query', {
                             buttons: [
                                 {
                                     text: '保存',
-                                    iconCls: 'icon_save',
                                     handler: function(){
                                         var form = this.up('form').getForm();
                                         if (form.isValid()){
@@ -177,7 +176,6 @@ Ext.define('App.view.enterprise_maintain.Query', {
                                 },
                                 {
                                     text: '重置',
-                                    iconCls: 'icon_reset',
                                     handler: function () {
                                         this.up('form').getForm().reset();
                                     }
@@ -275,7 +273,6 @@ Ext.define('App.view.enterprise_maintain.Query', {
             items: [
                 {
                     xtype: 'button',
-                    iconCls: 'icon_search',
                     text: '查找',
                     listeners: {
                         click: function(){
@@ -290,7 +287,6 @@ Ext.define('App.view.enterprise_maintain.Query', {
                 },
                 {
                     xtype: 'button',
-                    iconCls: 'icon_reset',
                     text: '重置',
                     listeners: {
                         click: function(_this){

@@ -72,7 +72,12 @@ Ext.define('App.model.enterprise', {
         {name: 'listdt'},
         {name: 'list_contrib'},
         {name: 'csrc_type'},
-        {name: 'bz'}
+        {name: 'csrc_type2'},
+        {name: 'csrc_type3'},
+        {name: 'csrc_type4'},
+        {name: 'bz'},
+        {name: 'regist_organ'}
+
 
     ]
     //associations:[{

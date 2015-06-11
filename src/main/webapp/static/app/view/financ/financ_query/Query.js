@@ -64,7 +64,6 @@ Ext.define('App.view.financ.financ_query.Query', {
             items: [
                 {
                     xtype: 'button',
-                    iconCls: 'icon_search',
                     text: '查找',
                     listeners: {
                         click: function(){
@@ -85,7 +84,6 @@ Ext.define('App.view.financ.financ_query.Query', {
                 },
                 {
                     xtype: 'button',
-                    iconCls: 'icon_reset',
                     text: '重置',
                     listeners: {
                         click: function(_this){
