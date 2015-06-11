@@ -70,58 +70,60 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '<td>{bustremtdt}</td>',
                 '</tr>',
                 '<tr>',
-                '<th>挂牌代码</th>'+
-                '<td>{listcode}</td>'+
-                '<th>挂牌价格</th>'+
-                '<td>{listprice}</td>'+
-                '</tr>'+
-                '<tr>'+
-                '<th>挂牌出资（元/元出资.股）</th>'+
-                '<td>{list_contrib}</td>'+
-                '<th>挂牌日期</th>'+
-                '<td>{listdt}</td>'+
-                '</tr>'+
-                '<tr>'+
+                '<th>挂牌代码</th>',
+                '<td>{listcode}</td>',
+                '<th>挂牌价格<br>元/元出资(股)</th>',
+                '<td>{listprice}</td>',
+                '</tr>',
+                '<tr>',
+                '<th>挂牌日期</th>',
+                '<td>{listdt}</td>',
+                '<th>挂牌推荐人</th>',
+                '<td>{refer}</td>',
+                '</tr>',
+                '<tr>',
                 '<th>企业微信号</th>',
-                '<td>{webchat}</td>'+
-                '<th>挂牌推荐人</th>'+
-                '<td>{refer}</td>'+
-                '</tr>'+
-                '<tr>'+
-                '<th>负责人</th>'+
-                '<td>{liabler}</td>'+
-                '<th>推荐单位</th>'+
-                '<td>{channels}</td>'+
-                '</tr>'+
-                '<tr>'+
-                '<th>注册地址</th>'+
-                '<td>{regaddr}</td>'+
-                '<th>员工人数</th>'+
-                '<td>{staffnum}</td>'+
-                '</tr>'+
-                '<tr>'+
-                '<th>办公地址</th>'+
-                '<td>{offaddr}</td>'+
-                '<th>证监会行业分类</th>'+
-                '<td>{csrc_type}</td>'+
-                '</tr>'+
+                '<td>{webchat}</td>',
+                '<th>推荐单位</th>',
+                '<td>{channels}</td>',
+                '</tr>',
+                '<tr>',
+                '<th>融资负责人</th>',
+                '<td>{rz_charge}</td>',
+                '<th>维护负责人</th>',
+                '<td>{wh_charge}</td>',
+                '</tr>',
+                '<tr>',
+                '<th>挂牌区域</th>',
+                '<td>{list_area}</td>',
+                '<th>员工人数</th>',
+                '<td>{staffnum}</td>',
+                '</tr>',
+                '<tr>',
+                '<th>注册地址</th>',
+                '<td colspan="3">{regaddr}</td>',
+                '</tr>',
+                '<tr>',
+                '<th>办公地址</th>',
+                '<td colspan="3">{offaddr}</td>',
+                '</tr>',
                 '<tr>',
                 '<tr>',
-                '<th>经营范围</th>'+
-                '<td colspan="3"><textarea id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>'+
-                '</tr>'+
-                '<tr>'+
-                '<th>登记机关</th>'+
-                '<td colspan="3"><input id="regist_organ" name="regist_organ"  type="text" value="{regist_organ}"/></td>'+
-                '</tr>'+
-                '<tr>'+
-                '<th>主营业务</th>'+
-                '<td colspan="3"><textarea id="mbus" name="mbus"  type="text" value="{mbus}">{mbus}</textarea></td>'+
-                '</tr>'+
-                '<tr>'+
-                '<th>企业简介</th>'+
-                '<td colspan="3"><textarea id="eprofile" name="eprofile"  type="text" value="{eprofile}">{eprofile}</textarea> </td>'+
-                '</tr>'+
+                '<th>经营范围</th>',
+                '<td colspan="3"><textarea id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>',
+                '</tr>',
+                '<tr>',
+                '<th>登记机关</th>',
+                '<td colspan="3"><input id="regist_organ" name="regist_organ"  type="text" value="{regist_organ}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>主营业务</th>',
+                '<td colspan="3"><textarea id="mbus" name="mbus"  type="text" value="{mbus}">{mbus}</textarea></td>',
+                '</tr>',
+                '<tr>',
+                '<th>企业简介</th>',
+                '<td colspan="3"><textarea id="eprofile" name="eprofile"  type="text" value="{eprofile}">{eprofile}</textarea> </td>',
+                '</tr>',
                 '<tr>',
                 '<th>备注</th>',
                 '<td colspan="3"><textarea id="bz" name="bz"  type="text" value="{bz}"></textarea></td>',
@@ -131,7 +133,6 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '<td colspan="3">{phoinf}</td>',
                 '</tr>',
                 '</table>',
-                    //<textarea disabled style="background:#FFFFFF" contenteditable="false" rows="3" name="remark"  type="text" value="""></textarea>
 
                 '<table class="enter_table" id="table_sh">',
                 '<tr>',
@@ -190,6 +191,16 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '<th>QQ</th>',
                 '<td>{qq}</td>',
                 '</tr>',
+                '<tr>',
+                '<th>微信号</th>',
+                '<td>{webchat_gr}</td>',
+                '<th>固话</th>',
+                '<td>{tel_gr}</td>',
+                '</tr>',
+                '<tr>',
+                '<th>备注</th>',
+                '<td colspan="3"><textarea id="bz_gr" name="bz_gr"  type="text" value="{bz_gr}"></textarea></td>'+
+                '</tr>',
                 '</table>',
 
 
@@ -228,39 +239,39 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '</table>',
 
 
-                '<table class="enter_table" id="table_csrc_type">',
-                '<tr>',
-                '<th class="table_header" colspan="4">证监会行业分类信息</th>',
-                '</tr>',
-                '<tr>',
-                '<th>证监会行业一级分类</th>',
+                '<table class="enter_table" id="table_csrc_type">' +
+                '<tr>' +
+                '<th class="table_header" colspan="4">证监会行业分类信息</th>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>证监会行业一级分类</th>' +
+                '<td>    ' +
+                '<select class="select" name="csrc_type" id="csrc1">' +
+                '<option>{csrc_type}</option>' +
+                ' </select>' +
+                '</td>' +
+                '<th>证监会行业二级分类</th>' +
                 '<td>' +
-                '<select class="select" name="indclass1" id="cl1">',
-                '<option>{csrc_type}</option>',
-                ' </select>',
-                '</td>',
-                '<th>证监会行业二级分类</th>',
-                '<td>',
-                '<select class="select" name="indclass2" id="cl2">',
-                '<option>{csrc_typ2}</option>',
-                ' </select>',
-                '</td>',
-                '</tr>',
-                '<tr>',
-                '<th>证监会行业三级分类</th>',
-                '<td>',
-                '<select class="select" name="indclass3" id="cl3">',
-                '<option>{csrc_typ3}</option>',
-                ' </select>',
-                '</td>',
-                '<th>证监会行业四级分类</th>',
-                '<td>',
-                '<select class="select" name="indclass4" id="cl4">',
-                '<option>{csrc_typ4}</option>',
-                ' </select>',
-                '</td>',
-                '</tr>',
-                '</table>',
+                '<select class="select" name="csrc_typ2" id="csrc2">' +
+                '<option>{csrc_typ2}</option>' +
+                ' </select>' +
+                '</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<th>证监会行业三级分类</th>' +
+                '<td>' +
+                '<select class="select" name="csrc_typ3" id="csrc3">' +
+                '<option>{csrc_typ3}</option>' +
+                ' </select>' +
+                '</td>' +
+                '<th>证监会行业四级分类</th>' +
+                '<td>' +
+                '<select class="select" name="csrc_typ4" id="csrc4">' +
+                '<option>{csrc_typ4}</option>' +
+                ' </select>' +
+                '</td>' +
+                '</tr>' +
+                '</table>' +
 
                 '<table  class="enter_table" id="table_ocompay">',
                 '<tr>',
@@ -269,7 +280,7 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '<tr>',
                 '<th>企业来源</th>',
                 '<td>{esource}</td>',
-                '<th>挂牌推荐人</th>',
+                '<th>推荐人</th>',
                 '<td>{referee}</td>',
                 '</tr>',
                 '<tr>',
@@ -447,20 +458,23 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '传真', width: 120, dataIndex: 'efax', hidden: true},
             {text: 'E-mail', width: 120, dataIndex: 'eemail', hidden: true},
             {text: 'QQ', width: 120, dataIndex: 'eqq', hidden: true},
-
             {text: '企业微信号', width: 120, dataIndex: 'webchat', hidden: true},
             {text: '挂牌推荐人', width: 120, dataIndex: 'refer', hidden: true},
-            {text: '负责人', width: 120, dataIndex: 'liabler', hidden: true},
             {text: '推荐单位', width: 120, dataIndex: 'channels', hidden: true},
             {text: '挂牌日期', width: 120, dataIndex: 'listdt', hidden: true},
-            {text: '挂牌出资（元/元出资.股）', width: 120, dataIndex: 'list_contrib', hidden: true},
             {text: '证监会行业分类', width: 120, dataIndex: 'csrc_type', hidden: true},
             {text: '证监会行业分类2', width: 120, dataIndex: 'csrc_type2', hidden: true},
             {text: '证监会行业分类3', width: 120, dataIndex: 'csrc_type3', hidden: true},
             {text: '证监会行业分类4', width: 120, dataIndex: 'csrc_type4', hidden: true},
-            {text: '备注', width: 120, dataIndex: 'bz', hidden: true},
             {text: '登记机关', width: 120, dataIndex: 'regist_organ', hidden: true},
-            {text: '备注', width: 120, dataIndex: 'remark', hidden: true}
+            {text: '融资负责人', width: 120, dataIndex: 'rz_charge', hidden: true},
+            {text: '维护负责人', width: 120, dataIndex: 'wh_charge', hidden: true},
+            {text: '挂牌区域', width: 120, dataIndex: 'list_area', hidden: true},
+            {text: '个人微信号', width: 120, dataIndex: 'webchat_gr', hidden: true},
+            {text: '联系人固话', width: 120, dataIndex: 'tel_gr', hidden: true},
+            {text: '备注', width: 120, dataIndex: 'bz', hidden: true},
+            {text: '个人备注', width: 120, dataIndex: 'bz_gr', hidden: true},
+            {text: '维护备注', width: 120, dataIndex: 'remark', hidden: true}
 
         ];
 

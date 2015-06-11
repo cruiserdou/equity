@@ -90,16 +90,28 @@ public class UpdateEnterpriseInfo {
             @RequestParam("refer") String refer,
             @RequestParam("liabler") String liabler,
             @RequestParam("channels") String channels,
-            @RequestParam("listdt") String listdt,
-            @RequestParam("list_contrib") String list_contrib,
             @RequestParam("csrc_type") String csrc_type,
             @RequestParam("csrc_type2") String csrc_type2,
             @RequestParam("csrc_type3") String csrc_type3,
             @RequestParam("csrc_type4") String csrc_type4,
             @RequestParam("bz") String bz,
-            @RequestParam("regist_organ") String regist_organ
+            @RequestParam("regist_organ") String regist_organ,
 
-            ) throws Exception{
+            @RequestParam("rz_charge") String rz_charge,
+            @RequestParam("wh_charge") String wh_charge,
+            @RequestParam("list_area") String list_area,
+            @RequestParam("webchat_gr") String webchat_gr,
+            @RequestParam("tel_gr") String tel_gr,
+            @RequestParam("bz_gr") String bz_gr,
+            @RequestParam("type_enterp") Boolean type_enterp,
+            @RequestParam("type_server") Boolean type_server,
+            @RequestParam("type_investors") Boolean type_investors,
+            @RequestParam("type_govermt") Boolean type_govermt,
+            @RequestParam("demand_rz") Boolean demand_rz,
+            @RequestParam("demand_px") Boolean demand_px,
+            @RequestParam("demand_rl") Boolean demand_rl
+
+    ) throws Exception{
         DataShop dataShop = new DataShop();
         dataShop.setSuccess(true);
         Connection conn = null;
@@ -127,9 +139,10 @@ public class UpdateEnterpriseInfo {
                     "       emaint=?, trusteeship=?, listst=?, eclass=?, maintain=?, reserve=?, \n" +
                     "       contacter=?, dept=?, psotion=?, edoctype=?, edocnum=?, etel=?, \n" +
                     "       ephone=?, efax=?, eemail=?, eqq=?, remark=? ,province=?,city=?,county=?, " +
-                    "       webchat=?, bz=?, refer=?, liabler=?, channels=?, \n" +
-                    "         list_contrib=? ,changer_id=?, changer_dt=?, \n" +
-                    "         changer_ip=? ,regist_organ=?, csrc_type=?, csrc_type2=?, csrc_type3=?, csrc_type4=? " +
+                    "       webchat=?, bz=?, refer=?,  channels=?, changer_id=?, changer_dt=?, \n" +
+                    "       changer_ip=? ,regist_organ=?, csrc_type=?, csrc_type2=?, csrc_type3=?, csrc_type4=?, " +
+                    "       rz_charge=?,wh_charge=?,list_area=?, webchat_gr=?,tel_gr=?,bz_gr=?, " +
+                    "       type_server=?,type_investors=?,type_govermt=?,demand_rz=?,demand_px=?, demand_rl=?,type_enterp=?" +
                     " where id = ?";
             pst = conn.prepareStatement(sql);
             pst.setString(1 , buslicno);
@@ -203,19 +216,13 @@ public class UpdateEnterpriseInfo {
             pst.setString(57, county);
             pst.setString(58, webchat);
             pst.setString(59, refer);
-            pst.setString(60, liabler);
-            pst.setString(61, channels);
-//            java.sql.Date d_listdt = null;
-//            if (listdt != null && listdt.length() > 2)
-//                d_listdt = java.sql.Date.valueOf(listdt);
-//            pst.setDate(62, d_listdt);
-            pst.setString(62, list_contrib);
-            pst.setString(63, bz);
+            pst.setString(60, channels);
+            pst.setString(61, bz);
 
-            pst.setInt(64, Integer.parseInt(session.getAttribute("id").toString()));
+            pst.setInt(62, Integer.parseInt(session.getAttribute("id").toString()));
             java.util.Date date = new java.util.Date();
             Timestamp timestamp = new Timestamp(date.getTime());
-            pst.setTimestamp(65, timestamp);
+            pst.setTimestamp(63, timestamp);
 
             String ip = request.getHeader("x-forwarded-for");
             if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
@@ -233,13 +240,26 @@ public class UpdateEnterpriseInfo {
             if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
                 ip = request.getRemoteAddr();
             }
-            pst.setString(66, ip);
-            pst.setString(67, regist_organ);
-            pst.setString(68, csrc_type);
-            pst.setString(69, csrc_type2);
-            pst.setString(70, csrc_type3);
-            pst.setString(71, csrc_type4);
-            pst.setInt(72, id);
+            pst.setString(64, ip);
+            pst.setString(65, regist_organ);
+            pst.setString(66, csrc_type);
+            pst.setString(67, csrc_type2);
+            pst.setString(68, csrc_type3);
+            pst.setString(69, csrc_type4);
+            pst.setString(70, rz_charge);
+            pst.setString(71, wh_charge);
+            pst.setString(72, list_area);
+            pst.setString(73, webchat_gr);
+            pst.setString(74, tel_gr);
+            pst.setString(75, bz_gr);
+            pst.setBoolean(76, type_server);
+            pst.setBoolean(77, type_investors);
+            pst.setBoolean(78, type_govermt);
+            pst.setBoolean(79, demand_rz);
+            pst.setBoolean(80, demand_px);
+            pst.setBoolean(81, demand_rl);
+            pst.setBoolean(82, type_enterp);
+            pst.setInt(83, id);
 
             pst.executeUpdate();
             dataShop.setSuccess(true);

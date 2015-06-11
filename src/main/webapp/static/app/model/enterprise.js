@@ -67,16 +67,29 @@ Ext.define('App.model.enterprise', {
 
         {name: 'webchat'},
         {name: 'refer'},
-        {name: 'liabler'},
         {name: 'channels'},
         {name: 'listdt'},
-        {name: 'list_contrib'},
         {name: 'csrc_type'},
         {name: 'csrc_type2'},
         {name: 'csrc_type3'},
         {name: 'csrc_type4'},
         {name: 'bz'},
-        {name: 'regist_organ'}
+        {name: 'regist_organ'},
+        {name: 'rz_charge'},
+        {name: 'wh_charge'},
+        {name: 'list_area'},
+        {name: 'webchat_gr'},
+        {name: 'tel_gr'},
+        {name: 'bz_gr'},
+        {name: 'type_enterp'},
+        {name: 'type_server'},
+        {name: 'type_investors'},
+        {name: 'type_govermt'},
+        {name: 'demand_rz'},
+        {name: 'demand_px'},
+        {name: 'demand_rl'}
+
+
 
 
     ]

@@ -64,38 +64,40 @@ Ext.define('App.view.service.service_query.Grid', {
                     '<tr>' +
                     '<th>挂牌代码</th>'+
                     '<td><input id="listcode" name="listcode"  type="text" value="{listcode}"/></td>'+
-                    '<th>挂牌价格</th>'+
+                    '<th>挂牌价格<br>元/元出资(股)</th>'+
                     '<td><input id="listprice" name="listprice"  type="text" value="{listprice}"/></td>'+
                     '</tr>'+
                     '<tr>'+
-                    '<th>挂牌出资（元/元出资.股）</th>'+
-                    '<td><input id="list_contrib" name="list_contrib"  type="text" value="{list_contrib}"/></td>'+
                     '<th>挂牌日期</th>'+
                     '<td><input id="listdt" name="listdt"  type="date" value="{listdt}"/></td>'+
-                    '</tr>'+
-                    '<tr>'+
-                    '<th>企业微信号</th>',
-                    '<td><input id="webchat" name="webchat"  type="text" value="{webchat}"/></td>'+
                     '<th>挂牌推荐人</th>'+
                     '<td><input id="refer" name="refer"  type="text" value="{refer}"/></td>'+
                     '</tr>'+
                     '<tr>'+
-                    '<th>负责人</th>'+
-                    '<td><input id="liabler" name="liabler"  type="text" value="{liabler}"/></td>'+
+                    '<th>企业微信号</th>',
+                    '<td><input id="webchat" name="webchat"  type="text" value="{webchat}"/></td>'+
                     '<th>推荐单位</th>'+
                     '<td><input id="channels" name="channels"  type="text" value="{channels}"/></td>'+
                     '</tr>'+
                     '<tr>'+
-                    '<th>注册地址</th>'+
-                    '<td><input id="regaddr" name="regaddr"  type="text" value="{regaddr}"/></td>'+
+                    '<th>融资负责人</th>'+
+                    '<td><input id="rz_charge" name="rz_charge"  type="text" value="{rz_charge}"/></td>'+
+                    '<th>维护负责人</th>'+
+                    '<td><input id="wh_charge" name="wh_charge"  type="text" value="{wh_charge}"/></td>'+
+                    '</tr>'+
+                    '<tr>'+
+                    '<th>挂牌区域</th>'+
+                    '<td><input id="list_area" name="list_area"  type="text" value="{list_area}"/></td>'+
                     '<th>员工人数</th>'+
                     '<td><input id="staffnum" name="staffnum"  type="text" value="{staffnum}"/></td>'+
                     '</tr>'+
                     '<tr>'+
+                    '<th>注册地址</th>'+
+                    '<td colspan="3"><input id="regaddr" name="regaddr"  type="text" value="{regaddr}"/></td>'+
+                    '</tr>'+
+                    '<tr>'+
                     '<th>办公地址</th>'+
-                    '<td><input id="offaddr" name="offaddr"  type="text" value="{offaddr}"/></td>'+
-                    '<th>证监会行业分类</th>'+
-                    '<td><input id="csrc_type" name="csrc_type"  type="text" value="{csrc_type}"/></td>'+
+                    '<td colspan="3"><input id="offaddr" name="offaddr"  type="text" value="{offaddr}"/></td>'+
                     '</tr>'+
                     '<tr>' +
                     '<th>经营范围</th>'+
@@ -180,7 +182,17 @@ Ext.define('App.view.service.service_query.Grid', {
                     '<th>QQ</th>' +
                     '<td><input id="qq" name="qq"  type="text" value="{qq}"/></td>' +
                     '</tr>' +
-                    '</table>' +
+                    '<tr>'+
+                    '<th>微信号</th>'+
+                    '<td><input id="webchat_gr" name="webchat_gr"  type="text" value="{webchat_gr}"/></td>'+
+                    '<th>固话</th>',
+                    '<td><input id="tel_gr" name="tel_gr"  type="text" value="{tel_gr}"/></td>'+
+                    '</tr>'+
+                    '<tr>'+
+                    '<th>备注</th>'+
+                    '<td colspan="3"><textarea id="bz_gr" name="bz_gr"  type="text" value="{bz_gr}"></textarea></td>'+
+                    '</tr>'+
+                    '</table>'+
 
 
                     '<table class="enter_table" id="table_acount">' +
@@ -224,13 +236,13 @@ Ext.define('App.view.service.service_query.Grid', {
                     '<tr>' +
                     '<th>证监会行业一级分类</th>' +
                     '<td>    ' +
-                    '<select class="select" name="indclass1" id="cl1">' +
+                    '<select class="select" name="csrc_type" id="csrc1">' +
                     '<option>{csrc_type}</option>' +
                     ' </select>' +
                     '</td>' +
                     '<th>证监会行业二级分类</th>' +
                     '<td>' +
-                    '<select class="select" name="indclass2" id="cl2">' +
+                    '<select class="select" name="csrc_typ2" id="csrc2">' +
                     '<option>{csrc_typ2}</option>' +
                     ' </select>' +
                     '</td>' +
@@ -238,13 +250,13 @@ Ext.define('App.view.service.service_query.Grid', {
                     '<tr>' +
                     '<th>证监会行业三级分类</th>' +
                     '<td>' +
-                    '<select class="select" name="indclass3" id="cl3">' +
+                    '<select class="select" name="csrc_typ3" id="csrc3">' +
                     '<option>{csrc_typ3}</option>' +
                     ' </select>' +
                     '</td>' +
                     '<th>证监会行业四级分类</th>' +
                     '<td>' +
-                    '<select class="select" name="indclass4" id="cl4">' +
+                    '<select class="select" name="csrc_typ4" id="csrc4">' +
                     '<option>{csrc_typ4}</option>' +
                     ' </select>' +
                     '</td>' +
@@ -259,7 +271,7 @@ Ext.define('App.view.service.service_query.Grid', {
                     '<tr>' +
                     '<th>企业来源</th>' +
                     '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>' +
-                    '<th>挂牌推荐人</th>' +
+                    '<th>推荐人</th>' +
                     '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>' +
                     '</tr>' +
                     '<tr>' +
@@ -477,20 +489,23 @@ Ext.define('App.view.service.service_query.Grid', {
                 {text: '传真', width: 120, dataIndex: 'efax', hidden: true},
                 {text: 'E-mail', width: 120, dataIndex: 'eemail', hidden: true},
                 {text: 'QQ', width: 120, dataIndex: 'eqq', hidden: true},
-
                 {text: '企业微信号', width: 120, dataIndex: 'webchat', hidden: true},
                 {text: '挂牌推荐人', width: 120, dataIndex: 'refer', hidden: true},
-                {text: '负责人', width: 120, dataIndex: 'liabler', hidden: true},
                 {text: '推荐单位', width: 120, dataIndex: 'channels', hidden: true},
                 {text: '挂牌日期', width: 120, dataIndex: 'listdt', hidden: true},
-                {text: '挂牌出资（元/元出资.股）', width: 120, dataIndex: 'list_contrib', hidden: true},
                 {text: '证监会行业分类', width: 120, dataIndex: 'csrc_type', hidden: true},
                 {text: '证监会行业分类2', width: 120, dataIndex: 'csrc_type2', hidden: true},
                 {text: '证监会行业分类3', width: 120, dataIndex: 'csrc_type3', hidden: true},
                 {text: '证监会行业分类4', width: 120, dataIndex: 'csrc_type4', hidden: true},
-                {text: '备注', width: 120, dataIndex: 'bz', hidden: true},
                 {text: '登记机关', width: 120, dataIndex: 'regist_organ', hidden: true},
-                {text: '备注', width: 120, dataIndex: 'remark', hidden: true}
+                {text: '融资负责人', width: 120, dataIndex: 'rz_charge', hidden: true},
+                {text: '维护负责人', width: 120, dataIndex: 'wh_charge', hidden: true},
+                {text: '挂牌区域', width: 120, dataIndex: 'list_area', hidden: true},
+                {text: '个人微信号', width: 120, dataIndex: 'webchat_gr', hidden: true},
+                {text: '联系人固话', width: 120, dataIndex: 'tel_gr', hidden: true},
+                {text: '备注', width: 120, dataIndex: 'bz', hidden: true},
+                {text: '个人备注', width: 120, dataIndex: 'bz_gr', hidden: true},
+                {text: '维护备注', width: 120, dataIndex: 'remark', hidden: true}
 
             ];
 
