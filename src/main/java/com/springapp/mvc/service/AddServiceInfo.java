@@ -32,6 +32,8 @@ public class AddServiceInfo {
             @RequestParam("descs") String descs,
             @RequestParam("domain") String domain,
             @RequestParam("penalty") String penalty,
+            @RequestParam("b_examiner") boolean b_examiner,
+            @RequestParam("part_post") String part_post,
             @RequestParam("remark") String remark
 
 
@@ -58,8 +60,8 @@ public class AddServiceInfo {
 
             String sql = "INSERT INTO work.tb_service(\n" +
                     "           nos, name, type, content, levels, descs, domain, penalty, \n" +
-                    "            remark)\n" +
-                    "    VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+                    "            remark,b_examiner,part_post)\n" +
+                    "    VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
             pst = conn.prepareStatement(sql);
             pst.setString(1, nos);
             pst.setString(2, name);
@@ -70,6 +72,8 @@ public class AddServiceInfo {
             pst.setString(7, domain);
             pst.setString(8, penalty);
             pst.setString(9, remark);
+            pst.setBoolean(10, b_examiner);
+            pst.setString(11, part_post);
             pst.executeUpdate();
 
 

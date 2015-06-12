@@ -419,10 +419,8 @@ Ext.define('App.view.service.service_query.Grid', {
             this.columns = [
                 {text: 'ID', width: 80, dataIndex: 'serviceid',hidden:true},
                 {text: '企业ID', width: 80, dataIndex: 'serviceenterprise_id',hidden:true},
-
                 {text: '营业执照号码', width: 120, dataIndex: 'buslicno'},
                 {text: '企业名称', width: 120, dataIndex: 'name'},
-
                 {text: '编号', width: 100, dataIndex: 'servicenos'},
                 {text: '服务机构名称', width: 200, dataIndex: 'servicename'},
                 {text: '服务机构类别', width: 200, dataIndex: 'servicetype'},
@@ -431,6 +429,8 @@ Ext.define('App.view.service.service_query.Grid', {
                 {text: '简介', width: 200, dataIndex: 'servicedescs'},
                 {text: '领域', width: 200, dataIndex: 'servicedomain'},
                 {text: '惩罚记录', width: 200, dataIndex: 'servicepenalty'},
+                {text: '专审委员', width: 200, dataIndex: 'b_examiner'},
+                {text: '兼任职务', width: 200, dataIndex: 'part_post'},
                 {text: '备注', flex: 1, dataIndex: 'serviceremark'},
 
 

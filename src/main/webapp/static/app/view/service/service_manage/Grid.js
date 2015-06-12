@@ -438,6 +438,8 @@ Ext.define('App.view.service.service_manage.Grid', {
             {text: '简介', width: 200, dataIndex: 'servicedescs'},
             {text: '领域', width: 200, dataIndex: 'servicedomain'},
             {text: '惩罚记录', width: 200, dataIndex: 'servicepenalty'},
+            {text: '专审委员', width: 200, dataIndex: 'b_examiner'},
+            {text: '兼任职务', width: 200, dataIndex: 'part_post'},
             {text: '备注', flex: 1, dataIndex: 'serviceremark'},
 
 
@@ -554,7 +556,10 @@ function save_service_edit(id) {
             servicedescs: form_obt_apply['servicedescs'].value,
             servicedomain: form_obt_apply['servicedomain'].value,
             servicepenalty: form_obt_apply['servicepenalty'].value,
-            serviceremark: form_obt_apply['serviceremark'].value
+            serviceremark: form_obt_apply['serviceremark'].value,
+            b_examiner: form_obt_apply['b_examiner'].value,
+            part_post: form_obt_apply['part_post'].value
+
         },
         url: 'update_service_info',
         success: function () {

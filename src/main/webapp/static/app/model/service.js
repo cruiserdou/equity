@@ -15,7 +15,8 @@ Ext.define('App.model.service', {
         {name: 'servicepenalty'},
         {name: 'serviceremark'},
         {name: 'serviceenterprise_id'},
-
+        {name: 'b_examiner'},
+        {name: 'part_post'},
 
         {name: 'id'},
         {name: 'buslicno'},

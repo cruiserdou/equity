@@ -33,6 +33,8 @@ public class UpdateServiceInfo {
             @RequestParam(value = "servicedescs", required = false) String descs,
             @RequestParam(value = "servicedomain", required = false) String domain,
             @RequestParam(value = "servicepenalty", required = false) String penalty,
+            @RequestParam(value = "b_examiner", required = false) boolean b_examiner,
+            @RequestParam(value = "part_post", required = false) String part_post,
             @RequestParam(value = "serviceremark", required = false) String remark
 
             ) throws Exception{
@@ -56,7 +58,7 @@ public class UpdateServiceInfo {
 
             String sql = "UPDATE work.tb_service\n" +
                     "   SET  nos=?, name=?, type=?, content=?, levels=?, descs=?, domain=?, \n" +
-                    "       penalty=?, remark=?" +
+                    "       penalty=?, remark=?,b_examiner=?,part_post=? " +
                     " where id = ?";
             pst = conn.prepareStatement(sql);
             pst.setString(1, nos);
@@ -68,7 +70,9 @@ public class UpdateServiceInfo {
             pst.setString(7, domain);
             pst.setString(8, penalty);
             pst.setString(9, remark);
-            pst.setInt(10, id);
+            pst.setBoolean(10, b_examiner);
+            pst.setString(11, part_post);
+            pst.setInt(12, id);
             pst.executeUpdate();
 
             dataShop.setSuccess(true);
