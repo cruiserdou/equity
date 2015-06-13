@@ -2,9 +2,7 @@ Ext.define('App.view.enterprise_query.Query', {
     extend: 'Ext.form.Panel',
     alias: 'widget.enterprise_queryf_query',
     split: true,
-    height: 120,
     bodyPadding: 20,
-    frame: false,
     collapseMode: 'mini',
     collapsed: false,
     useSplitTips: true,
@@ -14,13 +12,13 @@ Ext.define('App.view.enterprise_query.Query', {
         {
             xtype: 'toolbar',
             dock: 'top',
-            border: true,
+            border: false,
             items: [
 
                 {
                     text: '刷新',
                     listeners: {
-                        click: function(_this){
+                        click: function (_this) {
                             _this.up('form').getForm().reset();
                             Ext.getCmp('grid_enterprise_query').getStore().load();
                         }
@@ -33,7 +31,7 @@ Ext.define('App.view.enterprise_query.Query', {
                         click: function () {
                             Ext.create('widget.window', {
                                 title: '条件查询',
-                                id:'conditions_query_win_id',
+                                id: 'conditions_query_win_id',
                                 modal: true,
                                 width: 280,
                                 height: 290,
@@ -42,7 +40,6 @@ Ext.define('App.view.enterprise_query.Query', {
                                 items: [
                                     {
                                         xtype: 'form',
-                                        frame: true,
                                         bodyPadding: 20,
                                         defaults: {
                                             labelWidth: 60,
@@ -52,52 +49,35 @@ Ext.define('App.view.enterprise_query.Query', {
 
                                             {
                                                 fieldLabel: '注册资本（万元）',
-                                                id :'query_regcap_id',
+                                                id: 'query_regcap_id',
                                                 xtype: 'numberfield',
                                                 emptyText: '请输入数字',
-                                                regex : /^[0-9]*$/,
-                                                regexText : '请输入数字'
+                                                regex: /^[0-9]*$/,
+                                                regexText: '请输入数字'
                                             }
-                                            //{
-                                            //    fieldLabel: '注册资本（万元）',
-                                            //    id :'regcap_id',
-                                            //    xtype: 'numberfield',
-                                            //    emptyText: '请输入数字',
-                                            //    regex : /^[0-9]*$/,
-                                            //    regexText : '请输入数字'
-                                            //}
-                                            //{
-                                            //    fieldLabel: '处理人',
-                                            //    name: 'user_id',
-                                            //    store: 'User',
-                                            //    allowBlank: false,
-                                            //    displayField: 'name',
-                                            //    valueField: 'user_nm'
-                                            //}
-
                                         ],
                                         buttonAlign: 'center',
                                         buttons: [
                                             {
                                                 text: '确定',
 
-                                                    listeners: {
+                                                listeners: {
 
-                                                        click: function() {
+                                                    click: function () {
 
-                                                            var store = Ext.getCmp('grid_enterprise_query').getStore();
-                                                            store.load({
-                                                                params: {
-                                                                    regcap: Ext.getCmp('query_regcap_id').getValue()
-                                                                    //nos: Ext.getCmp('query_enterprise_query_nos').getValue(),
-                                                                    //buslicno: Ext.getCmp('query_enterprise_query_buslicno').getValue(),
-                                                                    //listcode: Ext.getCmp('query_enterprise_query_listcode').getValue()
+                                                        var store = Ext.getCmp('grid_enterprise_query').getStore();
+                                                        store.load({
+                                                            params: {
+                                                                regcap: Ext.getCmp('query_regcap_id').getValue()
+                                                                //nos: Ext.getCmp('query_enterprise_query_nos').getValue(),
+                                                                //buslicno: Ext.getCmp('query_enterprise_query_buslicno').getValue(),
+                                                                //listcode: Ext.getCmp('query_enterprise_query_listcode').getValue()
 
-                                                                }
-                                                            });
-                                                            Ext.getCmp('conditions_query_win_id').close();
-                                                        }
+                                                            }
+                                                        });
+                                                        Ext.getCmp('conditions_query_win_id').close();
                                                     }
+                                                }
                                             },
                                             {
                                                 text: '重置',
@@ -127,18 +107,18 @@ Ext.define('App.view.enterprise_query.Query', {
                 pack: 'start'
             },
             items: [
-                            {
-                                allowBlank: true,
-                                fieldLabel: '公司名称',
-                                id: 'query_enterprise_query_name',
-                                emptyText: '公司名称'
-                            },
-                            {
-                                allowBlank: true,
-                                fieldLabel: '公司简称',
-                                id: 'query_enterprise_query_nos',
-                                emptyText: '公司简称'
-                            }
+                {
+                    allowBlank: true,
+                    fieldLabel: '公司名称',
+                    id: 'query_enterprise_query_name',
+                    emptyText: '公司名称'
+                },
+                {
+                    allowBlank: true,
+                    fieldLabel: '公司简称',
+                    id: 'query_enterprise_query_nos',
+                    emptyText: '公司简称'
+                }
 
             ]
         },
@@ -176,7 +156,7 @@ Ext.define('App.view.enterprise_query.Query', {
                     xtype: 'button',
                     text: '查找',
                     listeners: {
-                        click: function() {
+                        click: function () {
                             var store = Ext.getCmp('grid_enterprise_query').getStore();
                             store.load({
                                 params: {
@@ -199,7 +179,7 @@ Ext.define('App.view.enterprise_query.Query', {
                     xtype: 'button',
                     text: '重置',
                     listeners: {
-                        click: function(_this){
+                        click: function (_this) {
                             _this.up('form').getForm().reset();
                             Ext.getCmp('grid_enterprise_query').getStore().load();
                         }
