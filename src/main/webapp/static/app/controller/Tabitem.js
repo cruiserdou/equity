@@ -8,6 +8,7 @@ Ext.define('App.controller.Tabitem', {
         ,'syj_roles','syj_userroles','syj_rolepermissions'
         ,'msg','enterprise','login_log','enterprise_sh','change'
         ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
+        ,'investors'
     ],
 
 
@@ -18,6 +19,7 @@ Ext.define('App.controller.Tabitem', {
         ,'syj_roles','syj_userroles','syj_rolepermissions'
         ,'msg','enterprise','login_log','change'
         ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
+        ,'investors'
     ],
 
     views: [
@@ -36,7 +38,9 @@ Ext.define('App.controller.Tabitem', {
         'service.service_query.Service_queryf','service.service_query.Grid','service.service_query.Query',
         'financ.financ_manage.Financ_managef','financ.financ_manage.Grid','financ.financ_manage.Query',
         'financ.financ_query.Financ_queryf','financ.financ_query.Grid','financ.financ_query.Query',
-        'enterprise_maintain.Enterprise_maintainf','enterprise_maintain.Grid','enterprise_maintain.Query'
+        'enterprise_maintain.Enterprise_maintainf','enterprise_maintain.Grid','enterprise_maintain.Query',
+        'investors.investors_manage.investors_managef','investors.investors_manage.Grid','investors.investors_manage.Query',
+        'investors.investors_query.investors_queryf','investors.investors_query.Grid','investors.investors_query.Query',
   ],
 
     refs: [

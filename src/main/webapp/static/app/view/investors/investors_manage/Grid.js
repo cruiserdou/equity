@@ -1,17 +1,17 @@
 
-Ext.define('App.view.service.service_manage.Grid', {
+Ext.define('App.view.investors.investors_manage.Grid', {
     extend: 'Ext.grid.Panel',
-    alias: 'widget.service_managef_grid',
-    store: 'service',
+    alias: 'widget.investors_managef_grid',
+    store: 'investors',
     selModel: new Ext.selection.CheckboxModel({checkOnly: false}),
-    id :'grid_service_manage',
+    id :'grid_investors_manage',
 
     listeners: {
         'itemdblclick': function (view, record, item, index, e) {
             //创建模板
             var apply_edits = new Ext.XTemplate(
                 '<div class="wrap_center">' +
-                '<form id="service_form">' +
+                '<form id="investors_form">' +
                 '<h2>企业信息查看</h2>' +
                 '<table class="enter_table" id="table_base">' +
                 '<tr>' +
@@ -339,13 +339,10 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '</table>' +
 
 
-                '<table class="enter_table" id="table_service">' +
+                '<table class="enter_table" id="table_investors">' +
                 '<tr>' +
-                '<th class="table_header" colspan="4">服务机构信息</th>' +
+                '<th class="table_header" colspan="4">投资人信息</th>' +
                 '</tr>' +
-                //'<tr>' +
-                //'<td><input id="serviceid" name="serviceid"  type="text" value="{serviceid}" style="display: none"/></td>' +
-                //'</tr>' +
                 '<tr>' +
                 '<th>服务机构名称</th>' +
                 '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>' +
@@ -353,27 +350,60 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '<td><input id="servicetype" name="servicetype"  type="text" value="{servicetype}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>业务内容</th>' +
-                '<td><input id="servicecontent" name="servicecontent"  type="text" value="{servicecontent}"/></td>' +
-                '<th>级别</th>' +
-                '<td><input id="servicelevels" name="servicelevels"  type="text" value="{servicelevels}"/></td>' +
+                '<th>行业一级分类</th>' +
+                '<td>' +
+                '<select class="select" name="indclass1" id="cl1">' +
+                '<option>{indclass1}</option>' +
+                ' </select>' +
+                '</td>' +
+                '<th>行业二级分类</th>' +
+                '<td>' +
+                '<select class="select" name="indclass2" id="cl2">' +
+                '<option>{indclass2}</option>' +
+                ' </select>' +
+                '</td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>惩罚记录</th>' +
-                '<td><input id="servicepenalty" name="servicepenalty"  type="text" value="{servicepenalty}"/></td>' +
-                '<th>专属领域</th>' +
-                '<td><input id="servicedomain" name="servicedomain"  type="text" value="{servicedomain}"/></td>' +
+                '<th>行业三级分类</th>' +
+                '<td>' +
+                '<select class="select" name="indclass3" id="cl3">' +
+                '<option>{indclass3}</option>' +
+                ' </select>' +
+                '</td>' +
+                '<th>行业四级分类</th>' +
+                '<td>' +
+                '<select class="select" name="indclass4" id="cl4">' +
+                '<option>{indclass4}</option>' +
+                ' </select>' +
+                '</td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>专审委员</th>' +
-                '<td><input id="b_examiner" name="b_examiner"  type="text" value="{b_examiner}"/></td>' +
-                '<th>兼任职务</th>' +
-                '<td><input id="part_post" name="part_post"  type="text" value="{part_post}"/></td>' +
+                '<th>证监会行业一级分类</th>' +
+                '<td>    ' +
+                '<select class="select" name="csrc_type" id="csrc1">' +
+                '<option>{csrc_type}</option>' +
+                ' </select>' +
+                '</td>' +
+                '<th>证监会行业二级分类</th>' +
+                '<td>' +
+                '<select class="select" name="csrc_typ2" id="csrc2">' +
+                '<option>{csrc_typ2}</option>' +
+                ' </select>' +
+                '</td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>简介</th>' +
-                '<td colspan="3"><textarea id="servicedescs" name="servicedescs"  type="text" value="{servicedescs}"></textarea></td>'+
-                '</tr>' +
+                '<th>证监会行业三级分类</th>' +
+                '<td>' +
+                '<select class="select" name="csrc_typ3" id="csrc3">' +
+                '<option>{csrc_typ3}</option>' +
+                ' </select>' +
+                '</td>' +
+                '<th>证监会行业四级分类</th>' +
+                '<td>' +
+                '<select class="select" name="csrc_typ4" id="csrc4">' +
+                '<option>{csrc_typ4}</option>' +
+                ' </select>' +
+                '</td>' +
                 '<tr>' +
                 '<th>备注</th>' +
                 '<td colspan="3"><textarea id="serviceremark" name="serviceremark"  type="text" value="{serviceremark}"></textarea></td>'+
@@ -381,7 +411,7 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '</table>' +
 
 
-                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_service_edit({id},{serviceid})">保存</a>' +
+                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_investors_edit({id},{serviceid})">保存</a>' +
 
 
                 '</div>' +
@@ -394,9 +424,9 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '<li><a href="#table_acount"  style="font-size:18px;">行业分类</a></li>' + 
                 '<li><a href="#table_csrc_type"  style="font-size:18px;">证监会行业分类</a></li>' +
                 '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</li>' +
-                '<li><a href="#table_service"  style="font-size:18px;">服务机构信息</li>' +
+                '<li><a href="#table_investors"  style="font-size:18px;">投资人信息</li>' +
                 '</ul>' +
-                '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="service_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
+                '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="investors_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
                 '</form>' +
                 '</div>'
             );
@@ -417,7 +447,7 @@ Ext.define('App.view.service.service_manage.Grid', {
             apply_edits.overwrite(mypanel.body, record.data);
             var editWindow = new Ext.Window({
                 layout: 'fit',
-                id: 'service_edit_id',
+                id: 'investors_edit_id',
                 width: 830,
                 height: 650,
                 modal: true,
@@ -532,7 +562,7 @@ Ext.define('App.view.service.service_manage.Grid', {
         };
         Ext.apply(this, {
             bbar: Ext.create('Ext.PagingToolbar', {
-                store: 'service',
+                store: 'investors',
                 displayInfo: true,
                 displayMsg: '第 {0} 到 {1} 条数据, 共{2}条',
                 emptyMsg: '无数据'
@@ -545,14 +575,14 @@ Ext.define('App.view.service.service_manage.Grid', {
     }
 });
 
-function service_close_edit() {
-    Ext.getCmp('service_edit_id').close();
+function investors_close_edit() {
+    Ext.getCmp('investors_edit_id').close();
 
 }
 
-function save_service_edit(id,serviceid) {
+function save_investors_edit(id,serviceid) {
     //Ext.Msg.alert("提示", id);
-    var form_obt_apply = document.getElementById("service_form");
+    var form_obt_apply = document.getElementById("investors_form");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -569,10 +599,10 @@ function save_service_edit(id,serviceid) {
             part_post: form_obt_apply['part_post'].value
 
         },
-        url: 'update_service_info',
+        url: 'update_investors_info',
         success: function () {
             Ext.Msg.alert("提示", "保存成功！");
-            Ext.getCmp('grid_service_manage').getStore().load();
+            Ext.getCmp('grid_investors_manage').getStore().load();
         },
         failure: function () {
             Ext.Msg.alert("提示", "保存失败！");
