@@ -62,18 +62,21 @@ Ext.define('App.view.enterprise.Grid', {
                 '<th>营业期限至</th>' +
                 '<td><input id="bustremtdt" name="bustremtdt"  type="date" value="{bustremtdt}"/></td>' +
                 '</tr>' +
+                '<tr>'+
+                '<th>挂牌区域</th>'+
+                '<td><input id="list_area" name="list_area"  type="text" value="{list_area}"/></td>'+
+                '<th>挂牌日期</th>'+
+                '<td><input id="listdt" name="listdt"  type="date" value="{listdt}"/></td>'+
+                    //'<th>挂牌推荐人</th>'+
+                    //'<td><input id="refer" name="refer"  type="text" value="{refer}"/></td>'+
+                '</tr>'+
                 '<tr>' +
                 '<th>挂牌代码</th>'+
                 '<td><input id="listcode" name="listcode"  type="text" value="{listcode}"/></td>'+
                 '<th>挂牌价格<br>元/元出资(股)</th>'+
                 '<td><input id="listprice" name="listprice"  type="text" value="{listprice}"/></td>'+
                 '</tr>'+
-                '<tr>'+
-                '<th>挂牌日期</th>'+
-                '<td><input id="listdt" name="listdt"  type="date" value="{listdt}"/></td>'+
-                '<th>挂牌推荐人</th>'+
-                '<td><input id="refer" name="refer"  type="text" value="{refer}"/></td>'+
-                '</tr>'+
+
                 '<tr>'+
                 '<th>企业微信号</th>' +
                 '<td><input id="webchat" name="webchat"  type="text" value="{webchat}"/></td>'+
@@ -87,8 +90,9 @@ Ext.define('App.view.enterprise.Grid', {
                 '<td><input id="wh_charge" name="wh_charge"  type="text" value="{wh_charge}"/></td>'+
                 '</tr>'+
                 '<tr>'+
-                '<th>挂牌区域</th>'+
-                '<td><input id="list_area" name="list_area"  type="text" value="{list_area}"/></td>'+
+                '<th>登记机关</th>'+
+                '<td><input id="regist_organ" name="regist_organ"  type="text" value="{regist_organ}"/></td>'+
+
                 '<th>员工人数</th>'+
                 '<td><input id="staffnum" name="staffnum"  type="text" value="{staffnum}"/></td>'+
                 '</tr>'+
@@ -105,10 +109,6 @@ Ext.define('App.view.enterprise.Grid', {
                 '<td colspan="3"><textarea id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>'+
                 '</tr>'+
                 '<tr>'+
-                '<th>登记机关</th>'+
-                '<td colspan="3"><input id="regist_organ" name="regist_organ"  type="text" value="{regist_organ}"/></td>'+
-                '</tr>'+
-                '<tr>'+
                 '<th>主营业务</th>'+
                 '<td colspan="3"><textarea id="mbus" name="mbus"  type="text" value="{mbus}">{mbus}</textarea></td>'+
                 '</tr>'+
@@ -121,7 +121,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '<td colspan="3"><textarea id="bz" name="bz"  type="text" value="{bz}"></textarea></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>企业照片资料</th>' +
+                '<th>企业图文信息</th>' +
                 '<td colspan="3"><img onclick="pub_upload_file(\'phoinf\')" id="phoinf" name="phoinf" value="{phoinf}" src=""   alt="点击上传照片"/> </td>' +
                 '</tr>' +
                 '</table>' +
@@ -270,16 +270,16 @@ Ext.define('App.view.enterprise.Grid', {
 
                 '<table  class="enter_table" id="table_ocompay">' +
                 '<tr>' +
-                '<th class="table_header" colspan="4">企业维护信息</th>' +
+                '<th class="table_header" colspan="4">企业最近一次被关注信息</th>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>企业来源</th>' +
+                '<th>更新日期</th>' +
                 '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>' +
-                '<th>推荐人</th>' +
+                '<th>更新人</th>' +
                 '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>' +
                 '</tr>' +
                 '<tr>' +
-                '<th>企业来源详情</th>' +
+                '<th>更新单位</th>' +
                 '<td colspan="3"><input id="esourcedesc" name="esourcedesc"  type="text" value="{esourcedesc}"/></td>' +
                 '</tr>' +
                 '<tr>' +

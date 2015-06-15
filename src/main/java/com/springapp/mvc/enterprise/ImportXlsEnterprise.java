@@ -88,7 +88,7 @@ public class ImportXlsEnterprise {
                     " values(?,?,?,?,?,?,?,?,?,?)";
             for(int i=1;i<=totalRow;i++){
                 row = sheet.getRow(i);
-                cell = row.getCell(2);
+                 cell = row.getCell(2);
                 buslicno=cell.getRichStringCellValue().toString();
                 cell = row.getCell(3);
                 name = cell.getRichStringCellValue().toString();
