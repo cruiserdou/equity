@@ -12,56 +12,55 @@ Ext.define('App.view.enterprise.Grid', {
                 '<form id="apply_form_edit">' +
                 '<h2>企业信息</h2>' +
                 '<table class="enter_table" id="table_base">' +
-                '<tr>' +
-                '<th class="table_header" colspan="4">基本信息</th>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>营业执照号码<span style="color: red">*</span></th>' +
-                '<td><input id="buslicno"  name="buslicno"  type="text" value="{buslicno}"/></td>' +
-                '<th>企业名称</th>' +
-                '<td><input id="name" name="name"  type="text" value="{name}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>单位类别</th>' +
-                '<td><input id="unit" name="unit"  type="text" value="{unit}"/></td>' +
-                '<th>法定代表人</th>' +
-                '<td><input id="legrep" name="legrep"  type="text" value="{legrep}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>地域</th>' +
-                //'<td><input id="region" name="region"  type="text" value="{region}"/></td>' +
-                '<td>' +
-                '<select class="select" name="province"  id="s1">' +
-                '<option >{province}</option>' +
-                ' </select>' +
-                ' <select class="select" name="city" id="s2">' +
-                '<option>{city}</option>' +
-                '</select>' +
-                '<select class="select" name="county" id="s3">' +
-                '<option>{county}</option>' +
-                '</select>' +
-                '</td>' +
-                '<th>公司简称</th>' +
-                '<td><input id="nos" name="nos"  type="text" value="{nos}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>邮政编码</th>' +
-                '<td><input id="postal" name="postal"  type="text" value="{postal}"/></td>' +
-                '<th>企业性质</th>' +
-                '<td><input id="nature" name="nature"  type="text" value="{nature}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>注册资本（万元）</th>' +
-                '<td><input id="regcap" name="regcap"  type="text" value="{regcap}"/></td>' +
-                '<th>注册日期</th>' +
-                '<td><input id="regdt" name="regdt"  type="date" value="{regdt}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>营业期限自</th>' +
-                '<td><input id="bustermfdt" name="bustermfdt"  type="date" value="{bustermfdt}"/></td>' +
-                '<th>营业期限至</th>' +
-                '<td><input id="bustremtdt" name="bustremtdt"  type="date" value="{bustremtdt}"/></td>' +
-                '</tr>' +
+                '<tr>',
+                '<th class="table_header" colspan="4">基本信息</th>',
+                '</tr>',
+                '<tr>',
+                '<th>营业执照号码<span style="color: red">*</span></th>',
+                '<td><input id="buslicno"  name="buslicno"  type="text" value="{buslicno}"/></td>',
+                '<th>企业名称</th>',
+                '<td><input id="name" name="name"  type="text" value="{name}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>单位类别</th>',
+                '<td><input id="unit" name="unit"  type="text" value="{unit}"/></td>',
+                '<th>法定代表人</th>',
+                '<td><input id="legrep" name="legrep"  type="text" value="{legrep}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>地域</th>',
+                '<td>',
+                '<select style="width: 70px" class="select" name="province"  id="s1">',
+                '<option >{province}</option>',
+                ' </select>',
+                ' <select style="width: 70px"  class="select" name="city" id="s2">',
+                '<option>{city}</option>',
+                '</select>',
+                '<select style="width: 70px"  class="select" name="county" id="s3">',
+                '<option>{county}</option>',
+                '</select>',
+                '</td>',
+                '<th>公司简称</th>',
+                '<td><input id="nos" name="nos"  type="text" value="{nos}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>邮政编码</th>',
+                '<td><input id="postal" name="postal"  type="text" value="{postal}"/></td>',
+                '<th>企业性质</th>',
+                '<td><input id="nature" name="nature"  type="text" value="{nature}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>注册资本（万元）</th>',
+                '<td><input id="regcap" name="regcap"  type="text" value="{regcap}"/></td>',
+                '<th>注册日期</th>',
+                '<td><input id="regdt" name="regdt"  type="date" value="{regdt}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>营业期限自</th>',
+                '<td><input id="bustermfdt" name="bustermfdt"  type="date" value="{bustermfdt}"/></td>',
+                '<th>营业期限至</th>',
+                '<td><input id="bustremtdt" name="bustremtdt"  type="date" value="{bustremtdt}"/></td>',
+                '</tr>',
                 '<tr>'+
                 '<th>挂牌区域</th>'+
                 '<td><input id="list_area" name="list_area"  type="text" value="{list_area}"/></td>'+
@@ -70,7 +69,7 @@ Ext.define('App.view.enterprise.Grid', {
                     //'<th>挂牌推荐人</th>'+
                     //'<td><input id="refer" name="refer"  type="text" value="{refer}"/></td>'+
                 '</tr>'+
-                '<tr>' +
+                '<tr>',
                 '<th>挂牌代码</th>'+
                 '<td><input id="listcode" name="listcode"  type="text" value="{listcode}"/></td>'+
                 '<th>挂牌价格<br>元/元出资(股)</th>'+
@@ -78,17 +77,17 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>'+
 
                 '<tr>'+
-                '<th>企业微信号</th>' +
+                '<th>企业微信号</th>',
                 '<td><input id="webchat" name="webchat"  type="text" value="{webchat}"/></td>'+
                 '<th>推荐单位</th>'+
                 '<td><input id="channels" name="channels"  type="text" value="{channels}"/></td>'+
                 '</tr>'+
-                '<tr>'+
-                '<th>融资负责人</th>'+
-                '<td><input id="rz_charge" name="rz_charge"  type="text" value="{rz_charge}"/></td>'+
-                '<th>维护负责人</th>'+
-                '<td><input id="wh_charge" name="wh_charge"  type="text" value="{wh_charge}"/></td>'+
-                '</tr>'+
+                    //'<tr>'+
+                    //'<th>融资负责人</th>'+
+                    //'<td><input id="rz_charge" name="rz_charge"  type="text" value="{rz_charge}"/></td>'+
+                    //'<th>维护负责人</th>'+
+                    //'<td><input id="wh_charge" name="wh_charge"  type="text" value="{wh_charge}"/></td>'+
+                    //'</tr>'+
                 '<tr>'+
                 '<th>登记机关</th>'+
                 '<td><input id="regist_organ" name="regist_organ"  type="text" value="{regist_organ}"/></td>'+
@@ -104,7 +103,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '<th>办公地址</th>'+
                 '<td colspan="3"><input id="offaddr" name="offaddr"  type="text" value="{offaddr}"/></td>'+
                 '</tr>'+
-                '<tr>' +
+                '<tr>',
                 '<th>经营范围</th>'+
                 '<td colspan="3"><textarea id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>'+
                 '</tr>'+
@@ -116,73 +115,73 @@ Ext.define('App.view.enterprise.Grid', {
                 '<th>企业简介</th>'+
                 '<td colspan="3"><textarea id="eprofile" name="eprofile"  type="text" value="{eprofile}">{eprofile}</textarea></td>'+
                 '</tr>'+
-                '<tr>' +
-                '<th>备注</th>' +
-                '<td colspan="3"><textarea id="bz" name="bz"  type="text" value="{bz}"></textarea></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>企业图文信息</th>' +
-                '<td colspan="3"><img onclick="pub_upload_file(\'phoinf\')" id="phoinf" name="phoinf" value="{phoinf}" src=""   alt="点击上传照片"/> </td>' +
-                '</tr>' +
-                '</table>' +
+                '<tr>',
+                '<th>备注</th>',
+                '<td colspan="3"><textarea id="bz" name="bz"  type="text" value="{bz}"></textarea></td>',
+                '</tr>',
+                '<tr>',
+                '<th>企业图文信息</th>',
+                '<td colspan="3"><img onclick="pub_upload_file(\'phoinf\')" id="phoinf" name="phoinf" value="{phoinf}" src=""   alt="点击上传照片"/> </td>',
+                '</tr>',
+                '</table>',
 
-                '<table class="enter_table" id="table_sh">' +
-                '<tr>' +
-                '<th class="table_header" colspan="8">股东名册</th>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>股东类型</th>' +
-                '<th>股东</th>' +
-                '<th>证照/证件类型</th>' +
-                '<th>证照/证件号码</th>' +
-                '<th>持股数量</th>' +
-                '<th>流通数量</th>' +
-                '<th>冻结数量</th>' +
-                '<th>详情</th>' +
-                '</tr>' +
-                '<tpl  for="list_sh">' +
-                '<tr>' +
-                '<td>{shtype}</td>' +
-                '<td>{shname}</td>' +
-                '<td>{shdoctype}</td>' +
-                '<td>{shdocnum}</td>' +
-                '<td>{shareholdnum}</td>' +
-                '<td>{currencynum}</td>' +
-                '<td>{freezenum}</td>' +
-                '<td>{remark}</td>' +
-                '</tr>' +
-                '</tpl>' +
-                '</table>' +
+                '<table class="enter_table" id="table_sh">',
+                '<tr>',
+                '<th class="table_header" colspan="8">股东名册</th>',
+                '</tr>',
+                '<tr>',
+                '<th>股东类型</th>',
+                '<th>股东</th>',
+                '<th>证照/证件类型</th>',
+                '<th>证照/证件号码</th>',
+                '<th>持股数量</th>',
+                '<th>流通数量</th>',
+                '<th>冻结数量</th>',
+                '<th>详情</th>',
+                '</tr>',
+                '<tpl  for="list_sh">',
+                '<tr>',
+                '<td>{shtype}</td>',
+                '<td>{shname}</td>',
+                '<td>{shdoctype}</td>',
+                '<td>{shdocnum}</td>',
+                '<td>{shareholdnum}</td>',
+                '<td>{currencynum}</td>',
+                '<td>{freezenum}</td>',
+                '<td>{remark}</td>',
+                '</tr>',
+                '</tpl>',
+                '</table>',
 
 
-                '<table class="enter_table" id="table_link">' +
-                '<tr>' +
-                '<th class="table_header" colspan="4">法定代表人基本信息</th>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>姓名</th>' +
-                '<td><input id="contact" name="contact"  type="text" value="{contact}"/></td>' +
-                '<th>证件类型</th>' +
-                '<td><input id="doctype" name="doctype"  type="text" value="{doctype}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>职务</th>' +
-                '<td><input id="post" name="post"  type="text" value="{post}"/></td>' +
-                '<th>证件号码</th>' +
-                '<td><input id="docnum" name="docnum"  type="text" value="{docnum}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>手机</th>' +
-                '<td><input id="phone" name="phone"  type="text" value="{phone}"/></td>' +
-                '<th>传真</th>' +
-                '<td><input id="fax" name="fax"  type="text" value="{fax}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>E-mail</th>' +
-                '<td><input id="email" name="email"  type="text" value="{email}"/></td>' +
-                '<th>QQ</th>' +
-                '<td><input id="qq" name="qq"  type="text" value="{qq}"/></td>' +
-                '</tr>' +
+                '<table class="enter_table" id="table_link">',
+                '<tr>',
+                '<th class="table_header" colspan="4">法定代表人基本信息</th>',
+                '</tr>',
+                '<tr>',
+                '<th>姓名</th>',
+                '<td><input id="contact" name="contact"  type="text" value="{contact}"/></td>',
+                '<th>证件类型</th>',
+                '<td><input id="doctype" name="doctype"  type="text" value="{doctype}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>职务</th>',
+                '<td><input id="post" name="post"  type="text" value="{post}"/></td>',
+                '<th>证件号码</th>',
+                '<td><input id="docnum" name="docnum"  type="text" value="{docnum}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>手机</th>',
+                '<td><input id="phone" name="phone"  type="text" value="{phone}"/></td>',
+                '<th>传真</th>',
+                '<td><input id="fax" name="fax"  type="text" value="{fax}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>E-mail</th>',
+                '<td><input id="email" name="email"  type="text" value="{email}"/></td>',
+                '<th>QQ</th>',
+                '<td><input id="qq" name="qq"  type="text" value="{qq}"/></td>',
+                '</tr>',
                 '<tr>'+
                 '<th>微信号</th>'+
                 '<td><input id="webchat_gr" name="webchat_gr"  type="text" value="{webchat_gr}"/></td>'+
@@ -196,167 +195,743 @@ Ext.define('App.view.enterprise.Grid', {
                 '</table>'+
 
 
-            
-
-                '<table class="enter_table" id="table_acount">' +
-                '<tr>' +
-                '<th class="table_header" colspan="4">国民经济行业分类信息</th>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>行业一级分类</th>' +
-                '<td>    ' +
-                '<select class="select" name="indclass1" id="cl1">' +
-                '<option>{indclass1}</option>' +
-                ' </select>' +
-                '</td>' +
-                '<th>行业二级分类</th>' +
-                '<td>' +
-                '<select class="select" name="indclass2" id="cl2">' +
-                '<option>{indclass2}</option>' +
-                ' </select>' +
-                '</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>行业三级分类</th>' +
-                '<td>' +
-                '<select class="select" name="indclass3" id="cl3">' +
-                '<option>{indclass3}</option>' +
-                ' </select>' +
-                '</td>' +
-                '<th>行业四级分类</th>' +
-                '<td>' +
-                '<select class="select" name="indclass4" id="cl4">' +
-                '<option>{indclass4}</option>' +
-                ' </select>' +
-                '</td>' +
-                '</tr>' +
-                '</table>' +
 
 
-                '<table class="enter_table" id="table_csrc_type">' +
-                '<tr>' +
-                '<th class="table_header" colspan="4">证监会行业分类信息</th>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>证监会行业一级分类</th>' +
-                '<td>    ' +
-                '<select class="select" name="csrc_type" id="csrc1">' +
-                '<option>{csrc_type}</option>' +
-                ' </select>' +
-                '</td>' +
-                '<th>证监会行业二级分类</th>' +
-                '<td>' +
-                '<select class="select" name="csrc_typ2" id="csrc2">' +
-                '<option>{csrc_typ2}</option>' +
-                ' </select>' +
-                '</td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>证监会行业三级分类</th>' +
-                '<td>' +
-                '<select class="select" name="csrc_typ3" id="csrc3">' +
-                '<option>{csrc_typ3}</option>' +
-                ' </select>' +
-                '</td>' +
-                '<th>证监会行业四级分类</th>' +
-                '<td>' +
-                '<select class="select" name="csrc_typ4" id="csrc4">' +
-                '<option>{csrc_typ4}</option>' +
-                ' </select>' +
-                '</td>' +
-                '</tr>' +
-                '</table>' +
-
-
-                '<table  class="enter_table" id="table_ocompay">' +
-                '<tr>' +
-                '<th class="table_header" colspan="4">企业最近一次被关注信息</th>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>更新日期</th>' +
-                '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>' +
-                '<th>更新人</th>' +
-                '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>更新单位</th>' +
-                '<td colspan="3"><input id="esourcedesc" name="esourcedesc"  type="text" value="{esourcedesc}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>推荐日期</th>' +
-                '<td><input id="recomdt" name="recomdt"  type="date" value="{recomdt}"/></td>' +
-                '<th>企业维护人</th>' +
-                '<td><input id="emaint" name="emaint"  type="text" value="{emaint}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>托管状态</th>' +
-                '<td><input id="trusteeship" name="trusteeship"  type="text" value="{trusteeship}"/></td>' +
-                '<th>挂牌状态</th>' +
-                '<td><input id="listst" name="listst"  type="text" value="{listst}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>企业等级</th>' +
-                '<td><input id="eclass" name="eclass"  type="text" value="{eclass}"/></td>' +
-                '<th>企业维护状态</th>' +
-                '<td><input id="maintain" name="maintain"  type="text" value="{maintain}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>所属后备库</th>' +
-                '<td><input id="reserve" name="reserve"  type="text" value="{reserve}"/></td>' +
-                '<th>联系人</th>' +
-                '<td><input id="contacter" name="contacter"  type="text" value="{contacter}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>部门</th>' +
-                '<td><input id="dept" name="dept"  type="text" value="{dept}"/></td>' +
-                '<th>职务</th>' +
-                '<td><input id="psotion" name="psotion"  type="text" value="{psotion}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>证件类型</th>' +
-                '<td><input id="edoctype" name="edoctype"  type="text" value="{edoctype}"/></td>' +
-                '<th>证件号码</th>' +
-                '<td><input id="edocnum" name="edocnum"  type="text" value="{edocnum}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>固定电话</th>' +
-                '<td><input id="etel" name="etel"  type="text" value="{etel}"/></td>' +
-                '<th>手机号码</th>' +
-                '<td><input id="ephone" name="ephone"  type="text" value="{ephone}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>传真</th>' +
-                '<td><input id="efax" name="efax"  type="text" value="{efax}"/></td>' +
-                '<th>E-mail</th>' +
-                '<td><input id="eemail" name="eemail"  type="text" value="{eemail}"/></td>' +
-                '</tr>' +
-                '<tr>' +
-                '<th>QQ</th>' +
-                '<td><input id="eqq" name="eqq"  type="text" value="{eqq}"/></td>' +
-                '<th>备注</th>' +
-                '<td><input id="remark" name="remark"  type="text" value="{remark}"/></td>' +
-                '</tr>' +
-                '</table>' +
-
-                '<table class="enter_table">',
+                '<table class="enter_table" id="table_acount">',
                 '<tr>',
-                '<th class="table_header" colspan="4"></th>',
+                '<th class="table_header" colspan="4">国民经济行业分类信息</th>',
                 '</tr>',
                 '<tr>',
-                '<td>企业类型<span style="color: red">*</span></td><td colspan="3">',
-                '<input style="width:50px;height:14px;"  name="type_enterp"  type="checkbox" value="true"/>一般企业&nbsp;&nbsp;',
-                '<input style="width:50px;height:14px;"  name="type_server"  type="checkbox" value="true" />服务机构&nbsp;&nbsp;',
-                '<input style="width:50px;height:14px;"  name="type_investors"  type="checkbox" value="true" />投资人&nbsp;&nbsp;',
-                '<input style="width:50px;height:14px;"  name="type_govermt" type="checkbox"  value="true"/>政府机构&nbsp;&nbsp;',
+                '<th>行业一级分类</th>',
+                '<td>    ' +
+                '<select class="select" name="indclass1" id="cl1">',
+                '<option>{indclass1}</option>',
+                ' </select>',
+                '</td>',
+                '<th>行业二级分类</th>',
+                '<td>',
+                '<select class="select" name="indclass2" id="cl2">',
+                '<option>{indclass2}</option>',
+                ' </select>',
                 '</td>',
                 '</tr>',
                 '<tr>',
-                '<td>需求类型<span style="color: red">*</span></td><td colspan="3">',
-                '<input style="width:50px;height:14px;"  type="checkbox" name="demand_rz" value="true" />融资需求&nbsp;&nbsp;',
-                '<input style="width:50px;height:14px;"  type="checkbox" name="demand_px" value="true"/>培训需求&nbsp;&nbsp;',
-                '<input style="width:50px;height:14px;"  type="checkbox" name="demand_rl" value="true"/>人力需求&nbsp;&nbsp;',
+                '<th>行业三级分类</th>',
+                '<td>',
+                '<select class="select" name="indclass3" id="cl3">',
+                '<option>{indclass3}</option>',
+                ' </select>',
+                '</td>',
+                '<th>行业四级分类</th>',
+                '<td>',
+                '<select class="select" name="indclass4" id="cl4">',
+                '<option>{indclass4}</option>',
+                ' </select>',
                 '</td>',
                 '</tr>',
+                '</table>',
+
+
+                '<table class="enter_table" id="table_csrc_type">',
+                '<tr>',
+                '<th class="table_header" colspan="4">证监会行业分类信息</th>',
+                '</tr>',
+                '<tr>',
+                '<th>证监会行业一级分类</th>',
+                '<td>    ' +
+                '<select class="select" name="csrc_type" id="csrc1">',
+                '<option>{csrc_type}</option>',
+                ' </select>',
+                '</td>',
+                '<th>证监会行业二级分类</th>',
+                '<td>',
+                '<select class="select" name="csrc_typ2" id="csrc2">',
+                '<option>{csrc_typ2}</option>',
+                ' </select>',
+                '</td>',
+                '</tr>',
+                '<tr>',
+                '<th>证监会行业三级分类</th>',
+                '<td>',
+                '<select class="select" name="csrc_typ3" id="csrc3">',
+                '<option>{csrc_typ3}</option>',
+                ' </select>',
+                '</td>',
+                '<th>证监会行业四级分类</th>',
+                '<td>',
+                '<select class="select" name="csrc_typ4" id="csrc4">',
+                '<option>{csrc_typ4}</option>',
+                ' </select>',
+                '</td>',
+                '</tr>',
+                '</table>',
+
+
+                '<table  class="enter_table" id="table_ocompay">',
+                '<tr>',
+                '<th class="table_header" colspan="4">企业最近一次被关注信息</th>',
+                '</tr>',
+                '<tr>',
+                '<th>更新日期</th>',
+                '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>',
+                '<th>更新人</th>',
+                '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>更新单位</th>',
+                '<td colspan="3"><input id="esourcedesc" name="esourcedesc"  type="text" value="{esourcedesc}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>推荐日期</th>',
+                '<td><input id="recomdt" name="recomdt"  type="date" value="{recomdt}"/></td>',
+                '<th>企业维护人</th>',
+                '<td><input id="emaint" name="emaint"  type="text" value="{emaint}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>托管状态</th>',
+                '<td><input id="trusteeship" name="trusteeship"  type="text" value="{trusteeship}"/></td>',
+                '<th>挂牌状态</th>',
+                '<td><input id="listst" name="listst"  type="text" value="{listst}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>企业等级</th>',
+                '<td><input id="eclass" name="eclass"  type="text" value="{eclass}"/></td>',
+                '<th>企业维护状态</th>',
+                '<td><input id="maintain" name="maintain"  type="text" value="{maintain}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>所属后备库</th>',
+                '<td><input id="reserve" name="reserve"  type="text" value="{reserve}"/></td>',
+                '<th>联系人</th>',
+                '<td><input id="contacter" name="contacter"  type="text" value="{contacter}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>部门</th>',
+                '<td><input id="dept" name="dept"  type="text" value="{dept}"/></td>',
+                '<th>职务</th>',
+                '<td><input id="psotion" name="psotion"  type="text" value="{psotion}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>证件类型</th>',
+                '<td><input id="edoctype" name="edoctype"  type="text" value="{edoctype}"/></td>',
+                '<th>证件号码</th>',
+                '<td><input id="edocnum" name="edocnum"  type="text" value="{edocnum}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>固定电话</th>',
+                '<td><input id="etel" name="etel"  type="text" value="{etel}"/></td>',
+                '<th>手机号码</th>',
+                '<td><input id="ephone" name="ephone"  type="text" value="{ephone}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>传真</th>',
+                '<td><input id="efax" name="efax"  type="text" value="{efax}"/></td>',
+                '<th>E-mail</th>',
+                '<td><input id="eemail" name="eemail"  type="text" value="{eemail}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>QQ</th>',
+                '<td><input id="eqq" name="eqq"  type="text" value="{eqq}"/></td>',
+                '<th>备注</th>',
+                '<td><input id="remark" name="remark"  type="text" value="{remark}"/></td>',
+                '</tr>',
+                '</table>',
+
+                '<table class="enter_table" id="table_assets_finance">',
+                '<tr>',
+                '<th class="table_header" colspan="6">企业财务信息</th>',
+                '</tr>',
+                '<tr>',
+                '<th>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;始&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th></th>',
+                '<th>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;至&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>',
+                '<td><input id="servicetype" name="servicetype"  type="text" value="{servicetype}"/></td>',
+                '<th></th>',
+
+                '</tr>',
+                '<tr>',
+                '<th>资产</th>',
+                '<th>年初余额(元)</th>',
+                '<th>期末余额(元)</th>',
+                '<th>负债和所有者权益</th>',
+                '<th>年初余额(元)</th>',
+                '<th>期末余额(元)</th>',
+                '</tr>',
+                '<tr>',
+                '<th>流动资产：</th>',
+                '<th></th>',
+                '<th></th>',
+                '<th>流动负债：（元）</th>',
+                '<th></th>',
+                '<th></th>',
+                '</tr>',
+                '<tr>',
+                '<th>货币资金</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>短期借款</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>交易性金融资产</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>交易性金融负债</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>应收票据</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>应付票据</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>应收账款</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>应付账款</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>预付款项</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>预收款项</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>应收利息</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>应付职工薪酬</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>应收股利</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>应交税费</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>其他应收款</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>应付利息</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>存货</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>应付股利</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>一年内到期非流动资产</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>其他应付款</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>其他流动资产</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>一年内到期的非流动负债</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th></th>',
+                '<th></th>',
+                '<th></th>',
+                '<th>其他流动负债</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>流动资产合计</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>流动负债合计</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>非流动资产：</th>',
+                '<th></th>',
+                '<th></th>',
+                '<th>非流动负债：</th>',
+                '<th></th>',
+                '<th></th>',
+                '</tr>',
+                '<tr>',
+                '<th>可供出售金融资产</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>长期借款</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>持有至到期投资</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>应付债券</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>长期应收款</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>长期应付款</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>长期股权投资</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>专项应付款</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>投资性房地产</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>预计负债</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>固定资产</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>递延所得税负债</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+
+                '<tr>',
+                '<th>减：累计折旧</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>其他非流动负债</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>固定资产净值</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>非流动负债合计</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>减：固定资产减值准备</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>负债合计</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>固定资产净额</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th></th>',
+                '<th></th>',
+                '<th></th>',
+                '</tr>',
+                '<tr>',
+                '<th>在建工程</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>所有者权益(或股东权益)</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>工程物资</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>实收资本（或股本）</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>固定资产清理</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>资本公积</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>生产性生物资产</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>减：库存股</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>无形资产</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>专项储备</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>商誉</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>盈余公积</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>长期待摊费用</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>未分配利润</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>递延所得税资产</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>所有者权益合计</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>其他非流动资产</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th></th>',
+                '<th></th>',
+                '<th></th>',
+                '</tr>',
+                '<tr>',
+                '<th>非流动资产合计</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th></th>',
+                '<th></th>',
+                '<th></th>',
+                '</tr>',
+                '<tr>',
+                '<th>资产总计</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>负债和所有者权益合计</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '</table>',
+
+
+                '<table class="enter_table" id="table_service">',
+                '<tr>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  name="type_server"  type="checkbox" value="true" />服务机构&nbsp;&nbsp;</td>',
+                '</tr>',
+                '<tr>',
+                '<th class="table_header" colspan="4">服务机构信息</th>',
+                '</tr>',
+                '<tr>',
+                '<th>服务机构名称</th>',
+                '<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '<th>服务机构类别</th>',
+                '<td><input id="servicetype" name="servicetype"  type="text" value="{servicetype}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>业务内容</th>',
+                '<td><input id="servicecontent" name="servicecontent"  type="text" value="{servicecontent}"/></td>',
+                '<th>级别</th>',
+                '<td><input id="servicelevels" name="servicelevels"  type="text" value="{servicelevels}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>惩罚记录</th>',
+                '<td><input id="servicepenalty" name="servicepenalty"  type="text" value="{servicepenalty}"/></td>',
+                '<th>专属领域</th>',
+                '<td><input id="servicedomain" name="servicedomain"  type="text" value="{servicedomain}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>专审委员</th>',
+                '<td><input id="b_examiner" name="b_examiner"  type="text" value="{b_examiner}"/></td>',
+                '<th>兼任职务</th>',
+                '<td><input id="part_post" name="part_post"  type="text" value="{part_post}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>简介</th>',
+                '<td colspan="3"><textarea id="servicedescs" name="servicedescs"  type="text" value="{servicedescs}"></textarea></td>'+
+                '</tr>',
+                '<tr>',
+                '<th>备注</th>',
+                '<td colspan="3"><textarea id="serviceremark" name="serviceremark"  type="text" value="{serviceremark}"></textarea></td>'+
+                '</tr>',
+                '</table>',
+
+
+                '<table class="enter_table" id="table_investors">',
+                '<tr>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  name="type_investors"  type="checkbox" value="true" />投资人&nbsp;&nbsp;</td>',
+                '</tr>',
+                '<tr>',
+                '<th class="table_header" colspan="4">投资人信息</th>',
+                '</tr>',
+                '<tr>',
+                '<th>投资领域</th>',
+                '<td  colspan="3"><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>行业一级分类</th>',
+                '<td>',
+                '<select class="select" name="indclass1" id="cl1">',
+                '<option>{indclass1}</option>',
+                ' </select>',
+                '</td>',
+                '<th>行业二级分类</th>',
+                '<td>',
+                '<select class="select" name="indclass2" id="cl2">',
+                '<option>{indclass2}</option>',
+                ' </select>',
+                '</td>',
+                '</tr>',
+                '<tr>',
+                '<th>行业三级分类</th>',
+                '<td>',
+                '<select class="select" name="indclass3" id="cl3">',
+                '<option>{indclass3}</option>',
+                ' </select>',
+                '</td>',
+                '<th>行业四级分类</th>',
+                '<td>',
+                '<select class="select" name="indclass4" id="cl4">',
+                '<option>{indclass4}</option>',
+                ' </select>',
+                '</td>',
+                '</tr>',
+                '<tr>',
+                '<th>证监会行业一级分类</th>',
+                '<td>    ' +
+                '<select class="select" name="csrc_type" id="csrc1">',
+                '<option>{csrc_type}</option>',
+                ' </select>',
+                '</td>',
+                '<th>证监会行业二级分类</th>',
+                '<td>',
+                '<select class="select" name="csrc_typ2" id="csrc2">',
+                '<option>{csrc_typ2}</option>',
+                ' </select>',
+                '</td>',
+                '</tr>',
+                '<tr>',
+                '<th>证监会行业三级分类</th>',
+                '<td>',
+                '<select class="select" name="csrc_typ3" id="csrc3">',
+                '<option>{csrc_typ3}</option>',
+                ' </select>',
+                '</td>',
+                '<th>证监会行业四级分类</th>',
+                '<td>',
+                '<select class="select" name="csrc_typ4" id="csrc4">',
+                '<option>{csrc_typ4}</option>',
+                ' </select>',
+                '</td>',
+                '<tr>',
+                '<th>姓名</th>',
+                '<td><input id="contact" name="contact"  type="text" value="{contact}"/></td>',
+                '<th>证件类型</th>',
+                '<td><input id="doctype" name="doctype"  type="text" value="{doctype}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>职务</th>',
+                '<td><input id="post" name="post"  type="text" value="{post}"/></td>',
+                '<th>证件号码</th>',
+                '<td><input id="docnum" name="docnum"  type="text" value="{docnum}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>手机</th>',
+                '<td><input id="phone" name="phone"  type="text" value="{phone}"/></td>',
+                '<th>传真</th>',
+                '<td><input id="fax" name="fax"  type="text" value="{fax}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>E-mail</th>',
+                '<td><input id="email" name="email"  type="text" value="{email}"/></td>',
+                '<th>QQ</th>',
+                '<td><input id="qq" name="qq"  type="text" value="{qq}"/></td>',
+                '</tr>',
+                '<tr>'+
+                '<th>微信号</th>'+
+                '<td><input id="webchat_gr" name="webchat_gr"  type="text" value="{webchat_gr}"/></td>'+
+                '<th>固话</th>',
+                '<td><input id="tel_gr" name="tel_gr"  type="text" value="{tel_gr}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>备注</th>'+
+                '<td colspan="3"><textarea id="bz_gr" name="bz_gr"  type="text" value="{bz_gr}"></textarea></td>'+
+                '</tr>'+
+                '</table>',
+
+
+                '<table class="enter_table" id="table_govermt">',
+                '<tr>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  name="type_govermt" type="checkbox"  value="true"/>政府机构&nbsp;&nbsp;</td>',
+                '</tr>',
+                '<tr>',
+                '<th class="table_header" colspan="4">政府部门信息</th>',
+                '</tr>',
+                '<tr>',
+                '<th>单位名称</th>',
+                '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>',
+                '<th>处/室</th>',
+                '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>职能介绍</th>',
+                '<td colspan="3"><input id="esourcedesc" name="esourcedesc"  type="text" value="{esourcedesc}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>姓名</th>',
+                '<td><input id="contact" name="contact"  type="text" value="{contact}"/></td>',
+                '<th>证件类型</th>',
+                '<td><input id="doctype" name="doctype"  type="text" value="{doctype}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>职务</th>',
+                '<td><input id="post" name="post"  type="text" value="{post}"/></td>',
+                '<th>证件号码</th>',
+                '<td><input id="docnum" name="docnum"  type="text" value="{docnum}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>手机</th>',
+                '<td><input id="phone" name="phone"  type="text" value="{phone}"/></td>',
+                '<th>传真</th>',
+                '<td><input id="fax" name="fax"  type="text" value="{fax}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>E-mail</th>',
+                '<td><input id="email" name="email"  type="text" value="{email}"/></td>',
+                '<th>QQ</th>',
+                '<td><input id="qq" name="qq"  type="text" value="{qq}"/></td>',
+                '</tr>',
+                '<tr>'+
+                '<th>微信号</th>'+
+                '<td><input id="webchat_gr" name="webchat_gr"  type="text" value="{webchat_gr}"/></td>'+
+                '<th>固话</th>',
+                '<td><input id="tel_gr" name="tel_gr"  type="text" value="{tel_gr}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>备注</th>'+
+                '<td colspan="3"><textarea id="bz_gr" name="bz_gr"  type="text" value="{bz_gr}"></textarea></td>'+
+                '</tr>'+
+                '</table>',
+
+                '<table class="enter_table" id="table_demand_rz">',
+                '<tr>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  type="checkbox" name="demand_rz" value="true" />融资需求&nbsp;&nbsp;</td>',
+                '</tr>',
+                '<tr>',
+                '<th class="table_header" colspan="4">融资需求</th>',
+                '</tr>',
+                '<tr>',
+                '<th>融资金额</th>',
+                '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>',
+                '<th>融资用途</th>',
+                '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>股份融资/债券融资</th>',
+                '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>',
+                '<th>偿付保障</th>',
+                '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>可接受成本（%/年）</th>',
+                '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>',
+                '<th>融资期限</th>',
+                '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>',
+                '</tr>',
+                '<tr>'+
+                '<th>融资用途详细说明</th>'+
+                '<td colspan="3"><textarea id="bz_gr" name="bz_gr"  type="text" value="{bz_gr}"></textarea></td>'+
+                '</tr>'+
+                '</table>',
+
+
+                '<table class="enter_table" id="table_demand_px">',
+                '<tr>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  type="checkbox" name="demand_px" value="true"/>培训需求&nbsp;&nbsp;</td>',
+                '</tr>',
+                '<tr>',
+                '<th class="table_header" colspan="4">培训需求</th>',
+                '</tr>',
+                '<tr>',
+                '<th>培训方式</th>',
+                '<td colspan="3"><input id="esourcedesc" name="esourcedesc"  type="text" value="{esourcedesc}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>有效时间</th>',
+                '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>',
+                '<th>可接受成本</th>',
+                '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>培训内容</th>',
+                '<td colspan="3"><textarea id="serviceremark" name="serviceremark"  type="text" value="{serviceremark}"></textarea></td>'+
+                '</tr>',
+                '<tr>'+
+                '<th>详细要求</th>'+
+                '<td colspan="3"><textarea id="bz_gr" name="bz_gr"  type="text" value="{bz_gr}"></textarea></td>'+
+                '</tr>'+
+                '</table>',
+
+                '<table class="enter_table" id="table_demand_rl">',
+                '<tr>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  type="checkbox" name="demand_rl" value="true"/>人力需求&nbsp;&nbsp;</td>',
+                '</tr>',
+                '<tr>',
+                '<th class="table_header" colspan="4">人力资源需求</th>',
+                '</tr>',
+                '<tr>',
+                '<th>需求职位</th>',
+                '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>',
+                '<th>职位人数</th>',
+                '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>',
+                '</tr>',
+                '<tr>',
+                '<th>职位薪金</th>',
+                '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>',
+                '<th>性别要求</th>',
+                '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>',
+                '</tr>',
+                '<tr>'+
+                '<th>年龄要求</th>',
+                '<td><input id="esource" name="esource"  type="text" value="{esource}"/></td>',
+                '<th>经验要求</th>',
+                '<td><input id="referee" name="referee"  type="text" value="{referee}"/></td>',
+                '</tr>'+
                 '</table>',
 
                 '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_enterprise_edit({id})">保存</a>' +
@@ -364,14 +939,21 @@ Ext.define('App.view.enterprise.Grid', {
 
                 '</div>' +
                 '<div style="position: fixed; top: 7em; right: 6em">' +
-
                 '<ul>' +
                 '<li><a href="#table_base" style="font-size:18px;">基本信息</a></li>' +
                 '<li><a href="#table_sh"  style="font-size:18px;">股东名册</a></li>' +
                 '<li><a href="#table_link"  style="font-size:18px;">法定代表人</a></li>' +
                 '<li><a href="#table_acount"  style="font-size:18px;">行业分类</a></li>' +
                 '<li><a href="#table_csrc_type"  style="font-size:18px;">证监会行业分类</a></li>' +
-                '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</li>' + 
+                '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</a></li>' +
+                '<li><a href="#table_assets_finance"  style="font-size:18px;">企业财务信息</a></li>' +
+                '<li><a href="#table_service"  style="font-size:18px;">服务机构</a></li>' +
+                '<li><a href="#table_investors"  style="font-size:18px;">投资人</a></li>' +
+                '<li><a href="#table_govermt"  style="font-size:18px;">政府部门</a></li>' +
+                '<li><a href="#table_demand_rz"  style="font-size:18px;">融资需求</a></li>' +
+                '<li><a href="#table_demand_px"  style="font-size:18px;">培训需求</a></li>' +
+                '<li><a href="#table_demand_rl"  style="font-size:18px;">人力资源需求</a></li>' +
+
                 '</ul>' +
                 '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
                 '</form>' +
