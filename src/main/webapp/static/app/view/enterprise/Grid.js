@@ -129,6 +129,9 @@ Ext.define('App.view.enterprise.Grid', {
                 '<tr>',
                 '<th class="table_header" colspan="8">股东名册</th>',
                 '</tr>',
+                '<tr><td align="center"><input type="button" id="addRow" name="addRow" onClick="addRow();" value="添加行"/></td>' +
+                '<td align="center"><input type="button" id="delRow" name="delRow" onClick="removeRow();" value="删除行"/></td>' +
+                '</tr>',
                 '<tr>',
                 '<th>股东类型</th>',
                 '<th>股东</th>',

@@ -133,7 +133,12 @@ Ext.define('App.view.enterprise.Applyf', {
         '<tr>',
         '<th class="table_header" colspan="8">股东名册</th>',
         '</tr>',
-        '<tr>',
+        '<tr>' +
+        '<td  colspan="4" align="center"><input type="button" id="addRow" name="addRow" onClick="addRow();" value="添加行"/></td>' +
+        '<td align="center"><input type="button" id="delRow" name="delRow" onClick="removeRow();" value="删除行"/></td>' +
+        '</tr>',
+
+            '<tr>',
         '<th>股东类型</th>',
         '<th>股东</th>',
         '<th>证照/证件类型</th>',
@@ -143,7 +148,6 @@ Ext.define('App.view.enterprise.Applyf', {
         '<th>冻结数量</th>',
         '<th>详情</th>',
         '</tr>',
-        '<tpl  for="list_sh">',
         '<tr>',
         '<td>{shtype}</td>',
         '<td>{shname}</td>',
@@ -154,7 +158,6 @@ Ext.define('App.view.enterprise.Applyf', {
         '<td>{freezenum}</td>',
         '<td>{remark}</td>',
         '</tr>',
-        '</tpl>',
         '</table>',
 
 
@@ -1166,6 +1169,30 @@ function show()
             Ext.Msg.alert("提示", "错");
         }
     });
+}
+
+
+
+function addRow()
+{
+    //var Table = document.getElementById("table_sh");
+    //
+    //NewRow = Table.insertRow();
+    //NewCell1= NewRow.insertCell();                     //添加列
+    //NewCell2=NewRow.insertCell();
+    //NewCell3=NewRow.insertCell();
+    //NewCell4=NewRow.insertCell();
+    //NewCell5=NewRow.insertCell();
+    //NewCell6=NewRow.insertCell();
+    //NewCell7=NewRow.insertCell();
+    //NewCell8=NewRow.insertCell();
+    //NewCell1.innerHTML = "<B>这是新加的列</B>";          //添加数据
+    //NewCell1.innerHTML="<a href='#'>这是空链接</a>";
+
+
+
+
+
 }
 
 
