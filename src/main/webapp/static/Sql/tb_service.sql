@@ -1,118 +1,310 @@
-﻿-- Table: work.tb_enterprise
+﻿'<table class="enter_table" id="table_assets_finance">',
+'<tr>',
+'<th class="table_header" colspan="6">企业财务信息</th>',
+'</tr>',
+'<tr>',
+'<th>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;始&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>',
+'<td><input id="start_time" name="start_time"  type="date" value="{start_time}"/></td>',
+'<th></th>',
+'<th>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;至&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>',
+'<td><input id="end_time" name="end_time"  type="date" value="{end_time}"/></td>',
+'<th></th>',
 
--- DROP TABLE work.tb_enterprise;
-
-CREATE TABLE work.tb_enterprise
-(
-  id serial NOT NULL, -- 企业ID
-  buslicno character varying(100), -- 营业执照号码
-  name character varying(200), -- 企业名称
-  unit character varying(100), -- 单位类别
-  legrep character varying(100), -- 法定代表人
-  province character varying(20), -- 省
-  city character varying(20), -- 市
-  county character varying(20), -- 县
-  nos character varying(100), -- 公司简称
-  postal character varying(100), -- 邮政编码
-  nature character varying(100), -- 企业性质
-  regcap character varying(100), -- 注册资本（万元）
-  bustermfdt date, -- 营业期限自
-  bustremtdt date, -- 营业期限至
-  regdt date, -- 注册日期
-  list_area character varying(20), -- 挂牌区域
-  listcode character varying(100), -- 挂牌代码
-  listprice character varying(100), -- 挂牌出资（元/元出资.股）
-  listdt date, -- 挂牌日期
-  channels character varying(100), -- 推荐单位
-  webchat character varying(100), -- 微信号
-  staffnum character varying(100), -- 员工人数
-  regist_organ character varying(200), -- 登记机关
-  regaddr text, -- 注册地址
-  offaddr text, -- 办公地址
-  scope text, -- 经营范围
-  mbus text, -- 主营业务
-  eprofile text, -- 企业简介
-  phoinf character varying(100), -- 企业照片资料
-  remark text, -- 备注
-  indclass1 character varying(20), -- 行业一级分类
-  indclass2 character varying(20), -- 行业二级分类
-  indclass3 character varying(20), -- 行业三级分类
-  indclass4 character varying(20), -- 行业四级分类
-  csrc_type1 character varying(20), -- 证监会行业分类
-  csrc_type2 character varying(20), -- 证监会行业分类2
-  csrc_type3 character varying(20), -- 证监会行业分类3
-  csrc_type4 character varying(20), -- 证监会行业分类4
-
-  type_enterp boolean DEFAULT true, -- 一般企业
-  type_server boolean DEFAULT false, -- 服务机构
-  type_investors boolean DEFAULT false, -- 投资人
-  type_govermt boolean DEFAULT false, -- 政府机构
-  demand_rz boolean DEFAULT false, -- 融资需求
-  demand_px boolean DEFAULT false, -- 培训需求
-  demand_rl boolean DEFAULT false, -- 人力需求
-  inputdt timestamp without time zone, -- 录入时间
-
-
-
-
-
-  CONSTRAINT pk_enterprise PRIMARY KEY (id)
-)
-WITH (
-OIDS=FALSE
-);
-ALTER TABLE work.tb_enterprise
-OWNER TO postgres;
-COMMENT ON TABLE work.tb_enterprise
-IS '企业信息表';
-COMMENT ON COLUMN work.tb_enterprise.id IS '企业ID';
-COMMENT ON COLUMN work.tb_enterprise.buslicno IS '营业执照号码';
-COMMENT ON COLUMN work.tb_enterprise.name IS '企业名称';
-COMMENT ON COLUMN work.tb_enterprise.unit IS '单位类别';
-COMMENT ON COLUMN work.tb_enterprise.legrep IS '法定代表人';
-COMMENT ON COLUMN work.tb_enterprise.province IS '省';
-COMMENT ON COLUMN work.tb_enterprise.city IS '市';
-COMMENT ON COLUMN work.tb_enterprise.county IS '县';
-COMMENT ON COLUMN work.tb_enterprise.nos IS '公司简称';
-COMMENT ON COLUMN work.tb_enterprise.postal IS '邮政编码';
-COMMENT ON COLUMN work.tb_enterprise.nature IS '企业性质';
-COMMENT ON COLUMN work.tb_enterprise.regcap IS '注册资本（万元）';
-COMMENT ON COLUMN work.tb_enterprise.bustermfdt IS '营业期限自';
-COMMENT ON COLUMN work.tb_enterprise.bustremtdt IS '营业期限至';
-COMMENT ON COLUMN work.tb_enterprise.regdt IS '注册日期';
-COMMENT ON COLUMN work.tb_enterprise.list_area IS '挂牌区域';
-COMMENT ON COLUMN work.tb_enterprise.listcode IS '挂牌代码';
-COMMENT ON COLUMN work.tb_enterprise.listprice IS '挂牌出资（元/元出资.股）';
-COMMENT ON COLUMN work.tb_enterprise.listdt IS '挂牌日期';
-COMMENT ON COLUMN work.tb_enterprise.channels IS '推荐单位';
-COMMENT ON COLUMN work.tb_enterprise.webchat IS '微信号';
-COMMENT ON COLUMN work.tb_enterprise.staffnum IS '员工人数';
-COMMENT ON COLUMN work.tb_enterprise.regist_organ IS '登记机关';
-COMMENT ON COLUMN work.tb_enterprise.regaddr IS '注册地址';
-COMMENT ON COLUMN work.tb_enterprise.offaddr IS '办公地址';
-COMMENT ON COLUMN work.tb_enterprise.scope IS '经营范围';
-COMMENT ON COLUMN work.tb_enterprise.mbus IS '主营业务';
-COMMENT ON COLUMN work.tb_enterprise.eprofile IS '企业简介';
-COMMENT ON COLUMN work.tb_enterprise.phoinf IS '企业照片资料';
-COMMENT ON COLUMN work.tb_enterprise.remark IS '备注';
-
-COMMENT ON COLUMN work.tb_enterprise.indclass1 IS '行业一级分类';
-COMMENT ON COLUMN work.tb_enterprise.indclass2 IS '行业二级分类';
-COMMENT ON COLUMN work.tb_enterprise.indclass3 IS '行业三级分类';
-COMMENT ON COLUMN work.tb_enterprise.indclass4 IS '行业四级分类';
-COMMENT ON COLUMN work.tb_enterprise.csrc_type1 IS '证监会行业分类';
-COMMENT ON COLUMN work.tb_enterprise.csrc_type2 IS '证监会行业分类2';
-COMMENT ON COLUMN work.tb_enterprise.csrc_type3 IS '证监会行业分类3';
-COMMENT ON COLUMN work.tb_enterprise.csrc_type4 IS '证监会行业分类4';
-
-COMMENT ON COLUMN work.tb_enterprise.type_enterp IS '一般企业';
-COMMENT ON COLUMN work.tb_enterprise.type_server IS '服务机构';
-COMMENT ON COLUMN work.tb_enterprise.type_investors IS '投资人';
-COMMENT ON COLUMN work.tb_enterprise.type_govermt IS '政府机构';
-COMMENT ON COLUMN work.tb_enterprise.demand_rz IS '融资需求';
-COMMENT ON COLUMN work.tb_enterprise.demand_px IS '培训需求';
-COMMENT ON COLUMN work.tb_enterprise.demand_rl IS '人力需求';
-COMMENT ON COLUMN work.tb_enterprise.inputdt IS '录入时间';
-
-
-
+'</tr>',
+'<tr>',
+'<th>资产</th>',
+'<th>年初余额(元)</th>',
+'<th>期末余额(元)</th>',
+'<th>负债和所有者权益</th>',
+'<th>年初余额(元)</th>',
+'<th>期末余额(元)</th>',
+'</tr>',
+'<tr>',
+'<th>流动资产：</th>',
+'<th></th>',
+'<th></th>',
+'<th>流动负债：（元）</th>',
+'<th></th>',
+'<th></th>',
+'</tr>',
+'<tr>',
+'<th>货币资金</th>',
+'<td><input id="st_money_fund" name="st_money_fund"  type="text" value="{st_money_fund}"/></td>',
+'<td><input id="end_money_fund" name="end_money_fund"  type="text" value="{end_money_fund}"/></td>',
+'<th>短期借款</th>',
+'<td><input id="st_short_borrow" name="st_short_borrow"  type="text" value="{st_short_borrow}"/></td>',
+'<td><input id="end_short_borrow" name="end_short_borrow"  type="text" value="{end_short_borrow}"/></td>',
+'</tr>',
+'<tr>',
+'<th>交易性金融资产</th>',
+'<td><input id="st_jyxjr_assets" name="st_jyxjr_assets"  type="text" value="{st_jyxjr_assets}"/></td>',
+'<td><input id="end_jyxjr_assets" name="end_jyxjr_assets"  type="text" value="{end_jyxjr_assets}"/></td>',
+'<th>交易性金融负债</th>',
+'<td><input id="st_jyx_finance_fz" name="st_jyx_finance_fz"  type="text" value="{st_jyx_finance_fz}"/></td>',
+'<td><input id="end_jyx_finance_fz" name="end_jyx_finance_fz"  type="text" value="{end_jyx_finance_fz}"/></td>',
+'</tr>',
+'<tr>',
+'<th>应收票据</th>',
+'<td><input id="st_ys_bill" name="st_ys_bill"  type="text" value="{st_ys_bill}"/></td>',
+'<td><input id="end_ys_bill" name="end_ys_bill"  type="text" value="{end_ys_bill}"/></td>',
+'<th>应付票据</th>',
+'<td><input id="st_yf_bill" name="st_yf_bill"  type="text" value="{st_yf_bill}"/></td>',
+'<td><input id="end_yf_bill" name="end_yf_bill"  type="text" value="{end_yf_bill}"/></td>',
+'</tr>',
+'<tr>',
+'<th>应收账款</th>',
+'<td><input id="st_ys_account" name="st_ys_account"  type="text" value="{st_ys_account}"/></td>',
+'<td><input id="end_ys_account" name="end_ys_account"  type="text" value="{end_ys_account}"/></td>',
+'<th>应付账款</th>',
+'<td><input id="st_yf_account" name="st_yf_account"  type="text" value="{st_yf_account}"/></td>',
+'<td><input id="end_yf_account" name="end_yf_account"  type="text" value="{end_yf_account}"/></td>',
+'</tr>',
+'<tr>',
+'<th>预付款项</th>',
+'<td><input id="st_yf_money" name="st_yf_money"  type="text" value="{st_yf_money}"/></td>',
+'<td><input id="end_yf_money" name="end_yf_money"  type="text" value="{end_yf_money}"/></td>',
+'<th>预收款项</th>',
+'<td><input id="st_ys_money" name="st_ys_money"  type="text" value="{st_ys_money}"/></td>',
+'<td><input id="end_ys_money" name="end_ys_money"  type="text" value="{end_ys_money}"/></td>',
+'</tr>',
+'<tr>',
+'<th>应收利息</th>',
+'<td><input id="st_ys_interest" name="st_ys_interest"  type="text" value="{st_ys_interest}"/></td>',
+'<td><input id="end_ys_interest" name="end_ys_interest"  type="text" value="{end_ys_interest}"/></td>',
+'<th>应付职工薪酬</th>',
+'<td><input id="st_yf_staff_pay" name="st_yf_staff_pay"  type="text" value="{st_yf_staff_pay}"/></td>',
+'<td><input id="end_yf_staff_pay" name="end_yf_staff_pay"  type="text" value="{end_yf_staff_pay}"/></td>',
+'</tr>',
+'<tr>',
+'<th>应收股利</th>',
+'<td><input id="st_ys_dividends" name="st_ys_dividends"  type="text" value="{st_ys_dividends}"/></td>',
+'<td><input id="end_ys_dividends" name="end_ys_dividends"  type="text" value="{end_ys_dividends}"/></td>',
+'<th>应交税费</th>',
+'<td><input id="st_yj_tax" name="st_yj_tax"  type="text" value="{st_yj_tax}"/></td>',
+'<td><input id="end_yj_tax" name="end_yj_tax"  type="text" value="{end_yj_tax}"/></td>',
+'</tr>',
+'<tr>',
+'<th>其他应收款</th>',
+'<td><input id="st_other_ys_money" name="st_other_ys_money"  type="text" value="{st_other_ys_money}"/></td>',
+'<td><input id="end_other_ys_money" name="end_other_ys_money"  type="text" value="{end_other_ys_money}"/></td>',
+'<th>应付利息</th>',
+'<td><input id="st_yf_interest" name="st_yf_interest"  type="text" value="{st_yf_interest}"/></td>',
+'<td><input id="end_yf_interest" name="end_yf_interest"  type="text" value="{end_yf_interest}"/></td>',
+'</tr>',
+'<tr>',
+'<th>存货</th>',
+'<td><input id="st_inventory" name="st_inventory"  type="text" value="{st_inventory}"/></td>',
+'<td><input id="end_inventory" name="end_inventory"  type="text" value="{end_inventory}"/></td>',
+'<th>应付股利</th>',
+'<td><input id="st_yf_dividends" name="st_yf_dividends"  type="text" value="{st_yf_dividends}"/></td>',
+'<td><input id="end_yf_dividends" name="end_yf_dividends"  type="text" value="{end_yf_dividends}"/></td>',
+'</tr>',
+'<tr>',
+'<th>一年内到期非流动资产</th>',
+'<td><input id="st_ynndq_no_assets" name="st_ynndq_no_assets"  type="text" value="{st_ynndq_no_assets}"/></td>',
+'<td><input id="end_ynndq_no_assets" name="end_ynndq_no_assets"  type="text" value="{end_ynndq_no_assets}"/></td>',
+'<th>其他应付款</th>',
+'<td><input id="st_other_yf_money" name="st_other_yf_money"  type="text" value="{st_other_yf_money}"/></td>',
+'<td><input id="end_other_yf_money" name="end_other_yf_money"  type="text" value="{end_other_yf_money}"/></td>',
+'</tr>',
+'<tr>',
+'<th>其他流动资产</th>',
+'<td><input id="st_other_assets" name="st_other_assets"  type="text" value="{st_other_assets}"/></td>',
+'<td><input id="end_other_assets" name="end_other_assets"  type="text" value="{end_other_assets}"/></td>',
+'<th>一年内到期的非流动负债</th>',
+'<td><input id="st_ynndq_no_fz" name="st_ynndq_no_fz"  type="text" value="{st_ynndq_no_fz}"/></td>',
+'<td><input id="end_ynndq_no_fz" name="end_ynndq_no_fz"  type="text" value="{end_ynndq_no_fz}"/></td>',
+'</tr>',
+'<tr>',
+'<th></th>',
+'<th></th>',
+'<th></th>',
+'<th>其他流动负债</th>',
+'<td><input id="st_other_fz" name="st_other_fz"  type="text" value="{st_other_fz}"/></td>',
+'<td><input id="end_other_fz" name="end_other_fz"  type="text" value="{end_other_fz}"/></td>',
+'</tr>',
+'<tr>',
+'<th>流动资产合计</th>',
+'<td><input id="st_hj_assets" name="st_hj_assets"  type="text" value="{st_hj_assets}"/></td>',
+'<td><input id="end_hj_assets" name="end_hj_assets"  type="text" value="{end_hj_assets}"/></td>',
+'<th>流动负债合计</th>',
+'<td><input id="st_hj_fz" name="st_hj_fz"  type="text" value="{st_hj_fz}"/></td>',
+'<td><input id="end_hj_fz" name="end_hj_fz"  type="text" value="{end_hj_fz}"/></td>',
+'</tr>',
+'<tr>',
+'<th>非流动资产：</th>',
+'<th></th>',
+'<th></th>',
+'<th>非流动负债：</th>',
+'<th></th>',
+'<th></th>',
+'</tr>',
+'<tr>',
+'<th>可供出售金融资产</th>',
+'<td><input id="st_kgcs_assets" name="st_kgcs_assets"  type="text" value="{st_kgcs_assets}"/></td>',
+'<td><input id="end_kgcs_assets" name="end_kgcs_assets"  type="text" value="{end_kgcs_assets}"/></td>',
+'<th>长期借款</th>',
+'<td><input id="st_long_borrow" name="st_long_borrow"  type="text" value="{st_long_borrow}"/></td>',
+'<td><input id="end_long_borrow" name="end_long_borrow"  type="text" value="{end_long_borrow}"/></td>',
+'</tr>',
+'<tr>',
+'<th>持有至到期投资</th>',
+'<td><input id="st_cyzdq_investment" name="st_cyzdq_investment"  type="text" value="{st_cyzdq_investment}"/></td>',
+'<td><input id="end_cyzdq_investment" name="end_cyzdq_investment"  type="text" value="{end_cyzdq_investment}"/></td>',
+'<th>应付债券</th>',
+'<td><input id="st_yf_bond" name="st_yf_bond"  type="text" value="{st_yf_bond}"/></td>',
+'<td><input id="end_yf_bond" name="end_yf_bond"  type="text" value="{end_yf_bond}"/></td>',
+'</tr>',
+'<tr>',
+'<th>长期应收款</th>',
+'<td><input id="st_long_ys_money" name="st_long_ys_money"  type="text" value="{st_long_ys_money}"/></td>',
+'<td><input id="end_long_ys_money" name="end_long_ys_money"  type="text" value="{end_long_ys_money}"/></td>',
+'<th>长期应付款</th>',
+'<td><input id="st_long_yf_money" name="st_long_yf_money"  type="text" value="{st_long_yf_money}"/></td>',
+'<td><input id="end_long_yf_money" name="end_long_yf_money"  type="text" value="{end_long_yf_money}"/></td>',
+'</tr>',
+'<tr>',
+'<th>长期股权投资</th>',
+'<td><input id="st_long_gq_investment" name="st_long_gq_investment"  type="text" value="{st_long_gq_investment}"/></td>',
+'<td><input id="end_long_gq_investment" name="end_long_gq_investment"  type="text" value="{end_long_gq_investment}"/></td>',
+'<th>专项应付款</th>',
+'<td><input id="st_zx_yf_money" name="st_zx_yf_money"  type="text" value="{st_zx_yf_money}"/></td>',
+'<td><input id="end_zx_yf_money" name="end_zx_yf_money"  type="text" value="{end_zx_yf_money}"/></td>',
+'</tr>',
+'<tr>',
+'<th>投资性房地产</th>',
+'<td><input id="st_invest_house" name="st_invest_house"  type="text" value="{st_invest_house}"/></td>',
+'<td><input id="end_invest_house" name="end_invest_house"  type="text" value="{end_invest_house}"/></td>',
+'<th>预计负债</th>',
+'<td><input id="st_yj_fz" name="st_yj_fz"  type="text" value="{st_yj_fz}"/></td>',
+'<td><input id="end_yj_fz" name="end_yj_fz"  type="text" value="{end_yj_fz}"/></td>',
+'</tr>',
+'<tr>',
+'<th>固定资产</th>',
+'<td><input id="st_gd_assets" name="st_gd_assets"  type="text" value="{st_gd_assets}"/></td>',
+'<td><input id="end_gd_assets" name="end_gd_assets"  type="text" value="{end_gd_assets}"/></td>',
+'<th>递延所得税负债</th>',
+'<td><input id="st_dysds_fz" name="st_dysds_fz"  type="text" value="{st_dysds_fz}"/></td>',
+'<td><input id="end_dysds_fz" name="end_dysds_fz"  type="text" value="{end_dysds_fz}"/></td>',
+'</tr>',
+'<tr>',
+'<th>减：累计折旧</th>',
+'<td><input id="st_accu_deprec" name="st_accu_deprec"  type="text" value="{st_accu_deprec}"/></td>',
+'<td><input id="end_accu_deprec" name="end_accu_deprec"  type="text" value="{end_accu_deprec}"/></td>',
+'<th>其他非流动负债</th>',
+'<td><input id="st_other_no_fz" name="st_other_no_fz"  type="text" value="{st_other_no_fz}"/></td>',
+'<td><input id="end_other_no_fz" name="end_other_no_fz"  type="text" value="{end_other_no_fz}"/></td>',
+'</tr>',
+'<tr>',
+'<th>固定资产净值</th>',
+'<td><input id="st_gd_assets_jz" name="st_gd_assets_jz"  type="text" value="{st_gd_assets_jz}"/></td>',
+'<td><input id="end_gd_assets_jz" name="end_gd_assets_jz"  type="text" value="{end_gd_assets_jz}"/></td>',
+'<th>非流动负债合计</th>',
+'<td><input id="st_hj_no_fz" name="st_hj_no_fz"  type="text" value="{st_hj_no_fz}"/></td>',
+'<td><input id="end_hj_no_fz" name="end_hj_no_fz"  type="text" value="{end_hj_no_fz}"/></td>',
+'</tr>',
+'<tr>',
+'<th>减：固定资产减值准备</th>',
+'<td><input id="st_gd_assets_ready" name="st_gd_assets_ready"  type="text" value="{st_gd_assets_ready}"/></td>',
+'<td><input id="end_gd_assets_ready" name="end_gd_assets_ready"  type="text" value="{end_gd_assets_ready}"/></td>',
+'<th>负债合计</th>',
+'<td><input id="st_hj_total_fz" name="st_hj_total_fz"  type="text" value="{st_hj_total_fz}"/></td>',
+'<td><input id="end_hj_total_fz" name="end_hj_total_fz"  type="text" value="{end_hj_total_fz}"/></td>',
+'</tr>',
+'<tr>',
+'<th>固定资产净额</th>',
+'<td><input id="st_gd_assets_je" name="st_gd_assets_je"  type="text" value="{st_gd_assets_je}"/></td>',
+'<td><input id="end_gd_assets_je" name="end_gd_assets_je"  type="text" value="{end_gd_assets_je}"/></td>',
+'<th></th>',
+'<th></th>',
+'<th></th>',
+'</tr>',
+'<tr>',
+'<th>在建工程</th>',
+'<td><input id="st_now_project" name="st_now_project"  type="text" value="{st_now_project}"/></td>',
+'<td><input id="end_now_project" name="end_now_project"  type="text" value="{end_now_project}"/></td>',
+'<th>所有者权益(或股东权益)</th>',
+'<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+'<td><input id="servicename" name="servicename"  type="text" value="{servicename}"/></td>',
+'</tr>',
+'<tr>',
+'<th>工程物资</th>',
+'<td><input id="st_project_material" name="st_project_material"  type="text" value="{st_project_material}"/></td>',
+'<td><input id="end_project_material" name="end_project_material"  type="text" value="{end_project_material}"/></td>',
+'<th>实收资本（或股本）</th>',
+'<td><input id="st_paid_assets" name="st_paid_assets"  type="text" value="{st_paid_assets}"/></td>',
+'<td><input id="end_paid_assets" name="end_paid_assets"  type="text" value="{end_paid_assets}"/></td>',
+'</tr>',
+'<tr>',
+'<th>固定资产清理</th>',
+'<td><input id="st_gd_assets_ql" name="st_gd_assets_ql"  type="text" value="{st_gd_assets_ql}"/></td>',
+'<td><input id="end_gd_assets_ql" name="end_gd_assets_ql"  type="text" value="{end_gd_assets_ql}"/></td>',
+'<th>资本公积</th>',
+'<td><input id="st_zb_reserve" name="st_zb_reserve"  type="text" value="{st_zb_reserve}"/></td>',
+'<td><input id="end_zb_reserve" name="end_zb_reserve"  type="text" value="{end_zb_reserve}"/></td>',
+'</tr>',
+'<tr>',
+'<th>生产性生物资产</th>',
+'<td><input id="st_scx_investment" name="st_scx_investment"  type="text" value="{st_scx_investment}"/></td>',
+'<td><input id="end_scx_investment" name="end_scx_investment"  type="text" value="{end_scx_investment}"/></td>',
+'<th>减：库存股</th>',
+'<td><input id="st_kc_stock" name="st_kc_stock"  type="text" value="{st_kc_stock}"/></td>',
+'<td><input id="end_kc_stock" name="end_kc_stock"  type="text" value="{end_kc_stock}"/></td>',
+'</tr>',
+'<tr>',
+'<th>无形资产</th>',
+'<td><input id="st_wx_assets" name="st_wx_assets"  type="text" value="{st_wx_assets}"/></td>',
+'<td><input id="end_wx_assets" name="end_wx_assets"  type="text" value="{end_wx_assets}"/></td>',
+'<th>专项储备</th>',
+'<td><input id="st_zx_reserve" name="st_zx_reserve"  type="text" value="{st_zx_reserve}"/></td>',
+'<td><input id="end_zx_reserve" name="end_zx_reserve"  type="text" value="{end_zx_reserve}"/></td>',
+'</tr>',
+'<tr>',
+'<th>商誉</th>',
+'<td><input id="st_goodwill" name="st_goodwill"  type="text" value="{st_goodwill}"/></td>',
+'<td><input id="end_goodwill" name="end_goodwill"  type="text" value="{end_goodwill}"/></td>',
+'<th>盈余公积</th>',
+'<td><input id="st_yy_reserve" name="st_yy_reserve"  type="text" value="{st_yy_reserve}"/></td>',
+'<td><input id="end_yy_reserve" name="end_yy_reserve"  type="text" value="{end_yy_reserve}"/></td>',
+'</tr>',
+'<tr>',
+'<th>长期待摊费用</th>',
+'<td><input id="st_cqdt_cost" name="st_cqdt_cost"  type="text" value="{st_cqdt_cost}"/></td>',
+'<td><input id="end_cqdt_cost" name="end_cqdt_cost"  type="text" value="{end_cqdt_cost}"/></td>',
+'<th>未分配利润</th>',
+'<td><input id="st_wfp_profit" name="st_wfp_profit"  type="text" value="{st_wfp_profit}"/></td>',
+'<td><input id="end_wfp_profit" name="end_wfp_profit"  type="text" value="{end_wfp_profit}"/></td>',
+'</tr>',
+'<tr>',
+'<th>递延所得税资产</th>',
+'<td><input id="st_dysds_assets" name="st_dysds_assets"  type="text" value="{st_dysds_assets}"/></td>',
+'<td><input id="end_dysds_assets" name="end_dysds_assets"  type="text" value="{end_dysds_assets}"/></td>',
+'<th>所有者权益合计</th>',
+'<td><input id="st_hj_owner_right" name="st_hj_owner_right"  type="text" value="{st_hj_owner_right}"/></td>',
+'<td><input id="end_hj_owner_right" name="end_hj_owner_right"  type="text" value="{end_hj_owner_right}"/></td>',
+'</tr>',
+'<tr>',
+'<th>其他非流动资产</th>',
+'<td><input id="st_other_no_assets" name="st_other_no_assets"  type="text" value="{st_other_no_assets}"/></td>',
+'<td><input id="end_other_no_assets" name="end_other_no_assets"  type="text" value="{end_other_no_assets}"/></td>',
+'<th></th>',
+'<th></th>',
+'<th></th>',
+'</tr>',
+'<tr>',
+'<th>非流动资产合计</th>',
+'<td><input id="st_hj_no_asset" name="st_hj_no_asset"  type="text" value="{st_hj_no_asset}"/></td>',
+'<td><input id="end_hj_no_asset" name="end_hj_no_asset"  type="text" value="{end_hj_no_asset}"/></td>',
+'<th></th>',
+'<th></th>',
+'<th></th>',
+'</tr>',
+'<tr>',
+'<th>资产总计</th>',
+'<td><input id="st_hj_total_asset" name="st_hj_total_asset"  type="text" value="{st_hj_total_asset}"/></td>',
+'<td><input id="end_hj_total_asset" name="end_hj_total_asset"  type="text" value="{end_hj_total_asset}"/></td>',
+'<th>负债和所有者权益合计</th>',
+'<td><input id="st_hj_fz_owner_right" name="st_hj_fz_owner_right"  type="text" value="{st_hj_fz_owner_right}"/></td>',
+'<td><input id="end_hj_fz_owner_right" name="end_hj_fz_owner_right"  type="text" value="{end_hj_fz_owner_right}"/></td>',
+'</tr>',
+'</table>',
