@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 
 @Controller
@@ -22,6 +23,7 @@ public class UpdateCorpMaintainInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
+            HttpSession session,
             @RequestParam(value = " mai_id", required = false) Integer  mai_id,
             @RequestParam(value = "mai_corp_id", required = false) Integer  mai_corp_id,
             @RequestParam(value = "mai_changer_id", required = false) Integer mai_changer_id,
@@ -73,7 +75,7 @@ public class UpdateCorpMaintainInfo {
                     "  where mai_id = ?";
             pst = conn.prepareStatement(sql);
             pst.setInt(1, mai_corp_id);
-            pst.setInt(2, mai_changer_id);
+            pst.setInt(2, Integer.parseInt(session.getAttribute("id").toString()));
             pst.setTimestamp(3, timestamp);
             pst.setString(4, mai_changer_dept);
             java.sql.Date d_recomdt = null;

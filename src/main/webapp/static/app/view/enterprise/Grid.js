@@ -1,7 +1,7 @@
 Ext.define('App.view.enterprise.Grid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.enterprisef_grid',
-    store: 'enterprise',
+    store: 'corp_all',
     selModel: new Ext.selection.CheckboxModel({checkOnly: false}),
     id: 'grid_enterprise',
     listeners: {
@@ -121,10 +121,10 @@ Ext.define('App.view.enterprise.Grid', {
                 '<tr>',
                 '<th class="table_header" colspan="8">股东名册</th>',
                 '</tr>',
-                '<tr>' +
-                '<td  colspan="4" align="center"><input type="button" id="addRow" name="addRow" onClick="addRow();" value="添加行"/></td>' +
-                '<td align="center"><input type="button" id="delRow" name="delRow" onClick="removeRow();" value="删除行"/></td>' +
-                '</tr>',
+                //'<tr>' +
+                //'<td  colspan="4" align="center"><input type="button" id="addRow" name="addRow" onClick="addRow();" value="添加行"/></td>' +
+                //'<td align="center"><input type="button" id="delRow" name="delRow" onClick="removeRow();" value="删除行"/></td>' +
+                //'</tr>',
 
                 '<tr>',
                 '<th>股东类型</th>',
@@ -137,16 +137,18 @@ Ext.define('App.view.enterprise.Grid', {
                 '<th>详情</th>',
                 '</tr>',
                 '<tr>',
-                '<td>{shtype}</td>',
-                '<td>{shname}</td>',
-                '<td>{shdoctype}</td>',
-                '<td>{shdocnum}</td>',
-                '<td>{shareholdnum}</td>',
-                '<td>{currencynum}</td>',
-                '<td>{freezenum}</td>',
-                '<td>{remark}</td>',
+                '<td><input id="gd_shtype" name="gd_shtype"  type="text" value="{gd_shtype}"/></td>',
+                '<td><input id="gd_shname" name="gd_shname"  type="text" value="{gd_shname}"/></td>',
+                '<td><input id="gd_shdoctype" name="gd_shdoctype"  type="text" value="{gd_shdoctype}"/></td>',
+                '<td><input id="gd_shdocnum" name="gd_shdocnum"  type="text" value="{gd_shdocnum}"/></td>',
+                '<td><input id="gd_shareholdnum" name="gd_shareholdnum"  type="text" value="{gd_shareholdnum}"/></td>',
+                '<td><input id="gd_currencynum" name="gd_currencynum"  type="text" value="{gd_currencynum}"/></td>',
+                '<td><input id="gd_freezenum" name="gd_freezenum"  type="text" value="{gd_freezenum}"/></td>',
+                '<td><input id="gd_remark" name="gd_remark"  type="text" value="{gd_remark}"/></td>',
                 '</tr>',
                 '</table>',
+
+
 
 
                 '<table class="enter_table" id="table_link">',
@@ -266,7 +268,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>',
                 '<tr>',
                 '<th>更新日期</th>',
-                '<td><input id="mai_changer_dt" name="mai_changer_dt"  type="text" value="{mai_changer_dt}"/></td>',
+                '<td><input id="mai_changer_dt" name="mai_changer_dt"  type="date" value="{mai_changer_dt}"/></td>',
                 '<th>更新人</th>',
                 '<td><input id="mai_changer_id" name="mai_changer_id"  type="text" value="{mai_changer_id}"/></td>',
                 '</tr>',
@@ -638,7 +640,7 @@ Ext.define('App.view.enterprise.Grid', {
 
                 '<table class="enter_table" id="table_service">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  name="type_server"  type="checkbox" value="true" />服务机构&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_server"  name="type_server"  type="checkbox" value="true" />服务机构&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">服务机构信息</th>',
@@ -680,7 +682,7 @@ Ext.define('App.view.enterprise.Grid', {
 
                 '<table class="enter_table" id="table_investors">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  name="type_investors"  type="checkbox" value="true" />投资人&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_investors" name="type_investors"  type="checkbox" value="true" />投资人&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">投资人信息</th>',
@@ -784,7 +786,7 @@ Ext.define('App.view.enterprise.Grid', {
 
                 '<table class="enter_table" id="table_govermt">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  name="type_govermt" type="checkbox"  value="true"/>政府机构&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_govermt"  name="type_govermt" type="checkbox"  value="true"/>政府机构&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">政府部门信息</th>',
@@ -837,7 +839,7 @@ Ext.define('App.view.enterprise.Grid', {
 
                 '<table class="enter_table" id="table_demand_rz">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  type="checkbox" name="demand_rz" value="true" />融资需求&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  id="demand_rz"  type="checkbox" name="demand_rz" value="true" />融资需求&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">融资需求</th>',
@@ -869,7 +871,7 @@ Ext.define('App.view.enterprise.Grid', {
 
                 '<table class="enter_table" id="table_demand_px">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  type="checkbox" name="demand_px" value="true"/>培训需求&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input style="width:50px;height:14px;" id="demand_px"   type="checkbox" name="demand_px" value="true"/>培训需求&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">培训需求</th>',
@@ -880,7 +882,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>',
                 '<tr>',
                 '<th>有效时间</th>',
-                '<td><input id="retra_dt" name="retra_dt"  type="text" value="{retra_dt}"/></td>',
+                '<td><input id="retra_dt" name="retra_dt"  type="date" value="{retra_dt}"/></td>',
                 '<th>可接受成本</th>',
                 '<td><input id="retra_acc_cost" name="retra_acc_cost"  type="text" value="{retra_acc_cost}"/></td>',
                 '</tr>',
@@ -896,7 +898,7 @@ Ext.define('App.view.enterprise.Grid', {
 
                 '<table class="enter_table" id="table_demand_rl">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  type="checkbox" name="demand_rl" value="true"/>人力需求&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input style="width:50px;height:14px;" id="demand_rl"  type="checkbox" name="demand_rl" value="true"/>人力需求&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">人力资源需求</th>',
@@ -920,7 +922,6 @@ Ext.define('App.view.enterprise.Grid', {
                 '<td><input id="rehr_requests" name="rehr_requests"  type="text" value="{rehr_requests}"/></td>',
                 '</tr>'+
                 '</table>',
-
 
                 '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_enterprise_edit({id})">保存</a>' +
 
@@ -1018,6 +1019,25 @@ Ext.define('App.view.enterprise.Grid', {
             {text: '企业简介', width: 120, dataIndex: 'eprofile', hidden: true},
             {text: '企业照片资料', width: 120, dataIndex: 'phoinf', hidden: true},
             {text: '备注', width: 120, dataIndex: 'remark', hidden: true},
+            {text: '企业股东ID',  width: 120, dataIndex: 'gd_id', hidden: true},
+            {text: '企业ID',  width: 120, dataIndex: 'gd_corp_id', hidden: true},
+            {text: '股东类型',  width: 120, dataIndex: 'gd_shtype', hidden: true},
+            {text: '股东',  width: 120, dataIndex: 'gd_shname', hidden: true},
+            {text: '证照/证件类型',  width: 120, dataIndex: 'gd_shdoctype', hidden: true},
+            {text: '证照/证件号码', width: 120, dataIndex: 'gd_shdocnum', hidden: true},
+            {text: '持股数量',  width: 120, dataIndex: 'gd_shareholdnum', hidden: true},
+            {text: '流通数量',  width: 120, dataIndex: 'gd_currencynum', hidden: true},
+            {text: '冻结数量',  width: 120, dataIndex: 'gd_freezenum', hidden: true},
+            {text: '职务',  width: 120, dataIndex: 'gd_psotion', hidden: true},
+            {text: '证件类型',  width: 120, dataIndex: 'gd_doctype', hidden: true},
+            {text: '证件号码',  width: 120, dataIndex: 'gd_docnum', hidden: true},
+            {text: '手机号码',  width: 120, dataIndex: 'gd_phone', hidden: true},
+            {text: '传真', width: 120, dataIndex: 'gd_fax', hidden: true},
+            {text: 'E-mail',  width: 120, dataIndex: 'gd_email', hidden: true},
+            {text: 'QQ',  width: 120, dataIndex: 'gd_qq', hidden: true},
+            {text: '个人微信号',  width: 120, dataIndex: 'gd_webchat', hidden: true},
+            {text: '固定电话',  width: 120, dataIndex: 'gd_tel', hidden: true},
+            {text: '备注',  width: 120, dataIndex: 'gd_remark', hidden: true},
             {text: '行业一级分类', width: 120, dataIndex: 'indclass1', hidden: true},
             {text: '行业二级分类', width: 120, dataIndex: 'indclass2', hidden: true},
             {text: '行业三级分类', width: 120, dataIndex: 'indclass3', hidden: true},
@@ -1281,7 +1301,7 @@ Ext.define('App.view.enterprise.Grid', {
         };
         Ext.apply(this, {
             bbar: Ext.create('Ext.PagingToolbar', {
-                store: 'enterprise',
+                store: 'corp_all',
                 displayInfo: true,
                 displayenterprise: '第 {0} 到 {1} 条数据, 共{2}条',
                 emptyenterprise: '无数据'
@@ -1299,304 +1319,492 @@ function win_close_edit() {
 
 }
 
-function save_enterprise_edit(id) {
-    //Ext.Msg.alert("提示", id);
-    var form_obt_apply = document.getElementById("apply_form_edit");
+function obt_corp_update(corp_id) {
+    //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
-            id: id,
-            buslicno : form_obt_apply['buslicno'].value,
-            name : form_obt_apply['name'].value,
-            unit : form_obt_apply['unit'].value,
-            legrep : form_obt_apply['legrep'].value,
-            province : form_obt_apply['province'].value,
-            city : form_obt_apply['city'].value,
-            county : form_obt_apply['county'].value,
-            nos : form_obt_apply['nos'].value,
-            postal : form_obt_apply['postal'].value,
-            nature : form_obt_apply['nature'].value,
-            regcap : form_obt_apply['regcap'].value,
-            bustermfdt : form_obt_apply['bustermfdt'].value,
-            bustremtdt : form_obt_apply['bustremtdt'].value,
-            regdt : form_obt_apply['regdt'].value,
-            list_area : form_obt_apply['list_area'].value,
-            listcode : form_obt_apply['listcode'].value,
-            listprice : form_obt_apply['listprice'].value,
-            listdt : form_obt_apply['listdt'].value,
-            channels : form_obt_apply['channels'].value,
-            webchat : form_obt_apply['webchat'].value,
-            staffnum : form_obt_apply['staffnum'].value,
-            regist_organ : form_obt_apply['regist_organ'].value,
-            regaddr : form_obt_apply['regaddr'].value,
-            offaddr : form_obt_apply['offaddr'].value,
-            scope : form_obt_apply['scope'].value,
-            mbus : form_obt_apply['mbus'].value,
-            eprofile : form_obt_apply['eprofile'].value,
-            phoinf : form_obt_apply['phoinf'].value,
-            remark : form_obt_apply['remark'].value,
-            indclass1 : form_obt_apply['indclass1'].value,
-            indclass2 : form_obt_apply['indclass2'].value,
-            indclass3 : form_obt_apply['indclass3'].value,
-            indclass4 : form_obt_apply['indclass4'].value,
-            csrc_type1 : form_obt_apply['csrc_type1'].value,
-            csrc_type2 : form_obt_apply['csrc_type2'].value,
-            csrc_type3 : form_obt_apply['csrc_type3'].value,
-            csrc_type4 : form_obt_apply['csrc_type4'].value,
-            type_enterp : form_obt_apply['type_enterp'].value,
-            type_server : form_obt_apply['type_server'].value,
-            type_investors : form_obt_apply['type_investors'].value,
-            type_govermt : form_obt_apply['type_govermt'].value,
-            demand_rz : form_obt_apply['demand_rz'].value,
-            demand_px : form_obt_apply['demand_px'].value,
-            demand_rl : form_obt_apply['demand_rl'].value,
-            inputdt : form_obt_apply['inputdt'].value,
-            cont_id : form_obt_apply['cont_id'].value,
-            cont_corp_id : form_obt_apply['cont_corp_id'].value,
-            cont_name : form_obt_apply['cont_name'].value,
-            cont_psotion : form_obt_apply['cont_psotion'].value,
-            cont_edoctype : form_obt_apply['cont_edoctype'].value,
-            cont_edocnum : form_obt_apply['cont_edocnum'].value,
-            cont_ephone : form_obt_apply['cont_ephone'].value,
-            cont_efax : form_obt_apply['cont_efax'].value,
-            cont_eemail : form_obt_apply['cont_eemail'].value,
-            cont_eqq : form_obt_apply['cont_eqq'].value,
-            cont_webchat : form_obt_apply['cont_webchat'].value,
-            cont_tel : form_obt_apply['cont_tel'].value,
-            cont_bz : form_obt_apply['cont_bz'].value,
-            finid : form_obt_apply['finid'].value,
-            fin_corp_id : form_obt_apply['fin_corp_id'].value,
-            start_time : form_obt_apply['start_time'].value,
-            end_time : form_obt_apply['end_time'].value,
-            st_money_fund : form_obt_apply['st_money_fund'].value,
-            end_money_fund : form_obt_apply['end_money_fund'].value,
-            st_jyxjr_assets : form_obt_apply['st_jyxjr_assets'].value,
-            end_jyxjr_assets : form_obt_apply['end_jyxjr_assets'].value,
-            st_ys_bill : form_obt_apply['st_ys_bill'].value,
-            end_ys_bill : form_obt_apply['end_ys_bill'].value,
-            st_ys_account : form_obt_apply['st_ys_account'].value,
-            end_ys_account : form_obt_apply['end_ys_account'].value,
-            st_yf_money : form_obt_apply['st_yf_money'].value,
-            end_yf_money : form_obt_apply['end_yf_money'].value,
-            st_ys_interest : form_obt_apply['st_ys_interest'].value,
-            end_ys_interest : form_obt_apply['end_ys_interest'].value,
-            st_ys_dividends : form_obt_apply['st_ys_dividends'].value,
-            end_ys_dividends : form_obt_apply['end_ys_dividends'].value,
-            st_other_ys_money : form_obt_apply['st_other_ys_money'].value,
-            end_other_ys_money : form_obt_apply['end_other_ys_money'].value,
-            st_inventory : form_obt_apply['st_inventory'].value,
-            end_inventory : form_obt_apply['end_inventory'].value,
-            st_ynndq_no_assets : form_obt_apply['st_ynndq_no_assets'].value,
-            end_ynndq_no_assets : form_obt_apply['end_ynndq_no_assets'].value,
-            st_other_assets : form_obt_apply['st_other_assets'].value,
-            end_other_assets : form_obt_apply['end_other_assets'].value,
-            st_hj_assets : form_obt_apply['st_hj_assets'].value,
-            end_hj_assets : form_obt_apply['end_hj_assets'].value,
-            st_kgcs_assets : form_obt_apply['st_kgcs_assets'].value,
-            end_kgcs_assets : form_obt_apply['end_kgcs_assets'].value,
-            st_cyzdq_investment : form_obt_apply['st_cyzdq_investment'].value,
-            end_cyzdq_investment : form_obt_apply['end_cyzdq_investment'].value,
-            st_long_ys_money : form_obt_apply['st_long_ys_money'].value,
-            end_long_ys_money : form_obt_apply['end_long_ys_money'].value,
-            st_long_gq_investment : form_obt_apply['st_long_gq_investment'].value,
-            end_long_gq_investment : form_obt_apply['end_long_gq_investment'].value,
-            st_invest_house : form_obt_apply['st_invest_house'].value,
-            end_invest_house : form_obt_apply['end_invest_house'].value,
-            st_gd_assets : form_obt_apply['st_gd_assets'].value,
-            end_gd_assets : form_obt_apply['end_gd_assets'].value,
-            st_accu_deprec : form_obt_apply['st_accu_deprec'].value,
-            end_accu_deprec : form_obt_apply['end_accu_deprec'].value,
-            st_gd_assets_jz : form_obt_apply['st_gd_assets_jz'].value,
-            end_gd_assets_jz : form_obt_apply['end_gd_assets_jz'].value,
-            st_gd_assets_ready : form_obt_apply['st_gd_assets_ready'].value,
-            end_gd_assets_ready : form_obt_apply['end_gd_assets_ready'].value,
-            st_gd_assets_je : form_obt_apply['st_gd_assets_je'].value,
-            end_gd_assets_je : form_obt_apply['end_gd_assets_je'].value,
-            st_now_project : form_obt_apply['st_now_project'].value,
-            end_now_project : form_obt_apply['end_now_project'].value,
-            st_project_material : form_obt_apply['st_project_material'].value,
-            end_project_material : form_obt_apply['end_project_material'].value,
-            st_gd_assets_ql : form_obt_apply['st_gd_assets_ql'].value,
-            end_gd_assets_ql : form_obt_apply['end_gd_assets_ql'].value,
-            st_scx_investment : form_obt_apply['st_scx_investment'].value,
-            end_scx_investment : form_obt_apply['end_scx_investment'].value,
-            st_wx_assets : form_obt_apply['st_wx_assets'].value,
-            end_wx_assets : form_obt_apply['end_wx_assets'].value,
-            st_goodwill : form_obt_apply['st_goodwill'].value,
-            end_goodwill : form_obt_apply['end_goodwill'].value,
-            st_cqdt_cost : form_obt_apply['st_cqdt_cost'].value,
-            end_cqdt_cost : form_obt_apply['end_cqdt_cost'].value,
-            st_dysds_assets : form_obt_apply['st_dysds_assets'].value,
-            end_dysds_assets : form_obt_apply['end_dysds_assets'].value,
-            st_other_no_assets : form_obt_apply['st_other_no_assets'].value,
-            end_other_no_assets : form_obt_apply['end_other_no_assets'].value,
-            st_hj_no_asset : form_obt_apply['st_hj_no_asset'].value,
-            end_hj_no_asset : form_obt_apply['end_hj_no_asset'].value,
-            st_hj_total_asset : form_obt_apply['st_hj_total_asset'].value,
-            end_hj_total_asset : form_obt_apply['end_hj_total_asset'].value,
-            st_short_borrow : form_obt_apply['st_short_borrow'].value,
-            end_short_borrow : form_obt_apply['end_short_borrow'].value,
-            st_jyx_finance_fz : form_obt_apply['st_jyx_finance_fz'].value,
-            end_jyx_finance_fz : form_obt_apply['end_jyx_finance_fz'].value,
-            st_yf_bill : form_obt_apply['st_yf_bill'].value,
-            end_yf_bill : form_obt_apply['end_yf_bill'].value,
-            st_yf_account : form_obt_apply['st_yf_account'].value,
-            end_yf_account : form_obt_apply['end_yf_account'].value,
-            st_ys_money : form_obt_apply['st_ys_money'].value,
-            end_ys_money : form_obt_apply['end_ys_money'].value,
-            st_yf_staff_pay : form_obt_apply['st_yf_staff_pay'].value,
-            end_yf_staff_pay : form_obt_apply['end_yf_staff_pay'].value,
-            st_yj_tax : form_obt_apply['st_yj_tax'].value,
-            end_yj_tax : form_obt_apply['end_yj_tax'].value,
-            st_yf_interest : form_obt_apply['st_yf_interest'].value,
-            end_yf_interest : form_obt_apply['end_yf_interest'].value,
-            st_yf_dividends : form_obt_apply['st_yf_dividends'].value,
-            end_yf_dividends : form_obt_apply['end_yf_dividends'].value,
-            st_other_yf_money : form_obt_apply['st_other_yf_money'].value,
-            end_other_yf_money : form_obt_apply['end_other_yf_money'].value,
-            st_ynndq_no_fz : form_obt_apply['st_ynndq_no_fz'].value,
-            end_ynndq_no_fz : form_obt_apply['end_ynndq_no_fz'].value,
-            st_other_fz : form_obt_apply['st_other_fz'].value,
-            end_other_fz : form_obt_apply['end_other_fz'].value,
-            st_hj_fz : form_obt_apply['st_hj_fz'].value,
-            end_hj_fz : form_obt_apply['end_hj_fz'].value,
-            st_long_borrow : form_obt_apply['st_long_borrow'].value,
-            end_long_borrow : form_obt_apply['end_long_borrow'].value,
-            st_yf_bond : form_obt_apply['st_yf_bond'].value,
-            end_yf_bond : form_obt_apply['end_yf_bond'].value,
-            st_long_yf_money : form_obt_apply['st_long_yf_money'].value,
-            end_long_yf_money : form_obt_apply['end_long_yf_money'].value,
-            st_zx_yf_money : form_obt_apply['st_zx_yf_money'].value,
-            end_zx_yf_money : form_obt_apply['end_zx_yf_money'].value,
-            st_yj_fz : form_obt_apply['st_yj_fz'].value,
-            end_yj_fz : form_obt_apply['end_yj_fz'].value,
-            st_dysds_fz : form_obt_apply['st_dysds_fz'].value,
-            end_dysds_fz : form_obt_apply['end_dysds_fz'].value,
-            st_other_no_fz : form_obt_apply['st_other_no_fz'].value,
-            end_other_no_fz : form_obt_apply['end_other_no_fz'].value,
-            st_hj_no_fz : form_obt_apply['st_hj_no_fz'].value,
-            end_hj_no_fz : form_obt_apply['end_hj_no_fz'].value,
-            st_hj_total_fz : form_obt_apply['st_hj_total_fz'].value,
-            end_hj_total_fz : form_obt_apply['end_hj_total_fz'].value,
-            st_paid_assets : form_obt_apply['st_paid_assets'].value,
-            end_paid_assets : form_obt_apply['end_paid_assets'].value,
-            st_zb_reserve : form_obt_apply['st_zb_reserve'].value,
-            end_zb_reserve : form_obt_apply['end_zb_reserve'].value,
-            st_kc_stock : form_obt_apply['st_kc_stock'].value,
-            end_kc_stock : form_obt_apply['end_kc_stock'].value,
-            st_zx_reserve : form_obt_apply['st_zx_reserve'].value,
-            end_zx_reserve : form_obt_apply['end_zx_reserve'].value,
-            st_yy_reserve : form_obt_apply['st_yy_reserve'].value,
-            end_yy_reserve : form_obt_apply['end_yy_reserve'].value,
-            st_wfp_profit : form_obt_apply['st_wfp_profit'].value,
-            end_wfp_profit : form_obt_apply['end_wfp_profit'].value,
-            st_hj_owner_right : form_obt_apply['st_hj_owner_right'].value,
-            end_hj_owner_right : form_obt_apply['end_hj_owner_right'].value,
-            st_hj_fz_owner_right : form_obt_apply['st_hj_fz_owner_right'].value,
-            end_hj_fz_owner_right : form_obt_apply['end_hj_fz_owner_right'].value,
-            mai_id : form_obt_apply['mai_id'].value,
-            mai_corp_id : form_obt_apply['mai_corp_id'].value,
-            mai_changer_id : form_obt_apply['mai_changer_id'].value,
-            mai_changer_dt : form_obt_apply['mai_changer_dt'].value,
-            mai_changer_dept : form_obt_apply['mai_changer_dept'].value,
-            mai_recomdt : form_obt_apply['mai_recomdt'].value,
-            mai_trusteeship : form_obt_apply['mai_trusteeship'].value,
-            mai_listst : form_obt_apply['mai_listst'].value,
-            mai_eclass : form_obt_apply['mai_eclass'].value,
-            mai_maintain : form_obt_apply['mai_maintain'].value,
-            mai_reserve : form_obt_apply['mai_reserve'].value,
-            mai_emaint : form_obt_apply['mai_emaint'].value,
-            mai_dept : form_obt_apply['mai_dept'].value,
-            mai_post : form_obt_apply['mai_post'].value,
-            mai_tel : form_obt_apply['mai_tel'].value,
-            mai_phone : form_obt_apply['mai_phone'].value,
-            mai_fax : form_obt_apply['mai_fax'].value,
-            mai_email : form_obt_apply['mai_email'].value,
-            mai_qq : form_obt_apply['mai_qq'].value,
-            mai_webchat : form_obt_apply['mai_webchat'].value,
-            mai_bz : form_obt_apply['mai_bz'].value,
-            gov_id : form_obt_apply['gov_id'].value,
-            gov_corp_id : form_obt_apply['gov_corp_id'].value,
-            gov_domain : form_obt_apply['gov_domain'].value,
-            gov_office : form_obt_apply['gov_office'].value,
-            gov_desc : form_obt_apply['gov_desc'].value,
-            gov_contact : form_obt_apply['gov_contact'].value,
-            gov_psotion : form_obt_apply['gov_psotion'].value,
-            gov_doctype : form_obt_apply['gov_doctype'].value,
-            gov_docnum : form_obt_apply['gov_docnum'].value,
-            gov_phone : form_obt_apply['gov_phone'].value,
-            gov_fax : form_obt_apply['gov_fax'].value,
-            gov_email : form_obt_apply['gov_email'].value,
-            gov_qq : form_obt_apply['gov_qq'].value,
-            gov_webchat : form_obt_apply['gov_webchat'].value,
-            gov_tel : form_obt_apply['gov_tel'].value,
-            gov_remark : form_obt_apply['gov_remark'].value,
-            inv_id : form_obt_apply['inv_id'].value,
-            inv_corp_id : form_obt_apply['inv_corp_id'].value,
-            inv_domain : form_obt_apply['inv_domain'].value,
-            inv_csrc_type1 : form_obt_apply['inv_csrc_type1'].value,
-            inv_csrc_type2 : form_obt_apply['inv_csrc_type2'].value,
-            inv_csrc_type3 : form_obt_apply['inv_csrc_type3'].value,
-            inv_csrc_type4 : form_obt_apply['inv_csrc_type4'].value,
-            inv_indclass1 : form_obt_apply['inv_indclass1'].value,
-            inv_indclass2 : form_obt_apply['inv_indclass2'].value,
-            inv_indclass3 : form_obt_apply['inv_indclass3'].value,
-            inv_indclass4 : form_obt_apply['inv_indclass4'].value,
-            inv_contact : form_obt_apply['inv_contact'].value,
-            inv_psotion : form_obt_apply['inv_psotion'].value,
-            inv_doctype : form_obt_apply['inv_doctype'].value,
-            inv_docnum : form_obt_apply['inv_docnum'].value,
-            inv_phone : form_obt_apply['inv_phone'].value,
-            inv_fax : form_obt_apply['inv_fax'].value,
-            inv_email : form_obt_apply['inv_email'].value,
-            inv_qq : form_obt_apply['inv_qq'].value,
-            inv_webchat : form_obt_apply['inv_webchat'].value,
-            inv_tel : form_obt_apply['inv_tel'].value,
-            inv_remark : form_obt_apply['inv_remark'].value,
-            srv_id : form_obt_apply['srv_id'].value,
-            srv_corp_id : form_obt_apply['srv_corp_id'].value,
-            srv_name : form_obt_apply['srv_name'].value,
-            srv_type : form_obt_apply['srv_type'].value,
-            srv_content : form_obt_apply['srv_content'].value,
-            srv_levels : form_obt_apply['srv_levels'].value,
-            srv_domain : form_obt_apply['srv_domain'].value,
-            srv_penalty : form_obt_apply['srv_penalty'].value,
-            srv_examiner : form_obt_apply['srv_examiner'].value,
-            srv_post : form_obt_apply['srv_post'].value,
-            srv_descs : form_obt_apply['srv_descs'].value,
-            srv_remark : form_obt_apply['srv_remark'].value,
-            refi_id : form_obt_apply['refi_id'].value,
-            refi_corp_id : form_obt_apply['refi_corp_id'].value,
-            refi_amounts : form_obt_apply['refi_amounts'].value,
-            refi_use : form_obt_apply['refi_use'].value,
-            refi_financ : form_obt_apply['refi_financ'].value,
-            refi_security : form_obt_apply['refi_security'].value,
-            refi_acc_cost : form_obt_apply['refi_acc_cost'].value,
-            refi_deadline : form_obt_apply['refi_deadline'].value,
-            refi_desc : form_obt_apply['refi_desc'].value,
-            rehr_id : form_obt_apply['rehr_id'].value,
-            rehr_corp_id : form_obt_apply['rehr_corp_id'].value,
-            rehr_post : form_obt_apply['rehr_post'].value,
-            rehr_num : form_obt_apply['rehr_num'].value,
-            rehr_salary : form_obt_apply['rehr_salary'].value,
-            rehr_sex_req : form_obt_apply['rehr_sex_req'].value,
-            rehr_age_req : form_obt_apply['rehr_age_req'].value,
-            rehr_requests : form_obt_apply['rehr_requests'].value,
-            retra_id : form_obt_apply['retra_id'].value,
-            retra_corp_id : form_obt_apply['retra_corp_id'].value,
-            retra_mode : form_obt_apply['retra_mode'].value,
-            retra_content : form_obt_apply['retra_content'].value,
-            retra_acc_cost : form_obt_apply['retra_acc_cost'].value,
-            retra_dt : form_obt_apply['retra_dt'].value,
-            retra_requests : form_obt_apply['retra_requests'].value
-},
-        url: 'update_enterprise_info',
+            id :corp_id,
+            buslicno : document.getElementById('buslicno').value,
+            name : document.getElementById('name').value,
+            unit : document.getElementById('unit').value,
+            legrep : document.getElementById('legrep').value,
+            province : document.getElementById('province').value,
+            city : document.getElementById('city').value,
+            county : document.getElementById('county').value,
+            nos : document.getElementById('nos').value,
+            postal : document.getElementById('postal').value,
+            nature : document.getElementById('nature').value,
+            regcap : document.getElementById('regcap').value,
+            bustermfdt : document.getElementById('bustermfdt').value,
+            bustremtdt : document.getElementById('bustremtdt').value,
+            regdt : document.getElementById('regdt').value,
+            list_area : document.getElementById('list_area').value,
+            listcode : document.getElementById('listcode').value,
+            listprice : document.getElementById('listprice').value,
+            listdt : document.getElementById('listdt').value,
+            channels : document.getElementById('channels').value,
+            webchat : document.getElementById('webchat').value,
+            staffnum : document.getElementById('staffnum').value,
+            regist_organ : document.getElementById('regist_organ').value,
+            regaddr : document.getElementById('regaddr').value,
+            offaddr : document.getElementById('offaddr').value,
+            scope : document.getElementById('scope').value,
+            mbus : document.getElementById('mbus').value,
+            eprofile : document.getElementById('eprofile').value,
+            remark : document.getElementById('remark').value,
+            phoinf : document.getElementById('phoinf').value,
+            indclass1 : document.getElementById('indclass1').value,
+            indclass2 : document.getElementById('indclass2').value,
+            indclass3 : document.getElementById('indclass3').value,
+            indclass4 : document.getElementById('indclass4').value,
+            csrc_type1 : document.getElementById('csrc_type1').value,
+            csrc_type2 : document.getElementById('csrc_type2').value,
+            csrc_type3 : document.getElementById('csrc_type3').value,
+            csrc_type4 : document.getElementById('csrc_type4').value,
+            type_enterp : false,
+            type_server : document.getElementById('type_server').checked,
+            type_investors : document.getElementById('type_investors').checked,
+            type_govermt : document.getElementById('type_govermt').checked,
+            demand_rz : document.getElementById('demand_rz').checked,
+            demand_px : document.getElementById('demand_px').checked,
+            demand_rl : document.getElementById('demand_rl').checked
+            //inputdt : document.getElementById('inputdt').value
+        },
+        url: 'update_corp_info',
         success: function () {
             Ext.Msg.alert("提示", "保存成功！");
-            Ext.getCmp('grid_enterprise').getStore().load();
         },
         failure: function () {
             Ext.Msg.alert("提示", "保存失败！");
         }
     });
+};
+function obt_corp_contact_update(corp_id) {
+    //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
+
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            //cont_id : document.getElementById('cont_id').value,
+            cont_corp_id : corp_id,
+            cont_name : document.getElementById('cont_name').value,
+            cont_psotion : document.getElementById('cont_psotion').value,
+            cont_edoctype : document.getElementById('cont_edoctype').value,
+            cont_edocnum : document.getElementById('cont_edocnum').value,
+            cont_ephone : document.getElementById('cont_ephone').value,
+            cont_efax : document.getElementById('cont_efax').value,
+            cont_eemail : document.getElementById('cont_eemail').value,
+            cont_eqq : document.getElementById('cont_eqq').value,
+            cont_webchat : document.getElementById('cont_webchat').value,
+            cont_tel : document.getElementById('cont_tel').value,
+            cont_bz : document.getElementById('cont_bz').value
+        },
+        url: 'update_corp_contact_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+};
+function obt_corp_shareholder_update(corp_id) {
+    //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
+
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            //cont_id : document.getElementById('cont_id').value,
+            gd_corp_id : corp_id,
+            gd_shtype : document.getElementById('gd_shtype').value,
+            gd_shname : document.getElementById('gd_shname').value,
+            gd_shdoctype : document.getElementById('gd_shdoctype').value,
+            gd_shdocnum : document.getElementById('gd_shdocnum').value,
+            gd_shareholdnum : document.getElementById('gd_shareholdnum').value,
+            gd_currencynum : document.getElementById('gd_currencynum').value,
+            gd_freezenum : document.getElementById('gd_freezenum').value,
+            //gd_psotion : document.getElementById('gd_psotion').value,
+            //gd_doctype : document.getElementById('gd_doctype').value,
+            //gd_docnum : document.getElementById('gd_docnum').value,
+            //gd_phone : document.getElementById('gd_phone').value,
+            //gd_fax : document.getElementById('gd_fax').value,
+            //gd_email : document.getElementById('gd_email').value,
+            //gd_qq : document.getElementById('gd_qq').value,
+            //gd_webchat : document.getElementById('gd_webchat').value,
+            //gd_tel : document.getElementById('gd_tel').value,
+            gd_remark : document.getElementById('gd_remark').value
+        },
+        url: 'update_corp_shareholder_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+};
+function obt_corp_finance_update(corp_id) {
+    //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            //finid : document.getElementById('finid').value,
+            fin_corp_id : corp_id,
+            start_time : document.getElementById('start_time').value,
+            end_time : document.getElementById('end_time').value,
+            st_money_fund : document.getElementById('st_money_fund').value,
+            end_money_fund : document.getElementById('end_money_fund').value,
+            st_jyxjr_assets : document.getElementById('st_jyxjr_assets').value,
+            end_jyxjr_assets : document.getElementById('end_jyxjr_assets').value,
+            st_ys_bill : document.getElementById('st_ys_bill').value,
+            end_ys_bill : document.getElementById('end_ys_bill').value,
+            st_ys_account : document.getElementById('st_ys_account').value,
+            end_ys_account : document.getElementById('end_ys_account').value,
+            st_yf_money : document.getElementById('st_yf_money').value,
+            end_yf_money : document.getElementById('end_yf_money').value,
+            st_ys_interest : document.getElementById('st_ys_interest').value,
+            end_ys_interest : document.getElementById('end_ys_interest').value,
+            st_ys_dividends : document.getElementById('st_ys_dividends').value,
+            end_ys_dividends : document.getElementById('end_ys_dividends').value,
+            st_other_ys_money : document.getElementById('st_other_ys_money').value,
+            end_other_ys_money : document.getElementById('end_other_ys_money').value,
+            st_inventory : document.getElementById('st_inventory').value,
+            end_inventory : document.getElementById('end_inventory').value,
+            st_ynndq_no_assets : document.getElementById('st_ynndq_no_assets').value,
+            end_ynndq_no_assets : document.getElementById('end_ynndq_no_assets').value,
+            st_other_assets : document.getElementById('st_other_assets').value,
+            end_other_assets : document.getElementById('end_other_assets').value,
+            st_hj_assets : document.getElementById('st_hj_assets').value,
+            end_hj_assets : document.getElementById('end_hj_assets').value,
+            st_kgcs_assets : document.getElementById('st_kgcs_assets').value,
+            end_kgcs_assets : document.getElementById('end_kgcs_assets').value,
+            st_cyzdq_investment : document.getElementById('st_cyzdq_investment').value,
+            end_cyzdq_investment : document.getElementById('end_cyzdq_investment').value,
+            st_long_ys_money : document.getElementById('st_long_ys_money').value,
+            end_long_ys_money : document.getElementById('end_long_ys_money').value,
+            st_long_gq_investment : document.getElementById('st_long_gq_investment').value,
+            end_long_gq_investment : document.getElementById('end_long_gq_investment').value,
+            st_invest_house : document.getElementById('st_invest_house').value,
+            end_invest_house : document.getElementById('end_invest_house').value,
+            st_gd_assets : document.getElementById('st_gd_assets').value,
+            end_gd_assets : document.getElementById('end_gd_assets').value,
+            st_accu_deprec : document.getElementById('st_accu_deprec').value,
+            end_accu_deprec : document.getElementById('end_accu_deprec').value,
+            st_gd_assets_jz : document.getElementById('st_gd_assets_jz').value,
+            end_gd_assets_jz : document.getElementById('end_gd_assets_jz').value,
+            st_gd_assets_ready : document.getElementById('st_gd_assets_ready').value,
+            end_gd_assets_ready : document.getElementById('end_gd_assets_ready').value,
+            st_gd_assets_je : document.getElementById('st_gd_assets_je').value,
+            end_gd_assets_je : document.getElementById('end_gd_assets_je').value,
+            st_now_project : document.getElementById('st_now_project').value,
+            end_now_project : document.getElementById('end_now_project').value,
+            st_project_material : document.getElementById('st_project_material').value,
+            end_project_material : document.getElementById('end_project_material').value,
+            st_gd_assets_ql : document.getElementById('st_gd_assets_ql').value,
+            end_gd_assets_ql : document.getElementById('end_gd_assets_ql').value,
+            st_scx_investment : document.getElementById('st_scx_investment').value,
+            end_scx_investment : document.getElementById('end_scx_investment').value,
+            st_wx_assets : document.getElementById('st_wx_assets').value,
+            end_wx_assets : document.getElementById('end_wx_assets').value,
+            st_goodwill : document.getElementById('st_goodwill').value,
+            end_goodwill : document.getElementById('end_goodwill').value,
+            st_cqdt_cost : document.getElementById('st_cqdt_cost').value,
+            end_cqdt_cost : document.getElementById('end_cqdt_cost').value,
+            st_dysds_assets : document.getElementById('st_dysds_assets').value,
+            end_dysds_assets : document.getElementById('end_dysds_assets').value,
+            st_other_no_assets : document.getElementById('st_other_no_assets').value,
+            end_other_no_assets : document.getElementById('end_other_no_assets').value,
+            st_hj_no_asset : document.getElementById('st_hj_no_asset').value,
+            end_hj_no_asset : document.getElementById('end_hj_no_asset').value,
+            st_hj_total_asset : document.getElementById('st_hj_total_asset').value,
+            end_hj_total_asset : document.getElementById('end_hj_total_asset').value,
+            st_short_borrow : document.getElementById('st_short_borrow').value,
+            end_short_borrow : document.getElementById('end_short_borrow').value,
+            st_jyx_finance_fz : document.getElementById('st_jyx_finance_fz').value,
+            end_jyx_finance_fz : document.getElementById('end_jyx_finance_fz').value,
+            st_yf_bill : document.getElementById('st_yf_bill').value,
+            end_yf_bill : document.getElementById('end_yf_bill').value,
+            st_yf_account : document.getElementById('st_yf_account').value,
+            end_yf_account : document.getElementById('end_yf_account').value,
+            st_ys_money : document.getElementById('st_ys_money').value,
+            end_ys_money : document.getElementById('end_ys_money').value,
+            st_yf_staff_pay : document.getElementById('st_yf_staff_pay').value,
+            end_yf_staff_pay : document.getElementById('end_yf_staff_pay').value,
+            st_yj_tax : document.getElementById('st_yj_tax').value,
+            end_yj_tax : document.getElementById('end_yj_tax').value,
+            st_yf_interest : document.getElementById('st_yf_interest').value,
+            end_yf_interest : document.getElementById('end_yf_interest').value,
+            st_yf_dividends : document.getElementById('st_yf_dividends').value,
+            end_yf_dividends : document.getElementById('end_yf_dividends').value,
+            st_other_yf_money : document.getElementById('st_other_yf_money').value,
+            end_other_yf_money : document.getElementById('end_other_yf_money').value,
+            st_ynndq_no_fz : document.getElementById('st_ynndq_no_fz').value,
+            end_ynndq_no_fz : document.getElementById('end_ynndq_no_fz').value,
+            st_other_fz : document.getElementById('st_other_fz').value,
+            end_other_fz : document.getElementById('end_other_fz').value,
+            st_hj_fz : document.getElementById('st_hj_fz').value,
+            end_hj_fz : document.getElementById('end_hj_fz').value,
+            st_long_borrow : document.getElementById('st_long_borrow').value,
+            end_long_borrow : document.getElementById('end_long_borrow').value,
+            st_yf_bond : document.getElementById('st_yf_bond').value,
+            end_yf_bond : document.getElementById('end_yf_bond').value,
+            st_long_yf_money : document.getElementById('st_long_yf_money').value,
+            end_long_yf_money : document.getElementById('end_long_yf_money').value,
+            st_zx_yf_money : document.getElementById('st_zx_yf_money').value,
+            end_zx_yf_money : document.getElementById('end_zx_yf_money').value,
+            st_yj_fz : document.getElementById('st_yj_fz').value,
+            end_yj_fz : document.getElementById('end_yj_fz').value,
+            st_dysds_fz : document.getElementById('st_dysds_fz').value,
+            end_dysds_fz : document.getElementById('end_dysds_fz').value,
+            st_other_no_fz : document.getElementById('st_other_no_fz').value,
+            end_other_no_fz : document.getElementById('end_other_no_fz').value,
+            st_hj_no_fz : document.getElementById('st_hj_no_fz').value,
+            end_hj_no_fz : document.getElementById('end_hj_no_fz').value,
+            st_hj_total_fz : document.getElementById('st_hj_total_fz').value,
+            end_hj_total_fz : document.getElementById('end_hj_total_fz').value,
+            st_paid_assets : document.getElementById('st_paid_assets').value,
+            end_paid_assets : document.getElementById('end_paid_assets').value,
+            st_zb_reserve : document.getElementById('st_zb_reserve').value,
+            end_zb_reserve : document.getElementById('end_zb_reserve').value,
+            st_kc_stock : document.getElementById('st_kc_stock').value,
+            end_kc_stock : document.getElementById('end_kc_stock').value,
+            st_zx_reserve : document.getElementById('st_zx_reserve').value,
+            end_zx_reserve : document.getElementById('end_zx_reserve').value,
+            st_yy_reserve : document.getElementById('st_yy_reserve').value,
+            end_yy_reserve : document.getElementById('end_yy_reserve').value,
+            st_wfp_profit : document.getElementById('st_wfp_profit').value,
+            end_wfp_profit : document.getElementById('end_wfp_profit').value,
+            st_hj_owner_right : document.getElementById('st_hj_owner_right').value,
+            end_hj_owner_right : document.getElementById('end_hj_owner_right').value,
+            st_hj_fz_owner_right : document.getElementById('st_hj_fz_owner_right').value,
+            end_hj_fz_owner_right : document.getElementById('end_hj_fz_owner_right').value
+        },
+        url: 'update_corp_finance_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+};
+function obt_corp_maintain_update(corp_id) {
+    //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            //mai_id : document.getElementById('mai_id').value,
+            mai_corp_id : corp_id,
+            mai_changer_id : document.getElementById('mai_changer_id').value,
+            mai_changer_dt : document.getElementById('mai_changer_dt').value,
+            mai_changer_dept : document.getElementById('mai_changer_dept').value,
+            mai_recomdt : document.getElementById('mai_recomdt').value,
+            mai_trusteeship : document.getElementById('mai_trusteeship').value,
+            mai_listst : document.getElementById('mai_listst').value,
+            mai_eclass : document.getElementById('mai_eclass').value,
+            mai_maintain : document.getElementById('mai_maintain').value,
+            mai_reserve : document.getElementById('mai_reserve').value,
+            mai_emaint : document.getElementById('mai_emaint').value,
+            mai_dept : document.getElementById('mai_dept').value,
+            mai_post : document.getElementById('mai_post').value,
+            mai_tel : document.getElementById('mai_tel').value,
+            mai_phone : document.getElementById('mai_phone').value,
+            mai_fax : document.getElementById('mai_fax').value,
+            mai_email : document.getElementById('mai_email').value,
+            mai_qq : document.getElementById('mai_qq').value,
+            mai_webchat : document.getElementById('mai_webchat').value,
+            mai_bz : document.getElementById('mai_bz').value
+        },
+        url: 'update_corp_maintain_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+};
+function obt_corp_government_update(corp_id) {
+    //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            //gov_id : document.getElementById('gov_id').value,
+            gov_corp_id : corp_id,
+            gov_domain : document.getElementById('gov_domain').value,
+            gov_office : document.getElementById('gov_office').value,
+            gov_desc : document.getElementById('gov_desc').value,
+            gov_contact : document.getElementById('gov_contact').value,
+            gov_psotion : document.getElementById('gov_psotion').value,
+            gov_doctype : document.getElementById('gov_doctype').value,
+            gov_docnum : document.getElementById('gov_docnum').value,
+            gov_phone : document.getElementById('gov_phone').value,
+            gov_fax : document.getElementById('gov_fax').value,
+            gov_email : document.getElementById('gov_email').value,
+            gov_qq : document.getElementById('gov_qq').value,
+            gov_webchat : document.getElementById('gov_webchat').value,
+            gov_tel : document.getElementById('gov_tel').value,
+            gov_remark : document.getElementById('gov_remark').value
+        },
+        url: 'update_corp_government_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+};
+function obt_corp_investors_update(corp_id) {
+    //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            //inv_id : document.getElementById('inv_id').value,
+            inv_corp_id :corp_id,
+            inv_domain : document.getElementById('inv_domain').value,
+            inv_csrc_type1 : document.getElementById('inv_csrc_type1').value,
+            inv_csrc_type2 : document.getElementById('inv_csrc_type2').value,
+            inv_csrc_type3 : document.getElementById('inv_csrc_type3').value,
+            inv_csrc_type4 : document.getElementById('inv_csrc_type4').value,
+            inv_indclass1 : document.getElementById('inv_indclass1').value,
+            inv_indclass2 : document.getElementById('inv_indclass2').value,
+            inv_indclass3 : document.getElementById('inv_indclass3').value,
+            inv_indclass4 : document.getElementById('inv_indclass4').value,
+            inv_contact : document.getElementById('inv_contact').value,
+            inv_psotion : document.getElementById('inv_psotion').value,
+            inv_doctype : document.getElementById('inv_doctype').value,
+            inv_docnum : document.getElementById('inv_docnum').value,
+            inv_phone : document.getElementById('inv_phone').value,
+            inv_fax : document.getElementById('inv_fax').value,
+            inv_email : document.getElementById('inv_email').value,
+            inv_qq : document.getElementById('inv_qq').value,
+            inv_webchat : document.getElementById('inv_webchat').value,
+            inv_tel : document.getElementById('inv_tel').value,
+            inv_remark : document.getElementById('inv_remark').value
+        },
+        url: 'update_corp_investors_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+};
+function obt_corp_service_update(corp_id) {
+    //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            //srv_id : document.getElementById('srv_id').value,
+            srv_corp_id :corp_id,
+            srv_name : document.getElementById('srv_name').value,
+            srv_type : document.getElementById('srv_type').value,
+            srv_content : document.getElementById('srv_content').value,
+            srv_levels : document.getElementById('srv_levels').value,
+            srv_domain : document.getElementById('srv_domain').value,
+            srv_penalty : document.getElementById('srv_penalty').value,
+            srv_examiner : document.getElementById('srv_examiner').value,
+            srv_post : document.getElementById('srv_post').value,
+            srv_descs : document.getElementById('srv_descs').value,
+            srv_remark : document.getElementById('srv_remark').value
+        },
+        url: 'update_corp_service_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+};
+function obt_corp_refinancing_update(corp_id) {
+    //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            //refi_id : document.getElementById('refi_id').value,
+            refi_corp_id :corp_id,
+            refi_amounts : document.getElementById('refi_amounts').value,
+            refi_use : document.getElementById('refi_use').value,
+            refi_financ : document.getElementById('refi_financ').value,
+            refi_security : document.getElementById('refi_security').value,
+            refi_acc_cost : document.getElementById('refi_acc_cost').value,
+            refi_deadline : document.getElementById('refi_deadline').value,
+            refi_desc : document.getElementById('refi_desc').value
+        },
+        url: 'update_corp_refinancing_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+};
+function obt_corp_rehr_update(corp_id) {
+    //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            //rehr_id : document.getElementById('rehr_id').value,
+            rehr_corp_id : corp_id,
+            rehr_post : document.getElementById('rehr_post').value,
+            rehr_num : document.getElementById('rehr_num').value,
+            rehr_salary : document.getElementById('rehr_salary').value,
+            rehr_sex_req : document.getElementById('rehr_sex_req').value,
+            rehr_age_req : document.getElementById('rehr_age_req').value,
+            rehr_requests : document.getElementById('rehr_requests').value
+        },
+        url: 'update_corp_rehr_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+};
+function obt_corp_retrain_update(corp_id) {
+    //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            //retra_id : document.getElementById('retra_id').value,
+            retra_corp_id : corp_id,
+            retra_mode : document.getElementById('retra_mode').value,
+            retra_content : document.getElementById('retra_content').value,
+            retra_acc_cost : document.getElementById('retra_acc_cost').value,
+            retra_dt : document.getElementById('retra_dt').value,
+            retra_requests : document.getElementById('retra_requests').value
+        },
+        url: 'update_corp_retrain_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+};
+
+ 
+
+
+function save_enterprise_edit(corp_id) {
+    //Ext.Msg.alert("提示", id);
+    var form_obt_apply = document.getElementById("apply_form_edit");
+    obt_corp_update(corp_id);
+    obt_corp_contact_update(corp_id);
+    obt_corp_shareholder_update(corp_id);
+    obt_corp_finance_update(corp_id);
+    obt_corp_maintain_update(corp_id);
+    obt_corp_government_update(corp_id);
+    obt_corp_investors_update(corp_id);
+    obt_corp_service_update(corp_id);
+    obt_corp_refinancing_update(corp_id);
+    obt_corp_rehr_update(corp_id);
+    obt_corp_retrain_update(corp_id);
 }

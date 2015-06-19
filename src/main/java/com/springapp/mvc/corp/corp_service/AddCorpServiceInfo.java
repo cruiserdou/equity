@@ -33,10 +33,12 @@ public class AddCorpServiceInfo {
             @RequestParam(value = "srv_levels", required = false) String srv_levels,
             @RequestParam(value = "srv_domain", required = false) String srv_domain,
             @RequestParam(value = "srv_penalty", required = false) String srv_penalty,
-            @RequestParam(value = "srv_examiner", required = false) Boolean srv_examiner,
+            @RequestParam(value = "srv_examiner", required = false) String srv_examiner,
             @RequestParam(value = "srv_post", required = false) String srv_post,
             @RequestParam(value = "srv_descs", required = false) String srv_descs,
             @RequestParam(value = "srv_remark", required = false) String srv_remark
+
+
 
  ) throws Exception{
         DataShop dataShop = new DataShop();
@@ -70,7 +72,7 @@ public class AddCorpServiceInfo {
             pst.setString(5, srv_levels);
             pst.setString(6, srv_domain);
             pst.setString(7, srv_penalty);
-            pst.setBoolean(8, srv_examiner);
+            pst.setString(8, srv_examiner);
             pst.setString(9, srv_post);
             pst.setString(10, srv_descs);
             pst.setString(11, srv_remark);

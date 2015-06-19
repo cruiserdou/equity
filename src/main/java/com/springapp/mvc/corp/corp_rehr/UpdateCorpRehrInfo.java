@@ -29,7 +29,7 @@ public class UpdateCorpRehrInfo {
             @RequestParam(value = "rehr_id", required = false) Integer  rehr_id,
             @RequestParam(value = "rehr_corp_id", required = false) Integer  rehr_corp_id,
             @RequestParam(value = "rehr_post", required = false) String rehr_post,
-            @RequestParam(value = "rehr_num", required = false) Integer rehr_num,
+            @RequestParam(value = "rehr_num", required = false) String rehr_num,
             @RequestParam(value = "rehr_salary", required = false) BigDecimal rehr_salary,
             @RequestParam(value = "rehr_sex_req", required = false) String rehr_sex_req,
             @RequestParam(value = "rehr_age_req", required = false) String rehr_age_req,
@@ -61,7 +61,7 @@ public class UpdateCorpRehrInfo {
             pst = conn.prepareStatement(sql);
             pst.setInt(1, rehr_corp_id);
             pst.setString(2, rehr_post);
-            pst.setInt(3, rehr_num);
+            pst.setString(3, rehr_num);
             pst.setBigDecimal(4, rehr_salary);
             pst.setString(5, rehr_sex_req);
             pst.setString(6, rehr_age_req);

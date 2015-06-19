@@ -125,10 +125,10 @@ Ext.define('App.view.enterprise.Applyf', {
         '<tr>',
         '<th class="table_header" colspan="8">股东名册</th>',
         '</tr>',
-        '<tr>' +
-        '<td  colspan="4" align="center"><input type="button" id="addRow" name="addRow" onClick="addRow();" value="添加行"/></td>' +
-        '<td align="center"><input type="button" id="delRow" name="delRow" onClick="removeRow();" value="删除行"/></td>' +
-        '</tr>',
+        //'<tr>' +
+        //'<td  colspan="4" align="center"><input type="button" id="addRow" name="addRow" onClick="addRow();" value="添加行"/></td>' +
+        //'<td align="center"><input type="button" id="delRow" name="delRow" onClick="removeRow();" value="删除行"/></td>' +
+        //'</tr>',
 
             '<tr>',
         '<th>股东类型</th>',
@@ -141,16 +141,18 @@ Ext.define('App.view.enterprise.Applyf', {
         '<th>详情</th>',
         '</tr>',
         '<tr>',
-        '<td>{shtype}</td>',
-        '<td>{shname}</td>',
-        '<td>{shdoctype}</td>',
-        '<td>{shdocnum}</td>',
-        '<td>{shareholdnum}</td>',
-        '<td>{currencynum}</td>',
-        '<td>{freezenum}</td>',
-        '<td>{remark}</td>',
+        '<td><input id="gd_shtype" name="gd_shtype"  type="text" value="{gd_shtype}"/></td>',
+        '<td><input id="gd_shname" name="gd_shname"  type="text" value="{gd_shname}"/></td>',
+        '<td><input id="gd_shdoctype" name="gd_shdoctype"  type="text" value="{gd_shdoctype}"/></td>',
+        '<td><input id="gd_shdocnum" name="gd_shdocnum"  type="text" value="{gd_shdocnum}"/></td>',
+        '<td><input id="gd_shareholdnum" name="gd_shareholdnum"  type="text" value="{gd_shareholdnum}"/></td>',
+        '<td><input id="gd_currencynum" name="gd_currencynum"  type="text" value="{gd_currencynum}"/></td>',
+        '<td><input id="gd_freezenum" name="gd_freezenum"  type="text" value="{gd_freezenum}"/></td>',
+        '<td><input id="gd_remark" name="gd_remark"  type="text" value="{gd_remark}"/></td>',
         '</tr>',
         '</table>',
+
+
 
 
         '<table class="enter_table" id="table_link">',
@@ -270,7 +272,7 @@ Ext.define('App.view.enterprise.Applyf', {
         '</tr>',
         '<tr>',
         '<th>更新日期</th>',
-        '<td><input id="mai_changer_dt" name="mai_changer_dt"  type="text" value="{mai_changer_dt}"/></td>',
+        '<td><input id="mai_changer_dt" name="mai_changer_dt"  type="date" value="{mai_changer_dt}"/></td>',
         '<th>更新人</th>',
         '<td><input id="mai_changer_id" name="mai_changer_id"  type="text" value="{mai_changer_id}"/></td>',
         '</tr>',
@@ -642,7 +644,7 @@ Ext.define('App.view.enterprise.Applyf', {
 
         '<table class="enter_table" id="table_service">',
         '<tr>',
-        '<td  colspan="4"><input style="width:50px;height:14px;"  name="type_server"  type="checkbox" value="true" />服务机构&nbsp;&nbsp;</td>',
+        '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_server"  name="type_server"  type="checkbox" value="true" />服务机构&nbsp;&nbsp;</td>',
         '</tr>',
         '<tr>',
         '<th class="table_header" colspan="4">服务机构信息</th>',
@@ -684,7 +686,7 @@ Ext.define('App.view.enterprise.Applyf', {
 
         '<table class="enter_table" id="table_investors">',
         '<tr>',
-        '<td  colspan="4"><input style="width:50px;height:14px;"  name="type_investors"  type="checkbox" value="true" />投资人&nbsp;&nbsp;</td>',
+        '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_investors" name="type_investors"  type="checkbox" value="true" />投资人&nbsp;&nbsp;</td>',
         '</tr>',
         '<tr>',
         '<th class="table_header" colspan="4">投资人信息</th>',
@@ -788,7 +790,7 @@ Ext.define('App.view.enterprise.Applyf', {
 
         '<table class="enter_table" id="table_govermt">',
         '<tr>',
-        '<td  colspan="4"><input style="width:50px;height:14px;"  name="type_govermt" type="checkbox"  value="true"/>政府机构&nbsp;&nbsp;</td>',
+        '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_govermt"  name="type_govermt" type="checkbox"  value="true"/>政府机构&nbsp;&nbsp;</td>',
         '</tr>',
         '<tr>',
         '<th class="table_header" colspan="4">政府部门信息</th>',
@@ -841,7 +843,7 @@ Ext.define('App.view.enterprise.Applyf', {
 
         '<table class="enter_table" id="table_demand_rz">',
         '<tr>',
-        '<td  colspan="4"><input style="width:50px;height:14px;"  type="checkbox" name="demand_rz" value="true" />融资需求&nbsp;&nbsp;</td>',
+        '<td  colspan="4"><input style="width:50px;height:14px;"  id="demand_rz"  type="checkbox" name="demand_rz" value="true" />融资需求&nbsp;&nbsp;</td>',
         '</tr>',
         '<tr>',
         '<th class="table_header" colspan="4">融资需求</th>',
@@ -873,7 +875,7 @@ Ext.define('App.view.enterprise.Applyf', {
 
         '<table class="enter_table" id="table_demand_px">',
         '<tr>',
-        '<td  colspan="4"><input style="width:50px;height:14px;"  type="checkbox" name="demand_px" value="true"/>培训需求&nbsp;&nbsp;</td>',
+        '<td  colspan="4"><input style="width:50px;height:14px;" id="demand_px"   type="checkbox" name="demand_px" value="true"/>培训需求&nbsp;&nbsp;</td>',
         '</tr>',
         '<tr>',
         '<th class="table_header" colspan="4">培训需求</th>',
@@ -884,7 +886,7 @@ Ext.define('App.view.enterprise.Applyf', {
         '</tr>',
         '<tr>',
         '<th>有效时间</th>',
-        '<td><input id="retra_dt" name="retra_dt"  type="text" value="{retra_dt}"/></td>',
+        '<td><input id="retra_dt" name="retra_dt"  type="date" value="{retra_dt}"/></td>',
         '<th>可接受成本</th>',
         '<td><input id="retra_acc_cost" name="retra_acc_cost"  type="text" value="{retra_acc_cost}"/></td>',
         '</tr>',
@@ -900,7 +902,7 @@ Ext.define('App.view.enterprise.Applyf', {
 
         '<table class="enter_table" id="table_demand_rl">',
         '<tr>',
-        '<td  colspan="4"><input style="width:50px;height:14px;"  type="checkbox" name="demand_rl" value="true"/>人力需求&nbsp;&nbsp;</td>',
+        '<td  colspan="4"><input style="width:50px;height:14px;" id="demand_rl"  type="checkbox" name="demand_rl" value="true"/>人力需求&nbsp;&nbsp;</td>',
         '</tr>',
         '<tr>',
         '<th class="table_header" colspan="4">人力资源需求</th>',
@@ -1019,11 +1021,12 @@ function win_close() {
 
 }
 
-function obt_corp_add() {
+function obt_corp_add(corp_id) {
     //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
+            id :corp_id,
             buslicno : document.getElementById('buslicno').value,
             name : document.getElementById('name').value,
             unit : document.getElementById('unit').value,
@@ -1061,13 +1064,13 @@ function obt_corp_add() {
             csrc_type2 : document.getElementById('csrc_type2').value,
             csrc_type3 : document.getElementById('csrc_type3').value,
             csrc_type4 : document.getElementById('csrc_type4').value,
-            type_enterp : document.getElementById('type_enterp').value,
-            type_server : document.getElementById('type_server').value,
-            type_investors : document.getElementById('type_investors').value,
-            type_govermt : document.getElementById('type_govermt').value,
-            demand_rz : document.getElementById('demand_rz').value,
-            demand_px : document.getElementById('demand_px').value,
-            demand_rl : document.getElementById('demand_rl').value
+            type_enterp : false,
+            type_server : document.getElementById('type_server').checked,
+            type_investors : document.getElementById('type_investors').checked,
+            type_govermt : document.getElementById('type_govermt').checked,
+            demand_rz : document.getElementById('demand_rz').checked,
+            demand_px : document.getElementById('demand_px').checked,
+            demand_rl : document.getElementById('demand_rl').checked
             //inputdt : document.getElementById('inputdt').value
         },
         url: 'add_corp_info',
@@ -1079,13 +1082,14 @@ function obt_corp_add() {
         }
     });
 };
-function obt_corp_contact_add() {
+function obt_corp_contact_add(corp_id) {
     //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
+
     Ext.Ajax.request({
         method: "POST",
         params: {
             //cont_id : document.getElementById('cont_id').value,
-            cont_corp_id : document.getElementById('cont_corp_id').value,
+            cont_corp_id : corp_id,
             cont_name : document.getElementById('cont_name').value,
             cont_psotion : document.getElementById('cont_psotion').value,
             cont_edoctype : document.getElementById('cont_edoctype').value,
@@ -1107,13 +1111,48 @@ function obt_corp_contact_add() {
         }
     });
 };
-function obt_corp_finance_add() {
+function obt_corp_shareholder_add(corp_id) {
+    //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
+
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            //cont_id : document.getElementById('cont_id').value,
+            gd_corp_id : corp_id,
+            gd_shtype : document.getElementById('gd_shtype').value,
+            gd_shname : document.getElementById('gd_shname').value,
+            gd_shdoctype : document.getElementById('gd_shdoctype').value,
+            gd_shdocnum : document.getElementById('gd_shdocnum').value,
+            gd_shareholdnum : document.getElementById('gd_shareholdnum').value,
+            gd_currencynum : document.getElementById('gd_currencynum').value,
+            gd_freezenum : document.getElementById('gd_freezenum').value,
+            //gd_psotion : document.getElementById('gd_psotion').value,
+            //gd_doctype : document.getElementById('gd_doctype').value,
+            //gd_docnum : document.getElementById('gd_docnum').value,
+            //gd_phone : document.getElementById('gd_phone').value,
+            //gd_fax : document.getElementById('gd_fax').value,
+            //gd_email : document.getElementById('gd_email').value,
+            //gd_qq : document.getElementById('gd_qq').value,
+            //gd_webchat : document.getElementById('gd_webchat').value,
+            //gd_tel : document.getElementById('gd_tel').value,
+            gd_remark : document.getElementById('gd_remark').value
+        },
+        url: 'add_corp_shareholder_info',
+        success: function () {
+            Ext.Msg.alert("提示", "保存成功！");
+        },
+        failure: function () {
+            Ext.Msg.alert("提示", "保存失败！");
+        }
+    });
+};
+function obt_corp_finance_add(corp_id) {
     //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
             //finid : document.getElementById('finid').value,
-            fin_corp_id : document.getElementById('fin_corp_id').value,
+            fin_corp_id : corp_id,
             start_time : document.getElementById('start_time').value,
             end_time : document.getElementById('end_time').value,
             st_money_fund : document.getElementById('st_money_fund').value,
@@ -1252,13 +1291,13 @@ function obt_corp_finance_add() {
         }
     });
 };
-function obt_corp_maintain_add() {
+function obt_corp_maintain_add(corp_id) {
     //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
             //mai_id : document.getElementById('mai_id').value,
-            mai_corp_id : document.getElementById('mai_corp_id').value,
+            mai_corp_id : corp_id,
             mai_changer_id : document.getElementById('mai_changer_id').value,
             mai_changer_dt : document.getElementById('mai_changer_dt').value,
             mai_changer_dept : document.getElementById('mai_changer_dept').value,
@@ -1288,13 +1327,13 @@ function obt_corp_maintain_add() {
         }
     });
 };
-function obt_corp_government_add() {
+function obt_corp_government_add(corp_id) {
     //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
             //gov_id : document.getElementById('gov_id').value,
-            gov_corp_id : document.getElementById('gov_corp_id').value,
+            gov_corp_id : corp_id,
             gov_domain : document.getElementById('gov_domain').value,
             gov_office : document.getElementById('gov_office').value,
             gov_desc : document.getElementById('gov_desc').value,
@@ -1319,13 +1358,13 @@ function obt_corp_government_add() {
         }
     });
 };
-function obt_corp_investors_add() {
+function obt_corp_investors_add(corp_id) {
     //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
             //inv_id : document.getElementById('inv_id').value,
-            inv_corp_id : document.getElementById('inv_corp_id').value,
+            inv_corp_id :corp_id,
             inv_domain : document.getElementById('inv_domain').value,
             inv_csrc_type1 : document.getElementById('inv_csrc_type1').value,
             inv_csrc_type2 : document.getElementById('inv_csrc_type2').value,
@@ -1356,13 +1395,13 @@ function obt_corp_investors_add() {
         }
     });
 };
-function obt_corp_service_add() {
+function obt_corp_service_add(corp_id) {
     //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
             //srv_id : document.getElementById('srv_id').value,
-            srv_corp_id : document.getElementById('srv_corp_id').value,
+            srv_corp_id :corp_id,
             srv_name : document.getElementById('srv_name').value,
             srv_type : document.getElementById('srv_type').value,
             srv_content : document.getElementById('srv_content').value,
@@ -1383,13 +1422,13 @@ function obt_corp_service_add() {
         }
     });
 };
-function obt_corp_refinancing_add() {
+function obt_corp_refinancing_add(corp_id) {
     //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
             //refi_id : document.getElementById('refi_id').value,
-            refi_corp_id : document.getElementById('refi_corp_id').value,
+            refi_corp_id :corp_id,
             refi_amounts : document.getElementById('refi_amounts').value,
             refi_use : document.getElementById('refi_use').value,
             refi_financ : document.getElementById('refi_financ').value,
@@ -1407,14 +1446,13 @@ function obt_corp_refinancing_add() {
         }
     });
 };
-
-function obt_corp_rehr_add() {
+function obt_corp_rehr_add(corp_id) {
     //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
             //rehr_id : document.getElementById('rehr_id').value,
-            rehr_corp_id : document.getElementById('rehr_corp_id').value,
+            rehr_corp_id : corp_id,
             rehr_post : document.getElementById('rehr_post').value,
             rehr_num : document.getElementById('rehr_num').value,
             rehr_salary : document.getElementById('rehr_salary').value,
@@ -1431,13 +1469,13 @@ function obt_corp_rehr_add() {
         }
     });
 };
-function obt_corp_retrain_add() {
+function obt_corp_retrain_add(corp_id) {
     //var form_cust_vehicle = document.getElementById("form_vehicle_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
             //retra_id : document.getElementById('retra_id').value,
-            retra_corp_id : document.getElementById('retra_corp_id').value,
+            retra_corp_id : corp_id,
             retra_mode : document.getElementById('retra_mode').value,
             retra_content : document.getElementById('retra_content').value,
             retra_acc_cost : document.getElementById('retra_acc_cost').value,
@@ -1453,22 +1491,42 @@ function obt_corp_retrain_add() {
         }
     });
 };
-function save_cust_add() {
 
+function save_cust_add() {
+    var corp_id;
     if(document.getElementById('apply_form')['buslicno'].value==null && document.getElementById('apply_form')['buslicno'].value==""){
         Ext.Msg.alert("提示", "请填写营业执照号码！");
         return;
     }else{
-        obt_corp_add();
-        obt_corp_contact_add();
-        obt_corp_finance_add();
-        obt_corp_maintain_add();
-        obt_corp_government_add();
-        obt_corp_investors_add();
-        obt_corp_service_add();
-        obt_corp_refinancing_add();
-        obt_corp_rehr_add();
-        obt_corp_retrain_add();
+
+        Ext.Ajax.request({
+            method: "POST",
+            url: 'checked_corp_id_info',
+            success: function (response,opts) {
+                var obj=Ext.decode(response.responseText);
+
+                if(obj.success)
+                {
+                    corp_id=parseInt(obj.name);
+                }
+                obt_corp_add(corp_id);
+                obt_corp_contact_add(corp_id);
+                obt_corp_shareholder_add(corp_id);
+                obt_corp_finance_add(corp_id);
+                obt_corp_maintain_add(corp_id);
+                obt_corp_government_add(corp_id);
+                obt_corp_investors_add(corp_id);
+                obt_corp_service_add(corp_id);
+                obt_corp_refinancing_add(corp_id);
+                obt_corp_rehr_add(corp_id);
+                obt_corp_retrain_add(corp_id);
+            },
+            failure: function(form, action){
+                Ext.Msg.alert("失败", "企业ID检验失败!");
+            }
+        });
+
+
 
     }
 
