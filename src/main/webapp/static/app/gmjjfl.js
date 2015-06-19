@@ -218,7 +218,7 @@ dsy_cl.add("0_2_29", ["金属废料和碎屑的加工处理","非金属废料和
 
     dsy_cl.add("0", ["农、林、牧、渔业", "采矿业","制造业"]);
 
-var cl = ["cl1", "cl2", "cl3","cl4"];
+var cl = ["indclass1", "indclass2", "indclass3","indclass4"];
 var opt_cl = ["行业第1级分类", "行业第2级分类", "行业第3级分类", "行业第4级分类"];
 function setup_cl() {
     for (i = 0; i < cl.length - 1; i++)

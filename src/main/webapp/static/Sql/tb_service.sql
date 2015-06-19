@@ -1,4 +1,4 @@
-﻿'<table class="enter_table" id="table_assets_finance">',
+﻿﻿'<table class="enter_table" id="table_assets_finance">',
 '<tr>',
 '<th class="table_header" colspan="6">企业财务信息</th>',
 '</tr>',
