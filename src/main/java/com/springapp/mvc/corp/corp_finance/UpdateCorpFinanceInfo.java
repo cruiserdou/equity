@@ -26,7 +26,7 @@ public class UpdateCorpFinanceInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
-            @RequestParam(value = " finid", required = false) Integer  finid,
+            @RequestParam(value = "finid", required = false) Integer  finid,
             @RequestParam(value = "fin_corp_id", required = false) Integer  fin_corp_id,
             @RequestParam(value = "start_time", required = false) String start_time,
             @RequestParam(value = "end_time", required = false) String end_time,

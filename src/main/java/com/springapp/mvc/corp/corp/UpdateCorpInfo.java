@@ -66,8 +66,8 @@ public class UpdateCorpInfo {
             @RequestParam(value = "type_govermt", required = false) Boolean type_govermt,
             @RequestParam(value = "demand_rz", required = false) Boolean demand_rz,
             @RequestParam(value = "demand_px", required = false) Boolean demand_px,
-            @RequestParam(value = "demand_rl", required = false) Boolean demand_rl,
-            @RequestParam(value = "inputdt", required = false) String inputdt
+            @RequestParam(value = "demand_rl", required = false) Boolean demand_rl
+//            @RequestParam(value = "inputdt", required = false) String inputdt
 
             ) throws Exception{
         DataShop dataShop = new DataShop();
@@ -158,7 +158,7 @@ public class UpdateCorpInfo {
             pst.setBoolean(43, demand_px);
             pst.setBoolean(44, demand_rl);
             pst.setTimestamp(45, timestamp);
-            pst.setInt(45, id);
+            pst.setInt(46, id);
             pst.executeUpdate();
 
 
