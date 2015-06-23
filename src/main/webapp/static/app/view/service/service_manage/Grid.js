@@ -32,7 +32,6 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '</tr>' +
                 '<tr>' +
                 '<th>地域</th>' +
-                //'<td><input id="region" name="region"  type="text" value="{region}"/></td>' +
                 '<td>' +
                 '<select class="select" name="province" id="s1">' +
                 '<option >{province}</option>' +
