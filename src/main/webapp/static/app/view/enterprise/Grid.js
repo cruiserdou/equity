@@ -187,7 +187,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>'+
                 '<tr>'+
                 '<th>备注</th>'+
-                '<td colspan="3"><textarea id="cont_bz" name="cont_bz"  type="text" value="{cont_bz}"></textarea></td>'+
+                '<td colspan="3"><textarea id="cont_bz" name="cont_bz"  type="text" value="{cont_bz}">{cont_bz}</textarea></td>'+
                 '</tr>'+
                 '</table>'+
 
@@ -322,7 +322,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>',
                 '<tr>',
                 '<th>备注</th>',
-                '<td colspan="3"><textarea id="mai_bz" name="mai_bz"  type="text" value="{mai_bz}"></textarea></td>'+
+                '<td colspan="3"><textarea id="mai_bz" name="mai_bz"  type="text" value="{mai_bz}">{mai_bz}</textarea></td>'+
                 '</tr>',
                 '</table>',
 
@@ -671,11 +671,11 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>',
                 '<tr>',
                 '<th>简介</th>',
-                '<td colspan="3"><textarea id="srv_descs" name="srv_descs"  type="text" value="{srv_descs}"></textarea></td>'+
+                '<td colspan="3"><textarea id="srv_descs" name="srv_descs"  type="text" value="{srv_descs}">{srv_descs}</textarea></td>'+
                 '</tr>',
                 '<tr>',
                 '<th>备注</th>',
-                '<td colspan="3"><textarea id="srv_remark" name="srv_remark"  type="text" value="{srv_remark}"></textarea></td>'+
+                '<td colspan="3"><textarea id="srv_remark" name="srv_remark"  type="text" value="{srv_remark}">{srv_remark}</textarea></td>'+
                 '</tr>',
                 '</table>',
 
@@ -778,7 +778,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>'+
                 '<tr>'+
                 '<th>备注</th>'+
-                '<td colspan="3"><textarea id="inv_remark" name="inv_remark"  type="text" value="{inv_remark}"></textarea></td>'+
+                '<td colspan="3"><textarea id="inv_remark" name="inv_remark"  type="text" value="{inv_remark}">{inv_remark}</textarea></td>'+
                 '</tr>'+
                 '</table>',
 
@@ -833,13 +833,13 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>'+
                 '<tr>'+
                 '<th>备注</th>'+
-                '<td colspan="3"><textarea id="gov_remark" name="gov_remark"  type="text" value="{gov_remark}"></textarea></td>'+
+                '<td colspan="3"><textarea id="gov_remark" name="gov_remark"  type="text" value="{gov_remark}">{gov_remark}</textarea></td>'+
                 '</tr>'+
                 '</table>',
 
                 '<table class="enter_table" id="table_demand_rz">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  id="demand_rz"  type="checkbox" name="demand_rz" value="true" />融资需求&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  id="demand_rz"  type="checkbox" name="demand_rz" value="{demand_rz}" <tpl if="this.checktype_demand_rz(demand_rz)">checked="checked"</tpl>/>融资需求&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">融资需求</th>',
@@ -860,18 +860,18 @@ Ext.define('App.view.enterprise.Grid', {
                 '<th>可接受成本（%/年）</th>',
                 '<td><input id="refi_acc_cost" name="refi_acc_cost"  type="text" value="{refi_acc_cost}"/></td>',
                 '<th>融资期限</th>',
-                '<td><input id="refi_deadline" name="refi_deadline"  type="text" value="{refi_deadline}"/></td>',
+                '<td><input id="refi_deadline" name="refi_deadline"  type="date" value="{refi_deadline}"/></td>',
                 '</tr>',
                 '<tr>'+
                 '<th>融资用途详细说明</th>'+
-                '<td colspan="3"><textarea id="refi_desc" name="refi_desc"  type="text" value="{refi_desc}"></textarea></td>'+
+                '<td colspan="3"><textarea id="refi_desc" name="refi_desc"  type="text" value="{refi_desc}">{refi_desc}</textarea></td>'+
                 '</tr>'+
                 '</table>',
 
 
                 '<table class="enter_table" id="table_demand_px">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;" id="demand_px"   type="checkbox" name="demand_px" value="true"/>培训需求&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input style="width:50px;height:14px;" id="demand_px"   type="checkbox" name="demand_px" value="{demand_px}" <tpl if="this.checktype_demand_px(demand_px)">checked="checked"</tpl> />培训需求&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">培训需求</th>',
@@ -888,17 +888,17 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>',
                 '<tr>',
                 '<th>培训内容</th>',
-                '<td colspan="3"><textarea id="retra_content" name="retra_content"  type="text" value="{retra_content}"></textarea></td>'+
+                '<td colspan="3"><textarea id="retra_content" name="retra_content"  type="text" value="{retra_content}">{retra_content}</textarea></td>'+
                 '</tr>',
                 '<tr>'+
                 '<th>详细要求</th>'+
-                '<td colspan="3"><textarea id="retra_requests" name="retra_requests"  type="text" value="{retra_requests}"></textarea></td>'+
+                '<td colspan="3"><textarea id="retra_requests" name="retra_requests"  type="text" value="{retra_requests}">{retra_requests}</textarea></td>'+
                 '</tr>'+
                 '</table>',
 
                 '<table class="enter_table" id="table_demand_rl">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;" id="demand_rl"  type="checkbox" name="demand_rl" value="true"/>人力需求&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input style="width:50px;height:14px;" id="demand_rl"  type="checkbox" name="demand_rl" value="{demand_rl}" <tpl if="this.checktype_demand_rl(demand_rl)">checked="checked"</tpl> />人力需求&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">人力资源需求</th>',
@@ -923,7 +923,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>'+
                 '</table>',
 
-                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_enterprise_edit({id})">保存</a>' +
+                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_enterprise_edit({id},{cont_id},{gd_id},{finid},{mai_id},{gov_id},{inv_id},{srv_id},{refi_id},{rehr_id},{retra_id})">保存</a>' +
 
 
                 '</div>' +
@@ -946,12 +946,18 @@ Ext.define('App.view.enterprise.Grid', {
                 '</ul>' +
                 '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
                 '</form>' +
-                '</div>' +
-            {
-                checkSex_f: function (sex) {
-                    return sex!="男";
+                '</div>',
+                {
+                    checktype_demand_rl: function (demand_rl) {
+                        return demand_rl == true;
+                    },
+                    checktype_demand_px: function (demand_px) {
+                        return demand_px == true;
+                    },
+                    checktype_demand_rz: function (demand_rz) {
+                        return demand_rz == true;
+                    }
                 }
-            }
             );
 
             //呈现组件
@@ -1018,7 +1024,7 @@ Ext.define('App.view.enterprise.Grid', {
             {text: '主营业务', width: 120, dataIndex: 'mbus', hidden: true},
             {text: '企业简介', width: 120, dataIndex: 'eprofile', hidden: true},
             {text: '企业照片资料', width: 120, dataIndex: 'phoinf', hidden: true},
-            {text: '备注', width: 120, dataIndex: 'remark', hidden: true},
+            {text: '备注', width: 120, dataIndex: 'remark'},
             {text: '企业股东ID',  width: 120, dataIndex: 'gd_id', hidden: true},
             {text: '企业ID',  width: 120, dataIndex: 'gd_corp_id', hidden: true},
             {text: '股东类型',  width: 120, dataIndex: 'gd_shtype', hidden: true},
@@ -1268,7 +1274,7 @@ Ext.define('App.view.enterprise.Grid', {
             {text: '个人微信号', width: 120, dataIndex: 'inv_webchat', hidden: true},
             {text: '固定电话', width: 120, dataIndex: 'inv_tel', hidden: true},
             {text: '备注', width: 120, dataIndex: 'inv_remark', hidden: true},
-            {text: '融资需求ID', width: 120, dataIndex: 'refi_id', hidden: true},
+            {text: '融资需求ID', width: 120, dataIndex: 'refi_id'},
             {text: '企业ID', width: 120, dataIndex: 'refi_corp_id', hidden: true},
             {text: '融资金额', width: 120, dataIndex: 'refi_amounts', hidden: true},
             {text: '融资用途', width: 120, dataIndex: 'refi_use', hidden: true},
@@ -1382,6 +1388,7 @@ function obt_corp_update(corp_id) {
 };
 function obt_corp_contact_update(corp_id,cont_id) {
     var form_obt_edit = document.getElementById("apply_form_edit");
+
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -1718,6 +1725,7 @@ function obt_corp_service_update(corp_id,srv_id) {
         }
     });
 };
+
 function obt_corp_refinancing_update(corp_id,refi_id) {
     var form_obt_edit = document.getElementById("apply_form_edit");
     Ext.Ajax.request({
@@ -1791,18 +1799,20 @@ function obt_corp_retrain_update(corp_id,retra_id) {
  
 
 
-function save_enterprise_edit(corp_id) {
-    //Ext.Msg.alert("提示", id);
+function save_enterprise_edit(corp_id,cont_id,gd_id,finid,mai_id,gov_id,inv_id,srv_id,refi_id,rehr_id,retra_id) {
+
     var form_obt_edit = document.getElementById("apply_form_edit");
     obt_corp_update(corp_id);
-    //obt_corp_contact_update(corp_id,cont_id);
-    //obt_corp_shareholder_update(corp_id,gd_id);
-    //obt_corp_finance_update(corp_id,finid);
-    //obt_corp_maintain_update(corp_id,mai_id);
-    //obt_corp_government_update(corp_id,gov_id);
-    //obt_corp_investors_update(corp_id,inv_id);
-    //obt_corp_service_update(corp_id,srv_id);
-    //obt_corp_refinancing_update(corp_id,refi_id);
-    //obt_corp_rehr_update(corp_id,rehr_id);
-    //obt_corp_retrain_update(corp_id,retra_id);
+    obt_corp_contact_update(corp_id,cont_id);
+    obt_corp_shareholder_update(corp_id,gd_id);
+    obt_corp_finance_update(corp_id,finid);
+    obt_corp_maintain_update(corp_id,mai_id);
+    obt_corp_government_update(corp_id,gov_id);
+    obt_corp_investors_update(corp_id,inv_id);
+    obt_corp_service_update(corp_id,srv_id);
+    obt_corp_refinancing_update(corp_id,refi_id);
+    obt_corp_rehr_update(corp_id,rehr_id);
+    obt_corp_retrain_update(corp_id,retra_id);
+
+    Ext.getCmp('grid_enterprise').getStore().reload();
 }

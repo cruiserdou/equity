@@ -49,6 +49,7 @@ Ext.define('App.model.corp_all', {
         { name : 'demand_px'},
         { name : 'demand_rl'},
         { name : 'inputdt'},
+        { name : 'remark'},
 
         { name : 'cont_id'},
         { name : 'cont_corp_id'},
