@@ -1,7 +1,7 @@
 /**
  * Created by jj on 14-6-19.
  */
-Ext.define('App.model.corp_service', {
+Ext.define('App.model.corp_service_all', {
     extend: 'Ext.data.Model',
     fields: [
 
