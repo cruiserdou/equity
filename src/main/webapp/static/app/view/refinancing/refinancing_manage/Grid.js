@@ -1,17 +1,17 @@
 
-Ext.define('App.view.service.service_manage.Grid', {
+Ext.define('App.view.refinancing.refinancing_manage.Grid', {
     extend: 'Ext.grid.Panel',
-    alias: 'widget.service_managef_grid',
-    store: 'corp_service_all',
+    alias: 'widget.refinancing_managef_grid',
+    store: 'corp_refinancing_all',
     selModel: new Ext.selection.CheckboxModel({checkOnly: false}),
-    id :'grid_service_manage',
+    id :'grid_refinancing_manage',
 
     listeners: {
         'itemdblclick': function (view, record, item, index, e) {
             //创建模板
-            var service_manage_edit = new Ext.XTemplate(
+            var refinancing_manage_edit = new Ext.XTemplate(
                 '<div class="wrap_center">' +
-                '<form id="apply_service_edit">' +
+                '<form id="apply_refinancing_edit">' +
                 '<h2>企业信息</h2>' +
                 '<table class="enter_table" id="table_base">' +
                 '<tr>',
@@ -597,47 +597,38 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '</tr>',
                 '</table>',
 
-                '<table class="enter_table" id="table_service">',
-                  '<tr>',
-                '<th class="table_header" colspan="4">服务机构信息</th>',
+                '<table class="enter_table" id="table_demand_rz">',
+                 '<tr>',
+                '<th class="table_header" colspan="4">融资需求</th>',
                 '</tr>',
                 '<tr>',
-                '<th>服务机构名称</th>',
-                '<td><input id="srv_name" name="srv_name"  type="text" value="{srv_name}"/></td>',
-                '<th>服务机构类别</th>',
-                '<td><input id="srv_type" name="srv_type"  type="text" value="{srv_type}"/></td>',
+                '<th>融资金额</th>',
+                '<td><input id="refi_amounts" name="refi_amounts"  type="text" value="{refi_amounts}"/></td>',
+                '<th>融资用途</th>',
+                '<td><input id="refi_use" name="refi_use"  type="text" value="{refi_use}"/></td>',
                 '</tr>',
                 '<tr>',
-                '<th>业务内容</th>',
-                '<td><input id="srv_content" name="srv_content"  type="text" value="{srv_content}"/></td>',
-                '<th>级别</th>',
-                '<td><input id="srv_levels" name="srv_levels"  type="text" value="{srv_levels}"/></td>',
+                '<th>股份融资/债券融资</th>',
+                '<td><input id="refi_financ" name="refi_financ"  type="text" value="{refi_financ}"/></td>',
+                '<th>偿付保障</th>',
+                '<td><input id="refi_security" name="refi_security"  type="text" value="{refi_security}"/></td>',
                 '</tr>',
                 '<tr>',
-                '<th>惩罚记录</th>',
-                '<td><input id="srv_penalty" name="srv_penalty"  type="text" value="{srv_penalty}"/></td>',
-                '<th>专属领域</th>',
-                '<td><input id="srv_domain" name="srv_domain"  type="text" value="{srv_domain}"/></td>',
+                '<th>可接受成本（%/年）</th>',
+                '<td><input id="refi_acc_cost" name="refi_acc_cost"  type="text" value="{refi_acc_cost}"/></td>',
+                '<th>融资期限</th>',
+                '<td><input id="refi_deadline" name="refi_deadline"  type="date" value="{refi_deadline}"/></td>',
                 '</tr>',
-                '<tr>',
-                '<th>专审委员</th>',
-                '<td><input id="srv_examiner" name="srv_examiner"  type="text" value="{srv_examiner}"/></td>',
-                '<th>兼任职务</th>',
-                '<td><input id="srv_post" name="srv_post"  type="text" value="{srv_post}"/></td>',
-                '</tr>',
-                '<tr>',
-                '<th>简介</th>',
-                '<td colspan="3"><textarea id="srv_descs" name="srv_descs"  type="text" value="{srv_descs}">{srv_descs}</textarea></td>'+
-                '</tr>',
-                '<tr>',
-                '<th>备注</th>',
-                '<td colspan="3"><textarea id="srv_remark" name="srv_remark"  type="text" value="{srv_remark}">{srv_remark}</textarea></td>'+
-                '</tr>',
+                '<tr>'+
+                '<th>融资用途详细说明</th>'+
+                '<td colspan="3"><textarea id="refi_desc" name="refi_desc"  type="text" value="{refi_desc}">{refi_desc}</textarea></td>'+
+                '</tr>'+
                 '</table>',
 
 
 
-                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_service_edit({id},{srv_id})">保存</a>' +
+
+                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_refinancing_edit({id},{refi_id})">保存</a>' +
 
 
                 '</div>' +
@@ -650,10 +641,10 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '<li><a href="#table_csrc_type"  style="font-size:18px;">证监会行业分类</a></li>' +
                 '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</a></li>' +
                 '<li><a href="#table_assets_finance"  style="font-size:18px;">企业财务信息</a></li>' +
-                '<li><a href="#table_service"  style="font-size:18px;">服务机构</a></li>' +
+                '<li><a href="#table_demand_rz"  style="font-size:18px;">融资需求</a></li>' +
 
                 '</ul>' +
-                '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="service_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
+                '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="refinancing_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
                 '</form>' +
                 '</div>'
             );
@@ -671,10 +662,10 @@ Ext.define('App.view.service.service_manage.Grid', {
 
 
             //重写绑定模板
-            service_manage_edit.overwrite(mypanel.body, record.data);
+            refinancing_manage_edit.overwrite(mypanel.body, record.data);
             var editWindow = new Ext.Window({
                 layout: 'fit',
-                id: 'service_edit_id',
+                id: 'refinancing_edit_id',
                 width: 830,
                 height: 650,
                 modal: true,
@@ -692,6 +683,7 @@ Ext.define('App.view.service.service_manage.Grid', {
     initComponent: function () {
 
         this.columns = [
+
             {text: '企业ID',  width: 120, dataIndex: 'id', hidden: true},
             {text: '营业执照号码', width: 120, dataIndex: 'buslicno'},
             {text: '企业名称', width: 120, dataIndex: 'name'},
@@ -923,16 +915,78 @@ Ext.define('App.view.service.service_manage.Grid', {
             {text: '联系人备注', width: 120, dataIndex: 'mai_bz', hidden: true},
             {text: '服务机构ID', width: 120, dataIndex: 'srv_id', hidden: true},
             {text: '企业ID', width: 120, dataIndex: 'srv_corp_id', hidden: true},
-            {text: '服务机构名称', width: 120, dataIndex: 'srv_name'},
-            {text: '服务机构类别', width: 120, dataIndex: 'srv_type'},
-            {text: '业务内容', width: 120, dataIndex: 'srv_content'},
-            {text: '级别', width: 120, dataIndex: 'srv_levels'},
-            {text: '专属领域', width: 120, dataIndex: 'srv_domain'},
-            {text: '惩罚记录', width: 120, dataIndex: 'srv_penalty'},
-            {text: '专审委员', width: 120, dataIndex: 'srv_examiner'},
-            {text: '兼任职务', width: 120, dataIndex: 'srv_post'},
-            {text: '简介', width: 120, dataIndex: 'srv_descs'},
-            {text: '备注 ',flex: 1, dataIndex: 'srv_remark'}
+            {text: '服务机构名称', width: 120, dataIndex: 'srv_name', hidden: true},
+            {text: '服务机构类别', width: 120, dataIndex: 'srv_type', hidden: true},
+            {text: '业务内容', width: 120, dataIndex: 'srv_content', hidden: true},
+            {text: '级别', width: 120, dataIndex: 'srv_levels', hidden: true},
+            {text: '专属领域', width: 120, dataIndex: 'srv_domain', hidden: true},
+            {text: '惩罚记录', width: 120, dataIndex: 'srv_penalty', hidden: true},
+            {text: '专审委员', width: 120, dataIndex: 'srv_examiner', hidden: true},
+            {text: '兼任职务', width: 120, dataIndex: 'srv_post', hidden: true},
+            {text: '简介', width: 120, dataIndex: 'srv_descs', hidden: true},
+            {text: '备注 ', width: 120, dataIndex: 'srv_remark', hidden: true},
+            {text: '政府部门ID', width: 120, dataIndex: 'gov_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'gov_corp_id', hidden: true},
+            {text: '单位名称', width: 120, dataIndex: 'gov_domain', hidden: true},
+            {text: '处/室', width: 120, dataIndex: 'gov_office', hidden: true},
+            {text: '职能介绍', width: 120, dataIndex: 'gov_desc', hidden: true},
+            {text: '联系人', width: 120, dataIndex: 'gov_contact', hidden: true},
+            {text: '职务', width: 120, dataIndex: 'gov_psotion', hidden: true},
+            {text: '证件类型', width: 120, dataIndex: 'gov_doctype', hidden: true},
+            {text: '证件号码', width: 120, dataIndex: 'gov_docnum', hidden: true},
+            {text: '手机号码', width: 120, dataIndex: 'gov_phone', hidden: true},
+            {text: '传真', width: 120, dataIndex: 'gov_fax', hidden: true},
+            {text: 'E-mail', width: 120, dataIndex: 'gov_email', hidden: true},
+            {text: 'QQ', width: 120, dataIndex: 'gov_qq', hidden: true},
+            {text: '个人微信号', width: 120, dataIndex: 'gov_webchat', hidden: true},
+            {text: '固定电话', width: 120, dataIndex: 'gov_tel', hidden: true},
+            {text: '备注', width: 120, dataIndex: 'gov_remark', hidden: true},
+            {text: '投资人ID', width: 120, dataIndex: 'inv_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'inv_corp_id', hidden: true},
+            {text: '投资领域', width: 120, dataIndex: 'inv_domain', hidden: true},
+            {text: '证监会行业分类1', width: 120, dataIndex: 'inv_csrc_type1', hidden: true},
+            {text: '证监会行业分类2', width: 120, dataIndex: 'inv_csrc_type2', hidden: true},
+            {text: '证监会行业分类3', width: 120, dataIndex: 'inv_csrc_type3', hidden: true},
+            {text: '证监会行业分类4', width: 120, dataIndex: 'inv_csrc_type4', hidden: true},
+            {text: '行业一级分类', width: 120, dataIndex: 'inv_indclass1', hidden: true},
+            {text: '行业二级分类', width: 120, dataIndex: 'inv_indclass2', hidden: true},
+            {text: '行业三级分类', width: 120, dataIndex: 'inv_indclass3', hidden: true},
+            {text: '行业四级分类', width: 120, dataIndex: 'inv_indclass4', hidden: true},
+            {text: '联系人', width: 120, dataIndex: 'inv_contact', hidden: true},
+            {text: '职务', width: 120, dataIndex: 'inv_psotion', hidden: true},
+            {text: '证件类型', width: 120, dataIndex: 'inv_doctype', hidden: true},
+            {text: '证件号码', width: 120, dataIndex: 'inv_docnum', hidden: true},
+            {text: '手机号码', width: 120, dataIndex: 'inv_phone', hidden: true},
+            {text: '传真', width: 120, dataIndex: 'inv_fax', hidden: true},
+            {text: 'E-mail', width: 120, dataIndex: 'inv_email', hidden: true},
+            {text: 'QQ',width: 120, dataIndex: 'inv_qq', hidden: true},
+            {text: '个人微信号', width: 120, dataIndex: 'inv_webchat', hidden: true},
+            {text: '固定电话', width: 120, dataIndex: 'inv_tel', hidden: true},
+            {text: '备注', width: 120, dataIndex: 'inv_remark', hidden: true},
+            {text: '融资需求ID', width: 120, dataIndex: 'refi_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'refi_corp_id', hidden: true},
+            {text: '融资金额', width: 120, dataIndex: 'refi_amounts'},
+            {text: '融资用途', width: 120, dataIndex: 'refi_use'},
+            {text: '股份融资/债券融资', width: 120, dataIndex: 'refi_financ'},
+            {text: '偿付保障', width: 120, dataIndex: 'refi_security'},
+            {text: '可接受成本（%/年）',width: 120, dataIndex: 'refi_acc_cost'},
+            {text: '融资期限', width: 120, dataIndex: 'refi_deadline'},
+            {text: '融资用途详细说明', flex: 1, dataIndex: 'refi_desc'},
+            {text: '人力资源需求ID', width: 120, dataIndex: 'rehr_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'rehr_corp_id', hidden: true},
+            {text: '需求职位', width: 120, dataIndex: 'rehr_post', hidden: true},
+            {text: '职位人数', width: 120, dataIndex: 'rehr_num', hidden: true},
+            {text: '职位薪金', width: 120, dataIndex: 'rehr_salary', hidden: true},
+            {text: '性别要求', width: 120, dataIndex: 'rehr_sex_req', hidden: true},
+            {text: '年龄要求', width: 120, dataIndex: 'rehr_age_req', hidden: true},
+            {text: '经验要求', width: 120, dataIndex: 'rehr_requests', hidden: true},
+            {text: '培训需求ID', width: 120, dataIndex: 'retra_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'retra_corp_id', hidden: true},
+            {text: '培训方式', width: 120, dataIndex: 'retra_mode', hidden: true},
+            {text: '培训内容', width: 120, dataIndex: 'retra_content', hidden: true},
+            {text: '可接受成本', width: 120, dataIndex: 'retra_acc_cost', hidden: true},
+            {text: '有效时间', width: 120, dataIndex: 'retra_dt', hidden: true},
+            {text: '详细要求', width: 120, dataIndex: 'retra_requests', hidden: true}
 
         ];
 
@@ -941,7 +995,7 @@ Ext.define('App.view.service.service_manage.Grid', {
         };
         Ext.apply(this, {
             bbar: Ext.create('Ext.PagingToolbar', {
-                    store: 'corp_service_all',
+                    store: 'corp_refinancing_all',
                 displayInfo: true,
                 displayMsg: '第 {0} 到 {1} 条数据, 共{2}条',
                 emptyMsg: '无数据'
@@ -954,33 +1008,30 @@ Ext.define('App.view.service.service_manage.Grid', {
     }
 });
 
-function service_close_edit() {
-    Ext.getCmp('service_edit_id').close();
+function refinancing_close_edit() {
+    Ext.getCmp('refinancing_edit_id').close();
 
 }
 
-function obt_corp_service_manage_update(corp_id,srv_id) {
-    var form_obt_edit = document.getElementById("apply_service_edit");
+function obt_corp_refinancing_manage_update(corp_id,refi_id) {
+    var form_obt_edit = document.getElementById("apply_refinancing_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
-            srv_id : srv_id,
-            srv_corp_id :corp_id,
-            srv_name : form_obt_edit['srv_name'].value,
-            srv_type : form_obt_edit['srv_type'].value,
-            srv_content : form_obt_edit['srv_content'].value,
-            srv_levels : form_obt_edit['srv_levels'].value,
-            srv_domain : form_obt_edit['srv_domain'].value,
-            srv_penalty : form_obt_edit['srv_penalty'].value,
-            srv_examiner : form_obt_edit['srv_examiner'].value,
-            srv_post : form_obt_edit['srv_post'].value,
-            srv_descs : form_obt_edit['srv_descs'].value,
-            srv_remark : form_obt_edit['srv_remark'].value
+            refi_id : refi_id,
+            refi_corp_id :corp_id,
+            refi_amounts : form_obt_edit['refi_amounts'].value,
+            refi_use : form_obt_edit['refi_use'].value,
+            refi_financ : form_obt_edit['refi_financ'].value,
+            refi_security : form_obt_edit['refi_security'].value,
+            refi_acc_cost : form_obt_edit['refi_acc_cost'].value,
+            refi_deadline : form_obt_edit['refi_deadline'].value,
+            refi_desc : form_obt_edit['refi_desc'].value
         },
-        url: 'update_corp_service_info',
+        url: 'update_corp_refinancing_info',
         success: function () {
             Ext.Msg.alert("提示", "保存成功！");
-            Ext.getCmp('grid_service_manage').getStore().reload();
+            Ext.getCmp('grid_refinancing_manage').getStore().reload();
         },
         failure: function () {
             Ext.Msg.alert("提示", "保存失败！");
@@ -988,10 +1039,9 @@ function obt_corp_service_manage_update(corp_id,srv_id) {
     });
 };
 
-function save_service_edit(corp_id,srv_id) {
+function save_refinancing_edit(corp_id,refi_id) {
 
-    var form_obt_edit = document.getElementById("apply_service_edit");
-    obt_corp_service_manage_update(corp_id,srv_id);
-
+    var form_obt_edit = document.getElementById("apply_refinancing_edit");
+    obt_corp_refinancing_manage_update(corp_id,refi_id);
 
 }

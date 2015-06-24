@@ -9,7 +9,7 @@ Ext.define('App.view.enterprise.Grid', {
             //创建模板
             var apply_edits = new Ext.XTemplate(
                 '<div class="wrap_center">' +
-                '<form id="apply_form_edit">' +
+                '<form id="apply_corp_form_edit">' +
                 '<h2>企业信息</h2>' +
                 '<table class="enter_table" id="table_base">' +
                 '<tr>',
@@ -923,7 +923,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>'+
                 '</table>',
 
-                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_enterprise_edit({id},{cont_id},{gd_id},{finid},{mai_id},{gov_id},{inv_id},{srv_id},{refi_id},{rehr_id},{retra_id})">保存</a>' +
+                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_corp_edit({id},{cont_id},{gd_id},{finid},{mai_id},{gov_id},{inv_id},{srv_id},{refi_id},{rehr_id},{retra_id})">保存</a>' +
 
 
                 '</div>' +
@@ -1335,7 +1335,7 @@ function win_close_edit() {
 }
 
 function obt_corp_update(corp_id) {
-    var form_obt_edit = document.getElementById("apply_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -1396,7 +1396,7 @@ function obt_corp_update(corp_id) {
     });
 };
 function obt_corp_contact_update(corp_id,cont_id) {
-    var form_obt_edit = document.getElementById("apply_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
 
     Ext.Ajax.request({
         method: "POST",
@@ -1425,7 +1425,7 @@ function obt_corp_contact_update(corp_id,cont_id) {
     });
 };
 function obt_corp_shareholder_update(corp_id,gd_id) {
-    var form_obt_edit = document.getElementById("apply_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -1459,7 +1459,7 @@ function obt_corp_shareholder_update(corp_id,gd_id) {
     });
 };
 function obt_corp_finance_update(corp_id,finid) {
-    var form_obt_edit = document.getElementById("apply_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -1604,7 +1604,7 @@ function obt_corp_finance_update(corp_id,finid) {
     });
 };
 function obt_corp_maintain_update(corp_id,mai_id) {
-    var form_obt_edit = document.getElementById("apply_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -1640,7 +1640,7 @@ function obt_corp_maintain_update(corp_id,mai_id) {
     });
 };
 function obt_corp_government_update(corp_id,gov_id) {
-    var form_obt_edit = document.getElementById("apply_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -1671,7 +1671,7 @@ function obt_corp_government_update(corp_id,gov_id) {
     });
 };
 function obt_corp_investors_update(corp_id,inv_id) {
-    var form_obt_edit = document.getElementById("apply_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -1708,7 +1708,7 @@ function obt_corp_investors_update(corp_id,inv_id) {
     });
 };
 function obt_corp_service_update(corp_id,srv_id) {
-    var form_obt_edit = document.getElementById("apply_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -1736,7 +1736,7 @@ function obt_corp_service_update(corp_id,srv_id) {
 };
 
 function obt_corp_refinancing_update(corp_id,refi_id) {
-    var form_obt_edit = document.getElementById("apply_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -1760,7 +1760,7 @@ function obt_corp_refinancing_update(corp_id,refi_id) {
     });
 };
 function obt_corp_rehr_update(corp_id,rehr_id) {
-    var form_obt_edit = document.getElementById("apply_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -1783,7 +1783,7 @@ function obt_corp_rehr_update(corp_id,rehr_id) {
     });
 };
 function obt_corp_retrain_update(corp_id,retra_id) {
-    var form_obt_edit = document.getElementById("apply_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -1808,9 +1808,9 @@ function obt_corp_retrain_update(corp_id,retra_id) {
  
 
 
-function save_enterprise_edit(corp_id,cont_id,gd_id,finid,mai_id,gov_id,inv_id,srv_id,refi_id,rehr_id,retra_id) {
+function save_corp_edit(corp_id,cont_id,gd_id,finid,mai_id,gov_id,inv_id,srv_id,refi_id,rehr_id,retra_id) {
 
-    var form_obt_edit = document.getElementById("apply_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
     obt_corp_update(corp_id);
     obt_corp_contact_update(corp_id,cont_id);
     obt_corp_shareholder_update(corp_id,gd_id);

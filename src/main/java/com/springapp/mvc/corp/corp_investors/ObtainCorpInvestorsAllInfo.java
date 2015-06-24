@@ -1,4 +1,4 @@
-package com.springapp.mvc.corp.corp_service;
+package com.springapp.mvc.corp.corp_investors;
 
 /**
  * Created by xwq on 14-4-15.
@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/obtain_corp_service_all_info")
-public class ObtainCorpServiceAllInfo {
+@RequestMapping("/obtain_corp_investors_all_info")
+public class ObtainCorpInvestorsAllInfo {
 
     @RequestMapping(method = RequestMethod.POST)
     public
@@ -49,7 +49,6 @@ public class ObtainCorpServiceAllInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-
             String sql = "select corp.*,corp_contact.*,corp_finance.*,corp_maintain.*,corp_shareholder.*," +
                     "     corp_government.*,corp_service.*,corp_investors.*," +
                     "     corp_refinancing.*,corp_rehr.*,corp_retrain.*  from work.tb_corp corp " +
@@ -63,7 +62,8 @@ public class ObtainCorpServiceAllInfo {
                     "     left join work.tb_corp_refinancing corp_refinancing on corp.id=corp_refinancing.refi_corp_id " +
                     "     left join work.tb_corp_rehr corp_rehr on corp.id=corp_rehr.rehr_corp_id " +
                     "     left join work.tb_corp_retrain corp_retrain on corp.id=corp_retrain.retra_corp_id" +
-                    "     where corp.type_server=TRUE ";
+                    "     where corp.type_investors=TRUE ";
+
 
 
 //            if (field != null && field.length() != 0)

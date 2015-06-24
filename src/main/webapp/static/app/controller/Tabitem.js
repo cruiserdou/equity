@@ -8,7 +8,7 @@ Ext.define('App.controller.Tabitem', {
         ,'syj_roles','syj_userroles','syj_rolepermissions'
         ,'msg','enterprise','login_log','enterprise_sh','change'
         ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
-        ,'investors','corp_all','corp_service_all',
+        ,'investors','corp_all',
         'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
     ],
 
@@ -20,7 +20,7 @@ Ext.define('App.controller.Tabitem', {
         ,'syj_roles','syj_userroles','syj_rolepermissions'
         ,'msg','enterprise','login_log','change'
         ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
-        ,'investors','corp_all','corp_service_all',
+        ,'investors','corp_all','corp_service_all','corp_investors_all','corp_government_all','corp_refinancing_all','corp_rehr_all','corp_retrain_all',
         'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
     ],
 
@@ -43,6 +43,15 @@ Ext.define('App.controller.Tabitem', {
         'enterprise_maintain.Enterprise_maintainf','enterprise_maintain.Grid','enterprise_maintain.Query',
         'investors.investors_manage.investors_managef','investors.investors_manage.Grid','investors.investors_manage.Query',
         'investors.investors_query.investors_queryf','investors.investors_query.Grid','investors.investors_query.Query',
+        'government.government_manage.Government_managef','government.government_manage.Grid','government.government_manage.Query',
+        'government.government_query.Government_queryf','government.government_query.Grid','government.government_query.Query',
+        'refinancing.refinancing_query.Refinancing_queryf','refinancing.refinancing_query.Grid','refinancing.refinancing_query.Query',
+        'refinancing.refinancing_manage.Refinancing_managef','refinancing.refinancing_manage.Grid','refinancing.refinancing_manage.Query',
+        'rehr.rehr_query.Rehr_queryf','rehr.rehr_query.Grid','rehr.rehr_query.Query',
+        'rehr.rehr_manage.Rehr_managef','rehr.rehr_manage.Grid','rehr.rehr_manage.Query',
+        'retrain.retrain_manage.Retrain_managef','retrain.retrain_manage.Grid','retrain.retrain_manage.Query',
+        'retrain.retrain_query.Retrain_queryf','retrain.retrain_query.Grid','retrain.retrain_query.Query'
+
   ],
 
     refs: [

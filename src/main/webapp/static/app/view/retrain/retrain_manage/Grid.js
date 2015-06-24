@@ -1,17 +1,17 @@
 
-Ext.define('App.view.service.service_manage.Grid', {
+Ext.define('App.view.retrain.retrain_manage.Grid', {
     extend: 'Ext.grid.Panel',
-    alias: 'widget.service_managef_grid',
-    store: 'corp_service_all',
+    alias: 'widget.retrain_managef_grid',
+    store: 'corp_retrain_all',
     selModel: new Ext.selection.CheckboxModel({checkOnly: false}),
-    id :'grid_service_manage',
+    id :'grid_retrain_manage',
 
     listeners: {
         'itemdblclick': function (view, record, item, index, e) {
             //创建模板
-            var service_manage_edit = new Ext.XTemplate(
+            var retrain_manage_edit = new Ext.XTemplate(
                 '<div class="wrap_center">' +
-                '<form id="apply_service_edit">' +
+                '<form id="apply_retrain_edit">' +
                 '<h2>企业信息</h2>' +
                 '<table class="enter_table" id="table_base">' +
                 '<tr>',
@@ -597,47 +597,38 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '</tr>',
                 '</table>',
 
-                '<table class="enter_table" id="table_service">',
-                  '<tr>',
-                '<th class="table_header" colspan="4">服务机构信息</th>',
+                '<table class="enter_table" id="table_demand_px">',
+                '<tr>',
+                '<td  colspan="4"><input style="width:50px;height:14px;" id="demand_px"   type="checkbox" name="demand_px" value="{demand_px}" <tpl if="this.checktype_demand_px(demand_px)">checked="checked"</tpl> />培训需求&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
-                '<th>服务机构名称</th>',
-                '<td><input id="srv_name" name="srv_name"  type="text" value="{srv_name}"/></td>',
-                '<th>服务机构类别</th>',
-                '<td><input id="srv_type" name="srv_type"  type="text" value="{srv_type}"/></td>',
+                '<th class="table_header" colspan="4">培训需求</th>',
                 '</tr>',
                 '<tr>',
-                '<th>业务内容</th>',
-                '<td><input id="srv_content" name="srv_content"  type="text" value="{srv_content}"/></td>',
-                '<th>级别</th>',
-                '<td><input id="srv_levels" name="srv_levels"  type="text" value="{srv_levels}"/></td>',
+                '<th>培训方式</th>',
+                '<td colspan="3"><input id="retra_mode" name="retra_mode"  type="text" value="{retra_mode}"/></td>',
                 '</tr>',
                 '<tr>',
-                '<th>惩罚记录</th>',
-                '<td><input id="srv_penalty" name="srv_penalty"  type="text" value="{srv_penalty}"/></td>',
-                '<th>专属领域</th>',
-                '<td><input id="srv_domain" name="srv_domain"  type="text" value="{srv_domain}"/></td>',
+                '<th>有效时间</th>',
+                '<td><input id="retra_dt" name="retra_dt"  type="date" value="{retra_dt}"/></td>',
+                '<th>可接受成本</th>',
+                '<td><input id="retra_acc_cost" name="retra_acc_cost"  type="text" value="{retra_acc_cost}"/></td>',
                 '</tr>',
                 '<tr>',
-                '<th>专审委员</th>',
-                '<td><input id="srv_examiner" name="srv_examiner"  type="text" value="{srv_examiner}"/></td>',
-                '<th>兼任职务</th>',
-                '<td><input id="srv_post" name="srv_post"  type="text" value="{srv_post}"/></td>',
+                '<th>培训内容</th>',
+                '<td colspan="3"><textarea id="retra_content" name="retra_content"  type="text" value="{retra_content}">{retra_content}</textarea></td>'+
                 '</tr>',
-                '<tr>',
-                '<th>简介</th>',
-                '<td colspan="3"><textarea id="srv_descs" name="srv_descs"  type="text" value="{srv_descs}">{srv_descs}</textarea></td>'+
-                '</tr>',
-                '<tr>',
-                '<th>备注</th>',
-                '<td colspan="3"><textarea id="srv_remark" name="srv_remark"  type="text" value="{srv_remark}">{srv_remark}</textarea></td>'+
-                '</tr>',
+                '<tr>'+
+                '<th>详细要求</th>'+
+                '<td colspan="3"><textarea id="retra_requests" name="retra_requests"  type="text" value="{retra_requests}">{retra_requests}</textarea></td>'+
+                '</tr>'+
                 '</table>',
 
 
 
-                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_service_edit({id},{srv_id})">保存</a>' +
+
+
+                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_retrain_edit({id},{retra_id})">保存</a>' +
 
 
                 '</div>' +
@@ -650,10 +641,10 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '<li><a href="#table_csrc_type"  style="font-size:18px;">证监会行业分类</a></li>' +
                 '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</a></li>' +
                 '<li><a href="#table_assets_finance"  style="font-size:18px;">企业财务信息</a></li>' +
-                '<li><a href="#table_service"  style="font-size:18px;">服务机构</a></li>' +
+                '<li><a href="#table_demand_px"  style="font-size:18px;">培训需求</a></li>' +
 
                 '</ul>' +
-                '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="service_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
+                '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="retrain_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
                 '</form>' +
                 '</div>'
             );
@@ -671,10 +662,10 @@ Ext.define('App.view.service.service_manage.Grid', {
 
 
             //重写绑定模板
-            service_manage_edit.overwrite(mypanel.body, record.data);
+            retrain_manage_edit.overwrite(mypanel.body, record.data);
             var editWindow = new Ext.Window({
                 layout: 'fit',
-                id: 'service_edit_id',
+                id: 'retrain_edit_id',
                 width: 830,
                 height: 650,
                 modal: true,
@@ -692,6 +683,7 @@ Ext.define('App.view.service.service_manage.Grid', {
     initComponent: function () {
 
         this.columns = [
+
             {text: '企业ID',  width: 120, dataIndex: 'id', hidden: true},
             {text: '营业执照号码', width: 120, dataIndex: 'buslicno'},
             {text: '企业名称', width: 120, dataIndex: 'name'},
@@ -923,16 +915,80 @@ Ext.define('App.view.service.service_manage.Grid', {
             {text: '联系人备注', width: 120, dataIndex: 'mai_bz', hidden: true},
             {text: '服务机构ID', width: 120, dataIndex: 'srv_id', hidden: true},
             {text: '企业ID', width: 120, dataIndex: 'srv_corp_id', hidden: true},
-            {text: '服务机构名称', width: 120, dataIndex: 'srv_name'},
-            {text: '服务机构类别', width: 120, dataIndex: 'srv_type'},
-            {text: '业务内容', width: 120, dataIndex: 'srv_content'},
-            {text: '级别', width: 120, dataIndex: 'srv_levels'},
-            {text: '专属领域', width: 120, dataIndex: 'srv_domain'},
-            {text: '惩罚记录', width: 120, dataIndex: 'srv_penalty'},
-            {text: '专审委员', width: 120, dataIndex: 'srv_examiner'},
-            {text: '兼任职务', width: 120, dataIndex: 'srv_post'},
-            {text: '简介', width: 120, dataIndex: 'srv_descs'},
-            {text: '备注 ',flex: 1, dataIndex: 'srv_remark'}
+            {text: '服务机构名称', width: 120, dataIndex: 'srv_name', hidden: true},
+            {text: '服务机构类别', width: 120, dataIndex: 'srv_type', hidden: true},
+            {text: '业务内容', width: 120, dataIndex: 'srv_content', hidden: true},
+            {text: '级别', width: 120, dataIndex: 'srv_levels', hidden: true},
+            {text: '专属领域', width: 120, dataIndex: 'srv_domain', hidden: true},
+            {text: '惩罚记录', width: 120, dataIndex: 'srv_penalty', hidden: true},
+            {text: '专审委员', width: 120, dataIndex: 'srv_examiner', hidden: true},
+            {text: '兼任职务', width: 120, dataIndex: 'srv_post', hidden: true},
+            {text: '简介', width: 120, dataIndex: 'srv_descs', hidden: true},
+            {text: '备注 ', width: 120, dataIndex: 'srv_remark', hidden: true},
+            {text: '政府部门ID', width: 120, dataIndex: 'gov_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'gov_corp_id', hidden: true},
+            {text: '单位名称', width: 120, dataIndex: 'gov_domain', hidden: true},
+            {text: '处/室', width: 120, dataIndex: 'gov_office', hidden: true},
+            {text: '职能介绍', width: 120, dataIndex: 'gov_desc', hidden: true},
+            {text: '联系人', width: 120, dataIndex: 'gov_contact', hidden: true},
+            {text: '职务', width: 120, dataIndex: 'gov_psotion', hidden: true},
+            {text: '证件类型', width: 120, dataIndex: 'gov_doctype', hidden: true},
+            {text: '证件号码', width: 120, dataIndex: 'gov_docnum', hidden: true},
+            {text: '手机号码', width: 120, dataIndex: 'gov_phone', hidden: true},
+            {text: '传真', width: 120, dataIndex: 'gov_fax', hidden: true},
+            {text: 'E-mail', width: 120, dataIndex: 'gov_email', hidden: true},
+            {text: 'QQ', width: 120, dataIndex: 'gov_qq', hidden: true},
+            {text: '个人微信号', width: 120, dataIndex: 'gov_webchat', hidden: true},
+            {text: '固定电话', width: 120, dataIndex: 'gov_tel', hidden: true},
+            {text: '备注', width: 120, dataIndex: 'gov_remark', hidden: true},
+            {text: '投资人ID', width: 120, dataIndex: 'inv_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'inv_corp_id', hidden: true},
+            {text: '投资领域', width: 120, dataIndex: 'inv_domain', hidden: true},
+            {text: '证监会行业分类1', width: 120, dataIndex: 'inv_csrc_type1', hidden: true},
+            {text: '证监会行业分类2', width: 120, dataIndex: 'inv_csrc_type2', hidden: true},
+            {text: '证监会行业分类3', width: 120, dataIndex: 'inv_csrc_type3', hidden: true},
+            {text: '证监会行业分类4', width: 120, dataIndex: 'inv_csrc_type4', hidden: true},
+            {text: '行业一级分类', width: 120, dataIndex: 'inv_indclass1', hidden: true},
+            {text: '行业二级分类', width: 120, dataIndex: 'inv_indclass2', hidden: true},
+            {text: '行业三级分类', width: 120, dataIndex: 'inv_indclass3', hidden: true},
+            {text: '行业四级分类', width: 120, dataIndex: 'inv_indclass4', hidden: true},
+            {text: '联系人', width: 120, dataIndex: 'inv_contact', hidden: true},
+            {text: '职务', width: 120, dataIndex: 'inv_psotion', hidden: true},
+            {text: '证件类型', width: 120, dataIndex: 'inv_doctype', hidden: true},
+            {text: '证件号码', width: 120, dataIndex: 'inv_docnum', hidden: true},
+            {text: '手机号码', width: 120, dataIndex: 'inv_phone', hidden: true},
+            {text: '传真', width: 120, dataIndex: 'inv_fax', hidden: true},
+            {text: 'E-mail', width: 120, dataIndex: 'inv_email', hidden: true},
+            {text: 'QQ',width: 120, dataIndex: 'inv_qq', hidden: true},
+            {text: '个人微信号', width: 120, dataIndex: 'inv_webchat', hidden: true},
+            {text: '固定电话', width: 120, dataIndex: 'inv_tel', hidden: true},
+            {text: '备注', width: 120, dataIndex: 'inv_remark', hidden: true},
+            {text: '融资需求ID', width: 120, dataIndex: 'refi_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'refi_corp_id', hidden: true},
+            {text: '融资金额', width: 120, dataIndex: 'refi_amounts', hidden: true},
+            {text: '融资用途', width: 120, dataIndex: 'refi_use', hidden: true},
+            {text: '股份融资/债券融资', width: 120, dataIndex: 'refi_financ', hidden: true},
+            {text: '偿付保障', width: 120, dataIndex: 'refi_security', hidden: true},
+            {text: '可接受成本（%/年）',width: 120, dataIndex: 'refi_acc_cost', hidden: true},
+            {text: '融资期限', width: 120, dataIndex: 'refi_deadline', hidden: true},
+            {text: '融资用途详细说明', width: 120, dataIndex: 'refi_desc', hidden: true},
+            {text: '人力资源需求ID', width: 120, dataIndex: 'retrain_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'retrain_corp_id', hidden: true},
+            {text: '人力资源需求ID', width: 120, dataIndex: 'rehr_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'rehr_corp_id', hidden: true},
+            {text: '需求职位', width: 120, dataIndex: 'rehr_post', hidden: true},
+            {text: '职位人数', width: 120, dataIndex: 'rehr_num', hidden: true},
+            {text: '职位薪金', width: 120, dataIndex: 'rehr_salary', hidden: true},
+            {text: '性别要求', width: 120, dataIndex: 'rehr_sex_req', hidden: true},
+            {text: '年龄要求', width: 120, dataIndex: 'rehr_age_req', hidden: true},
+            {text: '经验要求', width: 120, dataIndex: 'rehr_requests', hidden: true},
+            {text: '培训需求ID', width: 120, dataIndex: 'retra_id'},
+            {text: '企业ID', width: 120, dataIndex: 'retra_corp_id'},
+            {text: '培训方式', width: 120, dataIndex: 'retra_mode'},
+            {text: '培训内容', width: 120, dataIndex: 'retra_content'},
+            {text: '可接受成本', width: 120, dataIndex: 'retra_acc_cost'},
+            {text: '有效时间', width: 120, dataIndex: 'retra_dt'},
+            {text: '详细要求', flex: 1, dataIndex: 'retra_requests'}
 
         ];
 
@@ -941,7 +997,7 @@ Ext.define('App.view.service.service_manage.Grid', {
         };
         Ext.apply(this, {
             bbar: Ext.create('Ext.PagingToolbar', {
-                    store: 'corp_service_all',
+                    store: 'corp_retrain_all',
                 displayInfo: true,
                 displayMsg: '第 {0} 到 {1} 条数据, 共{2}条',
                 emptyMsg: '无数据'
@@ -954,33 +1010,28 @@ Ext.define('App.view.service.service_manage.Grid', {
     }
 });
 
-function service_close_edit() {
-    Ext.getCmp('service_edit_id').close();
+function retrain_close_edit() {
+    Ext.getCmp('retrain_edit_id').close();
 
 }
 
-function obt_corp_service_manage_update(corp_id,srv_id) {
-    var form_obt_edit = document.getElementById("apply_service_edit");
+function obt_corp_retrain_manage_update(corp_id,retra_id) {
+    var form_obt_edit = document.getElementById("apply_retrain_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
-            srv_id : srv_id,
-            srv_corp_id :corp_id,
-            srv_name : form_obt_edit['srv_name'].value,
-            srv_type : form_obt_edit['srv_type'].value,
-            srv_content : form_obt_edit['srv_content'].value,
-            srv_levels : form_obt_edit['srv_levels'].value,
-            srv_domain : form_obt_edit['srv_domain'].value,
-            srv_penalty : form_obt_edit['srv_penalty'].value,
-            srv_examiner : form_obt_edit['srv_examiner'].value,
-            srv_post : form_obt_edit['srv_post'].value,
-            srv_descs : form_obt_edit['srv_descs'].value,
-            srv_remark : form_obt_edit['srv_remark'].value
+            retra_id : retra_id,
+            retra_corp_id : corp_id,
+            retra_mode : form_obt_edit['retra_mode'].value,
+            retra_content : form_obt_edit['retra_content'].value,
+            retra_acc_cost : form_obt_edit['retra_acc_cost'].value,
+            retra_dt : form_obt_edit['retra_dt'].value,
+            retra_requests : form_obt_edit['retra_requests'].value
         },
-        url: 'update_corp_service_info',
+        url: 'update_corp_retrain_info',
         success: function () {
             Ext.Msg.alert("提示", "保存成功！");
-            Ext.getCmp('grid_service_manage').getStore().reload();
+            Ext.getCmp('grid_retrain_manage').getStore().reload();
         },
         failure: function () {
             Ext.Msg.alert("提示", "保存失败！");
@@ -988,10 +1039,9 @@ function obt_corp_service_manage_update(corp_id,srv_id) {
     });
 };
 
-function save_service_edit(corp_id,srv_id) {
+function save_retrain_edit(corp_id,retra_id) {
 
-    var form_obt_edit = document.getElementById("apply_service_edit");
-    obt_corp_service_manage_update(corp_id,srv_id);
-
+    var form_obt_edit = document.getElementById("apply_retrain_edit");
+    obt_corp_retrain_manage_update(corp_id,retra_id);
 
 }

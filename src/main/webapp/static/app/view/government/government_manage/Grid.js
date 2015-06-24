@@ -1,17 +1,17 @@
 
-Ext.define('App.view.service.service_manage.Grid', {
+Ext.define('App.view.government.government_manage.Grid', {
     extend: 'Ext.grid.Panel',
-    alias: 'widget.service_managef_grid',
-    store: 'corp_service_all',
+    alias: 'widget.government_managef_grid',
+    store: 'corp_government_all',
     selModel: new Ext.selection.CheckboxModel({checkOnly: false}),
-    id :'grid_service_manage',
+    id :'grid_government_manage',
 
     listeners: {
         'itemdblclick': function (view, record, item, index, e) {
             //创建模板
-            var service_manage_edit = new Ext.XTemplate(
+            var government_manage_edit = new Ext.XTemplate(
                 '<div class="wrap_center">' +
-                '<form id="apply_service_edit">' +
+                '<form id="apply_government_edit">' +
                 '<h2>企业信息</h2>' +
                 '<table class="enter_table" id="table_base">' +
                 '<tr>',
@@ -597,47 +597,60 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '</tr>',
                 '</table>',
 
-                '<table class="enter_table" id="table_service">',
-                  '<tr>',
-                '<th class="table_header" colspan="4">服务机构信息</th>',
+                '<table class="enter_table" id="table_govermt">',
+                 '<tr>',
+                '<th class="table_header" colspan="4">政府部门信息</th>',
                 '</tr>',
                 '<tr>',
-                '<th>服务机构名称</th>',
-                '<td><input id="srv_name" name="srv_name"  type="text" value="{srv_name}"/></td>',
-                '<th>服务机构类别</th>',
-                '<td><input id="srv_type" name="srv_type"  type="text" value="{srv_type}"/></td>',
+                '<th>单位名称</th>',
+                '<td><input id="gov_domain" name="gov_domain"  type="text" value="{gov_domain}"/></td>',
+                '<th>处/室</th>',
+                '<td><input id="gov_office" name="gov_office"  type="text" value="{gov_office}"/></td>',
                 '</tr>',
                 '<tr>',
-                '<th>业务内容</th>',
-                '<td><input id="srv_content" name="srv_content"  type="text" value="{srv_content}"/></td>',
-                '<th>级别</th>',
-                '<td><input id="srv_levels" name="srv_levels"  type="text" value="{srv_levels}"/></td>',
+                '<th>职能介绍</th>',
+                '<td colspan="3"><input id="gov_desc" name="gov_desc"  type="text" value="{gov_desc}"/></td>',
                 '</tr>',
                 '<tr>',
-                '<th>惩罚记录</th>',
-                '<td><input id="srv_penalty" name="srv_penalty"  type="text" value="{srv_penalty}"/></td>',
-                '<th>专属领域</th>',
-                '<td><input id="srv_domain" name="srv_domain"  type="text" value="{srv_domain}"/></td>',
+                '<th>姓名</th>',
+                '<td><input id="gov_contact" name="gov_contact"  type="text" value="{gov_contact}"/></td>',
+                '<th>证件类型</th>',
+                '<td><input id="gov_doctype" name="gov_doctype"  type="text" value="{gov_doctype}"/></td>',
                 '</tr>',
                 '<tr>',
-                '<th>专审委员</th>',
-                '<td><input id="srv_examiner" name="srv_examiner"  type="text" value="{srv_examiner}"/></td>',
-                '<th>兼任职务</th>',
-                '<td><input id="srv_post" name="srv_post"  type="text" value="{srv_post}"/></td>',
+                '<th>职务</th>',
+                '<td><input id="gov_psotion" name="gov_psotion"  type="text" value="{gov_psotion}"/></td>',
+                '<th>证件号码</th>',
+                '<td><input id="gov_docnum" name="gov_docnum"  type="text" value="{gov_docnum}"/></td>',
                 '</tr>',
                 '<tr>',
-                '<th>简介</th>',
-                '<td colspan="3"><textarea id="srv_descs" name="srv_descs"  type="text" value="{srv_descs}">{srv_descs}</textarea></td>'+
+                '<th>手机</th>',
+                '<td><input id="gov_phone" name="gov_phone"  type="text" value="{gov_phone}"/></td>',
+                '<th>传真</th>',
+                '<td><input id="gov_fax" name="gov_fax"  type="text" value="{gov_fax}"/></td>',
                 '</tr>',
                 '<tr>',
-                '<th>备注</th>',
-                '<td colspan="3"><textarea id="srv_remark" name="srv_remark"  type="text" value="{srv_remark}">{srv_remark}</textarea></td>'+
+                '<th>E-mail</th>',
+                '<td><input id="gov_email" name="gov_email"  type="text" value="{gov_email}"/></td>',
+                '<th>QQ</th>',
+                '<td><input id="gov_qq" name="gov_qq"  type="text" value="{gov_qq}"/></td>',
                 '</tr>',
+                '<tr>'+
+                '<th>微信号</th>'+
+                '<td><input id="gov_webchat" name="gov_webchat"  type="text" value="{gov_webchat}"/></td>'+
+                '<th>固话</th>',
+                '<td><input id="gov_tel" name="gov_tel"  type="text" value="{gov_tel}"/></td>'+
+                '</tr>'+
+                '<tr>'+
+                '<th>备注</th>'+
+                '<td colspan="3"><textarea id="gov_remark" name="gov_remark"  type="text" value="{gov_remark}">{gov_remark}</textarea></td>'+
+                '</tr>'+
                 '</table>',
 
 
 
-                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_service_edit({id},{srv_id})">保存</a>' +
+
+                '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_government_edit({id},{gov_id})">保存</a>' +
 
 
                 '</div>' +
@@ -650,10 +663,10 @@ Ext.define('App.view.service.service_manage.Grid', {
                 '<li><a href="#table_csrc_type"  style="font-size:18px;">证监会行业分类</a></li>' +
                 '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</a></li>' +
                 '<li><a href="#table_assets_finance"  style="font-size:18px;">企业财务信息</a></li>' +
-                '<li><a href="#table_service"  style="font-size:18px;">服务机构</a></li>' +
+                '<li><a href="#table_govermt"  style="font-size:18px;">政府部门</a></li>' +
 
                 '</ul>' +
-                '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="service_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
+                '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="government_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
                 '</form>' +
                 '</div>'
             );
@@ -671,10 +684,10 @@ Ext.define('App.view.service.service_manage.Grid', {
 
 
             //重写绑定模板
-            service_manage_edit.overwrite(mypanel.body, record.data);
+            government_manage_edit.overwrite(mypanel.body, record.data);
             var editWindow = new Ext.Window({
                 layout: 'fit',
-                id: 'service_edit_id',
+                id: 'government_edit_id',
                 width: 830,
                 height: 650,
                 modal: true,
@@ -692,6 +705,7 @@ Ext.define('App.view.service.service_manage.Grid', {
     initComponent: function () {
 
         this.columns = [
+
             {text: '企业ID',  width: 120, dataIndex: 'id', hidden: true},
             {text: '营业执照号码', width: 120, dataIndex: 'buslicno'},
             {text: '企业名称', width: 120, dataIndex: 'name'},
@@ -923,16 +937,78 @@ Ext.define('App.view.service.service_manage.Grid', {
             {text: '联系人备注', width: 120, dataIndex: 'mai_bz', hidden: true},
             {text: '服务机构ID', width: 120, dataIndex: 'srv_id', hidden: true},
             {text: '企业ID', width: 120, dataIndex: 'srv_corp_id', hidden: true},
-            {text: '服务机构名称', width: 120, dataIndex: 'srv_name'},
-            {text: '服务机构类别', width: 120, dataIndex: 'srv_type'},
-            {text: '业务内容', width: 120, dataIndex: 'srv_content'},
-            {text: '级别', width: 120, dataIndex: 'srv_levels'},
-            {text: '专属领域', width: 120, dataIndex: 'srv_domain'},
-            {text: '惩罚记录', width: 120, dataIndex: 'srv_penalty'},
-            {text: '专审委员', width: 120, dataIndex: 'srv_examiner'},
-            {text: '兼任职务', width: 120, dataIndex: 'srv_post'},
-            {text: '简介', width: 120, dataIndex: 'srv_descs'},
-            {text: '备注 ',flex: 1, dataIndex: 'srv_remark'}
+            {text: '服务机构名称', width: 120, dataIndex: 'srv_name', hidden: true},
+            {text: '服务机构类别', width: 120, dataIndex: 'srv_type', hidden: true},
+            {text: '业务内容', width: 120, dataIndex: 'srv_content', hidden: true},
+            {text: '级别', width: 120, dataIndex: 'srv_levels', hidden: true},
+            {text: '专属领域', width: 120, dataIndex: 'srv_domain', hidden: true},
+            {text: '惩罚记录', width: 120, dataIndex: 'srv_penalty', hidden: true},
+            {text: '专审委员', width: 120, dataIndex: 'srv_examiner', hidden: true},
+            {text: '兼任职务', width: 120, dataIndex: 'srv_post', hidden: true},
+            {text: '简介', width: 120, dataIndex: 'srv_descs', hidden: true},
+            {text: '备注 ', width: 120, dataIndex: 'srv_remark', hidden: true},
+            {text: '政府部门ID', width: 120, dataIndex: 'gov_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'gov_corp_id', hidden: true},
+            {text: '单位名称', width: 120, dataIndex: 'gov_domain'},
+            {text: '处/室', width: 120, dataIndex: 'gov_office'},
+            {text: '职能介绍', width: 120, dataIndex: 'gov_desc'},
+            {text: '联系人', width: 120, dataIndex: 'gov_contact'},
+            {text: '职务', width: 120, dataIndex: 'gov_psotion'},
+            {text: '证件类型', width: 120, dataIndex: 'gov_doctype'},
+            {text: '证件号码', width: 120, dataIndex: 'gov_docnum'},
+            {text: '手机号码', width: 120, dataIndex: 'gov_phone'},
+            {text: '传真', width: 120, dataIndex: 'gov_fax'},
+            {text: 'E-mail', width: 120, dataIndex: 'gov_email'},
+            {text: 'QQ', width: 120, dataIndex: 'gov_qq'},
+            {text: '个人微信号', width: 120, dataIndex: 'gov_webchat'},
+            {text: '固定电话', width: 120, dataIndex: 'gov_tel'},
+            {text: '备注', flex: 1, dataIndex: 'gov_remark'},
+            {text: '投资人ID', width: 120, dataIndex: 'inv_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'inv_corp_id', hidden: true},
+            {text: '投资领域', width: 120, dataIndex: 'inv_domain', hidden: true},
+            {text: '证监会行业分类1', width: 120, dataIndex: 'inv_csrc_type1', hidden: true},
+            {text: '证监会行业分类2', width: 120, dataIndex: 'inv_csrc_type2', hidden: true},
+            {text: '证监会行业分类3', width: 120, dataIndex: 'inv_csrc_type3', hidden: true},
+            {text: '证监会行业分类4', width: 120, dataIndex: 'inv_csrc_type4', hidden: true},
+            {text: '行业一级分类', width: 120, dataIndex: 'inv_indclass1', hidden: true},
+            {text: '行业二级分类', width: 120, dataIndex: 'inv_indclass2', hidden: true},
+            {text: '行业三级分类', width: 120, dataIndex: 'inv_indclass3', hidden: true},
+            {text: '行业四级分类', width: 120, dataIndex: 'inv_indclass4', hidden: true},
+            {text: '联系人', width: 120, dataIndex: 'inv_contact', hidden: true},
+            {text: '职务', width: 120, dataIndex: 'inv_psotion', hidden: true},
+            {text: '证件类型', width: 120, dataIndex: 'inv_doctype', hidden: true},
+            {text: '证件号码', width: 120, dataIndex: 'inv_docnum', hidden: true},
+            {text: '手机号码', width: 120, dataIndex: 'inv_phone', hidden: true},
+            {text: '传真', width: 120, dataIndex: 'inv_fax', hidden: true},
+            {text: 'E-mail', width: 120, dataIndex: 'inv_email', hidden: true},
+            {text: 'QQ',width: 120, dataIndex: 'inv_qq', hidden: true},
+            {text: '个人微信号', width: 120, dataIndex: 'inv_webchat', hidden: true},
+            {text: '固定电话', width: 120, dataIndex: 'inv_tel', hidden: true},
+            {text: '备注', width: 120, dataIndex: 'inv_remark', hidden: true},
+            {text: '融资需求ID', width: 120, dataIndex: 'refi_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'refi_corp_id', hidden: true},
+            {text: '融资金额', width: 120, dataIndex: 'refi_amounts', hidden: true},
+            {text: '融资用途', width: 120, dataIndex: 'refi_use', hidden: true},
+            {text: '股份融资/债券融资', width: 120, dataIndex: 'refi_financ', hidden: true},
+            {text: '偿付保障', width: 120, dataIndex: 'refi_security', hidden: true},
+            {text: '可接受成本（%/年）',width: 120, dataIndex: 'refi_acc_cost', hidden: true},
+            {text: '融资期限', width: 120, dataIndex: 'refi_deadline', hidden: true},
+            {text: '融资用途详细说明', width: 120, dataIndex: 'refi_desc', hidden: true},
+            {text: '人力资源需求ID', width: 120, dataIndex: 'rehr_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'rehr_corp_id', hidden: true},
+            {text: '需求职位', width: 120, dataIndex: 'rehr_post', hidden: true},
+            {text: '职位人数', width: 120, dataIndex: 'rehr_num', hidden: true},
+            {text: '职位薪金', width: 120, dataIndex: 'rehr_salary', hidden: true},
+            {text: '性别要求', width: 120, dataIndex: 'rehr_sex_req', hidden: true},
+            {text: '年龄要求', width: 120, dataIndex: 'rehr_age_req', hidden: true},
+            {text: '经验要求', width: 120, dataIndex: 'rehr_requests', hidden: true},
+            {text: '培训需求ID', width: 120, dataIndex: 'retra_id', hidden: true},
+            {text: '企业ID', width: 120, dataIndex: 'retra_corp_id', hidden: true},
+            {text: '培训方式', width: 120, dataIndex: 'retra_mode', hidden: true},
+            {text: '培训内容', width: 120, dataIndex: 'retra_content', hidden: true},
+            {text: '可接受成本', width: 120, dataIndex: 'retra_acc_cost', hidden: true},
+            {text: '有效时间', width: 120, dataIndex: 'retra_dt', hidden: true},
+            {text: '详细要求', width: 120, dataIndex: 'retra_requests', hidden: true}
 
         ];
 
@@ -941,7 +1017,7 @@ Ext.define('App.view.service.service_manage.Grid', {
         };
         Ext.apply(this, {
             bbar: Ext.create('Ext.PagingToolbar', {
-                    store: 'corp_service_all',
+                    store: 'corp_government_all',
                 displayInfo: true,
                 displayMsg: '第 {0} 到 {1} 条数据, 共{2}条',
                 emptyMsg: '无数据'
@@ -954,33 +1030,37 @@ Ext.define('App.view.service.service_manage.Grid', {
     }
 });
 
-function service_close_edit() {
-    Ext.getCmp('service_edit_id').close();
+function government_close_edit() {
+    Ext.getCmp('government_edit_id').close();
 
 }
 
-function obt_corp_service_manage_update(corp_id,srv_id) {
-    var form_obt_edit = document.getElementById("apply_service_edit");
+function obt_corp_government_manage_update(corp_id,gov_id) {
+    var form_obt_edit = document.getElementById("apply_government_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
-            srv_id : srv_id,
-            srv_corp_id :corp_id,
-            srv_name : form_obt_edit['srv_name'].value,
-            srv_type : form_obt_edit['srv_type'].value,
-            srv_content : form_obt_edit['srv_content'].value,
-            srv_levels : form_obt_edit['srv_levels'].value,
-            srv_domain : form_obt_edit['srv_domain'].value,
-            srv_penalty : form_obt_edit['srv_penalty'].value,
-            srv_examiner : form_obt_edit['srv_examiner'].value,
-            srv_post : form_obt_edit['srv_post'].value,
-            srv_descs : form_obt_edit['srv_descs'].value,
-            srv_remark : form_obt_edit['srv_remark'].value
+            gov_id : gov_id,
+            gov_corp_id : corp_id,
+            gov_domain : form_obt_edit['gov_domain'].value,
+            gov_office : form_obt_edit['gov_office'].value,
+            gov_desc : form_obt_edit['gov_desc'].value,
+            gov_contact : form_obt_edit['gov_contact'].value,
+            gov_psotion : form_obt_edit['gov_psotion'].value,
+            gov_doctype : form_obt_edit['gov_doctype'].value,
+            gov_docnum : form_obt_edit['gov_docnum'].value,
+            gov_phone : form_obt_edit['gov_phone'].value,
+            gov_fax : form_obt_edit['gov_fax'].value,
+            gov_email : form_obt_edit['gov_email'].value,
+            gov_qq : form_obt_edit['gov_qq'].value,
+            gov_webchat : form_obt_edit['gov_webchat'].value,
+            gov_tel : form_obt_edit['gov_tel'].value,
+            gov_remark : form_obt_edit['gov_remark'].value
         },
-        url: 'update_corp_service_info',
+        url: 'update_corp_government_info',
         success: function () {
             Ext.Msg.alert("提示", "保存成功！");
-            Ext.getCmp('grid_service_manage').getStore().reload();
+            Ext.getCmp('grid_government_manage').getStore().reload();
         },
         failure: function () {
             Ext.Msg.alert("提示", "保存失败！");
@@ -988,10 +1068,10 @@ function obt_corp_service_manage_update(corp_id,srv_id) {
     });
 };
 
-function save_service_edit(corp_id,srv_id) {
+function save_government_edit(corp_id,gov_id) {
 
-    var form_obt_edit = document.getElementById("apply_service_edit");
-    obt_corp_service_manage_update(corp_id,srv_id);
+    var form_obt_edit = document.getElementById("apply_government_edit");
+    obt_corp_government_manage_update(corp_id,gov_id);
 
 
 }
