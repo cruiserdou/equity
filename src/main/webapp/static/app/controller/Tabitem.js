@@ -8,7 +8,7 @@ Ext.define('App.controller.Tabitem', {
         ,'syj_roles','syj_userroles','syj_rolepermissions'
         ,'msg','enterprise','login_log','enterprise_sh','change'
         ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
-        ,'investors','corp_all',
+        ,'investors','corp_all','corp_service_all',
         'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
     ],
 
@@ -20,7 +20,7 @@ Ext.define('App.controller.Tabitem', {
         ,'syj_roles','syj_userroles','syj_rolepermissions'
         ,'msg','enterprise','login_log','change'
         ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
-        ,'investors','corp_all',
+        ,'investors','corp_all','corp_service_all',
         'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
     ],
 

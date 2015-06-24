@@ -94,19 +94,19 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '</tr>'+
                 '<tr>',
                 '<th>经营范围</th>'+
-                '<td colspan="3"><textarea id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>'+
+                '<td colspan="3"><textarea disabled id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>'+
                 '</tr>'+
                 '<tr>'+
                 '<th>主营业务</th>'+
-                '<td colspan="3"><textarea id="mbus" name="mbus"  type="text" value="{mbus}">{mbus}</textarea></td>'+
+                '<td colspan="3"><textarea disabled id="mbus" name="mbus"  type="text" value="{mbus}">{mbus}</textarea></td>'+
                 '</tr>'+
                 '<tr>'+
                 '<th>企业简介</th>'+
-                '<td colspan="3"><textarea id="eprofile" name="eprofile"  type="text" value="{eprofile}">{eprofile}</textarea></td>'+
+                '<td colspan="3"><textarea disabled id="eprofile" name="eprofile"  type="text" value="{eprofile}">{eprofile}</textarea></td>'+
                 '</tr>'+
                 '<tr>',
                 '<th>备注</th>',
-                '<td colspan="3"><textarea id="remark" name="remark"  type="text" value="{remark}"></textarea></td>',
+                '<td colspan="3"><textarea disabled id="remark" name="remark"  type="text" value="{remark}">{remark}</textarea></td>',
                 '</tr>',
                 '<tr>',
                 '<th>企业图文信息</th>',
@@ -184,7 +184,7 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '</tr>'+
                 '<tr>'+
                 '<th>备注</th>'+
-                '<td colspan="3"><textarea id="cont_bz" name="cont_bz"  type="text" value="{cont_bz}"></textarea></td>'+
+                '<td colspan="3"><textarea disabled id="cont_bz" name="cont_bz"  type="text" value="{cont_bz}">{cont_bz}</textarea></td>'+
                 '</tr>'+
                 '</table>'+
 
@@ -287,7 +287,7 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '</tr>',
                 '<tr>',
                 '<th>备注</th>',
-                '<td colspan="3"><textarea id="mai_bz" name="mai_bz"  type="text" value="{mai_bz}"></textarea></td>'+
+                '<td colspan="3"><textarea  disabled id="mai_bz" name="mai_bz"  type="text" value="{mai_bz}">{mai_bz}</textarea></td>'+
                 '</tr>',
                 '</table>',
 
@@ -605,7 +605,7 @@ Ext.define('App.view.enterprise_query.Grid', {
 
                 '<table class="enter_table" id="table_service">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_server"  name="type_server"  type="checkbox" value="true" />服务机构&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input disabled style="width:50px;height:14px;"  id="type_server"  name="type_server"  type="checkbox"  value="{type_server}" <tpl if="this.checktype_type_server(type_server)">checked="checked"</tpl> />服务机构&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">服务机构信息</th>',
@@ -636,18 +636,18 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '</tr>',
                 '<tr>',
                 '<th>简介</th>',
-                '<td colspan="3"><textarea id="srv_descs" name="srv_descs"  type="text" value="{srv_descs}"></textarea></td>'+
+                '<td colspan="3"><textarea disabled id="srv_descs" name="srv_descs"  type="text" value="{srv_descs}">{srv_descs}</textarea></td>'+
                 '</tr>',
                 '<tr>',
                 '<th>备注</th>',
-                '<td colspan="3"><textarea id="srv_remark" name="srv_remark"  type="text" value="{srv_remark}"></textarea></td>'+
+                '<td colspan="3"><textarea disabled id="srv_remark" name="srv_remark"  type="text" value="{srv_remark}">{srv_remark}</textarea></td>'+
                 '</tr>',
                 '</table>',
 
 
                 '<table class="enter_table" id="table_investors">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_investors" name="type_investors"  type="checkbox" value="true" />投资人&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input disabled style="width:50px;height:14px;"  id="type_investors" name="type_investors"  type="checkbox" value="{type_investors}" <tpl if="this.checktype_type_investors(type_investors)">checked="checked"</tpl>/>投资人&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">投资人信息</th>',
@@ -711,7 +711,7 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '</tr>'+
                 '<tr>'+
                 '<th>备注</th>'+
-                '<td colspan="3"><textarea id="inv_remark" name="inv_remark"  type="text" value="{inv_remark}"></textarea></td>'+
+                '<td colspan="3"><textarea disabled id="inv_remark" name="inv_remark"  type="text" value="{inv_remark}">{inv_remark}</textarea></td>'+
                 '</tr>'+
                 '</table>',
 
@@ -719,7 +719,7 @@ Ext.define('App.view.enterprise_query.Grid', {
 
                 '<table class="enter_table" id="table_govermt">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_govermt"  name="type_govermt" type="checkbox"  value="true"/>政府机构&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input disabled style="width:50px;height:14px;"  id="type_govermt"  name="type_govermt" type="checkbox"  value="{type_govermt}" <tpl if="this.checktype_type_govermt(type_govermt)">checked="checked"</tpl>/>政府机构&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">政府部门信息</th>',
@@ -766,13 +766,13 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '</tr>'+
                 '<tr>'+
                 '<th>备注</th>'+
-                '<td colspan="3"><textarea id="gov_remark" name="gov_remark"  type="text" value="{gov_remark}"></textarea></td>'+
+                '<td colspan="3"><textarea disabled id="gov_remark" name="gov_remark"  type="text" value="{gov_remark}">{gov_remark}</textarea></td>'+
                 '</tr>'+
                 '</table>',
 
                 '<table class="enter_table" id="table_demand_rz">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  id="demand_rz"  type="checkbox" name="demand_rz" value="true" />融资需求&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input disabled style="width:50px;height:14px;"  id="demand_rz"  type="checkbox" name="demand_rz" value="{demand_rz}" <tpl if="this.checktype_demand_rz(demand_rz)">checked="checked"</tpl>/>融资需求&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">融资需求</th>',
@@ -797,14 +797,14 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '</tr>',
                 '<tr>'+
                 '<th>融资用途详细说明</th>'+
-                '<td colspan="3"><textarea id="refi_desc" name="refi_desc"  type="text" value="{refi_desc}"></textarea></td>'+
+                '<td colspan="3"><textarea disabled id="refi_desc" name="refi_desc"  type="text" value="{refi_desc}">{refi_desc}</textarea></td>'+
                 '</tr>'+
                 '</table>',
 
 
                 '<table class="enter_table" id="table_demand_px">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;" id="demand_px"   type="checkbox" name="demand_px" value="true"/>培训需求&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input disabled style="width:50px;height:14px;" id="demand_px"   type="checkbox" name="demand_px" value="{demand_px}" <tpl if="this.checktype_demand_px(demand_px)">checked="checked"</tpl>/>培训需求&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">培训需求</th>',
@@ -821,17 +821,17 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '</tr>',
                 '<tr>',
                 '<th>培训内容</th>',
-                '<td colspan="3"><textarea id="retra_content" name="retra_content"  type="text" value="{retra_content}"></textarea></td>'+
+                '<td colspan="3"><textarea disabled id="retra_content" name="retra_content"  type="text" value="{retra_content}">{retra_content}</textarea></td>'+
                 '</tr>',
                 '<tr>'+
                 '<th>详细要求</th>'+
-                '<td colspan="3"><textarea id="retra_requests" name="retra_requests"  type="text" value="{retra_requests}"></textarea></td>'+
+                '<td colspan="3"><textarea disabled id="retra_requests" name="retra_requests"  type="text" value="{retra_requests}">{retra_requests}</textarea></td>'+
                 '</tr>'+
                 '</table>',
 
                 '<table class="enter_table" id="table_demand_rl">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;" id="demand_rl"  type="checkbox" name="demand_rl" value="true"/>人力需求&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input disabled style="width:50px;height:14px;" id="demand_rl"  type="checkbox" name="demand_rl" value="{demand_rl}" <tpl if="this.checktype_demand_rl(demand_rl)">checked="checked"</tpl> />人力需求&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">人力资源需求</th>',
@@ -883,7 +883,27 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '<li><a href="#table_demand_px"  style="font-size:18px;">培训需求</a></li>' +
                 '<li><a href="#table_demand_rl"  style="font-size:18px;">人力资源需求</a></li>' +
                 '</ul>',
-                '</div>'
+                '</div>',
+                {
+                    checktype_demand_rl: function (demand_rl) {
+                        return demand_rl == true;
+                    },
+                    checktype_demand_px: function (demand_px) {
+                        return demand_px == true;
+                    },
+                    checktype_demand_rz: function (demand_rz) {
+                        return demand_rz == true;
+                    },
+                    checktype_type_server: function (type_server) {
+                        return type_server == true;
+                    },
+                    checktype_type_investors: function (type_investors) {
+                        return type_investors == true;
+                    },
+                    checktype_type_govermt: function (type_govermt) {
+                        return type_govermt == true;
+                    }
+                }
             );
 
             //呈现组件

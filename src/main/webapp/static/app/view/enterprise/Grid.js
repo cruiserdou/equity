@@ -640,7 +640,7 @@ Ext.define('App.view.enterprise.Grid', {
 
                 '<table class="enter_table" id="table_service">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_server"  name="type_server"  type="checkbox" value="true" />服务机构&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_server"  name="type_server"  type="checkbox" value="{type_server}" <tpl if="this.checktype_type_server(type_server)">checked="checked"</tpl> />服务机构&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">服务机构信息</th>',
@@ -682,7 +682,7 @@ Ext.define('App.view.enterprise.Grid', {
 
                 '<table class="enter_table" id="table_investors">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_investors" name="type_investors"  type="checkbox" value="true" />投资人&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_investors" name="type_investors"  type="checkbox" value="{type_investors}" <tpl if="this.checktype_type_investors(type_investors)">checked="checked"</tpl>  />投资人&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">投资人信息</th>',
@@ -786,7 +786,7 @@ Ext.define('App.view.enterprise.Grid', {
 
                 '<table class="enter_table" id="table_govermt">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_govermt"  name="type_govermt" type="checkbox"  value="true"/>政府机构&nbsp;&nbsp;</td>',
+                '<td  colspan="4"><input style="width:50px;height:14px;"  id="type_govermt"  name="type_govermt" type="checkbox" value="{type_govermt}" <tpl if="this.checktype_type_govermt(type_govermt)">checked="checked"</tpl> />政府机构&nbsp;&nbsp;</td>',
                 '</tr>',
                 '<tr>',
                 '<th class="table_header" colspan="4">政府部门信息</th>',
@@ -956,6 +956,15 @@ Ext.define('App.view.enterprise.Grid', {
                     },
                     checktype_demand_rz: function (demand_rz) {
                         return demand_rz == true;
+                    },
+                    checktype_type_server: function (type_server) {
+                        return type_server == true;
+                    },
+                    checktype_type_investors: function (type_investors) {
+                        return type_investors == true;
+                    },
+                    checktype_type_govermt: function (type_govermt) {
+                        return type_govermt == true;
                     }
                 }
             );
