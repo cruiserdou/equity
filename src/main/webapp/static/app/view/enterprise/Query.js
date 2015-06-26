@@ -113,7 +113,7 @@ Ext.define('App.view.enterprise.Query', {
                                         var row = rows[i];
                                         var id = row.get('id');
                                         Ext.Ajax.request({
-                                            url: 'delete_enterprise_info',
+                                            url: 'delete_corp_info',
                                             params: {
                                                 "id": id
                                             },
