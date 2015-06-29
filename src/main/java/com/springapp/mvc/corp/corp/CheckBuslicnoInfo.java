@@ -1,4 +1,4 @@
-package com.springapp.mvc.enterprise;
+package com.springapp.mvc.corp.corp;
 
 /**
  * Created by xwq on 14-4-15.
@@ -27,6 +27,7 @@ public class CheckBuslicnoInfo {
     @ResponseBody
     DataShop getShopInJSON(
             @RequestParam("buslicno") String buslicno,
+            @RequestParam("id") Integer id,
             HttpSession session
     ) throws Exception{
         Connection conn = null;
@@ -45,21 +46,26 @@ public class CheckBuslicnoInfo {
         String url = connstr.getUrl();
         String user = connstr.getUser();
         String password = connstr.getPassword();
-        try{
+        try {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
-            int i_num_tj=0;
+            int i_num_tj = 0;
+            String sql = "";
+            if (id == 0) {
+                sql = "select  count(1) as num_tj " +
+                        " from work.tb_corp WHERE buslicno='" + buslicno + "'";
+            } else {
+                sql = "select  count(1) as num_tj " +
+                        " from work.tb_corp WHERE buslicno='" + buslicno + "' and id !=" + id;
+            }
 
-            String sql = "select  count(1) as num_tj " +
-                    " from work.tb_enterprise WHERE buslicno='"+buslicno+"'";
 
             rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                     i_num_tj = rs.getInt(1);
-                if(i_num_tj==0 || rs.getString(1) == null){
+                i_num_tj = rs.getInt(1);
+                if (i_num_tj == 0 || rs.getString(1) == null) {
                     dataShop.setSuccess(true);
-                }else
-                {
+                } else {
                     dataShop.setSuccess(false);
                 }
 
@@ -69,16 +75,14 @@ public class CheckBuslicnoInfo {
         }catch (SQLException e){
             System.out.print(e.getMessage());
         }finally {
-            try{
+            try {
                 if (rs != null) rs.close();
                 if (stmt != null) stmt.close();
                 if (conn != null) conn.close();
-            }catch (SQLException e){
+            } catch (SQLException e) {
                 System.out.print(e.getMessage());
             }
         }
-
-
 
         return dataShop;
     }

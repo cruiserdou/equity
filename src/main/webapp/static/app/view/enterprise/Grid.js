@@ -17,7 +17,7 @@ Ext.define('App.view.enterprise.Grid', {
                 '</tr>',
                 '<tr>',
                 '<th>营业执照号码<span style="color: red">*</span></th>',
-                '<td><input id="buslicno"  name="buslicno"  type="text" value="{buslicno}"/></td>',
+                '<td><input id="buslicno"  name="buslicno"  type="text"  value="{buslicno}"/></td>',
                 '<th>企业名称</th>',
                 '<td><input id="name" name="name"  type="text" value="{name}"/></td>',
                 '</tr>',
@@ -242,20 +242,6 @@ Ext.define('App.view.enterprise.Grid', {
                 '<td>',
                 '<select class="select" name="csrc_type2" id="csrc_type2">',
                 '<option>{csrc_type2}</option>',
-                ' </select>',
-                '</td>',
-                '</tr>',
-                '<tr>',
-                '<th>证监会行业三级分类</th>',
-                '<td>',
-                '<select class="select" name="csrc_type3" id="csrc_type3">',
-                '<option>{csrc_type3}</option>',
-                ' </select>',
-                '</td>',
-                '<th>证监会行业四级分类</th>',
-                '<td>',
-                '<select class="select" name="csrc_type4" id="csrc_type4">',
-                '<option>{csrc_type4}</option>',
                 ' </select>',
                 '</td>',
                 '</tr>',
@@ -730,20 +716,6 @@ Ext.define('App.view.enterprise.Grid', {
                 '<td>',
                 '<select class="select" name="inv_indclass2" id="inv_indclass2">',
                 '<option>{inv_indclass2}</option>',
-                ' </select>',
-                '</td>',
-                '</tr>',
-                '<tr>',
-                '<th>证监会行业三级分类</th>',
-                '<td>',
-                '<select class="select" name="inv_indclass3" id="inv_indclass3">',
-                '<option>{inv_indclass3}</option>',
-                ' </select>',
-                '</td>',
-                '<th>证监会行业四级分类</th>',
-                '<td>',
-                '<select class="select" name="inv_indclass4" id="inv_indclass4">',
-                '<option>{inv_indclass4}</option>',
                 ' </select>',
                 '</td>',
                 '<tr>',
@@ -1375,8 +1347,8 @@ function obt_corp_update(corp_id) {
             indclass4 : form_obt_edit['indclass4'].value,
             csrc_type1 : form_obt_edit['csrc_type1'].value,
             csrc_type2 : form_obt_edit['csrc_type2'].value,
-            csrc_type3 : form_obt_edit['csrc_type3'].value,
-            csrc_type4 : form_obt_edit['csrc_type4'].value,
+            csrc_type3 : "",
+            csrc_type4 : "",
             type_enterp : false,
             type_server : form_obt_edit['type_server'].checked,
             type_investors : form_obt_edit['type_investors'].checked,
@@ -1684,8 +1656,8 @@ function obt_corp_investors_update(corp_id,inv_id) {
             inv_csrc_type4 : form_obt_edit['inv_csrc_type4'].value,
             inv_indclass1 : form_obt_edit['inv_indclass1'].value,
             inv_indclass2 : form_obt_edit['inv_indclass2'].value,
-            inv_indclass3 : form_obt_edit['inv_indclass3'].value,
-            inv_indclass4 : form_obt_edit['inv_indclass4'].value,
+            inv_indclass3 : "",
+            inv_indclass4 : "",
             inv_contact : form_obt_edit['inv_contact'].value,
             inv_psotion : form_obt_edit['inv_psotion'].value,
             inv_doctype : form_obt_edit['inv_doctype'].value,
@@ -1825,3 +1797,29 @@ function save_corp_edit(corp_id,cont_id,gd_id,finid,mai_id,gov_id,inv_id,srv_id,
 
     Ext.getCmp('grid_enterprise').getStore().reload();
 }
+
+
+//function buslicno_check_edit() {
+//    var form_obt_apply = document.getElementById("apply_form");
+//    Ext.Ajax.request({
+//        method: "POST",
+//        params: {
+//            buslicno: form_obt_apply['buslicno'].value,
+//            id : 0
+//        },
+//        url: 'check_buslicno_info',
+//        success: function (response,opts) {
+//            var obj=Ext.decode(response.responseText);
+//
+//            if(!obj.success)
+//            {
+//                Ext.Msg.alert("提示", "该营业执照号码已用！");
+//                document.getElementById('apply_form')['buslicno'].value="";
+//            }
+//        },
+//        failure: function (response,opts) {
+//            Ext.Msg.alert("提示", "错");
+//        }
+//    });
+//
+//}

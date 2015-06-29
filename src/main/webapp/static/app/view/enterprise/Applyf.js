@@ -8,6 +8,7 @@ Ext.define('App.view.enterprise.Applyf', {
         afterrender: function () {
             setup();preselect('甘肃省');
             setup_cl();preselect_cl('农、林、牧、渔业');
+            setup_zjh();type_zjh('农、林、牧、渔业');
         }
     },
     applyTpl: [
@@ -21,7 +22,7 @@ Ext.define('App.view.enterprise.Applyf', {
         '</tr>',
         '<tr>',
         '<th>营业执照号码<span style="color: red">*</span></th>',
-        '<td><input id="buslicno"  name="buslicno"  type="text" value="{buslicno}"/></td>',
+        '<td><input id="buslicno"  name="buslicno"  type="text" onchange="card_check_apply(this);"  value="{buslicno}"/></td>',
         '<th>企业名称</th>',
         '<td><input id="name" name="name"  type="text" value="{name}"/></td>',
         '</tr>',
@@ -246,20 +247,6 @@ Ext.define('App.view.enterprise.Applyf', {
         '<td>',
         '<select class="select" name="csrc_type2" id="csrc_type2">',
         '<option>{csrc_type2}</option>',
-        ' </select>',
-        '</td>',
-        '</tr>',
-        '<tr>',
-        '<th>证监会行业三级分类</th>',
-        '<td>',
-        '<select class="select" name="csrc_type3" id="csrc_type3">',
-        '<option>{csrc_type3}</option>',
-        ' </select>',
-        '</td>',
-        '<th>证监会行业四级分类</th>',
-        '<td>',
-        '<select class="select" name="csrc_type4" id="csrc_type4">',
-        '<option>{csrc_type4}</option>',
         ' </select>',
         '</td>',
         '</tr>',
@@ -738,19 +725,6 @@ Ext.define('App.view.enterprise.Applyf', {
         '</td>',
         '</tr>',
         '<tr>',
-        '<th>证监会行业三级分类</th>',
-        '<td>',
-        '<select class="select" name="inv_indclass3" id="inv_indclass3">',
-        '<option>{inv_indclass3}</option>',
-        ' </select>',
-        '</td>',
-        '<th>证监会行业四级分类</th>',
-        '<td>',
-        '<select class="select" name="inv_indclass4" id="inv_indclass4">',
-        '<option>{inv_indclass4}</option>',
-        ' </select>',
-        '</td>',
-        '<tr>',
         '<th>姓名</th>',
         '<td><input id="inv_contact" name="inv_contact"  type="text" value="{inv_contact}"/></td>',
         '<th>证件类型</th>',
@@ -1062,8 +1036,8 @@ function obt_corp_add(corp_id) {
             indclass4 : document.getElementById('indclass4').value,
             csrc_type1 : document.getElementById('csrc_type1').value,
             csrc_type2 : document.getElementById('csrc_type2').value,
-            csrc_type3 : document.getElementById('csrc_type3').value,
-            csrc_type4 : document.getElementById('csrc_type4').value,
+            csrc_type3 : "",
+            csrc_type4 : "",
             type_enterp : false,
             type_server : document.getElementById('type_server').checked,
             type_investors : document.getElementById('type_investors').checked,
@@ -1371,8 +1345,8 @@ function obt_corp_investors_add(corp_id) {
             inv_csrc_type3 : document.getElementById('inv_csrc_type3').value,
             inv_csrc_type4 : document.getElementById('inv_csrc_type4').value,
             inv_indclass1 : document.getElementById('inv_indclass1').value,
-            inv_indclass2 : document.getElementById('inv_indclass2').value,
-            inv_indclass3 : document.getElementById('inv_indclass3').value,
+            inv_indclass2 : "",
+            inv_indclass3 : "",
             inv_indclass4 : document.getElementById('inv_indclass4').value,
             inv_contact : document.getElementById('inv_contact').value,
             inv_psotion : document.getElementById('inv_psotion').value,
@@ -1533,18 +1507,13 @@ function save_cust_add() {
 
 }
 
-function card_check() {
-    show();
-
-}
-
-function show()
-{
+function card_check_apply() {
     var form_obt_apply = document.getElementById("apply_form");
     Ext.Ajax.request({
         method: "POST",
         params: {
-            buslicno: form_obt_apply['buslicno'].value
+            buslicno: form_obt_apply['buslicno'].value,
+            id : 0
         },
         url: 'check_buslicno_info',
         success: function (response,opts) {
@@ -1560,7 +1529,9 @@ function show()
             Ext.Msg.alert("提示", "错");
         }
     });
+
 }
+
 
 
 

@@ -218,12 +218,6 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '<th>证监会行业二级分类</th>',
                 '<td>{csrc_type2}</td>',
                 '</tr>',
-                '<tr>',
-                '<th>证监会行业三级分类</th>',
-                '<td>{csrc_type3}</td>',
-                '<th>证监会行业四级分类</th>',
-                '<td>{csrc_type4}</td>',
-                '</tr>',
                 '</table>',
 
 
@@ -668,11 +662,7 @@ Ext.define('App.view.enterprise_query.Grid', {
                 '<th>证监会行业二级分类</th>',
                 '<td>{inv_indclass2}</td>',
                 '</tr>',
-                '<tr>',
-                '<th>证监会行业三级分类</th>',
-                '<td>{inv_indclass3}</td>',
-                '<th>证监会行业四级分类</th>',
-                '<td>{inv_indclass4}</td>',
+
                 '<tr>',
                 '<th>姓名</th>',
                 '<td>{inv_contact}</td>',
