@@ -92,6 +92,54 @@ Ext.define('App.view.enterprise.Query', {
                     }
                 },'-',
                 {
+                    id: 'import_corp_s_id',
+                    text: '导出',
+                    listeners: {
+                        click: function () {
+                            var sm = Ext.getCmp('grid_enterprise').getSelectionModel();
+                            var rows = sm.getSelection();
+                            var id_list = "";
+                            if (rows.length > 0) {
+                                for (var i = 0; i < rows.length; i++) {
+                                    var row = rows[i];
+                                    id_list = id_list + ',' + row.get('id');
+                                }
+                                Ext.create('widget.window', {
+                                    xtype: 'form',
+                                    frame: true,
+                                    modal: true,
+                                    width: 200,
+                                    height: 200,
+                                    title: '导出',
+                                    layout: {
+                                        type: 'vbox',
+                                        align: 'stretch',
+                                        pack: 'start'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'panel',
+                                            bodyPadding: '20',
+                                            flex: 1,
+                                            html: '<a onclick="corp_s_export(\'id_list\');"  href="#"><img style="height: 32px; margin-left: 50px;" />导出</a><br/>'
+                                        },
+                                        {
+                                            xtype: 'panel',
+                                            flex: 1,
+                                            bodyPadding: '20',
+                                            html: '<a href="static/upload/coprs.xls"><img style="width: 32px; margin-left: 50px;"  />下载</a>'
+                                        }
+                                    ]
+
+                                }).show(Ext.get('import_corp_s_id'));
+
+                            }else{
+                                Ext.Msg.alert('提示', '请选择要导出数据！');
+                            }
+                            }
+                    }
+                },'-',
+                {
                     text: '刷新',
                     listeners: {
                         click: function(_this){
@@ -237,4 +285,23 @@ Ext.define('App.view.enterprise.Query', {
         this.callParent(arguments);
     }
 });
+
+
+function corp_s_export(id_list) {
+  //alert(id_list);
+    Ext.Ajax.request({
+        url: 'import_corp_s',
+        params: {
+            "fileName": 'coprs.xls'
+        },
+        waitMsg: '正在导出数据...',
+        success: function (form, action) {
+            Ext.Msg.alert("成功", "导出成功!");
+        },
+        failure: function (form, action) {
+            Ext.Msg.alert("失败", "导出失败!");
+        }
+    });
+
+};
 

@@ -916,6 +916,8 @@ Ext.define('App.view.enterprise.Grid', {
                 '<li><a href="#table_demand_rl"  style="font-size:18px;">人力资源需求</a></li>' +
 
                 '</ul>' +
+                '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="corp_export({id})"><i class="fa fa-pencil"></i>导出</a>' +
+
                 '<a href="#"  id="start_btn" style="font-size:18px;display: block;  margin-top: 26px; margin-left: 4em;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close_edit()"><i class="fa fa-pencil"></i>关闭</a>' +
                 '</form>' +
                 '</div>',
@@ -1349,7 +1351,7 @@ function obt_corp_update(corp_id) {
             csrc_type2 : form_obt_edit['csrc_type2'].value,
             csrc_type3 : "",
             csrc_type4 : "",
-            type_enterp : false,
+            type_enterp : true,
             type_server : form_obt_edit['type_server'].checked,
             type_investors : form_obt_edit['type_investors'].checked,
             type_govermt : form_obt_edit['type_govermt'].checked,
@@ -1823,3 +1825,21 @@ function save_corp_edit(corp_id,cont_id,gd_id,finid,mai_id,gov_id,inv_id,srv_id,
 //    });
 //
 //}
+
+
+function corp_export(id) {
+
+    Ext.Ajax.request({
+        url: 'export_corp_info',
+        params: {
+            "id": id
+        },
+        waitMsg: '正在导出数据...',
+        success: function (form, action) {
+            Ext.Msg.alert("成功", "导出成功!");
+        },
+        failure: function (form, action) {
+            Ext.Msg.alert("失败", "导出失败!");
+        }
+    });
+};
