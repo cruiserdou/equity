@@ -18,6 +18,8 @@
     <link href="static/css/main.css" rel="stylesheet">
     <script src="static/jslib/ext-4.2/ext-all.js"></script>
     <script src="static/jslib/ext-4.2/locale/ext-lang-zh_CN.js"></script>
+    <script src="static/app/xtemplate/corp_contact.js"></script>
+    <script src="static/app/functions/corp_fun.js"></script>
     <script src="static/app/zjhfl.js"></script>
     <script src="static/app/gmjjfl.js"></script>
     <script src="static/app/geo.js"></script>

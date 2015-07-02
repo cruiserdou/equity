@@ -599,9 +599,6 @@ Ext.define('App.view.retrain.retrain_manage.Grid', {
 
                 '<table class="enter_table" id="table_demand_px">',
                 '<tr>',
-                '<td  colspan="4"><input style="width:50px;height:14px;" id="demand_px"   type="checkbox" name="demand_px" value="{demand_px}" <tpl if="this.checktype_demand_px(demand_px)">checked="checked"</tpl> />培训需求&nbsp;&nbsp;</td>',
-                '</tr>',
-                '<tr>',
                 '<th class="table_header" colspan="4">培训需求</th>',
                 '</tr>',
                 '<tr>',
@@ -1015,29 +1012,7 @@ function retrain_close_edit() {
 
 }
 
-function obt_corp_retrain_manage_update(corp_id,retra_id) {
-    var form_obt_edit = document.getElementById("apply_retrain_edit");
-    Ext.Ajax.request({
-        method: "POST",
-        params: {
-            retra_id : retra_id,
-            retra_corp_id : corp_id,
-            retra_mode : form_obt_edit['retra_mode'].value,
-            retra_content : form_obt_edit['retra_content'].value,
-            retra_acc_cost : form_obt_edit['retra_acc_cost'].value,
-            retra_dt : form_obt_edit['retra_dt'].value,
-            retra_requests : form_obt_edit['retra_requests'].value
-        },
-        url: 'update_corp_retrain_info',
-        success: function () {
-            Ext.Msg.alert("提示", "保存成功！");
-            Ext.getCmp('grid_retrain_manage').getStore().reload();
-        },
-        failure: function () {
-            Ext.Msg.alert("提示", "保存失败！");
-        }
-    });
-};
+
 
 function save_retrain_edit(corp_id,retra_id) {
 

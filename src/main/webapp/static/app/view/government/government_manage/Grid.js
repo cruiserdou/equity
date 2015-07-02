@@ -1034,40 +1034,6 @@ function government_close_edit() {
     Ext.getCmp('government_edit_id').close();
 
 }
-
-function obt_corp_government_manage_update(corp_id,gov_id) {
-    var form_obt_edit = document.getElementById("apply_government_edit");
-    Ext.Ajax.request({
-        method: "POST",
-        params: {
-            gov_id : gov_id,
-            gov_corp_id : corp_id,
-            gov_domain : form_obt_edit['gov_domain'].value,
-            gov_office : form_obt_edit['gov_office'].value,
-            gov_desc : form_obt_edit['gov_desc'].value,
-            gov_contact : form_obt_edit['gov_contact'].value,
-            gov_psotion : form_obt_edit['gov_psotion'].value,
-            gov_doctype : form_obt_edit['gov_doctype'].value,
-            gov_docnum : form_obt_edit['gov_docnum'].value,
-            gov_phone : form_obt_edit['gov_phone'].value,
-            gov_fax : form_obt_edit['gov_fax'].value,
-            gov_email : form_obt_edit['gov_email'].value,
-            gov_qq : form_obt_edit['gov_qq'].value,
-            gov_webchat : form_obt_edit['gov_webchat'].value,
-            gov_tel : form_obt_edit['gov_tel'].value,
-            gov_remark : form_obt_edit['gov_remark'].value
-        },
-        url: 'update_corp_government_info',
-        success: function () {
-            Ext.Msg.alert("提示", "保存成功！");
-            Ext.getCmp('grid_government_manage').getStore().reload();
-        },
-        failure: function () {
-            Ext.Msg.alert("提示", "保存失败！");
-        }
-    });
-};
-
 function save_government_edit(corp_id,gov_id) {
 
     var form_obt_edit = document.getElementById("apply_government_edit");

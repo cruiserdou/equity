@@ -25,7 +25,7 @@ public class ObtainCorpShareholderInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
-            @RequestParam(value = "field", required = false) String field
+            @RequestParam(value = "gd_corp_id", required = false) String gd_corp_id
   ) throws Exception{
         Connection conn = null;
         Statement stmt = null;
@@ -52,8 +52,8 @@ public class ObtainCorpShareholderInfo {
 
 
             String sql = "select * from work.tb_corp_shareholder WHERE 1 = 1 ";
-//            if (field != null && field.length() != 0)
-//                sql += " and field like '%" + field + "%'";
+            if (gd_corp_id != null && gd_corp_id.length() != 0)
+                sql += " and gd_corp_id="+gd_corp_id;
 
             rs = stmt.executeQuery(sql);
 

@@ -959,34 +959,7 @@ function service_close_edit() {
 
 }
 
-function obt_corp_service_manage_update(corp_id,srv_id) {
-    var form_obt_edit = document.getElementById("apply_service_edit");
-    Ext.Ajax.request({
-        method: "POST",
-        params: {
-            srv_id : srv_id,
-            srv_corp_id :corp_id,
-            srv_name : form_obt_edit['srv_name'].value,
-            srv_type : form_obt_edit['srv_type'].value,
-            srv_content : form_obt_edit['srv_content'].value,
-            srv_levels : form_obt_edit['srv_levels'].value,
-            srv_domain : form_obt_edit['srv_domain'].value,
-            srv_penalty : form_obt_edit['srv_penalty'].value,
-            srv_examiner : form_obt_edit['srv_examiner'].value,
-            srv_post : form_obt_edit['srv_post'].value,
-            srv_descs : form_obt_edit['srv_descs'].value,
-            srv_remark : form_obt_edit['srv_remark'].value
-        },
-        url: 'update_corp_service_info',
-        success: function () {
-            Ext.Msg.alert("提示", "保存成功！");
-            Ext.getCmp('grid_service_manage').getStore().reload();
-        },
-        failure: function () {
-            Ext.Msg.alert("提示", "保存失败！");
-        }
-    });
-};
+
 
 function save_service_edit(corp_id,srv_id) {
 

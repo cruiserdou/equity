@@ -1,3 +1,4 @@
+var role = '主管';
 Ext.define('App.view.msg.Query', {
     extend: 'Ext.form.Panel',
     alias: 'widget.msgf_query',
@@ -19,6 +20,7 @@ Ext.define('App.view.msg.Query', {
                 {
                     id: 'msg_add',
                     text: '添加',
+                    hide : 'true',
                     listeners: {
                         click: function () {
                             Ext.create('widget.window', {

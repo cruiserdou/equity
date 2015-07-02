@@ -1078,44 +1078,7 @@ function close_investors_edit_from() {
 
 }
 
-function obt_corp_investors_manage_update(corp_id,inv_id) {
-    var form_obt_edit = document.getElementById("investors_form");
-    Ext.Ajax.request({
-        method: "POST",
-        params: {
-            inv_id : inv_id,
-            inv_corp_id :corp_id,
-            inv_domain : form_obt_edit['inv_domain'].value,
-            inv_csrc_type1 : form_obt_edit['inv_csrc_type1'].value,
-            inv_csrc_type2 : form_obt_edit['inv_csrc_type2'].value,
-            inv_csrc_type3 : form_obt_edit['inv_csrc_type3'].value,
-            inv_csrc_type4 : form_obt_edit['inv_csrc_type4'].value,
-            inv_indclass1 : form_obt_edit['inv_indclass1'].value,
-            inv_indclass2 : form_obt_edit['inv_indclass2'].value,
-            inv_indclass3 : form_obt_edit['inv_indclass3'].value,
-            inv_indclass4 : form_obt_edit['inv_indclass4'].value,
-            inv_contact : form_obt_edit['inv_contact'].value,
-            inv_psotion : form_obt_edit['inv_psotion'].value,
-            inv_doctype : form_obt_edit['inv_doctype'].value,
-            inv_docnum : form_obt_edit['inv_docnum'].value,
-            inv_phone : form_obt_edit['inv_phone'].value,
-            inv_fax : form_obt_edit['inv_fax'].value,
-            inv_email : form_obt_edit['inv_email'].value,
-            inv_qq : form_obt_edit['inv_qq'].value,
-            inv_webchat : form_obt_edit['inv_webchat'].value,
-            inv_tel : form_obt_edit['inv_tel'].value,
-            inv_remark : form_obt_edit['inv_remark'].value
-        },
-        url: 'update_corp_investors_info',
-        success: function () {
-            Ext.Msg.alert("提示", "保存成功！");
-            Ext.getCmp('grid_investors_manage').getStore().reload();
-        },
-        failure: function () {
-            Ext.Msg.alert("提示", "保存失败！");
-        }
-    });
-};
+
 
 function save_investors_edit(corp_id,inv_id) {
     var form_obt_apply = document.getElementById("investors_form");

@@ -1010,30 +1010,6 @@ function rehr_close_edit() {
 
 }
 
-function obt_corp_rehr_manage_update(corp_id,rehr_id) {
-    var form_obt_edit = document.getElementById("apply_rehr_edit");
-    Ext.Ajax.request({
-        method: "POST",
-        params: {
-            rehr_id : rehr_id,
-            rehr_corp_id : corp_id,
-            rehr_post : form_obt_edit['rehr_post'].value,
-            rehr_num : form_obt_edit['rehr_num'].value,
-            rehr_salary : form_obt_edit['rehr_salary'].value,
-            rehr_sex_req : form_obt_edit['rehr_sex_req'].value,
-            rehr_age_req : form_obt_edit['rehr_age_req'].value,
-            rehr_requests : form_obt_edit['rehr_requests'].value
-        },
-        url: 'update_corp_rehr_info',
-        success: function () {
-            Ext.Msg.alert("提示", "保存成功！");
-            Ext.getCmp('grid_rehr_manage').getStore().reload();
-        },
-        failure: function () {
-            Ext.Msg.alert("提示", "保存失败！");
-        }
-    });
-};
 
 function save_rehr_edit(corp_id,rehr_id) {
 

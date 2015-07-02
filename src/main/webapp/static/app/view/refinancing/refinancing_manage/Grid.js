@@ -1013,31 +1013,7 @@ function refinancing_close_edit() {
 
 }
 
-function obt_corp_refinancing_manage_update(corp_id,refi_id) {
-    var form_obt_edit = document.getElementById("apply_refinancing_edit");
-    Ext.Ajax.request({
-        method: "POST",
-        params: {
-            refi_id : refi_id,
-            refi_corp_id :corp_id,
-            refi_amounts : form_obt_edit['refi_amounts'].value,
-            refi_use : form_obt_edit['refi_use'].value,
-            refi_financ : form_obt_edit['refi_financ'].value,
-            refi_security : form_obt_edit['refi_security'].value,
-            refi_acc_cost : form_obt_edit['refi_acc_cost'].value,
-            refi_deadline : form_obt_edit['refi_deadline'].value,
-            refi_desc : form_obt_edit['refi_desc'].value
-        },
-        url: 'update_corp_refinancing_info',
-        success: function () {
-            Ext.Msg.alert("提示", "保存成功！");
-            Ext.getCmp('grid_refinancing_manage').getStore().reload();
-        },
-        failure: function () {
-            Ext.Msg.alert("提示", "保存失败！");
-        }
-    });
-};
+
 
 function save_refinancing_edit(corp_id,refi_id) {
 
