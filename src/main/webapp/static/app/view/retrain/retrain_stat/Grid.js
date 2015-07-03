@@ -315,7 +315,6 @@ Ext.define('App.view.retrain.retrain_stat.Grid', {
                 {text: '可接受成本', width: 120, dataIndex: 'retra_acc_cost'},
                 {text: '有效时间', width: 120, dataIndex: 'retra_dt'},
                 {text: '详细要求', flex: 1, dataIndex: 'retra_requests'}
-
             ];
 
             this.viewConfig = {
