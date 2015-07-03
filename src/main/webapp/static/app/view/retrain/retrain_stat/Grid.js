@@ -317,7 +317,7 @@ Ext.define('App.view.retrain.retrain_stat.Grid', {
                 {text: '详细要求', flex: 1, dataIndex: 'retra_requests'}
 
             ];
- 
+
             this.viewConfig = {
                 forceFit: true
             };
