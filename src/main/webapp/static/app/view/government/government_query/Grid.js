@@ -8,8 +8,6 @@ Ext.define('App.view.government.government_query.Grid', {
         listeners: {
             'itemdblclick': function (view, record, item, index, e) {
 
-
-                //呈现组件
                 //呈现组件
                 var mypanel = new Ext.form.FormPanel({
                     id: "mypanel",
@@ -20,18 +18,13 @@ Ext.define('App.view.government.government_query.Grid', {
                     bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
                     listeners: {
                         afterrender: function (_this){
-                            corp_tpl.append('corp',record.data);
-                            corp_contact_tpl.append('corp_contact',record.data);
-                            corp_shareholder_tpl.append('corp_shareholder',record.data);
-                            corp_acount_tpl.append('corp_acount',record.data);
-                            corp_maintain_tpl.append('corp_maintain',record.data);
-                            corp_finance_tpl.append('corp_finance',record.data);
-                            corp_service_tpl.append('corp_service',record.data);
-                            corp_investors_tpl.append('corp_investors',record.data);
-                            corp_government_tpl.append('corp_government',record.data);
-                            corp_refinancing_tpl.append('corp_refinancing',record.data);
-                            corp_retrain_tpl.append('corp_retrain',record.data);
-                            corp_rehr_tpl.append('corp_rehr',record.data);
+                            corp_tpl.append('government_query_corp',record.data);
+                            corp_contact_tpl.append('government_query_corp_contact',record.data);
+                            corp_shareholder_tpl.append('government_query_corp_shareholder',record.data);
+                            corp_acount_tpl.append('government_query_corp_acount',record.data);
+                            corp_maintain_tpl.append('government_query_corp_maintain',record.data);
+                            corp_finance_tpl.append('government_query_corp_finance',record.data);
+                            corp_government_tpl.append('government_query_corp_government',record.data);
 
                         }
                     },
@@ -46,63 +39,63 @@ Ext.define('App.view.government.government_query.Grid', {
                             xtype: 'panel',
                             border: false,
                             id: 'corp_panel',
-                            html: '<div id="corp">' +
+                            html: '<div id="government_query_corp">' +
                             '</div>'
                         },
                         {
                             xtype: 'panel',
                             border: false,
                             id: 'corp_shareholder_panel',
-                            html: '<div id="corp_shareholder">' +
+                            html: '<div id="government_query_corp_shareholder">' +
                             '</div>'
                         },
                         {
                             xtype: 'panel',
                             border: false,
                             id: 'corp_contact_panel',
-                            html: '<div id="corp_contact">' +
+                            html: '<div id="government_query_corp_contact">' +
                             '</div>'
                         },
                         {
                             xtype: 'panel',
                             border: false,
                             id: 'corp_acount_panel',
-                            html: '<div id="corp_acount">' +
+                            html: '<div id="government_query_corp_acount">' +
                             '</div>'
                         },
                         {
                             xtype: 'panel',
                             border: false,
                             id: 'corp_maintain_panel',
-                            html: '<div id="corp_maintain">' +
+                            html: '<div id="government_query_corp_maintain">' +
                             '</div>'
                         },
                         {
                             xtype: 'panel',
                             border: false,
                             id: 'corp_finance_panel',
-                            html: '<div id="corp_finance">' +
+                            html: '<div id="government_query_corp_finance">' +
                             '</div>'
                         },
                         {
                             xtype: 'panel',
                             border: false,
                             id: 'corp_finance_panel',
-                            html: '<div id="corp_finance">' +
+                            html: '<div id="government_query_corp_finance">' +
                             '</div>'
                         },
                         {
                             xtype: 'panel',
                             border: false,
                             id: 'corp_government_panel',
-                            html: '<div id="corp_government">' +
+                            html: '<div id="government_query_corp_government">' +
                             '</div>'
                         },
                         {
                             xtype: 'panel',
                             border: false,
-                            id: 'corp_top_panel',
-                            html: '<div id="corp_top_div">' +
+                            id: 'government_query_panel',
+                            html: '<div id="government_query_div">' +
                             '<div style="position: fixed; top: 7em; right: 6em">'+
                             '<a href="#"   style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="government_query_close()">关闭</a>'+
 
@@ -124,7 +117,6 @@ Ext.define('App.view.government.government_query.Grid', {
                         }
                     ]
                 });
-
 
                 var editWindow = new Ext.Window({
                     layout: 'fit',

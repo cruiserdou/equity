@@ -14,8 +14,6 @@ Ext.define('App.view.enterprise_query.Grid', {
             })
         },
         'itemdblclick': function (view, record, item, index, e) {
-
-
             //呈现组件
             var mypanel = new Ext.form.FormPanel({
                 id: "mypanel",
@@ -171,9 +169,6 @@ Ext.define('App.view.enterprise_query.Grid', {
                     ]
             });
 
-
-            //重写绑定模板
-            //apply_edits.overwrite(mypanel.body, record.data);
             var editWindow = new Ext.Window({
                 layout: 'fit',
                 id: 'enterprise_ch_id',
@@ -186,14 +181,11 @@ Ext.define('App.view.enterprise_query.Grid', {
                 items: [mypanel]
             });
             editWindow.show(Ext.get('body'));
-
         }
     },
 
     initComponent: function () {
-
         this.columns = [
-
             {text: '企业ID',  width: 120, dataIndex: 'id', hidden: true},
             {text: '营业执照号码', width: 120, dataIndex: 'buslicno'},
             {text: '企业名称', width: 120, dataIndex: 'name'},
@@ -497,7 +489,6 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '可接受成本', width: 120, dataIndex: 'retra_acc_cost', hidden: true},
             {text: '有效时间', width: 120, dataIndex: 'retra_dt', hidden: true},
             {text: '详细要求', width: 120, dataIndex: 'retra_requests', hidden: true}
-
         ];
 
         this.viewConfig = {
@@ -518,11 +509,9 @@ Ext.define('App.view.enterprise_query.Grid', {
     }
 });
 
-
 function win_close_ch() {
     Ext.getCmp('enterprise_ch_id').close();
 }
-
 
 function export_enterprise() {
     Ext.Ajax.request({
@@ -538,5 +527,4 @@ function export_enterprise() {
             Ext.Msg.alert("失败", "导出失败!");
         }
     });
-
 };

@@ -10,8 +10,8 @@ Ext.define('App.view.investors.investors_query.Grid', {
 
 
                 //呈现组件
-                var investors_query_panel = new Ext.form.FormPanel({
-                    id: "investors_query_panel",
+                var mypanel = new Ext.form.FormPanel({
+                    id: "mypanel",
                     width: 820,
                     frame: false,
                     height: 600,
@@ -19,22 +19,16 @@ Ext.define('App.view.investors.investors_query.Grid', {
                     bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
                     listeners: {
                         afterrender: function (_this){
-                            corp_tpl.append('corp',record.data);
-                            corp_contact_tpl.append('corp_contact',record.data);
-                            corp_shareholder_tpl.append('corp_shareholder',record.data);
-                            corp_acount_tpl.append('corp_acount',record.data);
-                            corp_maintain_tpl.append('corp_maintain',record.data);
-                            corp_finance_tpl.append('corp_finance',record.data);
-                            corp_service_tpl.append('corp_service',record.data);
-                            corp_investors_tpl.append('corp_investors',record.data);
-                            corp_government_tpl.append('corp_government',record.data);
-                            corp_refinancing_tpl.append('corp_refinancing',record.data);
-                            corp_retrain_tpl.append('corp_retrain',record.data);
-                            corp_rehr_tpl.append('corp_rehr',record.data);
+                            corp_tpl.append('investors_query_corp',record.data);
+                            corp_contact_tpl.append('investors_query_corp_contact',record.data);
+                            corp_shareholder_tpl.append('investors_query_corp_shareholder',record.data);
+                            corp_acount_tpl.append('investors_query_corp_acount',record.data);
+                            corp_maintain_tpl.append('investors_query_corp_maintain',record.data);
+                            corp_finance_tpl.append('investors_query_corp_finance',record.data);
+                            corp_investors_tpl.append('investors_query_corp_investors',record.data);
 
                         }
                     },
-                    //bodyPadding: 100,
                     autoScroll: true,
                     layout: {
                         type: 'vbox',
@@ -42,62 +36,62 @@ Ext.define('App.view.investors.investors_query.Grid', {
                         pack: 'start'
                     },
                     items: [
-                        //{
-                        //    xtype: 'panel',
-                        //    border: false,
-                        //    id: 'corp_panel',
-                        //    html: '<div id="corp">' +
-                        //    '</div>'
-                        //},
-                        //{
-                        //    xtype: 'panel',
-                        //    border: false,
-                        //    id: 'corp_shareholder_panel',
-                        //    html: '<div id="corp_shareholder">' +
-                        //    '</div>'
-                        //},
-                        //{
-                        //    xtype: 'panel',
-                        //    border: false,
-                        //    id: 'corp_contact_panel',
-                        //    html: '<div id="corp_contact">' +
-                        //    '</div>'
-                        //},
-                        //{
-                        //    xtype: 'panel',
-                        //    border: false,
-                        //    id: 'corp_acount_panel',
-                        //    html: '<div id="corp_acount">' +
-                        //    '</div>'
-                        //},
-                        //{
-                        //    xtype: 'panel',
-                        //    border: false,
-                        //    id: 'corp_maintain_panel',
-                        //    html: '<div id="corp_maintain">' +
-                        //    '</div>'
-                        //},
-                        //{
-                        //    xtype: 'panel',
-                        //    border: false,
-                        //    id: 'corp_finance_panel',
-                        //    html: '<div id="corp_finance">' +
-                        //    '</div>'
-                        //},
-                        //{
-                        //    xtype: 'panel',
-                        //    border: false,
-                        //    id: 'corp_finance_panel',
-                        //    html: '<div id="corp_finance">' +
-                        //    '</div>'
-                        //},
-                        //{
-                        //    xtype: 'panel',
-                        //    border: false,
-                        //    id: 'corp_investors_panel',
-                        //    html: '<div id="corp_investors">' +
-                        //    '</div>'
-                        //},
+                        {
+                            xtype: 'panel',
+                            border: false,
+                            id: 'corp_panel',
+                            html: '<div id="investors_query_corp">' +
+                            '</div>'
+                        },
+                        {
+                            xtype: 'panel',
+                            border: false,
+                            id: 'corp_shareholder_panel',
+                            html: '<div id="investors_query_corp_shareholder">' +
+                            '</div>'
+                        },
+                        {
+                            xtype: 'panel',
+                            border: false,
+                            id: 'corp_contact_panel',
+                            html: '<div id="investors_query_corp_contact">' +
+                            '</div>'
+                        },
+                        {
+                            xtype: 'panel',
+                            border: false,
+                            id: 'corp_acount_panel',
+                            html: '<div id="investors_query_corp_acount">' +
+                            '</div>'
+                        },
+                        {
+                            xtype: 'panel',
+                            border: false,
+                            id: 'corp_maintain_panel',
+                            html: '<div id="investors_query_corp_maintain">' +
+                            '</div>'
+                        },
+                        {
+                            xtype: 'panel',
+                            border: false,
+                            id: 'corp_finance_panel',
+                            html: '<div id="investors_query_corp_finance">' +
+                            '</div>'
+                        },
+                        {
+                            xtype: 'panel',
+                            border: false,
+                            id: 'corp_finance_panel',
+                            html: '<div id="investors_query_corp_finance">' +
+                            '</div>'
+                        },
+                        {
+                            xtype: 'panel',
+                            border: false,
+                            id: 'corp_investors_panel',
+                            html: '<div id="investors_query_corp_investors">' +
+                            '</div>'
+                        },
                         {
                             xtype: 'panel',
                             border: false,
@@ -135,7 +129,7 @@ Ext.define('App.view.investors.investors_query.Grid', {
                     title: '企业信息',
                     maximized: true,
                     maximizable: true,
-                    items: [investors_query_panel]
+                    items: [mypanel]
                 });
                 editWindow.show(Ext.get('body'));
 

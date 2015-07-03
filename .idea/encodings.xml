@@ -14,6 +14,9 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/print_enterprise.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/userregister.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/static/app/functions/corp_fun.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/app/xtemplate/corp_apply.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/static/app/xtemplate/corp_contact.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/app/xtemplate/corp_edit.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/app/xtemplate/corp_view.js" charset="UTF-8" />
   </component>
 </project>

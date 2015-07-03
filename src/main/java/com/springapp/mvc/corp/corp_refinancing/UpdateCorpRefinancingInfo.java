@@ -28,11 +28,11 @@ public class UpdateCorpRefinancingInfo {
     DataShop getShopInJSON(
             @RequestParam(value = "refi_id", required = false) Integer  refi_id,
             @RequestParam(value = "refi_corp_id", required = false) Integer  refi_corp_id,
-            @RequestParam(value = "refi_amounts", required = false) BigDecimal refi_amounts,
+            @RequestParam(value = "refi_amounts", required = false) String refi_amounts,
             @RequestParam(value = "refi_use", required = false) String refi_use,
-            @RequestParam(value = "refi_financ", required = false) BigDecimal refi_financ,
+            @RequestParam(value = "refi_financ", required = false) String refi_financ,
             @RequestParam(value = "refi_security", required = false) String refi_security,
-            @RequestParam(value = "refi_acc_cost", required = false) BigDecimal refi_acc_cost,
+            @RequestParam(value = "refi_acc_cost", required = false) String refi_acc_cost,
             @RequestParam(value = "refi_deadline", required = false) String refi_deadline,
             @RequestParam(value = "refi_desc", required = false) String refi_desc
 
@@ -61,11 +61,11 @@ public class UpdateCorpRefinancingInfo {
                     "  where refi_id = ?";
             pst = conn.prepareStatement(sql);
             pst.setInt(1, refi_corp_id);
-            pst.setBigDecimal(2, refi_amounts);
+            pst.setString(2, refi_amounts);
             pst.setString(3, refi_use);
-            pst.setBigDecimal(4, refi_financ);
+            pst.setString(4, refi_financ);
             pst.setString(5, refi_security);
-            pst.setBigDecimal(6, refi_acc_cost);
+            pst.setString(6, refi_acc_cost);
             java.sql.Date d_refi_deadline = null;
             if (refi_deadline != null && refi_deadline.length() > 2)
                 d_refi_deadline = java.sql.Date.valueOf(refi_deadline);

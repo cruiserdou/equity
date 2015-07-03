@@ -47,8 +47,8 @@ function obt_corp_investors_manage_update(corp_id,inv_id) {
             inv_csrc_type4 : form_obt_edit['inv_csrc_type4'].value,
             inv_indclass1 : form_obt_edit['inv_indclass1'].value,
             inv_indclass2 : form_obt_edit['inv_indclass2'].value,
-            inv_indclass3 : form_obt_edit['inv_indclass3'].value,
-            inv_indclass4 : form_obt_edit['inv_indclass4'].value,
+            inv_indclass3 : "",
+            inv_indclass4 : "",
             inv_contact : form_obt_edit['inv_contact'].value,
             inv_psotion : form_obt_edit['inv_psotion'].value,
             inv_doctype : form_obt_edit['inv_doctype'].value,
@@ -672,7 +672,7 @@ function obt_corp_retrain_update(corp_id,retra_id) {
     });
 };
 
-function obt_corp_add(corp_id) { 
+function obt_corp_add(corp_id) {
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -721,7 +721,6 @@ function obt_corp_add(corp_id) {
             demand_rz : document.getElementById('demand_rz').checked,
             demand_px : document.getElementById('demand_px').checked,
             demand_rl : document.getElementById('demand_rl').checked
-            //inputdt : document.getElementById('inputdt').value
         },
         url: 'add_corp_info',
         success: function () {
