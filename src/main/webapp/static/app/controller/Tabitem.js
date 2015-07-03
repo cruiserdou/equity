@@ -8,8 +8,9 @@ Ext.define('App.controller.Tabitem', {
         ,'syj_roles','syj_userroles','syj_rolepermissions'
         ,'msg','enterprise','login_log','enterprise_sh','change'
         ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
-        ,'investors','corp_all',
-        'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
+        ,'investors','corp_all'
+        ,'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
+        ,'maintain_plan','maintain_info'
     ],
 
 
@@ -20,8 +21,9 @@ Ext.define('App.controller.Tabitem', {
         ,'syj_roles','syj_userroles','syj_rolepermissions'
         ,'msg','enterprise','login_log','change'
         ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
-        ,'investors','corp_all','corp_service_all','corp_investors_all','corp_government_all','corp_refinancing_all','corp_rehr_all','corp_retrain_all',
-        'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
+        ,'investors','corp_all','corp_service_all','corp_investors_all','corp_government_all','corp_refinancing_all','corp_rehr_all','corp_retrain_all'
+        ,'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
+        ,'maintain_plan','maintain_info'
     ],
 
     views: [
@@ -57,7 +59,9 @@ Ext.define('App.controller.Tabitem', {
         'rehr.rehr_stat.Rehr_statf','rehr.rehr_stat.Grid','rehr.rehr_stat.Query',
         'retrain.retrain_manage.Retrain_managef','retrain.retrain_manage.Grid','retrain.retrain_manage.Query',
         'retrain.retrain_query.Retrain_queryf','retrain.retrain_query.Grid','retrain.retrain_query.Query',
-        'retrain.retrain_stat.Retrain_statf', 'retrain.retrain_stat.Grid', 'retrain.retrain_stat.Query'
+        'retrain.retrain_stat.Retrain_statf', 'retrain.retrain_stat.Grid', 'retrain.retrain_stat.Query',
+        'maintain_plan.Maintain_planf', 'maintain_plan.Grid', 'maintain_plan.Query',
+        'maintain_info.Maintain_infof','maintain_info.Grid','maintain_info.Query'
 
   ],
 
