@@ -9,6 +9,8 @@ Ext.define('App.view.enterprise.Applyf', {
             setup();preselect('甘肃省');
             setup_cl();preselect_cl('农、林、牧、渔业');
             setup_zjh();type_zjh('农、林、牧、渔业');
+            setup_cl_investors();preselect_cl_investors('农、林、牧、渔业');
+            setup_zjh_investors();type_zjh('农、林、牧、渔业');
         }
     },
 

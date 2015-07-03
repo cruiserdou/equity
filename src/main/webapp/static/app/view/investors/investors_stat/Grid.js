@@ -1,137 +1,10 @@
-Ext.define('App.view.retrain.retrain_query.Grid', {
+Ext.define('App.view.investors.investors_stat.Grid', {
         extend: 'Ext.grid.Panel',
-        alias: 'widget.retrain_queryf_grid',
-        store: 'corp_retrain_all',
+        alias: 'widget.investors_statf_grid',
+        store: 'corp_investors_all',
         selModel: new Ext.selection.CheckboxModel({checkOnly: false}),
-        id :'grid_retrain_query',
-
-        listeners: {
-            'itemdblclick': function (view, record, item, index, e) {
-                //呈现组件
-                var mypanel = new Ext.form.FormPanel({
-                    id: "mypanel",
-                    width: 820,
-                    frame: false,
-                    height: 600,
-                    border: false,
-                    bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
-                    listeners: {
-                        afterrender: function (_this){
-                            corp_tpl.append('retrain_query_corp',record.data);
-                            corp_contact_tpl.append('retrain_query_corp_contact',record.data);
-                            corp_shareholder_tpl.append('retrain_query_corp_shareholder',record.data);
-                            corp_acount_tpl.append('retrain_query_corp_acount',record.data);
-                            corp_maintain_tpl.append('retrain_query_corp_maintain',record.data);
-                            corp_finance_tpl.append('retrain_query_corp_finance',record.data); 
-                            corp_retrain_tpl.append('retrain_query_corp_retrain',record.data); 
-
-                        }
-                    },
-                    autoScroll: true,
-                    layout: {
-                        type: 'vbox',
-                        align: 'stretch',
-                        pack: 'start'
-                    },
-                    items: [
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_panel',
-                            html: '<div id="retrain_query_corp">' +
-                            '</div>'
-                        },
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_shareholder_panel',
-                            html: '<div id="retrain_query_corp_shareholder">' +
-                            '</div>'
-                        },
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_contact_panel',
-                            html: '<div id="retrain_query_corp_contact">' +
-                            '</div>'
-                        },
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_acount_panel',
-                            html: '<div id="retrain_query_corp_acount">' +
-                            '</div>'
-                        },
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_maintain_panel',
-                            html: '<div id="retrain_query_corp_maintain">' +
-                            '</div>'
-                        },
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_finance_panel',
-                            html: '<div id="retrain_query_corp_finance">' +
-                            '</div>'
-                        },
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_finance_panel',
-                            html: '<div id="retrain_query_corp_finance">' +
-                            '</div>'
-                        }, 
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_retrain_panel',
-                            html: '<div id="retrain_query_corp_retrain">' +
-                            '</div>'
-                        }, 
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'retrain_query_corp_panel',
-                            html: '<div id="retrain_query_corp_div">' +
-                            '<div style="position: fixed; top: 7em; right: 6em">'+
-                            '<a href="#"   style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="retrain_query_close()">关闭</a>'+
-
-                            '<a  href="print_enterprise?id={id}" target="_blank" style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#1d13f2, #1e7fe1);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);">打印</a>'+
-
-                            '<a  onclick="export_enterprise();"  href="#" style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#c5f21d, #50e11a);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);">导出</a>'+
-
-                            '<ul>'+
-                            '<li><a href="#table_base" style="font-size:18px;">基本信息</a></li>' +
-                            '<li><a href="#table_sh"  style="font-size:18px;">股东名册</a></li>' +
-                            '<li><a href="#table_link"  style="font-size:18px;">法定代表人</a></li>' +
-                            '<li><a href="#table_acount"  style="font-size:18px;">行业分类</a></li>' +
-                            '<li><a href="#table_csrc_type"  style="font-size:18px;">证监会行业分类</a></li>' +
-                            '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</a></li>' +
-                            '<li><a href="#table_assets_finance"  style="font-size:18px;">企业财务信息</a></li>' +
-                            '<li><a href="#table_demand_px"  style="font-size:18px;">培训需求</a></li>' +
-                            '</ul>' +
-                            '</div>'
-                        }
-                    ]
-                });
-
-                var editWindow = new Ext.Window({
-                    layout: 'fit',
-                    id: 'retrain_query_id',
-                    width: 830,
-                    height: 650,
-                    modal: true,
-                    title: '企业信息',
-                    maximized: true,
-                    maximizable: true,
-                    items: [mypanel]
-                });
-                editWindow.show(Ext.get('body'));
-
-            }
-        },
+        id :'grid_investors_stat',
+ 
         initComponent: function () {
 
             this.columns = [
@@ -153,7 +26,7 @@ Ext.define('App.view.retrain.retrain_query.Grid', {
                 {text: '注册日期', width: 120, dataIndex: 'regdt', hidden: true},
                 {text: '挂牌区域', width: 120, dataIndex: 'list_area', hidden: true},
                 {text: '挂牌代码', width: 120, dataIndex: 'listcode', hidden: true},
-                {text: '挂牌出资（元/元出资.股）', width: 120, dataIndex: 'listprice', hidden: true},
+                {text: '挂牌出资（元/元出资.股）', width: 120, dataIndex: 'listprice'},
                 {text: '挂牌日期', width: 120, dataIndex: 'listdt', hidden: true},
                 {text: '推荐单位', width: 120, dataIndex: 'channels', hidden: true},
                 {text: '微信号', width: 120, dataIndex: 'webchat', hidden: true},
@@ -395,26 +268,26 @@ Ext.define('App.view.retrain.retrain_query.Grid', {
                 {text: '备注', width: 120, dataIndex: 'gov_remark', hidden: true},
                 {text: '投资人ID', width: 120, dataIndex: 'inv_id', hidden: true},
                 {text: '企业ID', width: 120, dataIndex: 'inv_corp_id', hidden: true},
-                {text: '投资领域', width: 120, dataIndex: 'inv_domain', hidden: true},
-                {text: '证监会行业分类1', width: 120, dataIndex: 'inv_csrc_type1', hidden: true},
-                {text: '证监会行业分类2', width: 120, dataIndex: 'inv_csrc_type2', hidden: true},
-                {text: '证监会行业分类3', width: 120, dataIndex: 'inv_csrc_type3', hidden: true},
-                {text: '证监会行业分类4', width: 120, dataIndex: 'inv_csrc_type4', hidden: true},
-                {text: '行业一级分类', width: 120, dataIndex: 'inv_indclass1', hidden: true},
-                {text: '行业二级分类', width: 120, dataIndex: 'inv_indclass2', hidden: true},
-                {text: '行业三级分类', width: 120, dataIndex: 'inv_indclass3', hidden: true},
-                {text: '行业四级分类', width: 120, dataIndex: 'inv_indclass4', hidden: true},
-                {text: '联系人', width: 120, dataIndex: 'inv_contact', hidden: true},
-                {text: '职务', width: 120, dataIndex: 'inv_psotion', hidden: true},
-                {text: '证件类型', width: 120, dataIndex: 'inv_doctype', hidden: true},
-                {text: '证件号码', width: 120, dataIndex: 'inv_docnum', hidden: true},
-                {text: '手机号码', width: 120, dataIndex: 'inv_phone', hidden: true},
-                {text: '传真', width: 120, dataIndex: 'inv_fax', hidden: true},
-                {text: 'E-mail', width: 120, dataIndex: 'inv_email', hidden: true},
-                {text: 'QQ',width: 120, dataIndex: 'inv_qq', hidden: true},
-                {text: '个人微信号', width: 120, dataIndex: 'inv_webchat', hidden: true},
-                {text: '固定电话', width: 120, dataIndex: 'inv_tel', hidden: true},
-                {text: '备注', width: 120, dataIndex: 'inv_remark', hidden: true},
+                {text: '投资领域', width: 120, dataIndex: 'inv_domain'},
+                {text: '证监会行业分类1', width: 120, dataIndex: 'inv_csrc_type1'},
+                {text: '证监会行业分类2', width: 120, dataIndex: 'inv_csrc_type2'},
+                {text: '证监会行业分类3', width: 120, dataIndex: 'inv_csrc_type3'},
+                {text: '证监会行业分类4', width: 120, dataIndex: 'inv_csrc_type4'},
+                {text: '行业一级分类', width: 120, dataIndex: 'inv_indclass1'},
+                {text: '行业二级分类', width: 120, dataIndex: 'inv_indclass2'},
+                {text: '行业三级分类', width: 120, dataIndex: 'inv_indclass3'},
+                {text: '行业四级分类', width: 120, dataIndex: 'inv_indclass4'},
+                {text: '联系人', width: 120, dataIndex: 'inv_contact'},
+                {text: '职务', width: 120, dataIndex: 'inv_psotion'},
+                {text: '证件类型', width: 120, dataIndex: 'inv_doctype'},
+                {text: '证件号码', width: 120, dataIndex: 'inv_docnum'},
+                {text: '手机号码', width: 120, dataIndex: 'inv_phone'},
+                {text: '传真', width: 120, dataIndex: 'inv_fax'},
+                {text: 'E-mail', width: 120, dataIndex: 'inv_email'},
+                {text: 'QQ',width: 120, dataIndex: 'inv_qq'},
+                {text: '个人微信号', width: 120, dataIndex: 'inv_webchat'},
+                {text: '固定电话', width: 120, dataIndex: 'inv_tel'},
+                {text: '备注', flex: 1, dataIndex: 'inv_remark'},
                 {text: '融资需求ID', width: 120, dataIndex: 'refi_id', hidden: true},
                 {text: '企业ID', width: 120, dataIndex: 'refi_corp_id', hidden: true},
                 {text: '融资金额', width: 120, dataIndex: 'refi_amounts', hidden: true},
@@ -424,8 +297,6 @@ Ext.define('App.view.retrain.retrain_query.Grid', {
                 {text: '可接受成本（%/年）',width: 120, dataIndex: 'refi_acc_cost', hidden: true},
                 {text: '融资期限', width: 120, dataIndex: 'refi_deadline', hidden: true},
                 {text: '融资用途详细说明', width: 120, dataIndex: 'refi_desc', hidden: true},
-                {text: '人力资源需求ID', width: 120, dataIndex: 'retrain_id', hidden: true},
-                {text: '企业ID', width: 120, dataIndex: 'retrain_corp_id', hidden: true},
                 {text: '人力资源需求ID', width: 120, dataIndex: 'rehr_id', hidden: true},
                 {text: '企业ID', width: 120, dataIndex: 'rehr_corp_id', hidden: true},
                 {text: '需求职位', width: 120, dataIndex: 'rehr_post', hidden: true},
@@ -436,22 +307,20 @@ Ext.define('App.view.retrain.retrain_query.Grid', {
                 {text: '经验要求', width: 120, dataIndex: 'rehr_requests', hidden: true},
                 {text: '培训需求ID', width: 120, dataIndex: 'retra_id', hidden: true},
                 {text: '企业ID', width: 120, dataIndex: 'retra_corp_id', hidden: true},
-                {text: '培训方式', width: 120, dataIndex: 'retra_mode'},
-                {text: '培训内容', width: 120, dataIndex: 'retra_content'},
-                {text: '可接受成本', width: 120, dataIndex: 'retra_acc_cost'},
-                {text: '有效时间', width: 120, dataIndex: 'retra_dt'},
-                {text: '详细要求', flex: 1, dataIndex: 'retra_requests'}
+                {text: '培训方式', width: 120, dataIndex: 'retra_mode', hidden: true},
+                {text: '培训内容', width: 120, dataIndex: 'retra_content', hidden: true},
+                {text: '可接受成本', width: 120, dataIndex: 'retra_acc_cost', hidden: true},
+                {text: '有效时间', width: 120, dataIndex: 'retra_dt', hidden: true},
+                {text: '详细要求', width: 120, dataIndex: 'retra_requests', hidden: true}
 
             ];
-
-
 
             this.viewConfig = {
                 forceFit: true
             };
             Ext.apply(this, {
                 bbar: Ext.create('Ext.PagingToolbar', {
-                store: 'corp_retrain_all',
+                    store: 'corp_investors_all',
                     displayInfo: true,
                     displayMsg: '第 {0} 到 {1} 条数据, 共{2}条',
                     emptyMsg: '无数据'
@@ -464,7 +333,3 @@ Ext.define('App.view.retrain.retrain_query.Grid', {
         }
     });
 
-function retrain_query_close() {
-    Ext.getCmp('retrain_query_id').close();
-
-}

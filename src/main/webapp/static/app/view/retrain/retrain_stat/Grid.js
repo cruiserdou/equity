@@ -1,137 +1,11 @@
-Ext.define('App.view.retrain.retrain_query.Grid', {
+Ext.define('App.view.retrain.retrain_stat.Grid', {
         extend: 'Ext.grid.Panel',
-        alias: 'widget.retrain_queryf_grid',
+        alias: 'widget.retrain_statf_grid',
         store: 'corp_retrain_all',
         selModel: new Ext.selection.CheckboxModel({checkOnly: false}),
-        id :'grid_retrain_query',
+        id :'grid_retrain_stat',
 
-        listeners: {
-            'itemdblclick': function (view, record, item, index, e) {
-                //呈现组件
-                var mypanel = new Ext.form.FormPanel({
-                    id: "mypanel",
-                    width: 820,
-                    frame: false,
-                    height: 600,
-                    border: false,
-                    bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
-                    listeners: {
-                        afterrender: function (_this){
-                            corp_tpl.append('retrain_query_corp',record.data);
-                            corp_contact_tpl.append('retrain_query_corp_contact',record.data);
-                            corp_shareholder_tpl.append('retrain_query_corp_shareholder',record.data);
-                            corp_acount_tpl.append('retrain_query_corp_acount',record.data);
-                            corp_maintain_tpl.append('retrain_query_corp_maintain',record.data);
-                            corp_finance_tpl.append('retrain_query_corp_finance',record.data); 
-                            corp_retrain_tpl.append('retrain_query_corp_retrain',record.data); 
-
-                        }
-                    },
-                    autoScroll: true,
-                    layout: {
-                        type: 'vbox',
-                        align: 'stretch',
-                        pack: 'start'
-                    },
-                    items: [
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_panel',
-                            html: '<div id="retrain_query_corp">' +
-                            '</div>'
-                        },
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_shareholder_panel',
-                            html: '<div id="retrain_query_corp_shareholder">' +
-                            '</div>'
-                        },
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_contact_panel',
-                            html: '<div id="retrain_query_corp_contact">' +
-                            '</div>'
-                        },
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_acount_panel',
-                            html: '<div id="retrain_query_corp_acount">' +
-                            '</div>'
-                        },
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_maintain_panel',
-                            html: '<div id="retrain_query_corp_maintain">' +
-                            '</div>'
-                        },
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_finance_panel',
-                            html: '<div id="retrain_query_corp_finance">' +
-                            '</div>'
-                        },
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_finance_panel',
-                            html: '<div id="retrain_query_corp_finance">' +
-                            '</div>'
-                        }, 
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'corp_retrain_panel',
-                            html: '<div id="retrain_query_corp_retrain">' +
-                            '</div>'
-                        }, 
-                        {
-                            xtype: 'panel',
-                            border: false,
-                            id: 'retrain_query_corp_panel',
-                            html: '<div id="retrain_query_corp_div">' +
-                            '<div style="position: fixed; top: 7em; right: 6em">'+
-                            '<a href="#"   style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="retrain_query_close()">关闭</a>'+
-
-                            '<a  href="print_enterprise?id={id}" target="_blank" style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#1d13f2, #1e7fe1);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);">打印</a>'+
-
-                            '<a  onclick="export_enterprise();"  href="#" style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#c5f21d, #50e11a);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);">导出</a>'+
-
-                            '<ul>'+
-                            '<li><a href="#table_base" style="font-size:18px;">基本信息</a></li>' +
-                            '<li><a href="#table_sh"  style="font-size:18px;">股东名册</a></li>' +
-                            '<li><a href="#table_link"  style="font-size:18px;">法定代表人</a></li>' +
-                            '<li><a href="#table_acount"  style="font-size:18px;">行业分类</a></li>' +
-                            '<li><a href="#table_csrc_type"  style="font-size:18px;">证监会行业分类</a></li>' +
-                            '<li><a href="#table_ocompay"  style="font-size:18px;">企业维护信息</a></li>' +
-                            '<li><a href="#table_assets_finance"  style="font-size:18px;">企业财务信息</a></li>' +
-                            '<li><a href="#table_demand_px"  style="font-size:18px;">培训需求</a></li>' +
-                            '</ul>' +
-                            '</div>'
-                        }
-                    ]
-                });
-
-                var editWindow = new Ext.Window({
-                    layout: 'fit',
-                    id: 'retrain_query_id',
-                    width: 830,
-                    height: 650,
-                    modal: true,
-                    title: '企业信息',
-                    maximized: true,
-                    maximizable: true,
-                    items: [mypanel]
-                });
-                editWindow.show(Ext.get('body'));
-
-            }
-        },
+   
         initComponent: function () {
 
             this.columns = [
@@ -464,7 +338,4 @@ Ext.define('App.view.retrain.retrain_query.Grid', {
         }
     });
 
-function retrain_query_close() {
-    Ext.getCmp('retrain_query_id').close();
 
-}

@@ -9,44 +9,6 @@ Dsy.prototype.Exists = function (id) {
     return true;
 }
 
-function change_cl(v) {
-    var str = "0";
-    for (i = 0; i < v; i++) { str += ("_" + (document.getElementById(cl[i]).selectedIndex - 1));}
-
-    var ss = document.getElementById(cl[v]);
-    with (ss) {
-        length = 0;
-        options[0] = new Option(opt_cl[v], opt_cl[v]);
-        if (v && document.getElementById(cl[v - 1]).selectedIndex > 0 || !v) {
-            if (dsy_cl.Exists(str)) {
-                ar = dsy_cl.Items[str];
-                for (i = 0; i < ar.length; i++)options[length] = new Option(ar[i], ar[i]);
-                if (v)options[0].selected = true;
-            }
-        }
-        if (++v < cl.length) {change_cl(v);}
-    }
-}
-function preselect_cl(p_key) {
-    //alert(p_key);
-    var index;
-
-    var provinces = new Array("农、林、牧、渔业", "采矿业","制造业","电力、燃气及水的生产和供应业","建筑业","交通运输、仓储和邮政业","信息传输、计算机服务和软件业","批发和零售业","住宿和餐饮业","金融业","房地产业","租赁和商务服务业","科学研究、技术服务和地质勘查业","水利、环境和公共设施管理业","居民服务和其他服务业","教育","卫生、社会保障和社会福利业","文化、体育和娱乐业","公共管理和社会组织","国际组织");
-
-    var cnt = provinces.length;
-    //alert(cnt);
-    for (i = 0; i < cnt; i++) {
-        if (p_key == provinces[i]) {
-            index = i;
-            break;
-        }
-    }
-    if (index < provinces.length) {
-        document.getElementById(cl[0]).selectedIndex = index + 1;
-        change_cl(1);
-    }
-}
-
 var dsy_cl = new Dsy();
 
 
@@ -357,13 +319,44 @@ dsy_cl.add("0_18_4",["社区自治组织","村民自治组织"]);
 dsy_cl.add("0_19",["国际组织"]);
 dsy_cl.add("0_19_0",["国际组织"]);
 
-
-
-
-
-
 dsy_cl.add("0", ["农、林、牧、渔业", "采矿业","制造业","电力、燃气及水的生产和供应业","建筑业","交通运输、仓储和邮政业","信息传输、计算机服务和软件业","批发和零售业","住宿和餐饮业","金融业","房地产业","租赁和商务服务业","科学研究、技术服务和地质勘查业","水利、环境和公共设施管理业","居民服务和其他服务业","教育","卫生、社会保障和社会福利业","文化、体育和娱乐业","公共管理和社会组织","国际组织"]);
 
+
+
+function change_cl(v) {
+    var str = "0";
+    for (i = 0; i < v; i++) { str += ("_" + (document.getElementById(cl[i]).selectedIndex - 1));}
+
+    var ss = document.getElementById(cl[v]);
+    with (ss) {
+        length = 0;
+        options[0] = new Option(opt_cl[v], opt_cl[v]);
+        if (v && document.getElementById(cl[v - 1]).selectedIndex > 0 || !v) {
+            if (dsy_cl.Exists(str)) {
+                ar = dsy_cl.Items[str];
+                for (i = 0; i < ar.length; i++)options[length] = new Option(ar[i], ar[i]);
+                if (v)options[0].selected = true;
+            }
+        }
+        if (++v < cl.length) {change_cl(v);}
+    }
+}
+function preselect_cl(p_key) {
+    var index;
+    var provinces = new Array("农、林、牧、渔业", "采矿业","制造业","电力、燃气及水的生产和供应业","建筑业","交通运输、仓储和邮政业","信息传输、计算机服务和软件业","批发和零售业","住宿和餐饮业","金融业","房地产业","租赁和商务服务业","科学研究、技术服务和地质勘查业","水利、环境和公共设施管理业","居民服务和其他服务业","教育","卫生、社会保障和社会福利业","文化、体育和娱乐业","公共管理和社会组织","国际组织");
+
+    var cnt = provinces.length;
+    for (i = 0; i < cnt; i++) {
+        if (p_key == provinces[i]) {
+            index = i;
+            break;
+        }
+    }
+    if (index < provinces.length) {
+        document.getElementById(cl[0]).selectedIndex = index + 1;
+        change_cl(1);
+    }
+}
 
 var cl = ["indclass1", "indclass2", "indclass3","indclass4"];
 var opt_cl = ["行业第1级分类", "行业第2级分类", "行业第3级分类", "行业第4级分类"];
@@ -371,6 +364,48 @@ function setup_cl() {
     for (i = 0; i < cl.length - 1; i++)
         document.getElementById(cl[i]).onchange = new Function("change_cl(" + (i + 1) + ");");
     change_cl(0);
+}
+
+function change_cl_investors(v) {
+    var str = "0";
+    for (i = 0; i < v; i++) { str += ("_" + (document.getElementById(cl_investors[i]).selectedIndex - 1));}
+
+    var ss = document.getElementById(cl_investors[v]);
+    with (ss) {
+        length = 0;
+        options[0] = new Option(opt_cl[v], opt_cl[v]);
+        if (v && document.getElementById(cl_investors[v - 1]).selectedIndex > 0 || !v) {
+            if (dsy_cl.Exists(str)) {
+                ar = dsy_cl.Items[str];
+                for (i = 0; i < ar.length; i++)options[length] = new Option(ar[i], ar[i]);
+                if (v)options[0].selected = true;
+            }
+        }
+        if (++v < cl_investors.length) {change_cl_investors(v);}
+    }
+}
+function preselect_cl_investors(p_key) {
+    var index;
+    var provinces = new Array("农、林、牧、渔业", "采矿业","制造业","电力、燃气及水的生产和供应业","建筑业","交通运输、仓储和邮政业","信息传输、计算机服务和软件业","批发和零售业","住宿和餐饮业","金融业","房地产业","租赁和商务服务业","科学研究、技术服务和地质勘查业","水利、环境和公共设施管理业","居民服务和其他服务业","教育","卫生、社会保障和社会福利业","文化、体育和娱乐业","公共管理和社会组织","国际组织");
+
+    var cnt = provinces.length;
+    for (i = 0; i < cnt; i++) {
+        if (p_key == provinces[i]) {
+            index = i;
+            break;
+        }
+    }
+    if (index < provinces.length) {
+        document.getElementById(cl_investors[0]).selectedIndex = index + 1;
+        change_cl_investors(1);
+    }
+}
+
+var cl_investors = ["inv_csrc_type1", "inv_csrc_type2", "inv_csrc_type3","inv_csrc_type4"];
+function setup_cl_investors() {
+    for (i = 0; i < cl_investors.length - 1; i++)
+        document.getElementById(cl_investors[i]).onchange = new Function("change_cl_investors(" + (i + 1) + ");");
+    change_cl_investors(0);
 }
 
 
