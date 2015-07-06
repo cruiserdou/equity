@@ -47,36 +47,37 @@ Ext.define('App.view.refi.refi_mos.Query', {
                                             xtype: 'textfield'
                                         },
                                         items: [
+
                                             {
-                                                hidden: 'true',
-                                                fieldLabel: '字典ID',
-                                                name: 'id'
+                                                text: '企业ID',
+
+                                                anchor: '100%',
+                                                fieldLabel: 'mos_corp_id',
+                                                hidden:true
                                             },
                                             {
+                                                text: '企业名称',
                                                 anchor: '100%',
-                                                fieldLabel: '字&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp段',
-                                                name: 'field'
+                                                fieldLabel: 'corp_name'
                                             },
                                             {
+                                                text: '融资产品',
                                                 anchor: '100%',
-                                                fieldLabel: '字&nbsp&nbsp&nbsp段&nbsp&nbsp&nbsp名&nbsp&nbsp称',
-                                                name: 'fieldnm'
+                                                fieldLabel: 'mos_cots'
                                             },
                                             {
+                                                text: '融资金额',
                                                 anchor: '100%',
-                                                fieldLabel: '字&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp段&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp值',
-                                                name: 'fieldval'
+                                                fieldLabel: 'mos_amounts'
                                             },
                                             {
+                                                text: '项目经理',
                                                 anchor: '100%',
-                                                fieldLabel: '字段显示名称',
-                                                name: 'fieldvaldis'
+                                                fieldLabel: 'mos_mop'
                                             },
                                             {
-                                                anchor: '100%',
-                                                xtype: 'textarea',
-                                                fieldLabel: '备&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注',
-                                                name: 'remark'
+                                                text: '融资进度',
+                                                name: 'mos_rop'
                                             }
                                         ],
                                         buttonAlign : "center",
@@ -142,35 +143,42 @@ Ext.define('App.view.refi.refi_mos.Query', {
                             },
                             items: [
                                 {
-                                    hidden: 'true',
-                                    fieldLabel: '字典ID',
-                                    name: 'id'
+                                    text: '融资服务ID',
+
+                                    anchor: '100%',
+                                    fieldLabel: 'mos_id',
+                                    hidden:true
                                 },
                                 {
+                                    text: '企业ID',
+
                                     anchor: '100%',
-                                    fieldLabel: '字&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp段',
-                                    name: 'field'
+                                    fieldLabel: 'mos_corp_id',
+                                    hidden:true
                                 },
                                 {
+                                    text: '企业名称',
                                     anchor: '100%',
-                                    fieldLabel: '字&nbsp&nbsp&nbsp段&nbsp&nbsp&nbsp名&nbsp&nbsp称',
-                                    name: 'fieldnm'
+                                    fieldLabel: 'corp_name'
                                 },
                                 {
+                                    text: '融资产品',
                                     anchor: '100%',
-                                    fieldLabel: '字&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp段&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp值',
-                                    name: 'fieldval'
+                                    fieldLabel: 'mos_cots'
                                 },
                                 {
+                                    text: '融资金额',
                                     anchor: '100%',
-                                    fieldLabel: '字段显示名称',
-                                    name: 'fieldvaldis'
+                                    fieldLabel: 'mos_amounts'
                                 },
                                 {
+                                    text: '项目经理',
                                     anchor: '100%',
-                                    xtype: 'textarea',
-                                    fieldLabel: '备&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注',
-                                    name: 'remark'
+                                    fieldLabel: 'mos_mop'
+                                },
+                                {
+                                    text: '融资进度',
+                                    name: 'mos_rop'
                                 }
                             ],
                             buttonAlign : "center",

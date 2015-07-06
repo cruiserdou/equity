@@ -25,7 +25,7 @@ Ext.define('App.view.maintain_info.Query', {
                             Ext.create('widget.window', {
                                 title: '添加',
                                 modal: true,
-                                width: 300,
+                                width: 400,
                                 height: 400,
                                 border: false,
                                 layout: 'fit',
@@ -48,35 +48,98 @@ Ext.define('App.view.maintain_info.Query', {
                                         },
                                         items: [
                                             {
-                                                hidden: 'true',
-                                                fieldLabel: '字典ID',
-                                                name: 'id'
+                                                anchor: '100%',
+                                                fieldLabel: '企业ID',
+                                                name: 'mi_corp_id',
+                                                hidden:true
+                                            },
+                                            {
+                                                xtype: "fieldcontainer", layout: "hbox",
+                                                items: [
+                                                    {
+
+                                                        fieldLabel: '企业名称',
+                                                        name: 'corp_name',
+                                                        xtype: 'textfield',
+                                                        labelAlign: 'right',
+                                                        id: 'corp_name_id'
+                                                    },
+                                                    {
+                                                        xtype: "button", text: "...",
+                                                        handler: function () {
+
+                                                            Ext.create('widget.window', {
+                                                                title: '企业',
+                                                                id: 'corp_find_window',
+                                                                width: 800,
+                                                                height: 600,
+                                                                iconCls: 'icon_search',
+                                                                modal: true,
+                                                                border: false,
+                                                                layout: 'border',
+                                                                items: [
+
+                                                                    {
+                                                                        xtype: 'export_importf_query',
+                                                                        region: 'north'
+                                                                    },
+                                                                    {
+                                                                        xtype: 'export_importf_grid',
+                                                                        region: 'center',
+                                                                        height: 120
+                                                                    }
+                                                                ]
+                                                            }).show(Ext.get('corp_name_id'));
+
+
+                                                        }
+                                                    }
+                                                ]
                                             },
                                             {
                                                 anchor: '100%',
-                                                fieldLabel: '字&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp段',
-                                                name: 'field'
+                                                fieldLabel: '挂牌代码',
+                                                name: 'mi_listcode'
                                             },
                                             {
                                                 anchor: '100%',
-                                                fieldLabel: '字&nbsp&nbsp&nbsp段&nbsp&nbsp&nbsp名&nbsp&nbsp称',
-                                                name: 'fieldnm'
+                                                fieldLabel: '省',
+                                                name: 'mi_province'
                                             },
                                             {
                                                 anchor: '100%',
-                                                fieldLabel: '字&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp段&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp值',
-                                                name: 'fieldval'
+                                                fieldLabel: '市',
+                                                name: 'mi_city'
                                             },
                                             {
                                                 anchor: '100%',
-                                                fieldLabel: '字段显示名称',
-                                                name: 'fieldvaldis'
+                                                fieldLabel: '县',
+                                                name: 'mi_county'
                                             },
                                             {
                                                 anchor: '100%',
-                                                xtype: 'textarea',
-                                                fieldLabel: '备&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注',
-                                                name: 'remark'
+                                                fieldLabel: '维护时间',
+                                                name: 'mi_mt_date'
+                                            },
+                                            {
+                                                anchor: '100%',
+                                                fieldLabel: '企业客户分级(A/B）',
+                                                name: 'mi_cust_type'
+                                            },
+                                            {
+                                                anchor: '100%',
+                                                fieldLabel: '下次维护时间',
+                                                name: 'mi_next_date'
+                                            },
+                                            {
+                                                anchor: '100%',
+                                                fieldLabel: '下次维护计划',
+                                                name: 'mi_next_plan'
+                                            },
+                                            {
+                                                anchor: '100%',
+                                                fieldLabel: '备注',
+                                                name: 'mi_remark'
                                             }
                                         ],
                                         buttonAlign : "center",
@@ -143,34 +206,107 @@ Ext.define('App.view.maintain_info.Query', {
                             items: [
                                 {
                                     hidden: 'true',
-                                    fieldLabel: '字典ID',
-                                    name: 'id'
+                                    fieldLabel: 'ID',
+                                    name: 'mi_id'
                                 },
                                 {
                                     anchor: '100%',
-                                    fieldLabel: '字&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp段',
-                                    name: 'field'
+                                    fieldLabel: '企业ID',
+                                    name: 'mi_corp_id',
+                                    hidden:true
                                 },
                                 {
                                     anchor: '100%',
-                                    fieldLabel: '字&nbsp&nbsp&nbsp段&nbsp&nbsp&nbsp名&nbsp&nbsp称',
-                                    name: 'fieldnm'
+                                    fieldLabel: '企业名称',
+                                    name: 'corp_name'
+                                },
+                                //{
+                                //    xtype: "fieldcontainer", layout: "hbox",
+                                //    items: [
+                                //        {
+                                //
+                                //            fieldLabel: '企业名称',
+                                //            name: 'corp_name',
+                                //            xtype: 'textfield',
+                                //            labelAlign: 'right',
+                                //            id: 'corp_name_id'
+                                //        },
+                                //        {
+                                //            xtype: "button", text: "...",
+                                //            handler: function () {
+                                //
+                                //                Ext.create('widget.window', {
+                                //                    title: '企业',
+                                //                    id: 'corp_find_window',
+                                //                    width: 800,
+                                //                    height: 600,
+                                //                    iconCls: 'icon_search',
+                                //                    modal: true,
+                                //                    border: false,
+                                //                    layout: 'border',
+                                //                    items: [
+                                //
+                                //                        {
+                                //                            xtype: 'export_importf_query',
+                                //                            region: 'north'
+                                //                        },
+                                //                        {
+                                //                            xtype: 'export_importf_grid',
+                                //                            region: 'center',
+                                //                            height: 120
+                                //                        }
+                                //                    ]
+                                //                }).show(Ext.get('corp_name_id'));
+                                //
+                                //
+                                //            }
+                                //        }
+                                //    ]
+                                //},
+                                {
+                                    anchor: '100%',
+                                    fieldLabel: '挂牌代码',
+                                    name: 'mi_listcode'
                                 },
                                 {
                                     anchor: '100%',
-                                    fieldLabel: '字&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp段&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp值',
-                                    name: 'fieldval'
+                                    fieldLabel: '省',
+                                    name: 'mi_province'
                                 },
                                 {
                                     anchor: '100%',
-                                    fieldLabel: '字段显示名称',
-                                    name: 'fieldvaldis'
+                                    fieldLabel: '市',
+                                    name: 'mi_city'
                                 },
                                 {
                                     anchor: '100%',
-                                    xtype: 'textarea',
-                                    fieldLabel: '备&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注',
-                                    name: 'remark'
+                                    fieldLabel: '县',
+                                    name: 'mi_county'
+                                },
+                                {
+                                    anchor: '100%',
+                                    fieldLabel: '维护时间',
+                                    name: 'mi_mt_date'
+                                },
+                                {
+                                    anchor: '100%',
+                                    fieldLabel: '企业客户分级(A/B）',
+                                    name: 'mi_cust_type'
+                                },
+                                {
+                                    anchor: '100%',
+                                    fieldLabel: '下次维护时间',
+                                    name: 'mi_next_date'
+                                },
+                                {
+                                    anchor: '100%',
+                                    fieldLabel: '下次维护计划',
+                                    name: 'mi_next_plan'
+                                },
+                                {
+                                    anchor: '100%',
+                                    fieldLabel: '备注',
+                                    name: 'mi_remark'
                                 }
                             ],
                             buttonAlign : "center",

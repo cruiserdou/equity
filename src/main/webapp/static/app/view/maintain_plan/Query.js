@@ -23,9 +23,9 @@ Ext.define('App.view.maintain_plan.Query', {
                     listeners: {
                         click: function () {
                             Ext.create('widget.window', {
-                                title: '添加字典',
+                                title: '添加计划',
                                 modal: true,
-                                width: 300,
+                                width: 400,
                                 height: 400,
                                 border: false,
                                 layout: 'fit',
@@ -38,6 +38,7 @@ Ext.define('App.view.maintain_plan.Query', {
                                         xtype: 'form',
                                         frame: true,
                                         bodyPadding: 10,
+                                        border: false,
                                         fieldDefaults: {
                                             labelAlign: 'left',
                                             labelWidth: 90
@@ -47,36 +48,62 @@ Ext.define('App.view.maintain_plan.Query', {
                                             xtype: 'textfield'
                                         },
                                         items: [
+
                                             {
-                                                hidden: 'true',
-                                                fieldLabel: '字典ID',
-                                                name: 'id'
+                                                anchor: '100%',
+                                                fieldLabel: '企业ID',
+                                                name: 'mp_corp_id',
+                                                hidden:true
                                             },
                                             {
                                                 anchor: '100%',
-                                                fieldLabel: '字&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp段',
-                                                name: 'field'
+                                                fieldLabel: '企业名称',
+                                                name: 'corp_name'
                                             },
                                             {
                                                 anchor: '100%',
-                                                fieldLabel: '字&nbsp&nbsp&nbsp段&nbsp&nbsp&nbsp名&nbsp&nbsp称',
-                                                name: 'fieldnm'
+                                                fieldLabel: '挂牌代码',
+                                                name: 'mp_listcode'
                                             },
                                             {
                                                 anchor: '100%',
-                                                fieldLabel: '字&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp段&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp值',
-                                                name: 'fieldval'
+                                                fieldLabel: '省',
+                                                name: 'mp_province'
                                             },
                                             {
                                                 anchor: '100%',
-                                                fieldLabel: '字段显示名称',
-                                                name: 'fieldvaldis'
+                                                fieldLabel: '市',
+                                                name: 'mp_city'
                                             },
                                             {
                                                 anchor: '100%',
-                                                xtype: 'textarea',
-                                                fieldLabel: '备&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注',
-                                                name: 'remark'
+                                                fieldLabel: '县',
+                                                name: 'mp_county'
+                                            },
+                                            {
+                                                anchor: '100%',
+                                                fieldLabel: '最好一次维护时间',
+                                                name: 'mp_last_date'
+                                            },
+                                            {
+                                                anchor: '100%',
+                                                fieldLabel: '维护内容',
+                                                name: 'mp_content'
+                                            },
+                                            {
+                                                anchor: '100%',
+                                                fieldLabel: '维护结果',
+                                                name: 'mp_result'
+                                            },
+                                            {
+                                                anchor: '100%',
+                                                fieldLabel: '历史记录',
+                                                name: 'mp_hisdesc'
+                                            },
+                                            {
+                                                anchor: '100%',
+                                                fieldLabel: '备注',
+                                                name: 'mp_remark'
                                             }
                                         ],
                                         buttonAlign : "center",
@@ -141,36 +168,69 @@ Ext.define('App.view.maintain_plan.Query', {
                                 xtype: 'textfield'
                             },
                             items: [
+
+
                                 {
-                                    hidden: 'true',
-                                    fieldLabel: '字典ID',
-                                    name: 'id'
+                                    anchor: '100%',
+                                    fieldLabel: 'ID',
+                                    name: 'mp_id'
+                                    ,hidden:true
                                 },
                                 {
                                     anchor: '100%',
-                                    fieldLabel: '字&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp段',
-                                    name: 'field'
+                                    fieldLabel: '企业ID',
+                                    name: 'mp_corp_id',
+                                    hidden:true
                                 },
                                 {
                                     anchor: '100%',
-                                    fieldLabel: '字&nbsp&nbsp&nbsp段&nbsp&nbsp&nbsp名&nbsp&nbsp称',
-                                    name: 'fieldnm'
+                                    fieldLabel: '企业名称',
+                                    name: 'corp_name'
                                 },
                                 {
                                     anchor: '100%',
-                                    fieldLabel: '字&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp段&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp值',
-                                    name: 'fieldval'
+                                    fieldLabel: '挂牌代码',
+                                    name: 'mp_listcode'
                                 },
                                 {
                                     anchor: '100%',
-                                    fieldLabel: '字段显示名称',
-                                    name: 'fieldvaldis'
+                                    fieldLabel: '省',
+                                    name: 'mp_province'
                                 },
                                 {
                                     anchor: '100%',
-                                    xtype: 'textarea',
-                                    fieldLabel: '备&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp注',
-                                    name: 'remark'
+                                    fieldLabel: '市',
+                                    name: 'mp_city'
+                                },
+                                {
+                                    anchor: '100%',
+                                    fieldLabel: '县',
+                                    name: 'mp_county'
+                                },
+                                {
+                                    anchor: '100%',
+                                    fieldLabel: '最后一次维护时间',
+                                    name: 'mp_last_date'
+                                },
+                                {
+                                    anchor: '100%',
+                                    fieldLabel: '维护内容',
+                                    name: 'mp_content'
+                                },
+                                {
+                                    anchor: '100%',
+                                    fieldLabel: '维护结果',
+                                    name: 'mp_result'
+                                },
+                                {
+                                    anchor: '100%',
+                                    fieldLabel: '历史记录',
+                                    name: 'mp_hisdesc'
+                                },
+                                {
+                                    anchor: '100%',
+                                    fieldLabel: '备注',
+                                    name: 'mp_remark'
                                 }
                             ],
                             buttonAlign : "center",
