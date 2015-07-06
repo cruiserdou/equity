@@ -90,8 +90,6 @@ Ext.define('App.view.maintain_info.Query', {
                                                                     }
                                                                 ]
                                                             }).show(Ext.get('corp_name_id'));
-
-
                                                         }
                                                     }
                                                 ]
