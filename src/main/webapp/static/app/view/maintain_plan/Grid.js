@@ -8,9 +8,7 @@ Ext.define('App.view.maintain_plan.Grid', {
 
     initComponent: function () {
 
-        this.columns = [
-
-
+        this.columns = [ 
             {text: 'ID',  width: 220, dataIndex: 'mp_id',hidden:true},
             {text: '企业ID',  width: 220, dataIndex: 'mp_corp_id',hidden:true},
             {text: '企业名称',  width: 220, dataIndex: 'corp_name'},
