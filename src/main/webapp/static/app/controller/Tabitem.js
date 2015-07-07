@@ -8,7 +8,7 @@ Ext.define('App.controller.Tabitem', {
         ,'syj_roles','syj_userroles','syj_rolepermissions'
         ,'msg','enterprise','login_log','enterprise_sh','change'
         ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
-        ,'investors','corp_all'
+        ,'investors','corp_all','corp_shareholder_list'
         ,'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
         ,'maintain_plan','maintain_info','refi_mos','refi_rop'
     ],
@@ -61,7 +61,7 @@ Ext.define('App.controller.Tabitem', {
         'retrain.retrain_query.Retrain_queryf','retrain.retrain_query.Grid','retrain.retrain_query.Query',
         'retrain.retrain_stat.Retrain_statf', 'retrain.retrain_stat.Grid', 'retrain.retrain_stat.Query',
         'maintain_plan.Maintain_planf', 'maintain_plan.Grid', 'maintain_plan.Query',
-        'maintain_info.Maintain_infof','maintain_info.Grid','maintain_info.Query',
+        'maintain_info.Maintain_infof','maintain_info.Grid','maintain_info.Query','maintain_info.corp_basic_grid','maintain_info.corp_basic_query',
         'refi.refi_mos.Refi_mosf','refi.refi_mos.Grid','refi.refi_mos.Query','refi.refi_mos.RopGrid',
         'refi.refi_rop.Refi_ropf','refi.refi_rop.Grid','refi.refi_rop.Query',
         'export_import.Export_importf','export_import.Grid','export_import.Query'

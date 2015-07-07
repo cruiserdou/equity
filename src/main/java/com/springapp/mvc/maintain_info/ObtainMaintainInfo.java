@@ -10,6 +10,7 @@ import com.xwq.common.util.DBInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.*;
@@ -25,7 +26,7 @@ public class ObtainMaintainInfo {
     @ResponseBody
     DataShop getShopInJSON(
 //           @RequestParam(value = "name", required = false) String name,
-//           @RequestParam(value = "type", required = false) String type
+           @RequestParam(value = "corp_name", required = false) String corp_name
 
 
     ) throws Exception{
@@ -51,10 +52,10 @@ public class ObtainMaintainInfo {
 
             String sql = "SELECT corp.name corp_name,mi_id, mi_corp_id, mi_listcode, mi_province, mi_city, mi_county, \n" +
                     "       mi_mt_date, mi_cust_type, mi_next_date, mi_next_plan, mi_remark " +
-                    "  FROM work.tb_corp  corp left  join work.tb_maintain_info maintain_info " +
+                    "  FROM work.tb_corp  corp inner   join work.tb_maintain_info maintain_info " +
                     "       on  corp.id  = maintain_info.mi_corp_id   WHERE 1 = 1 ";
-//            if (name != null && name.length() != 0)
-//                sql += " and maintain_plan.name like '%" + name + "%'";
+            if (corp_name != null && corp_name.length() != 0)
+                sql += " and corp.name like '%" + corp_name + "%'";
 
             rs = stmt.executeQuery(sql);
 

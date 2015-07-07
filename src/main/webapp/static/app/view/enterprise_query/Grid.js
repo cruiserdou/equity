@@ -24,9 +24,25 @@ Ext.define('App.view.enterprise_query.Grid', {
                 bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
                 listeners: {
                     afterrender: function (_this){
+                        corp_shareholder_list.load({
+                            params: {
+                                gd_corp_id: record.get("id")
+                            },
+                            callback: function (records, operation, success) {
+                                if (success) {
+                                    var myarray = new Array();
+                                    for (var i = 0; i < corp_shareholder_list.getCount(); i++) {
+                                        myarray[i] = corp_shareholder_list.getAt(i).getData();
+                                    }
+
+                                    //cust_mark_list_tp.overwrite(_this.body, myarray[0]);
+                                    corp_shareholder_list_tpl.append('corp_shareholder',myarray);
+                                }
+                            }
+                        });
                         corp_tpl.append('corp',record.data);
                         corp_contact_tpl.append('corp_contact',record.data);
-                        corp_shareholder_tpl.append('corp_shareholder',record.data);
+                        //corp_shareholder_tpl.append('corp_shareholder',record.data);
                         corp_acount_tpl.append('corp_acount',record.data);
                         corp_maintain_tpl.append('corp_maintain',record.data);
                         corp_finance_tpl.append('corp_finance',record.data);
@@ -36,6 +52,7 @@ Ext.define('App.view.enterprise_query.Grid', {
                         corp_refinancing_tpl.append('corp_refinancing',record.data);
                         corp_retrain_tpl.append('corp_retrain',record.data);
                         corp_rehr_tpl.append('corp_rehr',record.data);
+
 
                     }
                 },
@@ -59,6 +76,7 @@ Ext.define('App.view.enterprise_query.Grid', {
                         id: 'corp_shareholder_panel',
                         html: '<div id="corp_shareholder">' +
                         '</div>'
+
                     },
                     {
                         xtype: 'panel',
@@ -528,3 +546,35 @@ function export_enterprise() {
         }
     });
 };
+
+var corp_shareholder_list_tpl = new Ext.XTemplate(
+    '<div class="wrap_center">',
+    '<table class="enter_table" id="table_sh">',
+    '<tr>',
+    '<th class="table_header" colspan="8">股东名册</th>',
+    '</tr>',
+    '<tr>',
+    '<th>股东类型</th>',
+    '<th>股东</th>',
+    '<th>证照/证件类型</th>',
+    '<th>证照/证件号码</th>',
+    '<th>持股数量</th>',
+    '<th>流通数量</th>',
+    '<th>冻结数量</th>',
+    '<th>详情</th>',
+    '</tr>',
+    '<tpl for="list">',
+    '<tr>',
+    '<td>{gd_shtype}</td>',
+    '<td>{gd_shname}</td>',
+    '<td>{gd_shdoctype}</td>',
+    '<td>{gd_shdocnum}</td>',
+    '<td>{gd_shareholdnum}</td>',
+    '<td>{gd_currencynum}</td>',
+    '<td>{gd_freezenum}</td>',
+    '<td>{gd_remark}</td>',
+    '</tr>',
+    '</tpl>',
+    '</table>'
+);
+

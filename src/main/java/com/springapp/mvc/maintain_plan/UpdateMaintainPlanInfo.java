@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 @Controller
 @RequestMapping("/update_maintain_plan_info")
@@ -68,10 +65,12 @@ public class UpdateMaintainPlanInfo {
             pst.setString(3, mp_province);
             pst.setString(4, mp_city);
             pst.setString(5, mp_county);
-            java.sql.Date d_mp_last_date = null;
-            if (mp_last_date != null && mp_last_date.length() > 2)
-                d_mp_last_date = java.sql.Date.valueOf(mp_last_date);
-            pst.setDate(6, d_mp_last_date);
+//            java.sql.Date d_mp_last_date = null;
+//            if (mp_last_date != null && mp_last_date.length() > 2)
+//                d_mp_last_date = java.sql.Date.valueOf(mp_last_date);
+//            pst.setDate(6, d_mp_last_date);
+            Timestamp sql_senddate = Timestamp.valueOf(mp_last_date);
+            pst.setTimestamp(6,sql_senddate);
             pst.setString(7, mp_content);
             pst.setString(8, mp_result);
             pst.setString(9, mp_hisdesc);

@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/GzipJsFilter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/common/UpdatePassword.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/corp/corp/CheckBuslicnoInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/corp/corp_shareholder/ObtainCorpShareholderListInfo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/img_upload.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/msg/ObtainMsgListInfo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/print_details.java" charset="UTF-8" />
@@ -14,6 +15,8 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/print_enterprise.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/userregister.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/static/app/functions/corp_fun.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/app/view/maintain_info/corp_basic_grid.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/app/view/maintain_info/corp_basic_query.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/static/app/view/refi/refi_mos/RopGrid.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/static/app/xtemplate/corp_apply.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/static/app/xtemplate/corp_contact.js" charset="UTF-8" />

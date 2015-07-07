@@ -26,7 +26,7 @@ public class ObtainMaintainPlanInfo {
     @ResponseBody
     DataShop getShopInJSON(
 //           @RequestParam(value = "name", required = false) String name,
-//           @RequestParam(value = "type", required = false) String type
+            @RequestParam(value = "corp_name", required = false) String corp_name
 
 
     ) throws Exception{
@@ -51,10 +51,10 @@ public class ObtainMaintainPlanInfo {
             stmt = conn.createStatement();
 
             String sql = "SELECT corp.name corp_name, mp_id, mp_corp_id, mp_listcode, mp_province, mp_city, mp_county, \n" +
-                    "       mp_last_date, mp_content, mp_result, mp_hisdesc, mp_remark\n" +
-                    "  FROM  work.tb_corp  corp left  join work.tb_maintain_plan  maintain_plan on  corp.id  = maintain_plan.mp_corp_id   WHERE 1 = 1 ";
-//            if (name != null && name.length() != 0)
-//                sql += " and maintain_plan.name like '%" + name + "%'";
+                    "       TO_CHAR(mp_last_date,'yyyy-mm-dd hh24:mi:ss') as mp_last_date, mp_content, mp_result, mp_hisdesc, mp_remark\n" +
+                    "  FROM  work.tb_corp  corp INNER  join work.tb_maintain_plan  maintain_plan on  corp.id  = maintain_plan.mp_corp_id   WHERE 1 = 1 ";
+            if (corp_name != null && corp_name.length() != 0)
+                sql += " and corp.name like '%" + corp_name + "%'";
 
             rs = stmt.executeQuery(sql);
 
