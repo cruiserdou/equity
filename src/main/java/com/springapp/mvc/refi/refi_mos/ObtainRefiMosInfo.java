@@ -26,7 +26,7 @@ public class ObtainRefiMosInfo {
     @ResponseBody
     DataShop getShopInJSON(
 //           @RequestParam(value = "name", required = false) String name,
-//           @RequestParam(value = "fuse", required = false) String fuse
+            @RequestParam(value = "corp_name", required = false) String corp_name
 
 
     ) throws Exception{
@@ -50,9 +50,10 @@ public class ObtainRefiMosInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-            String sql = "SELECT *  FROM work.tb_refi_mos  WHERE 1 = 1 ";
-//            if (fuse != null && fuse.length() != 0)
-//                sql += " and fuse like '%" + fuse + "%'";
+            String sql = "SELECT corp.name corp_name, mos_id, mos_corp_id, mos_cots, mos_amounts, mos_mop, mos_rop" +
+                    "  from work.tb_corp  corp INNER  join work.tb_refi_mos  refi_mos on  corp.id  = refi_mos.mos_corp_id      WHERE 1 = 1 ";
+            if (corp_name != null && corp_name.length() != 0)
+                sql += " and corp.name like '%" + corp_name + "%'";
 //            if (type != null && type.length() != 0)
 //                sql += " and type like '%" + type + "%'";
 

@@ -25,7 +25,7 @@ public class AddRefiMosInfo {
     @ResponseBody
     DataShop getShopInJSON(
             HttpSession session,
-            @RequestParam("mos_corp_id") String mos_corp_id,
+            @RequestParam("mos_corp_id") Integer mos_corp_id,
             @RequestParam("mos_cots") String mos_cots,
             @RequestParam("mos_amounts") String mos_amounts,
             @RequestParam("mos_mop") String mos_mop,
@@ -56,7 +56,7 @@ public class AddRefiMosInfo {
                     "             mos_corp_id, mos_cots, mos_amounts, mos_mop, mos_rop)\n" +
                     "    VALUES (?, ?, ?, ?, ?)";
             pst = conn.prepareStatement(sql);
-            pst.setString(1, mos_corp_id);
+            pst.setInt(1, mos_corp_id);
             pst.setString(2, mos_cots);
             pst.setString(3, mos_amounts);
             pst.setString(4, mos_mop);

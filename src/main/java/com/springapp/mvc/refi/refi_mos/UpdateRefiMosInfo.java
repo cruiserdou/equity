@@ -26,7 +26,7 @@ public class UpdateRefiMosInfo {
     DataShop getShopInJSON(
             HttpSession session,
             @RequestParam("mos_id") Integer mos_id,
-            @RequestParam("mos_corp_id") String mos_corp_id,
+            @RequestParam("mos_corp_id") Integer mos_corp_id,
             @RequestParam("mos_cots") String mos_cots,
             @RequestParam("mos_amounts") String mos_amounts,
             @RequestParam("mos_mop") String mos_mop,
@@ -57,7 +57,7 @@ public class UpdateRefiMosInfo {
                     "       mos_rop=? " +
                     " where mos_id = ?";
             pst = conn.prepareStatement(sql);
-            pst.setString(1, mos_corp_id);
+            pst.setInt(1, mos_corp_id);
             pst.setString(2, mos_cots);
             pst.setString(3, mos_amounts);
             pst.setString(4, mos_mop);

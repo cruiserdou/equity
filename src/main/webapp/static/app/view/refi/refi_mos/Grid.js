@@ -13,9 +13,9 @@ Ext.define('App.view.refi.refi_mos.Grid', {
             {text: '融资服务ID',  width: 220, dataIndex: 'mos_id',hidden:true},
             {text: '企业ID',  width: 220, dataIndex: 'mos_corp_id',hidden:true},
             {text: '企业名称',  width: 220, dataIndex: 'corp_name'},
-            {text: '融资产品',  width: 220, dataIndex: 'mos_cots'},
-            {text: '融资金额', width: 220, dataIndex: 'mos_amounts'},
-            {text: '项目经理', width: 220, dataIndex: 'mos_mop'},
+            {text: '融资产品',  width: 200, dataIndex: 'mos_cots'},
+            {text: '融资金额', width: 200, dataIndex: 'mos_amounts'},
+            {text: '项目经理', width: 200, dataIndex: 'mos_mop'},
             {text: '融资进度',flex: 1, dataIndex: 'mos_rop'}
 
 

@@ -25,12 +25,12 @@ Ext.define('App.view.refi.refi_mos.Query', {
                             Ext.create('widget.window', {
                                 title: '添加',
                                 modal: true,
-                                width: 300,
+                                width: 350,
                                 height: 400,
                                 border: false,
                                 layout: 'fit',
                                 defaults: {
-                                    width: 150,
+                                    width: 170,
                                     allowBlank: false
                                 },
                                 items: [
@@ -48,35 +48,75 @@ Ext.define('App.view.refi.refi_mos.Query', {
                                         },
                                         items: [
 
-                                            {
-                                                text: '企业ID',
 
+                                            {
+                                                fieldLabel: '企业ID',
                                                 anchor: '100%',
-                                                fieldLabel: 'mos_corp_id',
+                                                name: 'mos_corp_id',
+                                                id:'corp_id',
                                                 hidden:true
                                             },
+
                                             {
-                                                text: '企业名称',
-                                                anchor: '100%',
-                                                fieldLabel: 'corp_name'
+                                                xtype: "fieldcontainer", layout: "hbox",
+                                                items: [
+                                                    {
+                                                        readOnly:true,
+                                                        allowBlank:false,
+                                                        fieldLabel: '企业名称',
+                                                        name: 'corp_name',
+                                                        xtype: 'textfield',
+                                                        labelAlign: 'right',
+                                                        id: 'corp_name_id'
+                                                    },
+                                                    {
+                                                        xtype: "button", text: "...",
+                                                        handler: function () {
+
+                                                            Ext.create('widget.window', {
+                                                                title: '企业',
+                                                                id: 'corp_find_window',
+                                                                width: 800,
+                                                                height: 600,
+                                                                iconCls: 'icon_search',
+                                                                modal: true,
+                                                                border: false,
+                                                                layout: 'border',
+                                                                items: [
+
+                                                                    {
+                                                                        xtype: 'corp_basic_queryf',
+                                                                        region: 'north'
+                                                                    },
+                                                                    {
+                                                                        xtype: 'corp_basic_gridf',
+                                                                        region: 'center',
+                                                                        height: 120
+                                                                    }
+                                                                ]
+                                                            }).show(Ext.get('corp_name_id'));
+                                                        }
+                                                    }
+                                                ]
                                             },
                                             {
-                                                text: '融资产品',
+                                                fieldLabel: '融资产品',
                                                 anchor: '100%',
-                                                fieldLabel: 'mos_cots'
+                                                name: 'mos_cots'
                                             },
                                             {
-                                                text: '融资金额',
+                                                fieldLabel: '融资金额',
                                                 anchor: '100%',
-                                                fieldLabel: 'mos_amounts'
+                                                name: 'mos_amounts'
                                             },
                                             {
-                                                text: '项目经理',
+                                                fieldLabel: '项目经理',
                                                 anchor: '100%',
-                                                fieldLabel: 'mos_mop'
+                                                name: 'mos_mop'
                                             },
                                             {
-                                                text: '融资进度',
+                                                fieldLabel: '融资进度',
+                                                anchor: '100%',
                                                 name: 'mos_rop'
                                             }
                                         ],
@@ -116,117 +156,118 @@ Ext.define('App.view.refi.refi_mos.Query', {
                         }
                     }
                 },'-',
-                {
-                    text: '编辑',
-                    id: 'refi_mos_edit',
-                    handler: function(){
-                        var sm = Ext.getCmp('grid_refi_mos').getSelectionModel();
-                        var record = sm.getSelection()[0];
-
-                        if(!record){
-                            Ext.Msg.alert('信息','请选择要编辑的数据');
-                            return;
-                        }
-                        var record = sm.getSelection()[0];
-
-                        var editForm = null;
-                        var editWindow = null;
-                        editForm = new Ext.form.FormPanel({
-                            frame: true,
-                            fieldDefaults: {
-                                labelAlign: 'left',
-                                labelWidth: 90
-                            },
-
-                            defaults: {
-                                xtype: 'textfield'
-                            },
-                            items: [
-                                {
-                                    text: '融资服务ID',
-
-                                    anchor: '100%',
-                                    fieldLabel: 'mos_id',
-                                    hidden:true
-                                },
-                                {
-                                    text: '企业ID',
-
-                                    anchor: '100%',
-                                    fieldLabel: 'mos_corp_id',
-                                    hidden:true
-                                },
-                                {
-                                    text: '企业名称',
-                                    anchor: '100%',
-                                    fieldLabel: 'corp_name'
-                                },
-                                {
-                                    text: '融资产品',
-                                    anchor: '100%',
-                                    fieldLabel: 'mos_cots'
-                                },
-                                {
-                                    text: '融资金额',
-                                    anchor: '100%',
-                                    fieldLabel: 'mos_amounts'
-                                },
-                                {
-                                    text: '项目经理',
-                                    anchor: '100%',
-                                    fieldLabel: 'mos_mop'
-                                },
-                                {
-                                    text: '融资进度',
-                                    name: 'mos_rop'
-                                }
-                            ],
-                            buttonAlign : "center",
-                            buttons: [
-                                {
-                                    text: '保存',
-                                    handler: function(){
-                                        var form = this.up('form').getForm();
-                                        if (form.isValid()){
-                                            form.submit({
-                                                url: 'update_refi_mos_info',
-                                                waitMsg: '正在保存数据...',
-                                                success: function(form, action){
-                                                    Ext.Msg.alert("成功", "数据保存成功!");
-                                                    Ext.getCmp('grid_refi_mos').getStore().reload();
-                                                },
-                                                failure: function(form, action){
-                                                    Ext.Msg.alert("失败", "数据保存失败!");
-                                                }
-                                            });
-                                        }
-                                    }
-                                },
-                                {
-                                    text: '重置',
-                                    handler: function () {
-                                        this.up('form').getForm().reset();
-                                    }
-                                }
-                            ]
-                        });
-                        editWindow = new Ext.Window({
-                            layout: 'fit',
-                            width: 300,
-                            height: 400,
-                            modal: true,
-                            border: false,
-                            defaults: {
-                                width: 150,
-                                allowBlank: false
-                            },
-                            title: '修改',
-                            items: [editForm]
-                        });
-                        editWindow.show(Ext.get('refi_mos_edit'));
-                        editForm.getForm().loadRecord(record);
-                    }
-                },'-',
+                //{
+                //    text: '编辑',
+                //    id: 'refi_mos_edit',
+                //    handler: function(){
+                //        var sm = Ext.getCmp('grid_refi_mos').getSelectionModel();
+                //        var record = sm.getSelection()[0];
+                //
+                //        if(!record){
+                //            Ext.Msg.alert('信息','请选择要编辑的数据');
+                //            return;
+                //        }
+                //        var record = sm.getSelection()[0];
+                //
+                //        var editForm = null;
+                //        var editWindow = null;
+                //        editForm = new Ext.form.FormPanel({
+                //            frame: true,
+                //            fieldDefaults: {
+                //                labelAlign: 'left',
+                //                labelWidth: 90
+                //            },
+                //
+                //            defaults: {
+                //                xtype: 'textfield'
+                //            },
+                //            items: [
+                //                {
+                //                    fieldLabel: '融资服务ID',
+                //
+                //                    anchor: '100%',
+                //                    name: 'mos_id',
+                //                    hidden:true
+                //                },
+                //                {
+                //                    fieldLabel: '企业ID',
+                //
+                //                    anchor: '100%',
+                //                    name: 'mos_corp_id',
+                //                    hidden:true
+                //                },
+                //                {
+                //                    fieldLabel: '企业名称',
+                //                    anchor: '100%',
+                //                    name: 'corp_name'
+                //                },
+                //                {
+                //                    fieldLabel: '融资产品',
+                //                    anchor: '100%',
+                //                    name: 'mos_cots'
+                //                },
+                //                {
+                //                    fieldLabel: '融资金额',
+                //                    anchor: '100%',
+                //                    name: 'mos_amounts'
+                //                },
+                //                {
+                //                    fieldLabel: '项目经理',
+                //                    anchor: '100%',
+                //                    name: 'mos_mop'
+                //                },
+                //                {
+                //                    fieldLabel: '融资进度',
+                //                    anchor: '100%',
+                //                    name: 'mos_rop'
+                //                }
+                //            ],
+                //            buttonAlign : "center",
+                //            buttons: [
+                //                {
+                //                    text: '保存',
+                //                    handler: function(){
+                //                        var form = this.up('form').getForm();
+                //                        if (form.isValid()){
+                //                            form.submit({
+                //                                url: 'update_refi_mos_info',
+                //                                waitMsg: '正在保存数据...',
+                //                                success: function(form, action){
+                //                                    Ext.Msg.alert("成功", "数据保存成功!");
+                //                                    Ext.getCmp('grid_refi_mos').getStore().reload();
+                //                                },
+                //                                failure: function(form, action){
+                //                                    Ext.Msg.alert("失败", "数据保存失败!");
+                //                                }
+                //                            });
+                //                        }
+                //                    }
+                //                },
+                //                {
+                //                    text: '重置',
+                //                    handler: function () {
+                //                        this.up('form').getForm().reset();
+                //                    }
+                //                }
+                //            ]
+                //        });
+                //        editWindow = new Ext.Window({
+                //            layout: 'fit',
+                //            width: 300,
+                //            height: 400,
+                //            modal: true,
+                //            border: false,
+                //            defaults: {
+                //                width: 150,
+                //                allowBlank: false
+                //            },
+                //            title: '修改',
+                //            items: [editForm]
+                //        });
+                //        editWindow.show(Ext.get('refi_mos_edit'));
+                //        editForm.getForm().loadRecord(record);
+                //    }
+                //},'-',
 
                 {
                     text: '刷新',
@@ -292,10 +333,9 @@ Ext.define('App.view.refi.refi_mos.Query', {
           items: [
                 {
                   allowBlank: true,
-                  fieldLabel: '字段名称',
-                  id: 'query_fieldnm',
-                  name: 'fieldnm',
-                  emptyText: '字段名称'
+                  fieldLabel: '企业名称',
+                  id: 'query_refi_mos_corp_name',
+                  emptyText: '企业名称'
                 }
           ]
         },
@@ -311,7 +351,7 @@ Ext.define('App.view.refi.refi_mos.Query', {
                             var store = Ext.getCmp('grid_refi_mos').getStore();
                             store.load({
                                 params: {
-                                    fieldnm: Ext.getCmp('query_fieldnm').getValue()
+                                    corp_name: Ext.getCmp('query_refi_mos_corp_name').getValue()
                                 }
                             });
                         }

@@ -4,6 +4,7 @@
 Ext.define('App.model.refi_mos', {
     extend: 'Ext.data.Model',
     fields: [
+        {name: 'corp_name'},
         {name: 'mos_id'},
         {name: 'mos_corp_id'},
         {name: 'mos_cots'},
