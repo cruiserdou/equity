@@ -26,7 +26,7 @@ public class ObtainRefiRopInfo {
     @ResponseBody
     DataShop getShopInJSON(
 //           @RequestParam(value = "name", required = false) String name,
-//           @RequestParam(value = "fuse", required = false) String fuse
+           @RequestParam(value = "rop_mos_id", required = false) String rop_mos_id
 
 
     ) throws Exception{
@@ -51,8 +51,8 @@ public class ObtainRefiRopInfo {
             stmt = conn.createStatement();
 
             String sql = "SELECT * FROM work.tb_refi_rop  WHERE 1 = 1 ";
-//            if (fuse != null && fuse.length() != 0)
-//                sql += " and fuse like '%" + fuse + "%'";
+            if (rop_mos_id != null && rop_mos_id.length() != 0)
+                sql += " and rop_mos_id ="+rop_mos_id;
 //            if (type != null && type.length() != 0)
 //                sql += " and type like '%" + type + "%'";
 
