@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/corp/corp/CheckBuslicnoInfo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/corp/corp_shareholder/ObtainCorpShareholderListInfo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/img_upload.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/img_view.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/msg/ObtainMsgListInfo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/print_details.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/print_enterprise.java" charset="UTF-8" />

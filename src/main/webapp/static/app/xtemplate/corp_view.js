@@ -97,7 +97,7 @@ var corp_tpl = new Ext.XTemplate(
      '</tr>',
      '<tr>',
      '<th>企业图文信息</th>',
-     '<td colspan="3"><img onclick="pub_upload_file(\'phoinf\')" id="phoinf" name="phoinf" value="{phoinf}" src=""   alt="点击上传照片"/> </td>',
+    '<td colspan="3"><a href="img_view" target="_blank">详细</a></td>',
      '</tr>',
      '</table>',
     '</div>'
@@ -121,6 +121,7 @@ var corp_shareholder_tpl = new Ext.XTemplate(
     '<th>详情</th>',
     '</tr>',
     '<tr>',
+    '<tpl for="list">',
     '<td>{gd_shtype}</td>',
     '<td>{gd_shname}</td>',
     '<td>{gd_shdoctype}</td>',
@@ -130,6 +131,7 @@ var corp_shareholder_tpl = new Ext.XTemplate(
     '<td>{gd_freezenum}</td>',
     '<td>{gd_remark}</td>',
     '</tr>',
+    '</tpl>',
     '</table>'
 );
 

@@ -35,7 +35,7 @@ Ext.define('App.controller.Frame', {
                     Ext.getCmp('tabPanel_id').setActiveTab(tabitem);
                 },
                 afterrender: function () {
-                    setInterval("msg_list_refresh()",  3000);
+                    setInterval("msg_list_refresh()",  30000);
                     Ext.getCmp('tabPanel_id').add({
                         xtype: 'enterprise_queryf',
                         id: 'enterprise_queryf_id',
