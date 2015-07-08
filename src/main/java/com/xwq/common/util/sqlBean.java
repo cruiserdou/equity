@@ -10,7 +10,7 @@ public class sqlBean {
 
     private String DatabaseDriver = "org.postgresql.Driver";
     //DataSource ����Դ����DSN
-    private String DatabaseConnStr = "jdbc:postgresql://localhost:5432/exam";
+    private String DatabaseConnStr = "jdbc:postgresql://localhost:5432/equity";
 
 
     //���巽��
