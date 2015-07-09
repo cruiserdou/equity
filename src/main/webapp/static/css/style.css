@@ -20,8 +20,8 @@ body{
 .container{   
   position:relative;
   height:600px;
-  width:95%;
-  left:20px;
+  width:72%;
+  left:10%;
   top:100px;
   border:2px solid #ccc;
   text-indent:4px;
@@ -37,22 +37,24 @@ body{
 }
 
 .scrolller-container{
-  width:60%;
-  height:15px;
-  border:1px solid #ccc;
-  border-radius:10px;
-  position:relative;
-  top:150px;
-  left:130px;
-  cursor:pointer; 
+    width:800px;
+    height:15px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    position:relative;
+    top:150px;
+    left:25%;
+    cursor:pointer;
 }
+
+
 .scrolller-container .scroller{
-   width:35%;
-   height:15px;
-   background-color:#ddd;
-   border-radius:10px;
-   position:absolute;
-   left:0px;
+    width:100px;
+    height:15px;
+    background-color:#ddd;
+    border-radius:10px;
+    position:absolute;
+    left:0px;
 }
 
 /* For reflection */
