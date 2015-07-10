@@ -474,3 +474,49 @@ function corp_export(id) {
         }
     });
 };
+
+function addRow_edit(){
+    var oTable = document.getElementById("table_corp_sh");
+    var tBodies = oTable.tBodies;
+    var tbody = tBodies[0];
+    var tr = tbody.insertRow(tbody.rows.length);
+    var td_1 = tr.insertCell(0);
+    td_1.innerHTML = "";
+    var td_2 = tr.insertCell(1);
+    td_2.innerHTML = "";
+    var td_3 = tr.insertCell(2);
+    td_3.innerHTML = "";
+    var td_4 = tr.insertCell(3);
+    td_4.innerHTML = "";
+    var td_5 = tr.insertCell(4);
+    td_5.innerHTML = "";
+    var td_6 = tr.insertCell(5);
+    td_6.innerHTML = "";
+    var td_7 = tr.insertCell(6);
+    td_7.innerHTML = "";
+    var td_8 = tr.insertCell(7);
+    td_8.innerHTML = "";
+    var td_9 = tr.insertCell(8);
+    td_9.innerHTML = "";
+    var td_10 = tr.insertCell(9);
+    td_10.innerHTML = "";
+    var td_11 = tr.insertCell(10);
+    td_11.innerHTML = "";
+    var td_12 = tr.insertCell(11);
+    td_12.innerHTML = "";
+    var td_13 = tr.insertCell(12);
+    td_13.innerHTML = "";
+    var td_14 = tr.insertCell(13);
+    td_14.innerHTML = "";
+    var td_15 = tr.insertCell(14);
+    td_15.innerHTML = "";
+    var td_16 = tr.insertCell(15);
+    td_16.innerHTML = "<input type='button' onClick='delRow_edit();' style='font-size:16px;' value='-'/>";
+}
+
+
+function delRow_edit(){
+    alert("33");
+}
+
+

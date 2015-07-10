@@ -277,38 +277,47 @@ function obt_corp_contact_update(corp_id,cont_id) {
 
 //股东信息更新
 function obt_corp_shareholder_update(corp_id,gd_id) {
-    var form_obt_edit = document.getElementById("apply_corp_form_edit");
-    Ext.Ajax.request({
-        method: "POST",
-        params: {
-            gd_id : gd_id,
-            gd_corp_id : corp_id,
-            gd_shtype : form_obt_edit['gd_shtype'].value,
-            gd_shname : form_obt_edit['gd_shname'].value,
-            gd_shdoctype : form_obt_edit['gd_shdoctype'].value,
-            gd_shdocnum : form_obt_edit['gd_shdocnum'].value,
-            gd_shareholdnum : form_obt_edit['gd_shareholdnum'].value,
-            gd_currencynum : form_obt_edit['gd_currencynum'].value,
-            gd_freezenum : form_obt_edit['gd_freezenum'].value,
-            //gd_psotion : form_obt_edit['gd_psotion'].value,
-            //gd_doctype : form_obt_edit['gd_doctype'].value,
-            //gd_docnum : form_obt_edit['gd_docnum'].value,
-            //gd_phone : form_obt_edit['gd_phone'].value,
-            //gd_fax : form_obt_edit['gd_fax'].value,
-            //gd_email : form_obt_edit['gd_email'].value,
-            //gd_qq : form_obt_edit['gd_qq'].value,
-            //gd_webchat : form_obt_edit['gd_webchat'].value,
-            //gd_tel : form_obt_edit['gd_tel'].value,
-            gd_remark : form_obt_edit['gd_remark'].value
-        },
-        url: 'update_corp_shareholder_info',
-        success: function () {
-            Ext.Msg.alert("提示", "保存成功！");
-        },
-        failure: function () {
-            Ext.Msg.alert("提示", "保存失败！");
+
+
+    var tab=document.getElementById("table_corp_sh");
+    var rows=tab.rows;
+    for(var i=2;i<rows.length;i++)
+    {
+
+        {
+            Ext.Ajax.request({
+                method: "POST",
+                params: {
+                    gd_id : gd_id,
+                    gd_corp_id : corp_id,
+                    gd_shtype : rows[i].cells[0].innerHTML,
+                    gd_shname : rows[i].cells[1].innerHTML,
+                    gd_shdoctype : rows[i].cells[2].innerHTML,
+                    gd_shdocnum : rows[i].cells[3].innerHTML,
+                    gd_shareholdnum : rows[i].cells[4].innerHTML,
+                    gd_currencynum : rows[i].cells[5].innerHTML,
+                    gd_freezenum : rows[i].cells[6].innerHTML,
+                    gd_psotion : rows[i].cells[7].innerHTML,
+                    gd_phone : rows[i].cells[8].innerHTML,
+                    gd_fax : rows[i].cells[9].innerHTML,
+                    gd_email : rows[i].cells[10].innerHTML,
+                    gd_qq : rows[i].cells[11].innerHTML,
+                    gd_webchat : rows[i].cells[12].innerHTML,
+                    gd_tel : rows[i].cells[13].innerHTML,
+                    gd_remark : rows[i].cells[14].innerHTML,
+                    gd_doctype : "",
+                    gd_docnum : ""
+                },
+                url: 'update_corp_shareholder_info',
+                success: function () {
+                    Ext.Msg.alert("提示", "保存成功！");
+                },
+                failure: function () {
+                    Ext.Msg.alert("提示", "保存失败！");
+                }
+            });
         }
-    });
+    }
 };
 
 //财务信息更新
@@ -705,7 +714,7 @@ function obt_corp_add(corp_id) {
             mbus : document.getElementById('mbus').value,
             eprofile : document.getElementById('eprofile').value,
             remark : document.getElementById('remark').value,
-            phoinf : document.getElementById('phoinf').value,
+            phoinf : "",
             indclass1 : document.getElementById('indclass1').value,
             indclass2 : document.getElementById('indclass2').value,
             indclass3 : document.getElementById('indclass3').value,
@@ -759,37 +768,42 @@ function obt_corp_contact_add(corp_id) {
     });
 };
 function obt_corp_shareholder_add(corp_id) {
+    var tab=document.getElementById("table_corp_sh");
+    var rows=tab.rows;
+    for(var i=2;i<rows.length;i++)
+    {
+            Ext.Ajax.request({
+                method: "POST",
+                params: {
+                    gd_corp_id : corp_id,
+                    gd_shtype : rows[i].cells[0].innerHTML,
+                    gd_shname : rows[i].cells[1].innerHTML,
+                    gd_shdoctype : rows[i].cells[2].innerHTML,
+                    gd_shdocnum : rows[i].cells[3].innerHTML,
+                    gd_shareholdnum : rows[i].cells[4].innerHTML,
+                    gd_currencynum : rows[i].cells[5].innerHTML,
+                    gd_freezenum : rows[i].cells[6].innerHTML,
+                    gd_psotion : rows[i].cells[7].innerHTML,
+                    gd_phone : rows[i].cells[8].innerHTML,
+                    gd_fax : rows[i].cells[9].innerHTML,
+                    gd_email : rows[i].cells[10].innerHTML,
+                    gd_qq : rows[i].cells[11].innerHTML,
+                    gd_webchat : rows[i].cells[12].innerHTML,
+                    gd_tel : rows[i].cells[13].innerHTML,
+                    gd_remark : rows[i].cells[14].innerHTML,
+                    gd_doctype : "",
+                    gd_docnum : ""
+                },
+                url: 'add_corp_shareholder_info',
+                success: function () {
+                    Ext.Msg.alert("提示", "保存成功！");
+                },
+                failure: function () {
+                    Ext.Msg.alert("提示", "保存失败！");
+                }
+            });
+    }
 
-    Ext.Ajax.request({
-        method: "POST",
-        params: {
-            gd_corp_id : corp_id,
-            gd_shtype : document.getElementById('gd_shtype').value,
-            gd_shname : document.getElementById('gd_shname').value,
-            gd_shdoctype : document.getElementById('gd_shdoctype').value,
-            gd_shdocnum : document.getElementById('gd_shdocnum').value,
-            gd_shareholdnum : document.getElementById('gd_shareholdnum').value,
-            gd_currencynum : document.getElementById('gd_currencynum').value,
-            gd_freezenum : document.getElementById('gd_freezenum').value,
-            //gd_psotion : document.getElementById('gd_psotion').value,
-            //gd_doctype : document.getElementById('gd_doctype').value,
-            //gd_docnum : document.getElementById('gd_docnum').value,
-            //gd_phone : document.getElementById('gd_phone').value,
-            //gd_fax : document.getElementById('gd_fax').value,
-            //gd_email : document.getElementById('gd_email').value,
-            //gd_qq : document.getElementById('gd_qq').value,
-            //gd_webchat : document.getElementById('gd_webchat').value,
-            //gd_tel : document.getElementById('gd_tel').value,
-            gd_remark : document.getElementById('gd_remark').value
-        },
-        url: 'add_corp_shareholder_info',
-        success: function () {
-            Ext.Msg.alert("提示", "保存成功！");
-        },
-        failure: function () {
-            Ext.Msg.alert("提示", "保存失败！");
-        }
-    });
 };
 function obt_corp_finance_add(corp_id) {
     Ext.Ajax.request({
@@ -1120,3 +1134,5 @@ function obt_corp_retrain_add(corp_id) {
         }
     });
 };
+
+

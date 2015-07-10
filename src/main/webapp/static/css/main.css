@@ -1,11 +1,12 @@
 .enter_table{
-    border-collapse: collapse;
-    width: 800px;
-    font-size: 12px;
-    text-align: left;
-    margin-bottom: 2em;
-    background-color: #ecf2fb;
-}
+     border-collapse: collapse;
+     width: 800px;
+     font-size: 12px;
+     text-align: left;
+     margin-bottom: 2em;
+     background-color: #ecf2fb;
+ }
+
 
 .enter_table input{
     background-color: #ecf2fb;
@@ -30,6 +31,43 @@
 }
 
 .enter_table .table_header{
+    background-color: #9ABCE6;
+}
+
+.enter_table_sh{
+    border-collapse: collapse;
+    width: 1200px;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 2em;
+    background-color: #ecf2fb;
+}
+
+
+.enter_table_sh input{
+    background-color: #ecf2fb;
+}
+
+.enter_table_sh textarea{
+    background-color: #ecf2fb;
+}
+
+.enter_table_sh td, .enter_table_sh th{
+    border: 1px solid #9ABCE6;
+    border-collapse: collapse;
+    padding: 9px 8px 8px 8px;
+}
+
+.enter_table_sh th{
+    width: 10em;
+}
+
+.enter_table_sh td{
+    width: 20em;
+    contenteditable :'true';
+}
+
+.enter_table_sh .table_header{
     background-color: #9ABCE6;
 }
 

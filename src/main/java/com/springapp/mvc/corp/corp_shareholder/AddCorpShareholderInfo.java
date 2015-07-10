@@ -34,15 +34,15 @@ public class AddCorpShareholderInfo {
             @RequestParam(value = "gd_shareholdnum", required = false) String gd_shareholdnum,
             @RequestParam(value = "gd_currencynum", required = false) String gd_currencynum,
             @RequestParam(value = "gd_freezenum", required = false) String  gd_freezenum, 
-//            @RequestParam(value = "gd_psotion", required = false) String  gd_psotion,
+            @RequestParam(value = "gd_psotion", required = false) String  gd_psotion,
 //            @RequestParam(value = "gd_doctype", required = false) String  gd_doctype,
 //            @RequestParam(value = "gd_docnum", required = false) String gd_docnum,
-//            @RequestParam(value = "gd_phone", required = false) String  gd_phone,
-//            @RequestParam(value = "gd_fax", required = false) String gd_fax,
-//            @RequestParam(value = "gd_email", required = false) String  gd_email,
-//            @RequestParam(value = "gd_qq", required = false) String  gd_qq,
-//            @RequestParam(value = "gd_webchat", required = false) String  gd_webchat,
-//            @RequestParam(value = "gd_tel", required = false) String gd_tel,
+            @RequestParam(value = "gd_phone", required = false) String  gd_phone,
+            @RequestParam(value = "gd_fax", required = false) String gd_fax,
+            @RequestParam(value = "gd_email", required = false) String  gd_email,
+            @RequestParam(value = "gd_qq", required = false) String  gd_qq,
+            @RequestParam(value = "gd_webchat", required = false) String  gd_webchat,
+            @RequestParam(value = "gd_tel", required = false) String gd_tel,
             @RequestParam(value = "gd_remark", required = false) String gd_remark
 
 
@@ -84,15 +84,15 @@ public class AddCorpShareholderInfo {
             pst.setString(6, gd_shareholdnum);
             pst.setString(7, gd_currencynum);
             pst.setString(8, gd_freezenum);
-            pst.setString(9, "");
+            pst.setString(9, gd_psotion);
             pst.setString(10, "");
             pst.setString(11, "");
-            pst.setString(12, "");
-            pst.setString(13, "");
-            pst.setString(14, "");
-            pst.setString(15, "");
-            pst.setString(16, "");
-            pst.setString(17, "");
+            pst.setString(12, gd_phone);
+            pst.setString(13, gd_fax);
+            pst.setString(14, gd_email);
+            pst.setString(15, gd_qq);
+            pst.setString(16, gd_webchat);
+            pst.setString(17, gd_tel);
             pst.setString(18, gd_remark);
             pst.executeUpdate();
 
