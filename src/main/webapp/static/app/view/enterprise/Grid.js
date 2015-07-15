@@ -515,8 +515,4 @@ function addRow_edit(){
 }
 
 
-function delRow_edit(){
-    alert("33");
-}
-
 

@@ -3,6 +3,7 @@ Ext.define('App.view.enterprise.corp_list', {
     alias: 'widget.corp_listf',
     layout: 'border',
     border: false,
+    id: 'corp_listf_id',
     listeners: {
         activate: function () {
             Ext.getCmp('grid_enterprise').getStore().load();

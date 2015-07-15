@@ -105,7 +105,7 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '</tr>',
     '<tr>',
     '<th>企业图文信息</th>',
-    '<td colspan="3"><a href="img_upload" target="_blank">详细</a></td>',
+    '<td colspan="3"><button type="button" onclick="corp_img_upload()">详细</button></td>',
     '</tr>',
     '</table>',
 

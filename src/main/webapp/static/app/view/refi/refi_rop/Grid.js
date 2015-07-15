@@ -6,6 +6,104 @@ Ext.define('App.view.refi.refi_rop.Grid', {
     selModel: sm,
     id :'grid_refi_rop',
 
+    listeners: {
+
+
+        'itemdblclick': function (view, record, item, index, e) {
+        var editForm = new Ext.form.FormPanel({
+            frame: true,
+
+            fieldDefaults: {
+                labelAlign: 'right',
+                labelWidth: 90
+            },
+            defaults: {
+                readOnly: true,
+                xtype: 'textfield'
+            },
+
+            items: [
+                {
+                    hidden: 'true',
+                    fieldLabel: 'ID',
+                    name: 'id'
+                },
+
+                {
+                    anchor: '100%',
+                    fieldLabel: '活动主题',
+                    name: 'theme'
+                },
+
+                {
+                    xtype: 'datefield',
+                    fieldLabel: '开始时间',
+                    anchor: '100%',
+                    name: 'starttime',
+                    format: 'Y-m-d H:i:s',
+                    allowBlank:false
+
+                },
+                {
+                    xtype: 'datefield',
+                    fieldLabel: '结束时间',
+                    anchor: '100%',
+                    name: 'endtime',
+                    format: 'Y-m-d H:i:s',
+                    allowBlank:false
+
+                },
+                {
+                    anchor: '100%',
+                    xtype: 'textarea',
+                    fieldLabel: '活动内容',
+                    name: 'content'
+                },
+                {
+                    xtype: 'box',
+                    id : 'logoPic',
+                    width: 100,
+                    height: 150,
+                    name:'photo',
+                    autoEl: {
+                        id: 'show',
+                        tag: 'img',
+                        complete : 'off',
+                        src: 'static/upload/activity/'+record.data['photo']
+                    }
+                },
+                {
+                    xtype: 'datefield',
+                    fieldLabel: '录入时间',
+                    anchor: '100%',
+                    name: 'startdate',
+                    format: 'Y-m-d H:i:s',
+                    allowBlank:false
+
+                },
+
+                {
+                    allowBlank: false,
+                    anchor: '100%',
+                    fieldLabel: '活动状态',
+                    name: 'state'
+                }
+
+            ]
+
+        });
+        var editWindow = new Ext.Window({
+            layout: 'fit',
+            width: 300,
+            height: 400,
+            title: '融资进度',
+            items: [editForm]
+        });
+        editWindow.show(Ext.get(''));
+        editForm.getForm().loadRecord(record);
+    }
+    },
+
     initComponent: function () {
 
         this.columns = [

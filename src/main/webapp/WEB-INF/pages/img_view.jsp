@@ -10,7 +10,7 @@
 
   <meta charset="UTF-8">
 
-  <title>HTML5 3D相册图片轮播动画DEMO演示</title>
+  <title>企业信息图片</title>
 
     <link type="text/css" rel="stylesheet" href="static/css/style.css" media="screen" type="text/css" />
 

@@ -5,7 +5,111 @@ Ext.define('App.view.maintain_plan.Grid', {
     store: 'maintain_plan',
     selModel: sm,
     id :'grid_maintain_plan',
+    listeners: {
 
+
+        'itemdblclick': function (view, record, item, index, e) {
+            var editForm = new Ext.form.FormPanel({
+                frame: true,
+
+                bodyPadding: 10,
+                border: false,
+                fieldDefaults: {
+                    labelAlign: 'left',
+                    labelWidth: 90
+                },
+                defaults: {
+                    readOnly: true,
+                    labelAlign: 'right',
+                    xtype: 'textfield'
+                },
+
+                items: [
+                                    {
+                                        anchor: '100%',
+                                        fieldLabel: 'ID',
+                                        name: 'mp_id'
+                                        ,hidden:true
+                                    },
+                                    {
+                                        anchor: '100%',
+                                        fieldLabel: '企业ID',
+                                        name: 'mp_corp_id',
+                                        hidden:true
+                                    },
+                                    {
+                                        anchor: '100%',
+                                        fieldLabel: '企业名称',
+                                        name: 'corp_name'
+                                    },
+                                    {
+                                        anchor: '100%',
+                                        fieldLabel: '挂牌代码',
+                                        name: 'mp_listcode'
+                                    },
+                                    {
+                                        anchor: '100%',
+                                        fieldLabel: '省',
+                                        name: 'mp_province'
+                                    },
+                                    {
+                                        anchor: '100%',
+                                        fieldLabel: '市',
+                                        name: 'mp_city'
+                                    },
+                                    {
+                                        anchor: '100%',
+                                        fieldLabel: '县',
+                                        name: 'mp_county'
+                                    },
+                                    {
+                                        anchor: '100%',
+                                        fieldLabel: '最后一次维护时间',
+                                        name: 'mp_last_date',
+                                        xtype: 'datefield',
+                                        value: new Date(),
+                                        format: 'Y-m-d H:i:s'
+                                    },
+                                    {
+                                        anchor: '100%',
+                                        fieldLabel: '维护内容',
+                                        name: 'mp_content'
+                                    },
+                                    {
+                                        anchor: '100%',
+                                        fieldLabel: '维护结果',
+                                        name: 'mp_result'
+                                    },
+                                    {
+                                        anchor: '100%',
+                                        fieldLabel: '历史记录',
+                                        name: 'mp_hisdesc'
+                                    },
+                                    {
+                                        anchor: '100%',
+                                        fieldLabel: '备注',
+                                        name: 'mp_remark'
+                                    }
+
+                ]
+
+            });
+            var editWindow = new Ext.Window({
+                width: 350,
+                height: 400,
+                border: false,
+                layout: 'fit',
+                defaults: {
+                    width: 150,
+                    allowBlank: false
+                },
+                title: '维护计划',
+                items: [editForm]
+            });
+            editWindow.show(Ext.get(''));
+            editForm.getForm().loadRecord(record);
+        }
+    },
     initComponent: function () {
 
         this.columns = [

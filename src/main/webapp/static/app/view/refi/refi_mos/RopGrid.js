@@ -7,6 +7,96 @@ Ext.define('App.view.refi.refi_mos.RopGrid', {
     columnLines: true,
     enableLocking: true,
     selModel: sm,
+    listeners: {
+
+        'itemdblclick': function (view, record, item, index, e) {
+            var editForm = new Ext.form.FormPanel({
+                frame: true,
+
+                bodyPadding: 10,
+                border: false,
+                fieldDefaults: {
+                    labelAlign: 'left',
+                    labelWidth: 90
+                },
+                defaults: {
+                    readOnly: true,
+                    labelAlign: 'right',
+                    xtype: 'textfield'
+                },
+
+                items: [
+
+
+                    {
+                        xtype: 'textarea',
+                        anchor: '100%',
+                        fieldLabel: '事项',
+                        name: 'rop_items'
+                    },
+                    {
+                        xtype: 'textarea',
+                        anchor: '100%',
+                        fieldLabel: '具体内容',
+                        name: 'rop_desc'
+                    },
+                    {
+                        anchor: '100%',
+                        fieldLabel: '完成时间',
+                        name: 'rop_endt',
+                        xtype: 'datefield',
+                        format: 'Y-m-d H:i:s'
+                    },
+                    {
+                        xtype: 'textarea',
+                        anchor: '100%',
+                        fieldLabel: '需解决问题',
+                        name: 'rop_crb'
+                    },
+                    {
+                        xtype: 'container',
+                        anchor: '100%',
+                        layout: 'column',
+                        items: [
+
+                            {
+                                xtype: "panel",
+                                layout: "column",
+                                fieldLabel: '是否完成',
+                                xtype: 'radiogroup', anchor: '220%', columns: 20, items: [
+                                {boxLabel: "是", name: 'rop_stat', inputValue: '是',checked: true},
+                                {boxLabel: "否", name: 'rop_stat', inputValue: '否'}
+                            ]
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'textarea',
+                        anchor: '100%',
+                        fieldLabel: '备注',
+                        name: 'rop_remark'
+                    }
+
+                ]
+
+            });
+            var editWindow = new Ext.Window({
+                width: 370,
+                height: 500,
+                border: false,
+                layout: 'fit',
+                defaults: {
+                    width: 150,
+                    allowBlank: false
+                },
+                title: '融资进度',
+                items: [editForm]
+            });
+            editWindow.show(Ext.get(''));
+            editForm.getForm().loadRecord(record);
+        }
+
+    },
     dockedItems: [
         {
             xtype: 'toolbar',

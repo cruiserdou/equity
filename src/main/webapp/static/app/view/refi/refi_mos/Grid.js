@@ -13,7 +13,87 @@ Ext.define('App.view.refi.refi_mos.Grid', {
                     rop_mos_id: record_.get('mos_id')
                 }
             })
-        }
+        },
+
+
+
+
+            'itemdblclick': function (view, record, item, index, e) {
+                var editForm = new Ext.form.FormPanel({
+                    frame: true,
+
+                    bodyPadding: 10,
+                    border: false,
+                    fieldDefaults: {
+                        labelAlign: 'left',
+                        labelWidth: 90
+                    },
+                    defaults: {
+                        readOnly: true,
+                        labelAlign: 'right',
+                        xtype: 'textfield'
+                    },
+
+                    items: [
+                        {
+                            anchor: '100%',
+                            fieldLabel: 'ID',
+                            name: 'mos_id'
+                            ,hidden:true
+                        },
+                        {
+                            fieldLabel: '企业ID',
+                            anchor: '100%',
+                            name: 'mos_corp_id',
+                            id:'corp_id',
+                            hidden:true
+                        },
+                        {
+                            anchor: '100%',
+                            fieldLabel: '企业名称',
+                            name: 'corp_name'
+                        },
+
+                        {
+                            fieldLabel: '融资产品',
+                            anchor: '100%',
+                            name: 'mos_cots'
+                        },
+                        {
+                            fieldLabel: '融资金额',
+                            anchor: '100%',
+                            name: 'mos_amounts'
+                        },
+                        {
+                            fieldLabel: '项目经理',
+                            anchor: '100%',
+                            name: 'mos_mop'
+                        },
+                        {
+                            fieldLabel: '融资进度',
+                            anchor: '100%',
+                            name: 'mos_rop'
+                        }
+
+                    ]
+
+                });
+                var editWindow = new Ext.Window({
+                    width: 350,
+                    height: 400,
+                    border: false,
+                    layout: 'fit',
+                    defaults: {
+                        width: 150,
+                        allowBlank: false
+                    },
+                    title: '融资服务',
+                    items: [editForm]
+                });
+                editWindow.show(Ext.get(''));
+                editForm.getForm().loadRecord(record);
+            }
+
     },
     initComponent: function () {
 

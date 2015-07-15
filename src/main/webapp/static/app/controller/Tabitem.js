@@ -8,7 +8,7 @@ Ext.define('App.controller.Tabitem', {
         ,'syj_roles','syj_userroles','syj_rolepermissions'
         ,'msg','enterprise','login_log','enterprise_sh','change'
         ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
-        ,'investors','corp_all','corp_shareholder_list'
+        ,'investors','corp_all','corp_shareholder_list','corp_img'
         ,'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
         ,'maintain_plan','maintain_info','refi_mos','refi_rop'
     ],
@@ -19,7 +19,7 @@ Ext.define('App.controller.Tabitem', {
         'syj_users','syj_menu','syj_dicts'
         ,'dicts_service'
         ,'syj_roles','syj_userroles','syj_rolepermissions'
-        ,'msg','enterprise','login_log','change'
+        ,'msg','enterprise','login_log','change','corp_img'
         ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
         ,'investors','corp_all','corp_service_all','corp_investors_all','corp_government_all','corp_refinancing_all','corp_rehr_all','corp_retrain_all'
         ,'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
@@ -35,7 +35,7 @@ Ext.define('App.controller.Tabitem', {
         'menu.Policef', 'menu.Grid', 'menu.Query',
         'rolepermissions.Truckoutf', 'rolepermissions.Grid', 'rolepermissions.Query',
         'msg.Msgf','msg.Grid','msg.Query',
-        'enterprise.Enterprisef','enterprise.Grid','enterprise.Query','enterprise.Applyf','enterprise.Enterprise_typef','enterprise.corp_list',
+        'enterprise.Enterprisef','enterprise.Grid','enterprise.Query','enterprise.Applyf','enterprise.Enterprise_typef','enterprise.corp_list','enterprise.corp_img_grid',
         'enterprise_query.Enterprise_queryf','enterprise_query.Grid','enterprise_query.Query','enterprise_query.ChangeGrid',
         'enterprise_stat.Enterprise_statf', 'enterprise_stat.Grid', 'enterprise_stat.Query',
         'login_log.Login_logf','login_log.Grid','login_log.Query',
