@@ -6,8 +6,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
 
-         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
-    <context:annotation-config />
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <context:annotation-config/>
 
     <context:component-scan base-package="com.springapp,com.smart,com.xwq.common">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
@@ -15,8 +16,7 @@
 
     <bean id="dataSource1" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
         <property name="driverClass" value="org.postgresql.Driver"/>
-        <!--<property name="url" value="jdbc:postgresql://123.57.135.139:5432/equity"/>-->
-        <property name="url" value="jdbc:postgresql://localhost:5432/equity"/>
+        <property name="url" value="jdbc:postgresql://123.57.135.139:5432/equity"/>
         <property name="username" value="postgres"/>
         <property name="password" value="postgres"/>
     </bean>
@@ -25,13 +25,13 @@
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" p:dataSource-ref="dataSource1"/>
     <!--配置myBatis-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource1" />
-        <property name="typeAliasesPackage" value="com.springapp.mvc" />
+        <property name="dataSource" ref="dataSource1"/>
+        <property name="typeAliasesPackage" value="com.springapp.mvc"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
     <!--配置myBatis自动扫描-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.springapp.mvc" />
+        <property name="basePackage" value="com.springapp.mvc"/>
         <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
     </bean>
 
@@ -41,34 +41,6 @@
     </bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-
-
-
-    <!--<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
-        <!--<property name="urlMap">-->
-            <!--<map>-->
-                <!--<entry key="/static/*" value="myResourceHandler" />-->
-            <!--</map>-->
-        <!--</property>-->
-        <!--<property name="order" value="100000" />-->
-    <!--</bean>-->
-
-
-    <!--<bean id="myResourceHandler" name="myResourceHandler"-->
-          <!--class="org.springframework.web.servlet.resource.ResourceHttpRequestHandler">-->
-        <!--<property name="locations" value="/static/*" />-->
-        <!--<property name="supportedMethods">-->
-            <!--<list>-->
-                <!--<value>GET</value>-->
-                <!--<value>HEAD</value>-->
-                <!--<value>POST</value>-->
-            <!--</list>-->
-        <!--</property>-->
-
-    <!--</bean>-->
-
-
-
     <bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
         <property name="dataSource" ref="dataSource1"/>
         <property name="transactionManager" ref="transactionManager"/>
@@ -77,7 +49,7 @@
     </bean>
 
     <bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
-        <property name="processEngineConfiguration" ref="processEngineConfiguration" />
+        <property name="processEngineConfiguration" ref="processEngineConfiguration"/>
     </bean>
 
     <bean id="identityService" factory-bean="processEngine" factory-method="getIdentityService"/>

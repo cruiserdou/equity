@@ -43,11 +43,13 @@ public class ObtainJson {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-            String sql = "select v_leaf_list from work.menu_lists(" + session.getAttribute("id").toString() + ")";
+//            String sql = "select v_leaf_list from work.menu_lists(" + session.getAttribute("id").toString() + ")";
+            String sql = "select v_leaf_list from work.menu_lists(10001)";
 
             rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 String jobdesc = rs.getString(1);
+                System.out.println(jobdesc);
                 return jobdesc;
             }
         } catch (SQLException e) {

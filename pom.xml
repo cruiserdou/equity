@@ -75,6 +75,17 @@
         </dependency>
 
         <dependency>
+            <groupId>me.riverslob.webChat</groupId>
+            <artifactId>webChat-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>me.riverslob.webChat</groupId>
+            <artifactId>webChat-util</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>3.10-FINAL</version>
