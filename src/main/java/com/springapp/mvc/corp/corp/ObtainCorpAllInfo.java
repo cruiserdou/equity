@@ -25,7 +25,10 @@ public class ObtainCorpAllInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
-            @RequestParam(value = "field", required = false) String field
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "nos", required = false) String nos,
+            @RequestParam(value = "buslicno", required = false) String buslicno,
+            @RequestParam(value = "listcode", required = false) String listcode
   ) throws Exception{
         Connection conn = null;
         Statement stmt = null;
@@ -53,7 +56,8 @@ public class ObtainCorpAllInfo {
 
             String sql = "select corp.*,corp_contact.*,corp_finance.*,corp_maintain.*,corp_shareholder.*," +
                     "     corp_government.*,corp_service.*,corp_investors.*," +
-                    "     corp_refinancing.*,corp_rehr.*,corp_retrain.*  from work.tb_corp corp " +
+                    "     corp_refinancing.*,corp_rehr.*,corp_retrain.*  " +
+                    "     from work.tb_corp corp " +
                     "     inner join work.tb_corp_contact corp_contact on corp.id=corp_contact.cont_corp_id " +
                     "     inner join work.tb_corp_finance corp_finance on corp.id=corp_finance.fin_corp_id " +
                     "     inner join work.tb_corp_maintain corp_maintain on corp.id=corp_maintain.mai_corp_id " +
@@ -63,10 +67,20 @@ public class ObtainCorpAllInfo {
                     "     inner join work.tb_corp_investors corp_investors on corp.id=corp_investors.inv_corp_id " +
                     "     inner join work.tb_corp_refinancing corp_refinancing on corp.id=corp_refinancing.refi_corp_id " +
                     "     inner join work.tb_corp_rehr corp_rehr on corp.id=corp_rehr.rehr_corp_id " +
-                    "     inner join work.tb_corp_retrain corp_retrain on corp.id=corp_retrain.retra_corp_id ";
-//            if (field != null && field.length() != 0)
-//                sql += " and field like '%" + field + "%'";
+                    "     inner join work.tb_corp_retrain corp_retrain on corp.id=corp_retrain.retra_corp_id  " +
+                    "      where 1=1 ";
 
+            if (name != null && name.length() != 0)
+                sql += " and corp.name like '%" + name + "%'";
+            if (nos != null && nos.length() != 0)
+                sql += " and corp.nos like '%" + nos + "%'";
+            if (buslicno != null && buslicno.length() != 0)
+                sql += " and corp.buslicno like '%" + buslicno + "%'";
+            if (listcode != null && listcode.length() != 0)
+                sql += " and corp.listcode = '" + listcode + "'";
+
+            sql += " order by  corp.id desc ";
+//            System.out.print(sql);
             rs = stmt.executeQuery(sql);
 
             list = new ConvertToList().convertList(rs);

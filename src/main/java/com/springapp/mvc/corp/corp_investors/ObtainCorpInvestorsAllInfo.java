@@ -25,7 +25,10 @@ public class ObtainCorpInvestorsAllInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
-            @RequestParam(value = "field", required = false) String field
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "nos", required = false) String nos,
+            @RequestParam(value = "buslicno", required = false) String buslicno,
+            @RequestParam(value = "listcode", required = false) String listcode
   ) throws Exception{
         Connection conn = null;
         Statement stmt = null;
@@ -65,9 +68,16 @@ public class ObtainCorpInvestorsAllInfo {
                     "     where corp.type_investors=TRUE ";
 
 
+            if (name != null && name.length() != 0)
+                sql += " and corp.name like '%" + name + "%'";
+            if (nos != null && nos.length() != 0)
+                sql += " and corp.nos like '%" + nos + "%'";
+            if (buslicno != null && buslicno.length() != 0)
+                sql += " and corp.buslicno like '%" + buslicno + "%'";
+            if (listcode != null && listcode.length() != 0)
+                sql += " and corp.listcode = '" + listcode + "'";
 
-//            if (field != null && field.length() != 0)
-//                sql += " and field like '%" + field + "%'";
+            sql += " order by  corp.id desc ";
 
             rs = stmt.executeQuery(sql);
 

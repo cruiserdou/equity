@@ -83,9 +83,9 @@ public class AddCorpMaintainInfo {
             pst.setInt(2, Integer.parseInt(session.getAttribute("id").toString()));
             pst.setTimestamp(3, timestamp);
             pst.setString(4, mai_changer_dept);
-            java.sql.Date d_recomdt = null;
+            Date d_recomdt = null;
             if (mai_recomdt != null && mai_recomdt.length() > 2)
-                d_recomdt = java.sql.Date.valueOf(mai_recomdt);
+                d_recomdt = Date.valueOf(mai_recomdt);
             pst.setDate(5, d_recomdt);
             pst.setString(6, mai_trusteeship);
             pst.setString(7, mai_listst);

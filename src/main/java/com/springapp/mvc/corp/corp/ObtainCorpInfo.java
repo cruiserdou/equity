@@ -58,6 +58,8 @@ public class ObtainCorpInfo {
             if (buslicno != null && buslicno.length() != 0)
                 sql += " and buslicno like '%" + buslicno + "%'";
 
+//            sql += " order by   inputdt desc";
+
             rs = stmt.executeQuery(sql);
 
             list = new ConvertToList().convertList(rs);

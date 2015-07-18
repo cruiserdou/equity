@@ -1,4 +1,4 @@
-//package com.springapp.mvc.corp_img.service;
+package com.springapp.mvc.corp_img.service;//package com.springapp.mvc.corp_img.service;
 //
 //
 //import com.springapp.mvc.corp_img.dao.CorpImgDao;

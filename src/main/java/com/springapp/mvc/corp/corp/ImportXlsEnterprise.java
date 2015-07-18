@@ -37,7 +37,7 @@ public class ImportXlsEnterprise {
                            @RequestParam(value = "file", required = false) MultipartFile file
     ) throws Exception {
         DataShop dataShop = new DataShop();
-        dataShop.setSuccess(true);
+
 
         Connection conn = null;
         Statement stmt = null;
@@ -201,24 +201,24 @@ public class ImportXlsEnterprise {
                 pst.setString(10,postal);
                 pst.setString(11,nature);
                 pst.setString(12,regcap);
-                java.sql.Date d_bustermfdt = null;
+                Date d_bustermfdt = null;
                 if (bustermfdt != null && bustermfdt.length() > 2)
-                    d_bustermfdt = java.sql.Date.valueOf(bustermfdt);
+                    d_bustermfdt = Date.valueOf(bustermfdt);
                 pst.setDate(13, d_bustermfdt);
-                java.sql.Date d_bustremtdt = null;
+                Date d_bustremtdt = null;
                 if (bustremtdt != null && bustremtdt.length() > 2)
-                    d_bustremtdt = java.sql.Date.valueOf(bustremtdt);
+                    d_bustremtdt = Date.valueOf(bustremtdt);
                 pst.setDate(14, d_bustremtdt);
-                java.sql.Date d_regdt = null;
+                Date d_regdt = null;
                 if (regdt != null && regdt.length() > 2)
-                    d_regdt = java.sql.Date.valueOf(regdt);
+                    d_regdt = Date.valueOf(regdt);
                 pst.setDate(15, d_regdt);
                 pst.setString(16, list_area);
                 pst.setString(17, listcode);
                 pst.setString(18, listprice);
-                java.sql.Date d_listdt = null;
+                Date d_listdt = null;
                 if (listdt != null && listdt.length() > 2)
-                    d_listdt = java.sql.Date.valueOf(listdt);
+                    d_listdt = Date.valueOf(listdt);
                 pst.setDate(19, d_listdt);
                 pst.setString(20, channels);
                 pst.setString(21, webchat);
@@ -296,19 +296,23 @@ public class ImportXlsEnterprise {
 
 
             }
+            dataShop.setSuccess(true);
 
         } catch (FileNotFoundException e) {
-
+            System.out.println("1"+e);
             e.printStackTrace();
         } catch(IOException ex){
+            System.out.println("2"+ex);
             ex.printStackTrace();
         } catch(SQLException exx){
+            System.out.println("3"+exx);
             exx.printStackTrace();
         } finally{
             try {
                 if (pst != null) pst.close();
                 if (conn != null) conn.close();
             } catch (SQLException e) {
+                System.out.println("4"+e);
                 e.printStackTrace();
             }
         }

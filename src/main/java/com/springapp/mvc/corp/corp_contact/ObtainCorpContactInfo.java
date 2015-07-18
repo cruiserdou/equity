@@ -54,7 +54,7 @@ public class ObtainCorpContactInfo {
             String sql = "select * from work.tb_corp_contact WHERE 1 = 1 ";
 //            if (field != null && field.length() != 0)
 //                sql += " and field like '%" + field + "%'";
-
+//            sql += " order by  inputdt desc";
             rs = stmt.executeQuery(sql);
 
             list = new ConvertToList().convertList(rs);

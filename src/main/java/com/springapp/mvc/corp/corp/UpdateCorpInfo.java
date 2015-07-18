@@ -112,24 +112,24 @@ public class UpdateCorpInfo {
             pst.setString(9, postal);
             pst.setString(10, nature);
             pst.setString(11, regcap);
-            java.sql.Date d_bustermfdt = null;
+            Date d_bustermfdt = null;
             if (bustermfdt != null && bustermfdt.length() > 2)
-                d_bustermfdt = java.sql.Date.valueOf(bustermfdt);
+                d_bustermfdt = Date.valueOf(bustermfdt);
             pst.setDate(12, d_bustermfdt);
-            java.sql.Date d_bustremtdt = null;
+            Date d_bustremtdt = null;
             if (bustremtdt != null && bustremtdt.length() > 2)
-                d_bustremtdt = java.sql.Date.valueOf(bustremtdt);
+                d_bustremtdt = Date.valueOf(bustremtdt);
             pst.setDate(13, d_bustremtdt);
-            java.sql.Date d_regdt = null;
+            Date d_regdt = null;
             if (regdt != null && regdt.length() > 2)
-                d_regdt = java.sql.Date.valueOf(regdt);
+                d_regdt = Date.valueOf(regdt);
             pst.setDate(14, d_regdt);
             pst.setString(15, list_area);
             pst.setString(16, listcode);
             pst.setString(17, listprice);
-            java.sql.Date d_listdt = null;
+            Date d_listdt = null;
             if (listdt != null && listdt.length() > 2)
-                d_listdt = java.sql.Date.valueOf(listdt);
+                d_listdt = Date.valueOf(listdt);
             pst.setDate(18, d_listdt);
             pst.setString(19, channels);
             pst.setString(20, webchat);

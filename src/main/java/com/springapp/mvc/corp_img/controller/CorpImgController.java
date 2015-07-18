@@ -1,4 +1,4 @@
-//package com.springapp.mvc.corp_img.controller;
+package com.springapp.mvc.corp_img.controller;//package com.springapp.mvc.corp_img.controller;
 //
 //import com.springapp.mvc.corp_img.pojo.CorpImg;
 //import com.springapp.mvc.corp_img.service.CorpImgService;
