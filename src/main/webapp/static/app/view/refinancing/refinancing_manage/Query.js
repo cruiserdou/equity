@@ -33,7 +33,7 @@ Ext.define('App.view.refinancing.refinancing_manage.Query', {
     items: [
         {
             xtype: 'panel',
-            columnWidth: .4,
+            columnWidth: .3,
             border: false,
             defaultType: 'textfield',
             layout: {
@@ -44,15 +44,41 @@ Ext.define('App.view.refinancing.refinancing_manage.Query', {
             items: [
                 {
                     allowBlank: true,
-                    fieldLabel: '机构名称',
+                    fieldLabel: '公司名称',
                     id: 'query_refinancing_manage_name',
-                    emptyText: '机构名称'
+                    emptyText: '公司名称'
                 },
                 {
                     allowBlank: true,
-                    fieldLabel: '机构类别',
-                    id: 'query_refinancing_manage_type',
-                    emptyText: '机构类别'
+                    fieldLabel: '公司简称',
+                    id: 'query_refinancing_manage_nos',
+                    emptyText: '公司简称'
+                }
+
+            ]
+        },
+        {
+            xtype: 'panel',
+            columnWidth: .3,
+            border: false,
+            defaultType: 'textfield',
+            layout: {
+                type: 'vbox',
+                align: 'strech',
+                pack: 'start'
+            },
+            items: [
+                {
+                    allowBlank: true,
+                    fieldLabel: '营业执照号码',
+                    id: 'query_refinancing_manage_buslicno',
+                    emptyText: '营业执照号码'
+                },
+                {
+                    allowBlank: true,
+                    fieldLabel: '挂牌代码',
+                    id: 'query_refinancing_manage_listcode',
+                    emptyText: '挂牌代码'
                 }
 
             ]
@@ -65,12 +91,15 @@ Ext.define('App.view.refinancing.refinancing_manage.Query', {
                     xtype: 'button',
                     text: '查找',
                     listeners: {
-                        click: function(){
+                        click: function () {
                             var store = Ext.getCmp('grid_refinancing_manage').getStore();
                             store.load({
                                 params: {
                                     name: Ext.getCmp('query_refinancing_manage_name').getValue(),
-                                    type: Ext.getCmp('query_refinancing_manage_type').getValue()
+                                    nos: Ext.getCmp('query_refinancing_manage_nos').getValue(),
+                                    buslicno: Ext.getCmp('query_refinancing_manage_buslicno').getValue(),
+                                    listcode: Ext.getCmp('query_refinancing_manage_listcode').getValue()
+
                                 }
                             });
                         }
@@ -85,7 +114,7 @@ Ext.define('App.view.refinancing.refinancing_manage.Query', {
                     xtype: 'button',
                     text: '重置',
                     listeners: {
-                        click: function(_this){
+                        click: function (_this) {
                             _this.up('form').getForm().reset();
                             Ext.getCmp('grid_refinancing_manage').getStore().load();
                         }

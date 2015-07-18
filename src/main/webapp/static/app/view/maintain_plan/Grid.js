@@ -120,7 +120,7 @@ Ext.define('App.view.maintain_plan.Grid', {
             {text: '省', width: 100, dataIndex: 'mp_province'},
             {text: '市', width: 100, dataIndex: 'mp_city'},
             {text: '县', width: 100, dataIndex: 'mp_county'},
-            {text: '最好一次维护时间', width: 150, dataIndex: 'mp_last_date'},
+            {text: '最后一次维护时间', width: 150, dataIndex: 'mp_last_date'},
             {text: '维护内容', width: 220, dataIndex: 'mp_content'},
             {text: '维护结果', width: 220, dataIndex: 'mp_result'},
             {text: '历史记录', width: 220, dataIndex: 'mp_hisdesc'},

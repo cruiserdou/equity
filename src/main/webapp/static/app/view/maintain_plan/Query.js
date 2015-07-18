@@ -121,7 +121,7 @@ Ext.define('App.view.maintain_plan.Query', {
                                             },
                                             {
                                                 anchor: '100%',
-                                                fieldLabel: '最好一次维护时间',
+                                                fieldLabel: '最后一次维护时间',
                                                 name: 'mp_last_date',
                                                 xtype: 'datefield',
                                                 value: new Date(),

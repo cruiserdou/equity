@@ -23,7 +23,7 @@ Ext.define('App.view.enterprise.Grid', {
                         //setup();preselect('甘肃省');
                         setup_cl();preselect_cl('农、林、牧、渔业');
                         setup_zjh();type_zjh('农、林、牧、渔业');
-                        setup_edit();preselect_edit(record.get("province"));
+                        //setup_edit();preselect_edit(record.get("province"));
 
                     }
                 },

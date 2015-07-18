@@ -32,7 +32,7 @@ Ext.define('App.view.retrain.retrain_stat.Query', {
     items: [
         {
             xtype: 'panel',
-            columnWidth: .4,
+            columnWidth: .3,
             border: false,
             defaultType: 'textfield',
             layout: {
@@ -41,19 +41,43 @@ Ext.define('App.view.retrain.retrain_stat.Query', {
                 pack: 'start'
             },
             items: [
-
-
                 {
                     allowBlank: true,
-                    fieldLabel: '机构名称',
+                    fieldLabel: '公司名称',
                     id: 'query_retrain_stat_name',
-                    emptyText: '机构名称'
+                    emptyText: '公司名称'
                 },
                 {
                     allowBlank: true,
-                    fieldLabel: '机构类别',
-                    id: 'query_retrain_stat_type',
-                    emptyText: '机构类别'
+                    fieldLabel: '公司简称',
+                    id: 'query_retrain_stat_nos',
+                    emptyText: '公司简称'
+                }
+
+            ]
+        },
+        {
+            xtype: 'panel',
+            columnWidth: .3,
+            border: false,
+            defaultType: 'textfield',
+            layout: {
+                type: 'vbox',
+                align: 'strech',
+                pack: 'start'
+            },
+            items: [
+                {
+                    allowBlank: true,
+                    fieldLabel: '营业执照号码',
+                    id: 'query_retrain_stat_buslicno',
+                    emptyText: '营业执照号码'
+                },
+                {
+                    allowBlank: true,
+                    fieldLabel: '挂牌代码',
+                    id: 'query_retrain_stat_listcode',
+                    emptyText: '挂牌代码'
                 }
 
             ]
@@ -66,12 +90,15 @@ Ext.define('App.view.retrain.retrain_stat.Query', {
                     xtype: 'button',
                     text: '查找',
                     listeners: {
-                        click: function(){
+                        click: function () {
                             var store = Ext.getCmp('grid_retrain_stat').getStore();
                             store.load({
                                 params: {
                                     name: Ext.getCmp('query_retrain_stat_name').getValue(),
-                                    type: Ext.getCmp('query_retrain_stat_type').getValue()
+                                    nos: Ext.getCmp('query_retrain_stat_nos').getValue(),
+                                    buslicno: Ext.getCmp('query_retrain_stat_buslicno').getValue(),
+                                    listcode: Ext.getCmp('query_retrain_stat_listcode').getValue()
+
                                 }
                             });
                         }
@@ -86,7 +113,7 @@ Ext.define('App.view.retrain.retrain_stat.Query', {
                     xtype: 'button',
                     text: '重置',
                     listeners: {
-                        click: function(_this){
+                        click: function (_this) {
                             _this.up('form').getForm().reset();
                             Ext.getCmp('grid_retrain_stat').getStore().load();
                         }

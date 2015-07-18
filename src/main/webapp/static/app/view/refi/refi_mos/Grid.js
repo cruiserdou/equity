@@ -105,15 +105,19 @@ Ext.define('App.view.refi.refi_mos.Grid', {
             {text: '融资产品',  width: 200, dataIndex: 'mos_cots'},
             {text: '融资金额', width: 150, dataIndex: 'mos_amounts'},
             {text: '项目经理', width: 150, dataIndex: 'mos_mop'},
-            {text: '融资进度', width: 150 , dataIndex: 'mos_rop'},
             {
-                text: '添加进度',flex: 1, dataIndex: 'mos_id',
+                text: '进度',width: 150, dataIndex: 'mos_id',
                 renderer: function (v, m, record) {
 
-                        return "<span style='color: green; cursor: hand;' onclick='add_refi_rop(\"" + v + "\")' >添加</span>"
+                    //return "<span style='color: green; cursor: hand;' onclick='add_refi_rop(\"" + v + "\")' >添加</span>"
+
+
+                    return "<span style='color: #FF4444;' onclick='add_refi_rop(\"" + v + "\")' >添加</span>"
 
                 }
-            }
+            },
+            {text: '融资进度', width: 150 , dataIndex: 'mos_rop'}
+
 
 
         ];
@@ -247,14 +251,12 @@ function add_refi_rop(id) {
                     },
                     {
                         text: '重置',
-                        iconCls: 'icon_reset',
                         handler: function () {
                             this.up('form').getForm().reset();
                         }
                     }
                 ]
             }
-
         ]
     }).show(Ext.get(id));
 };

@@ -2,7 +2,7 @@ Ext.define('App.view.export_import.Query', {
     extend: 'Ext.form.Panel',
     alias: 'widget.export_importf_query',
     split: true,
-    height: 100,
+    //height: 100,
     bodyPadding: 20,
     frame: false,
     collapseMode: 'mini',
@@ -156,9 +156,10 @@ Ext.define('App.view.export_import.Query', {
     ],
 
     items: [
+
         {
             xtype: 'panel',
-            columnWidth: .4,
+            columnWidth: .3,
             border: false,
             defaultType: 'textfield',
             layout: {
@@ -166,15 +167,47 @@ Ext.define('App.view.export_import.Query', {
                 align: 'strech',
                 pack: 'start'
             },
-          items: [
+            items: [
                 {
-                  allowBlank: true,
-                  fieldLabel: '字段名称',
-                  id: 'query_fieldnm',
-                  name: 'fieldnm',
-                  emptyText: '字段名称'
+                    allowBlank: true,
+                    fieldLabel: '公司名称',
+                    id: 'query_export_import_name',
+                    emptyText: '公司名称'
+                },
+                {
+                    allowBlank: true,
+                    fieldLabel: '公司简称',
+                    id: 'query_export_import_nos',
+                    emptyText: '公司简称'
                 }
-          ]
+
+            ]
+        },
+        {
+            xtype: 'panel',
+            columnWidth: .3,
+            border: false,
+            defaultType: 'textfield',
+            layout: {
+                type: 'vbox',
+                align: 'strech',
+                pack: 'start'
+            },
+            items: [
+                {
+                    allowBlank: true,
+                    fieldLabel: '营业执照号码',
+                    id: 'query_export_import_buslicno',
+                    emptyText: '营业执照号码'
+                },
+                {
+                    allowBlank: true,
+                    fieldLabel: '挂牌代码',
+                    id: 'query_export_import_listcode',
+                    emptyText: '挂牌代码'
+                }
+
+            ]
         },
         {
             xtype: 'panel',
@@ -184,15 +217,24 @@ Ext.define('App.view.export_import.Query', {
                     xtype: 'button',
                     text: '查找',
                     listeners: {
-                        click: function(){
+                        click: function() {
                             var store = Ext.getCmp('grid_export_import').getStore();
                             store.load({
                                 params: {
-                                    fieldnm: Ext.getCmp('query_fieldnm').getValue()
+                                    name: Ext.getCmp('query_export_import_name').getValue(),
+                                    nos: Ext.getCmp('query_export_import_nos').getValue(),
+                                    buslicno: Ext.getCmp('query_export_import_buslicno').getValue(),
+                                    listcode: Ext.getCmp('query_export_import_listcode').getValue()
+
                                 }
                             });
                         }
                     }
+                },
+                {
+                    xtype: 'panel',
+                    height: 10,
+                    border: false
                 },
                 {
                     xtype: 'button',
@@ -205,7 +247,7 @@ Ext.define('App.view.export_import.Query', {
                     }
                 }
             ]
-        }
+        } 
     ],
     initComponent: function () {
         this.callParent(arguments);

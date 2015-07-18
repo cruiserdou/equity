@@ -27,7 +27,7 @@ Ext.define('App.view.enterprise_query.Enterprise_queryf', {
             },
             {
                 xtype: 'enterprise_change_grid',
-                title: '维护记录',
+                title: '变更记录',
                 autoScroll: true,
                 margin: '5 0 0 0',
                 region: 'south',

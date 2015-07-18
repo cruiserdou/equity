@@ -11,14 +11,13 @@ Ext.define('App.view.enterprise_query.ChangeGrid', {
 
     initComponent: function () {
         this.columns = [
-                        {text: 'ID', width: 60, dataIndex: 'id',hidden:true},
+            {text: 'ID', width: 60, dataIndex: 'id',hidden:true},
             {text: '数据ID', width: 60, dataIndex: 'enterprise_id',hidden:true},
             {text: '字段', width: 180, dataIndex: 'field'},
             {text: '变更内容', width: 180, dataIndex: 'field_name'},
             {text: '变更前内容', width: 200, dataIndex: 'c_before'},
             {text: '变更后内容', width: 200, dataIndex: 'c_after'},
-            {text: '变更人',  flex: 1, dataIndex: 'changer_id'}
-
+            {text: '变更人',  flex: 1, dataIndex: 'changer_id',hidden:true}
         ];
         this.viewConfig = {
             forceFit: true

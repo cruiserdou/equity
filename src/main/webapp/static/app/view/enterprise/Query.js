@@ -1,3 +1,4 @@
+
 Ext.define('App.view.enterprise.Query', {
     extend: 'Ext.form.Panel',
     alias: 'widget.enterprisef_query',
@@ -10,6 +11,7 @@ Ext.define('App.view.enterprise.Query', {
     useSplitTips: true,
     defaultType: 'textfield',
     layout: 'column',
+
     dockedItems: [
         {
             xtype: 'toolbar',
@@ -94,15 +96,17 @@ Ext.define('App.view.enterprise.Query', {
                 {
                     id: 'import_corp_s_id',
                     text: '导出',
+
                     listeners: {
                         click: function () {
+                            var id_list = "";
                             var sm = Ext.getCmp('grid_enterprise').getSelectionModel();
                             var rows = sm.getSelection();
-                            var id_list = "";
+                            export_id_list="";
                             if (rows.length > 0) {
                                 for (var i = 0; i < rows.length; i++) {
                                     var row = rows[i];
-                                    id_list = id_list + ',' + row.get('id');
+                                    export_id_list = export_id_list + ',' + row.get('id');
                                 }
                                 Ext.create('widget.window', {
                                     xtype: 'form',
@@ -121,7 +125,7 @@ Ext.define('App.view.enterprise.Query', {
                                             xtype: 'panel',
                                             bodyPadding: '20',
                                             flex: 1,
-                                            html: '<a onclick="corp_s_export(\'id_list\');"  href="#"><img style="height: 32px; margin-left: 50px;" />导出</a><br/>'
+                                            html: '<a onclick="corp_s_export(export_id_list);"  href="#"><img style="height: 32px; margin-left: 50px;" />导出</a><br/>'
                                         },
                                         {
                                             xtype: 'panel',
@@ -292,7 +296,8 @@ function corp_s_export(id_list) {
     Ext.Ajax.request({
         url: 'import_corp_s',
         params: {
-            "fileName": 'coprs.xls'
+            "fileName": 'coprs.xls',
+            "id_list" : id_list
         },
         waitMsg: '正在导出数据...',
         success: function (form, action) {

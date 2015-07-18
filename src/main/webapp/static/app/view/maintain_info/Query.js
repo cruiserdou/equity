@@ -97,31 +97,26 @@ Ext.define('App.view.maintain_info.Query', {
                                                 ]
                                             },
                                             {
-                                                allowBlank:false,
                                                 anchor: '100%',
                                                 fieldLabel: '挂牌代码',
                                                 name: 'mi_listcode'
                                             },
                                             {
-                                                allowBlank:false,
                                                 anchor: '100%',
                                                 fieldLabel: '省',
                                                 name: 'mi_province'
                                             },
                                             {
-                                                allowBlank:false,
                                                 anchor: '100%',
                                                 fieldLabel: '市',
                                                 name: 'mi_city'
                                             },
                                             {
-                                                allowBlank:false,
                                                 anchor: '100%',
                                                 fieldLabel: '县',
                                                 name: 'mi_county'
                                             },
                                             {
-                                                allowBlank:false,
                                                 anchor: '100%',
                                                 fieldLabel: '维护时间',
                                                 name: 'mi_mt_date',
@@ -132,7 +127,6 @@ Ext.define('App.view.maintain_info.Query', {
                                             {
                                                 fieldLabel: '企业客户分级(A/B）',
                                                 name: 'mi_cust_type',
-                                                allowBlank:false,
                                                 anchor: '100%',
                                                 xtype: 'combo',
                                                 autoRender: true,
@@ -151,7 +145,6 @@ Ext.define('App.view.maintain_info.Query', {
                                                 valueField:'type'
                                             },
                                             {
-                                                allowBlank:false,
                                                 anchor: '100%',
                                                 fieldLabel: '下次维护时间',
                                                 name: 'mi_next_date',
@@ -160,13 +153,11 @@ Ext.define('App.view.maintain_info.Query', {
                                                 format: 'Y-m-d'
                                             },
                                             {
-                                                allowBlank:false,
                                                 anchor: '100%',
                                                 fieldLabel: '下次维护计划',
                                                 name: 'mi_next_plan'
                                             },
                                             {
-                                                allowBlank:false,
                                                 anchor: '100%',
                                                 fieldLabel: '备注',
                                                 name: 'mi_remark'
@@ -484,7 +475,6 @@ Ext.define('App.view.maintain_info.Query', {
             },
           items: [
                 {
-                  allowBlank: true,
                   fieldLabel: '企业名称',
                   id: 'query_maintain_info_corp_name',
                   emptyText: '企业名称'
