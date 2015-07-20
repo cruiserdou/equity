@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.*;
 
@@ -22,14 +23,14 @@ public class ObtainJson {
     @RequestMapping(method = RequestMethod.POST)
     public
     @ResponseBody
-    String getShopInJSON(
+    void getShopInJSON(
             HttpServletRequest request,
+            HttpServletResponse response,
             HttpSession session) throws Exception {
         Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
 
-//        String user_id = session.getAttribute("user_id").toString();
         try {
             Class.forName("org.postgresql.Driver").newInstance();
         } catch (Exception e) {
@@ -48,7 +49,10 @@ public class ObtainJson {
             rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 String jobdesc = rs.getString(1);
-                return jobdesc;
+                response.setContentType("application/json;charset=UTF-8");
+                response.getWriter().print(jobdesc);
+                response.getWriter().flush();
+                return;
             }
         } catch (SQLException e) {
             System.out.print(e.getMessage());
@@ -62,6 +66,8 @@ public class ObtainJson {
             }
         }
 
-        return "error";
+        response.setContentType("application/json;charset=UTF-8");
+        response.getWriter().print("error");
+        response.getWriter().flush();
     }
 }
