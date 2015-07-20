@@ -1,5 +1,3 @@
-//var str = "static/upload/";
-
 Ext.define('App.view.enterprise.Applyf', {
     extend: 'Ext.form.FormPanel',
     alias: 'widget.applyf', 
@@ -47,11 +45,11 @@ Ext.define('App.view.enterprise.Applyf', {
                                     //if (document.getElementById("apply_form_id_licmd").value == "") {
                                     //    Ext.Msg.alert("提示", "<span style='color: red;'>申请类别不能为空！</span>")
                                     //    return;
-                                    //} 
+                                    //}
                                     save_cust_add()
                                 }
                             }
- 
+
                         ]
                     }
                 ]
@@ -278,5 +276,4 @@ function corp_img_upload(id) {
             }
         ]
     }).show(Ext.get('corp_find_window'));
-
 };

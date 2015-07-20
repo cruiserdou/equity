@@ -16,33 +16,26 @@ Ext.define('App.view.enterprise.corp_list', {
         }
     ],
     initComponent: function () {
+        this.items = [
 
-
-
-            this.items = [
-
-                {
-                    xtype: 'panel',
-                    title: '已入库企业列表',
-                    border: false,
-                    layout: 'border',
-                    items: [
-                        {
-                            xtype: 'enterprisef_query',
-                            region: 'north'
-                        },
-                        {
-                            xtype: 'enterprisef_grid',
-                            region: 'center'
-                        }
-                    ]
-                }
-            ]
+            {
+                xtype: 'panel',
+                title: '已入库企业列表',
+                border: false,
+                layout: 'border',
+                items: [
+                    {
+                        xtype: 'enterprisef_query',
+                        region: 'north'
+                    },
+                    {
+                        xtype: 'enterprisef_grid',
+                        region: 'center'
+                    }
+                ]
+            }
+        ]
 
         this.callParent(arguments);
     }
 });
-
-
-
- 

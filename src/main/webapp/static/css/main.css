@@ -242,6 +242,32 @@ td textarea{
     padding: 6px;
 }
 
+#enter_mgr{
+    display: table;
+    width: 100%;
+    padding: 3em 4em;
+}
+
+#enter_mgr div{
+    display: table-cell;
+    text-align: center;
+}
+
+#enter_mgr div a{
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid orange;
+    box-shadow: 1px 1px 2px #CCC;
+    border-radius: 28px;
+    padding: 3em 4em;
+    background: orange;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 6em;
+}
+
 /*定义面板图标*/
 .icon_add {
     background-image: url(images/add.png) !important;
