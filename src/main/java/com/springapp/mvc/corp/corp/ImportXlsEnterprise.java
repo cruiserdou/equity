@@ -171,7 +171,6 @@ public class ImportXlsEnterprise {
                 cell = row.getCell(26);
                 phoinf = cell.getRichStringCellValue().toString();
 
-
                 cell = row.getCell(27);
                 remark=cell.getRichStringCellValue().toString();
 
