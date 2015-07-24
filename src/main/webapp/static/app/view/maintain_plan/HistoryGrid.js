@@ -120,15 +120,7 @@ Ext.define('App.view.maintain_plan.HistoryGrid', {
             dock: 'top',
             border: true,
             items: [
-                {
-                    text: '刷新',
-                    listeners: {
-                        click: function(_this){
-                            //_this.up('form').getForm().reset();
-                            Ext.getCmp('grid_maintain_planf_history').getStore().load();
-                        }
-                    }
-                },'-',
+
                 {
                     text: '删除',
                     handler: function () {

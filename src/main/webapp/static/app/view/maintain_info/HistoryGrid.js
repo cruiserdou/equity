@@ -125,15 +125,6 @@ Ext.define('App.view.maintain_info.HistoryGrid', {
             border: true,
             items: [
                 {
-                    text: '刷新',
-                    listeners: {
-                        click: function(_this){
-                            //_this.up('form').getForm().reset();
-                            Ext.getCmp('grid_maintain_info_history').getStore().load();
-                        }
-                    }
-                },'-',
-                {
                     text: '删除',
                     handler: function () {
                         var sm = Ext.getCmp('grid_maintain_info_history').getSelectionModel();

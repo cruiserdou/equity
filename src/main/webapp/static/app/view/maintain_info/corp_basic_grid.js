@@ -10,6 +10,12 @@ Ext.define('App.view.maintain_info.corp_basic_grid', {
         itemdblclick: function(this_, record_){
             Ext.getCmp('corp_name_id').setValue(record_.data["name"]);
             Ext.getCmp('corp_id').setValue(record_.data["id"]);
+
+            Ext.getCmp('corp_listcode_id').setValue(record_.data["listcode"]);
+            Ext.getCmp('corp_province_id').setValue(record_.data["province"]);
+            Ext.getCmp('corp_city_id').setValue(record_.data["city"]);
+            Ext.getCmp('corp_county_id').setValue(record_.data["county"]);
+
             Ext.getCmp('corp_find_window').close();
 
         }

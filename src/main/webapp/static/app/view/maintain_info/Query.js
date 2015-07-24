@@ -97,24 +97,32 @@ Ext.define('App.view.maintain_info.Query', {
                                                 ]
                                             },
                                             {
+                                                readOnly:true,
                                                 anchor: '100%',
                                                 fieldLabel: '挂牌代码',
-                                                name: 'mi_listcode'
+                                                name: 'mi_listcode',
+                                                id: 'corp_listcode_id'
                                             },
                                             {
+                                                readOnly:true,
                                                 anchor: '100%',
                                                 fieldLabel: '省',
-                                                name: 'mi_province'
+                                                name: 'mi_province',
+                                                id:'corp_province_id'
                                             },
                                             {
+                                                readOnly:true,
                                                 anchor: '100%',
                                                 fieldLabel: '市',
-                                                name: 'mi_city'
+                                                name: 'mi_city',
+                                                id:'corp_city_id'
                                             },
                                             {
+                                                readOnly:true,
                                                 anchor: '100%',
                                                 fieldLabel: '县',
-                                                name: 'mi_county'
+                                                name: 'mi_county',
+                                                id:'corp_county_id'
                                             },
                                             {
                                                 anchor: '100%',
