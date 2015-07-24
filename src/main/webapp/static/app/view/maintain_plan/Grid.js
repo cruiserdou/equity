@@ -76,11 +76,13 @@ Ext.define('App.view.maintain_plan.Grid', {
                                         name: 'mp_content'
                                     },
                                     {
+                                        hidden:true,
                                         anchor: '100%',
                                         fieldLabel: '维护结果',
                                         name: 'mp_result'
                                     },
                                     {
+                                        hidden:true,
                                         anchor: '100%',
                                         fieldLabel: '历史记录',
                                         name: 'mp_hisdesc'
@@ -122,8 +124,8 @@ Ext.define('App.view.maintain_plan.Grid', {
             {text: '县', width: 100, dataIndex: 'mp_county'},
             {text: '最后一次维护时间', width: 150, dataIndex: 'mp_last_date'},
             {text: '维护内容', width: 220, dataIndex: 'mp_content'},
-            {text: '维护结果', width: 220, dataIndex: 'mp_result'},
-            {text: '历史记录', width: 220, dataIndex: 'mp_hisdesc'},
+            {text: '维护结果', width: 220, dataIndex: 'mp_result',hidden:true},
+            {text: '历史记录', width: 220, dataIndex: 'mp_hisdesc' ,hidden:true},
             {text: '备注',flex: 1, dataIndex: 'mp_remark'}
 ];
 

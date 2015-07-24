@@ -95,7 +95,7 @@ Ext.define('App.view.maintain_info.Grid', {
                                 },
                                 {
                                     anchor: '100%',
-                                    fieldLabel: '备注',
+                                    fieldLabel: '维护结果',
                                     name: 'mi_remark'
                                 }
                 ]
@@ -131,7 +131,7 @@ Ext.define('App.view.maintain_info.Grid', {
             {text: '企业客户分级(A/B）', width: 220, dataIndex: 'mi_cust_type'},
             {text: '下次维护时间', width: 150, dataIndex: 'mi_next_date'},
             {text: '下次维护计划', width: 220, dataIndex: 'mi_next_plan'},
-            {text: '备注', flex: 1, dataIndex: 'mi_remark'}
+            {text: '维护结果', flex: 1, dataIndex: 'mi_remark'}
         ];
 
         this.viewConfig = {

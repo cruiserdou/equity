@@ -25,6 +25,8 @@ public class ObtainCorpAllInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
+            @RequestParam(value = "start", required = false) String start,
+            @RequestParam(value = "limit", required = false) String limit,
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "nos", required = false) String nos,
             @RequestParam(value = "buslicno", required = false) String buslicno,
@@ -33,7 +35,6 @@ public class ObtainCorpAllInfo {
         Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
-
 
 
         DataShop dataShop = new DataShop();
@@ -48,20 +49,24 @@ public class ObtainCorpAllInfo {
         String url = connstr.getUrl();
         String user = connstr.getUser();
         String password = connstr.getPassword();
+//        String user_id = session.getAttribute("user_id").toString();
+
         try{
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
+            String sql_d = "";
+            String sql_s = "";
+            String sql_c = "";
 
 
-
-            String sql = "select corp.*,corp_contact.*,corp_finance.*,corp_maintain.*,corp_shareholder.*," +
+             sql_d = "select corp.*,corp_contact.*,corp_finance.*,corp_maintain.*,corp_shareholder.*," +
                     "     corp_government.*,corp_service.*,corp_investors.*," +
                     "     corp_refinancing.*,corp_rehr.*,corp_retrain.*  " +
                     "     from work.tb_corp corp " +
                     "     inner join work.tb_corp_contact corp_contact on corp.id=corp_contact.cont_corp_id " +
                     "     inner join work.tb_corp_finance corp_finance on corp.id=corp_finance.fin_corp_id " +
-                    "     inner join work.tb_corp_maintain corp_maintain on corp.id=corp_maintain.mai_corp_id " +
-                    "     inner join work.tb_corp_shareholder corp_shareholder on corp.id=corp_shareholder.gd_corp_id " +
+                    "     left outer join work.tb_corp_maintain corp_maintain on corp.id=corp_maintain.mai_corp_id " +
+                    "     left outer join work.tb_corp_shareholder corp_shareholder on corp.id=corp_shareholder.gd_corp_id " +
                     "     inner join work.tb_corp_government corp_government on corp.id=corp_government.gov_corp_id " +
                     "     inner join work.tb_corp_service corp_service on corp.id=corp_service.srv_corp_id " +
                     "     inner join work.tb_corp_investors corp_investors on corp.id=corp_investors.inv_corp_id " +
@@ -70,20 +75,33 @@ public class ObtainCorpAllInfo {
                     "     inner join work.tb_corp_retrain corp_retrain on corp.id=corp_retrain.retra_corp_id  " +
                     "      where 1=1 ";
 
+             sql_c = "select count(*) from work.tb_corp  corp where 1=1 ";
+
             if (name != null && name.length() != 0)
-                sql += " and corp.name like '%" + name + "%'";
+                sql_s += " and corp.name like '%" + name + "%'";
             if (nos != null && nos.length() != 0)
-                sql += " and corp.nos like '%" + nos + "%'";
+                sql_s += " and corp.nos like '%" + nos + "%'";
             if (buslicno != null && buslicno.length() != 0)
-                sql += " and corp.buslicno like '%" + buslicno + "%'";
+                sql_s += " and corp.buslicno like '%" + buslicno + "%'";
             if (listcode != null && listcode.length() != 0)
-                sql += " and corp.listcode = '" + listcode + "'";
+                sql_s += " and corp.listcode = '" + listcode + "'";
 
-            sql += " order by  corp.id desc ";
-//            System.out.print(sql);
-            rs = stmt.executeQuery(sql);
+            sql_c += sql_s;
 
+            sql_s += " order by  corp.id desc ";
+
+            sql_d += sql_s;
+            sql_d += " limit " + limit + " offset " + start;
+
+
+            System.out.print(sql_d);
+            System.out.print(sql_c);
+            rs = stmt.executeQuery(sql_d);
             list = new ConvertToList().convertList(rs);
+
+            rs = stmt.executeQuery(sql_c);
+            while (rs.next())
+                dataShop.setTotal(rs.getInt(1));
 
         }catch (SQLException e){
             System.out.print(e.getMessage());

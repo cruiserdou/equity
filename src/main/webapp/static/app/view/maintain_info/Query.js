@@ -159,7 +159,7 @@ Ext.define('App.view.maintain_info.Query', {
                                             },
                                             {
                                                 anchor: '100%',
-                                                fieldLabel: '备注',
+                                                fieldLabel: '维护结果',
                                                 name: 'mi_remark'
                                             }
                                         ],

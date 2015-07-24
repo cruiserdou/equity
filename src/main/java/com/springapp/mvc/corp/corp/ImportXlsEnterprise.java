@@ -293,7 +293,6 @@ public class ImportXlsEnterprise {
                 pst.setInt(1, max_id);
                 pst.executeUpdate();
 
-
             }
             dataShop.setSuccess(true);
 

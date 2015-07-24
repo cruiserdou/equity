@@ -133,11 +133,13 @@ Ext.define('App.view.maintain_plan.Query', {
                                                 name: 'mp_content'
                                             },
                                             {
+                                                hidden:true,
                                                 anchor: '100%',
                                                 fieldLabel: '维护结果',
                                                 name: 'mp_result'
                                             },
                                             {
+                                                hidden:true,
                                                 anchor: '100%',
                                                 fieldLabel: '历史记录',
                                                 name: 'mp_hisdesc'
