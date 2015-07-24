@@ -164,6 +164,7 @@ Ext.define('App.view.maintain_plan.Query', {
                                                                 Ext.Msg.alert("成功", "数据保存成功!");
                                                                 //重新载入渠道信息
                                                                 Ext.getCmp('grid_maintain_plan').getStore().reload();
+                                                                Ext.getCmp('grid_maintain_planf_history').getStore().reload();
                                                             },
                                                             failure: function(form, action){
                                                                 Ext.Msg.alert("失败", "数据保存失败!");
@@ -333,6 +334,8 @@ Ext.define('App.view.maintain_plan.Query', {
                         click: function(_this){
                             _this.up('form').getForm().reset();
                             Ext.getCmp('grid_maintain_plan').getStore().load();
+                            Ext.getCmp('grid_maintain_planf_history').getStore().reload();
+
                         }
                     }
                 },'-',
@@ -361,6 +364,8 @@ Ext.define('App.view.maintain_plan.Query', {
                                                 success: function (form, action) {
                                                     Ext.Msg.alert("成功", "数据删除成功!");
                                                     Ext.getCmp('grid_maintain_plan').getStore().reload();
+                                                    Ext.getCmp('grid_maintain_planf_history').getStore().reload();
+
                                                 },
                                                 failure: function (form, action) {
                                                     Ext.Msg.alert("失败", "数据删除失败!");
@@ -422,6 +427,7 @@ Ext.define('App.view.maintain_plan.Query', {
                         click: function(_this){
                             _this.up('form').getForm().reset();
                             Ext.getCmp('grid_maintain_plan').getStore().load();
+                            Ext.getCmp('grid_maintain_planf_history').getStore().reload();
                         }
                     }
                 }

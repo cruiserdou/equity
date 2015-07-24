@@ -51,9 +51,10 @@ public class ObtainMaintainInfo {
             stmt = conn.createStatement();
 
             String sql = "SELECT corp.name corp_name,mi_id, mi_corp_id, mi_listcode, mi_province, mi_city, mi_county, \n" +
-                    "       mi_mt_date, mi_cust_type, mi_next_date, mi_next_plan, mi_remark " +
-                    "  FROM work.tb_corp  corp inner   join work.tb_maintain_info maintain_info " +
-                    "       on  corp.id  = maintain_info.mi_corp_id   WHERE 1 = 1 ";
+                    "     mi_mt_date, mi_cust_type, mi_next_date, mi_next_plan, mi_remark  " +
+                    "      FROM  work.tb_maintain_info maintain_info ,work.tb_corp  corp   " +
+                    "      where   corp.id  = maintain_info.mi_corp_id    and  " +
+                    "             mi_id  in (select max(mi_id)  from work.tb_maintain_info   group by mi_corp_id) ";
             if (corp_name != null && corp_name.length() != 0)
                 sql += " and corp.name like '%" + corp_name + "%'";
 

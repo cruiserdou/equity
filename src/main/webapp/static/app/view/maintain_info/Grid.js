@@ -6,7 +6,14 @@ Ext.define('App.view.maintain_info.Grid', {
     selModel: sm,
     id :'grid_maintain_info',
     listeners: {
-
+        itemclick: function (this_, record_) {
+            var store = Ext.getCmp('grid_maintain_info_history').getStore();
+            store.load({
+                params: {
+                    mi_corp_id: record_.get('mi_corp_id')
+                }
+            })
+        },
 
         'itemdblclick': function (view, record, item, index, e) {
             var editForm = new Ext.form.FormPanel({
@@ -123,10 +130,10 @@ Ext.define('App.view.maintain_info.Grid', {
             {text: 'ID', width: 220, dataIndex: 'mi_id',hidden:true},
             {text: '企业ID',  width: 220, dataIndex: 'mi_corp_id',hidden:true},
             {text: '企业名称',  width: 220, dataIndex: 'corp_name'},
-            {text: '挂牌代码', width: 150, dataIndex: 'mi_listcode'},
-            {text: '省',  width: 100, dataIndex: 'mi_province'},
-            {text: '市', width: 100, dataIndex: 'mi_city'},
-            {text: '县',  width: 100, dataIndex: 'mi_county'},
+            {text: '挂牌代码', width: 100, dataIndex: 'mi_listcode'},
+            {text: '省',  width: 80, dataIndex: 'mi_province'},
+            {text: '市', width: 80, dataIndex: 'mi_city'},
+            {text: '县',  width: 80, dataIndex: 'mi_county'},
             {text: '维护时间',  width: 150, dataIndex: 'mi_mt_date'},
             {text: '企业客户分级(A/B）', width: 220, dataIndex: 'mi_cust_type'},
             {text: '下次维护时间', width: 150, dataIndex: 'mi_next_date'},

@@ -6,7 +6,14 @@ Ext.define('App.view.maintain_plan.Grid', {
     selModel: sm,
     id :'grid_maintain_plan',
     listeners: {
-
+        itemclick: function (this_, record_) {
+            var store = Ext.getCmp('grid_maintain_planf_history').getStore();
+            store.load({
+                params: {
+                    mp_corp_id: record_.get('mp_corp_id')
+                }
+            })
+        },
 
         'itemdblclick': function (view, record, item, index, e) {
             var editForm = new Ext.form.FormPanel({
@@ -63,6 +70,7 @@ Ext.define('App.view.maintain_plan.Grid', {
                                         name: 'mp_county'
                                     },
                                     {
+                                        readOnly: false,
                                         anchor: '100%',
                                         fieldLabel: '最后一次维护时间',
                                         name: 'mp_last_date',
@@ -71,6 +79,7 @@ Ext.define('App.view.maintain_plan.Grid', {
                                         format: 'Y-m-d H:i:s'
                                     },
                                     {
+                                        readOnly: false,
                                         anchor: '100%',
                                         fieldLabel: '维护内容',
                                         name: 'mp_content'
@@ -88,12 +97,42 @@ Ext.define('App.view.maintain_plan.Grid', {
                                         name: 'mp_hisdesc'
                                     },
                                     {
+                                        readOnly: false,
                                         anchor: '100%',
                                         fieldLabel: '备注',
                                         name: 'mp_remark'
                                     }
 
-                ]
+                ],
+                buttonAlign : "center",
+                            buttons: [
+                                {
+                                    text: '保存',
+                                    handler: function(){
+                                        var form = this.up('form').getForm();
+                                        if (form.isValid()){
+                                            form.submit({
+                                                url: 'add_maintain_plan_info_new',
+                                                waitMsg: '正在保存数据...',
+                                                success: function(form, action){
+                                                    Ext.Msg.alert("成功", "数据保存成功!");
+                                                    Ext.getCmp('grid_maintain_plan').getStore().reload();
+                                                    Ext.getCmp('grid_maintain_planf_history').getStore().reload();
+                                                },
+                                                failure: function(form, action){
+                                                    Ext.Msg.alert("失败", "数据保存失败!");
+                                                }
+                                            });
+                                        }
+                                    }
+                                },
+                                {
+                                    text: '重置',
+                                    handler: function () {
+                                        this.up('form').getForm().reset();
+                                    }
+                                }
+                            ]
 
             });
             var editWindow = new Ext.Window({
@@ -118,10 +157,10 @@ Ext.define('App.view.maintain_plan.Grid', {
             {text: 'ID',  width: 220, dataIndex: 'mp_id',hidden:true},
             {text: '企业ID',  width: 220, dataIndex: 'mp_corp_id',hidden:true},
             {text: '企业名称',  width: 220, dataIndex: 'corp_name'},
-            {text: '挂牌代码',  width: 150, dataIndex: 'mp_listcode'},
-            {text: '省', width: 100, dataIndex: 'mp_province'},
-            {text: '市', width: 100, dataIndex: 'mp_city'},
-            {text: '县', width: 100, dataIndex: 'mp_county'},
+            {text: '挂牌代码',  width: 100, dataIndex: 'mp_listcode'},
+            {text: '省', width: 80, dataIndex: 'mp_province'},
+            {text: '市', width: 80, dataIndex: 'mp_city'},
+            {text: '县', width: 80, dataIndex: 'mp_county'},
             {text: '最后一次维护时间', width: 150, dataIndex: 'mp_last_date'},
             {text: '维护内容', width: 220, dataIndex: 'mp_content'},
             {text: '维护结果', width: 220, dataIndex: 'mp_result',hidden:true},

@@ -1,4 +1,4 @@
-package com.springapp.mvc.refi.refi_rop;
+package com.springapp.mvc.maintain_plan;
 
 /**
  * Created by xwq on 14-4-15.
@@ -18,15 +18,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/obtain_refi_history_rop_info")
-public class ObtainRefiHistoryRopInfo {
+@RequestMapping("/obtain_maintain_plan_history_info")
+public class ObtainMaintainPlanHistoryInfo {
 
     @RequestMapping(method = RequestMethod.POST)
     public
     @ResponseBody
     DataShop getShopInJSON(
-//           @RequestParam(value = "name", required = false) String name,
-           @RequestParam(value = "rop_mos_id", required = false) String rop_mos_id
+           @RequestParam(value = "mp_corp_id", required = false) Integer mp_corp_id,
+            @RequestParam(value = "corp_name", required = false) String corp_name
 
 
     ) throws Exception{
@@ -50,13 +50,17 @@ public class ObtainRefiHistoryRopInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-            String sql = "SELECT * FROM work.tb_refi_rop  WHERE 1 = 1 ";
+            String sql = "SELECT  corp.name corp_name, mp_id, mp_corp_id, mp_listcode, mp_province, mp_city, mp_county, \n" +
+                    " TO_CHAR(mp_last_date,'yyyy-mm-dd hh24:mi:ss') as mp_last_date, mp_content, mp_result, mp_hisdesc, mp_remark \n" +
+                    "  FROM   work.tb_maintain_plan  maintain_plan ,work.tb_corp  corp WHERE corp.id  = maintain_plan.mp_corp_id    \n" +
+                    "  and mp_id  not in (select max(mp_id)  from work.tb_maintain_plan   group by mp_corp_id)";
 
-            if (rop_mos_id != null && rop_mos_id.length() != 0)
-                sql += " and rop_mos_id ="+rop_mos_id;
-//            if (type != null && type.length() != 0)
-//                sql += " and type like '%" + type + "%'";
+            if (corp_name != null && corp_name.length() != 0)
+                sql += " and corp.name like '%" + corp_name + "%'";
+            if (mp_corp_id != null)
+                sql += " and maintain_plan.mp_corp_id =" + mp_corp_id;
 
+            sql += " order by  maintain_plan.mp_id desc ";
             rs = stmt.executeQuery(sql);
 
             list = new ConvertToList().convertList(rs);

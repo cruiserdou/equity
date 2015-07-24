@@ -32,7 +32,7 @@ Ext.define('App.view.maintain_plan.Maintain_planf', {
                 width: 600,
                 split: true,
                 collapseMode: 'mini'
-            },
+            }
         ]
         this.callParent(arguments);
     }

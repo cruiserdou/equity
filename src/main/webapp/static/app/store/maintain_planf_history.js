@@ -1,12 +1,12 @@
 /**
  * Created by jj on 14-6-19.
  */
-Ext.define('App.store.refi_history_rop', {
+Ext.define('App.store.maintain_planf_history', {
     extend: 'Ext.data.Store',
-    model: 'App.model.refi_rop',
+    model: 'App.model.maintain_plan',
     proxy: {
         type: 'ajax',
-        url: 'obtain_refi_history_rop_info',
+        url: 'obtain_maintain_plan_history_info',
         actionMethods: {
             read: 'POST'
         },
@@ -15,9 +15,8 @@ Ext.define('App.store.refi_history_rop', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
 
 
 

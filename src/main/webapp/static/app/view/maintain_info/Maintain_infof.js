@@ -23,6 +23,15 @@ Ext.define('App.view.maintain_info.Maintain_infof', {
             {
                 xtype: 'maintain_infof_grid',
                 region: 'center'
+            },
+            {
+                xtype: 'maintain_info_history_grid',
+                autoScroll: true,
+                margin: '5 0 0 0',
+                region: 'east',
+                width: 600,
+                split: true,
+                collapseMode: 'mini'
             }
         ]
         this.callParent(arguments);

@@ -25,6 +25,8 @@ public class ObtainCorpInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
+            @RequestParam(value = "start", required = false) String start,
+            @RequestParam(value = "limit", required = false) String limit,
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "buslicno", required = false) String buslicno
   ) throws Exception{
@@ -49,20 +51,62 @@ public class ObtainCorpInfo {
         try{
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
+            String sql_d = "";
+            String sql_s = "";
+            String sql_c = "";
+            Boolean b_check=false;
 
 
 
-            String sql = "select * from work.tb_corp WHERE 1 = 1 ";
-            if (name != null && name.length() != 0)
-                sql += " and name like '%" + name + "%'";
-            if (buslicno != null && buslicno.length() != 0)
-                sql += " and buslicno like '%" + buslicno + "%'";
 
-//            sql += " order by   inputdt desc";
+            sql_d = "select * from work.tb_corp corp WHERE 1 = 1 ";
 
-            rs = stmt.executeQuery(sql);
 
+
+
+            sql_c = "select count(*) from work.tb_corp  corp where 1=1 ";
+
+
+            if (name != null && name.length() != 0){
+                sql_s += " and corp.name like '%" + name + "%'";
+                b_check=true;
+            }
+
+//            if (nos != null && nos.length() != 0){
+//                sql_s += " and corp.nos like '%" + nos + "%'";
+//                b_check=true;
+//            }
+
+            if (buslicno != null && buslicno.length() != 0){
+                sql_s += " and corp.buslicno like '%" + buslicno + "%'";
+                b_check=true;
+            }
+
+//            if (listcode != null && listcode.length() != 0){
+//                sql_s += " and corp.listcode = '" + listcode + "'";
+//                b_check=true;
+//            }
+
+
+
+
+            sql_c += sql_s;
+
+            sql_s += " order by  corp.id desc ";
+
+            sql_d += sql_s;
+            if( !b_check==true)
+                sql_d += " limit " + limit + " offset " + start;
+
+
+
+            rs = stmt.executeQuery(sql_d);
             list = new ConvertToList().convertList(rs);
+
+            rs = stmt.executeQuery(sql_c);
+            while (rs.next())
+                dataShop.setTotal(rs.getInt(1));
+
 
         }catch (SQLException e){
             System.out.print(e.getMessage());
