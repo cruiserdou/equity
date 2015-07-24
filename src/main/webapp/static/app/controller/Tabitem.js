@@ -60,7 +60,7 @@ Ext.define('App.controller.Tabitem', {
         'retrain.retrain_manage.Retrain_managef','retrain.retrain_manage.Grid','retrain.retrain_manage.Query',
         'retrain.retrain_query.Retrain_queryf','retrain.retrain_query.Grid','retrain.retrain_query.Query',
         'retrain.retrain_stat.Retrain_statf', 'retrain.retrain_stat.Grid', 'retrain.retrain_stat.Query',
-        'maintain_plan.Maintain_planf', 'maintain_plan.Grid', 'maintain_plan.Query',
+        'maintain_plan.Maintain_planf', 'maintain_plan.Grid', 'maintain_plan.Query','maintain_plan.HistoryGrid',
         'maintain_info.Maintain_infof','maintain_info.Grid','maintain_info.Query','maintain_info.corp_basic_grid','maintain_info.corp_basic_query',
         'refi.refi_mos.Refi_mosf','refi.refi_mos.Grid','refi.refi_mos.Query','refi.refi_mos.RopGrid',
         'refi.refi_rop.Refi_ropf','refi.refi_rop.Grid','refi.refi_rop.Query',

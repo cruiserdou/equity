@@ -23,7 +23,16 @@ Ext.define('App.view.maintain_plan.Maintain_planf', {
             {
                 xtype: 'maintain_planf_grid',
                 region: 'center'
-            }
+            },
+            {
+                xtype: 'maintain_planf_history_grid',
+                autoScroll: true,
+                margin: '5 0 0 0',
+                region: 'east',
+                width: 600,
+                split: true,
+                collapseMode: 'mini'
+            },
         ]
         this.callParent(arguments);
     }

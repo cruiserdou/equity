@@ -57,6 +57,8 @@ public class ObtainCorpAllInfo {
             String sql_d = "";
             String sql_s = "";
             String sql_c = "";
+            Boolean b_check=false;
+
 
 
              sql_d = "select corp.*,corp_contact.*,corp_finance.*,corp_maintain.*,corp_shareholder.*," +
@@ -77,25 +79,40 @@ public class ObtainCorpAllInfo {
 
              sql_c = "select count(*) from work.tb_corp  corp where 1=1 ";
 
-            if (name != null && name.length() != 0)
+
+            if (name != null && name.length() != 0){
                 sql_s += " and corp.name like '%" + name + "%'";
-            if (nos != null && nos.length() != 0)
+                b_check=true;
+            }
+
+            if (nos != null && nos.length() != 0){
                 sql_s += " and corp.nos like '%" + nos + "%'";
-            if (buslicno != null && buslicno.length() != 0)
+                b_check=true;
+            }
+
+            if (buslicno != null && buslicno.length() != 0){
                 sql_s += " and corp.buslicno like '%" + buslicno + "%'";
-            if (listcode != null && listcode.length() != 0)
+                b_check=true;
+            }
+
+            if (listcode != null && listcode.length() != 0){
                 sql_s += " and corp.listcode = '" + listcode + "'";
+                b_check=true;
+            }
+
+
+
 
             sql_c += sql_s;
 
             sql_s += " order by  corp.id desc ";
 
             sql_d += sql_s;
-            sql_d += " limit " + limit + " offset " + start;
+            if( !b_check==true)
+                sql_d += " limit " + limit + " offset " + start;
 
 
-            System.out.print(sql_d);
-            System.out.print(sql_c);
+
             rs = stmt.executeQuery(sql_d);
             list = new ConvertToList().convertList(rs);
 

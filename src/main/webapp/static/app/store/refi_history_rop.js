@@ -1,9 +1,12 @@
-Ext.define('App.store.corp', {
+/**
+ * Created by jj on 14-6-19.
+ */
+Ext.define('App.store.refi_history_rop', {
     extend: 'Ext.data.Store',
-    model: 'App.model.corp',
+    model: 'App.model.refi_rop',
     proxy: {
         type: 'ajax',
-        url: 'obtain_corp_info',
+        url: 'obtain_refi_history_rop_info',
         actionMethods: {
             read: 'POST'
         },
@@ -12,7 +15,11 @@ Ext.define('App.store.corp', {
             root: 'list'
         }
     },
-    autoLoad: false
+    autoLoad: true
 });
+
+
+
+
 
 

@@ -12,7 +12,7 @@ Ext.define('App.store.change', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
 
 

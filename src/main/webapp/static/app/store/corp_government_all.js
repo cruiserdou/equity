@@ -15,7 +15,7 @@ Ext.define('App.store.corp_government_all', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
 
 
