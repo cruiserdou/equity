@@ -11,6 +11,7 @@ Ext.define('App.controller.Tabitem', {
         ,'investors','corp_all','corp_shareholder_list','corp_img'
         ,'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
         ,'maintain_plan','maintain_info','refi_mos','refi_rop'
+        ,'corp_rehr_change'
     ],
 
 
@@ -24,6 +25,7 @@ Ext.define('App.controller.Tabitem', {
         ,'investors','corp_all','corp_service_all','corp_investors_all','corp_government_all','corp_refinancing_all','corp_rehr_all','corp_retrain_all'
         ,'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
         ,'maintain_plan','maintain_info','refi_mos','refi_rop','maintain_planf_history','maintain_info_history'
+        ,'corp_rehr_change'
     ],
 
     views: [
@@ -54,7 +56,7 @@ Ext.define('App.controller.Tabitem', {
         'refinancing.refinancing_query.Refinancing_queryf','refinancing.refinancing_query.Grid','refinancing.refinancing_query.Query',
         'refinancing.refinancing_manage.Refinancing_managef','refinancing.refinancing_manage.Grid','refinancing.refinancing_manage.Query',
         'refinancing.refinancing_stat.Refinancing_statf','refinancing.refinancing_stat.Grid','refinancing.refinancing_stat.Query',
-        'rehr.rehr_query.Rehr_queryf','rehr.rehr_query.Grid','rehr.rehr_query.Query',
+        'rehr.rehr_query.Rehr_queryf','rehr.rehr_query.Grid','rehr.rehr_query.Query','rehr.rehr_query.ChangeGrid',
         'rehr.rehr_manage.Rehr_managef','rehr.rehr_manage.Grid','rehr.rehr_manage.Query',
         'rehr.rehr_stat.Rehr_statf','rehr.rehr_stat.Grid','rehr.rehr_stat.Query',
         'retrain.retrain_manage.Retrain_managef','retrain.retrain_manage.Grid','retrain.retrain_manage.Query',

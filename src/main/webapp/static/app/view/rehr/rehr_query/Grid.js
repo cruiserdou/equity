@@ -6,6 +6,14 @@ Ext.define('App.view.rehr.rehr_query.Grid', {
         id :'grid_rehr_query',
 
         listeners: {
+                itemclick: function (this_, record_) {
+                    var store = Ext.getCmp('grid_rehr_query_change').getStore();
+                    store.load({
+                        params: {
+                            rehr_id: record_.get('rehr_id')
+                        }
+                    })
+                },
             'itemdblclick': function (view, record, item, index, e) {
 
                 //呈现组件

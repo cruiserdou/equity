@@ -24,6 +24,14 @@ Ext.define('App.view.rehr.rehr_query.Rehr_queryf', {
             {
                 xtype: 'rehr_queryf_grid',
                 region: 'center'
+            },
+            {
+                xtype: 'rehr_query_change_grid',
+                title: '变更记录',
+                autoScroll: true,
+                margin: '5 0 0 0',
+                region: 'south',
+                height: 200
             }
 
         ]
