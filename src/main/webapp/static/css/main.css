@@ -1,6 +1,6 @@
 .enter_table{
      border-collapse: collapse;
-     width: 800px;
+     width: 80%;
      font-size: 12px;
      text-align: left;
      margin-bottom: 2em;
@@ -72,8 +72,8 @@
 }
 
 .wrap_center{
-    width: 800px;
-    margin: 10px auto;
+    width: 90%;
+    margin: 2px auto;
 }
 
 td input{

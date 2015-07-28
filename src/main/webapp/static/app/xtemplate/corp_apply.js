@@ -109,7 +109,7 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '</tr>',
     '</table>',
 
-    '<div style="overflow-x: auto; overflow-y: auto;  width:100%;">',
+    '<div style="overflow-x: auto; overflow-y: auto;  width:80%;">',
     '<input type="button" onClick="addRow_edit();" style="font-size:16px;" value="+"/>',
     '<div contenteditable="true">',
     '<table class="enter_table_sh" id="table_corp_sh">',
