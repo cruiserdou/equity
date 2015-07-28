@@ -24,6 +24,14 @@ Ext.define('App.view.refinancing.refinancing_query.Refinancing_queryf', {
             {
                 xtype: 'refinancing_queryf_grid',
                 region: 'center'
+            },
+            {
+                xtype: 'refinancing_query_change_grid',
+                title: '变更记录',
+                autoScroll: true,
+                margin: '5 0 0 0',
+                region: 'south',
+                height: 200
             }
 
         ]

@@ -24,6 +24,14 @@ Ext.define('App.view.investors.investors_query.investors_queryf', {
             {
                 xtype: 'investors_queryf_grid',
                 region: 'center'
+            },
+            {
+                xtype: 'investors_query_change_grid',
+                title: '变更记录',
+                autoScroll: true,
+                margin: '5 0 0 0',
+                region: 'south',
+                height: 200
             }
 
         ]

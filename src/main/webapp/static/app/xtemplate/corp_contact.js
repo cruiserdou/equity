@@ -37,9 +37,9 @@ var  corp_service_con_tpl = new Ext.XTemplate(
     '<th>备注</th>',
     '<td colspan="3"><textarea id="srv_remark" name="srv_remark"  type="text" value="{srv_remark}">{srv_remark}</textarea></td>'+
     '</tr>',
-    '<th>企业图文信息</th>',
-    '<td colspan="3"><a href="img_upload" target="_blank">详细</a></td>',
-    '</tr>',
+    //'<th>企业图文信息</th>',
+    //'<td colspan="3"><a href="img_upload" target="_blank">详细</a></td>',
+    //'</tr>',
     '</table>',
     '</form>',
     '</div>',

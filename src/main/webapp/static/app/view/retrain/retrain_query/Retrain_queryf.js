@@ -24,6 +24,14 @@ Ext.define('App.view.retrain.retrain_query.Retrain_queryf', {
             {
                 xtype: 'retrain_queryf_grid',
                 region: 'center'
+            },
+            {
+                xtype: 'retrain_query_change_grid',
+                title: '变更记录',
+                autoScroll: true,
+                margin: '5 0 0 0',
+                region: 'south',
+                height: 200
             }
 
         ]

@@ -6,6 +6,14 @@ Ext.define('App.view.service.service_query.Grid', {
         id :'grid_service_query',
 
         listeners: {
+            itemclick: function (this_, record_) {
+                var store = Ext.getCmp('grid_service_query_change').getStore();
+                store.load({
+                    params: {
+                        srv_id: record_.get('srv_id')
+                    }
+                })
+            },
             'itemdblclick': function (view, record, item, index, e) {
 
 

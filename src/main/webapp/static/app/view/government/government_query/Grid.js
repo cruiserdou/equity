@@ -6,6 +6,14 @@ Ext.define('App.view.government.government_query.Grid', {
         id :'grid_government_query',
 
         listeners: {
+            itemclick: function (this_, record_) {
+                var store = Ext.getCmp('grid_government_query_change').getStore();
+                store.load({
+                    params: {
+                        gov_id: record_.get('gov_id')
+                    }
+                })
+            },
             'itemdblclick': function (view, record, item, index, e) {
 
                 //呈现组件

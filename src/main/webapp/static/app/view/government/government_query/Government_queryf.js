@@ -24,6 +24,14 @@ Ext.define('App.view.government.government_query.Government_queryf', {
             {
                 xtype: 'government_queryf_grid',
                 region: 'center'
+            },
+            {
+                xtype: 'government_query_change_grid',
+                title: '变更记录',
+                autoScroll: true,
+                margin: '5 0 0 0',
+                region: 'south',
+                height: 200
             }
 
         ]

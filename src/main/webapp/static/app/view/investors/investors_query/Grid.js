@@ -6,6 +6,14 @@ Ext.define('App.view.investors.investors_query.Grid', {
         id :'grid_investors_query',
 
         listeners: {
+            itemclick: function (this_, record_) {
+                var store = Ext.getCmp('grid_investors_query_change').getStore();
+                store.load({
+                    params: {
+                        inv_id: record_.get('inv_id')
+                    }
+                })
+            },
             'itemdblclick': function (view, record, item, index, e) {
 
 
