@@ -25,13 +25,12 @@ public class ObtainCorpImgInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
+            @RequestParam(value = "id", required = false) Integer id,
             @RequestParam(value = "img_corp_id", required = false) Integer img_corp_id
-  ) throws Exception{
+    ) throws Exception{
         Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
-
-
 
         DataShop dataShop = new DataShop();
         List list = new ArrayList();
@@ -49,16 +48,24 @@ public class ObtainCorpImgInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
+            String sql_d = "";
 
 
-            String sql = "select * from work.tb_corp_img WHERE 1 = 1 ";
+             sql_d = "select * from  work.tb_corp_img where 1=1";
+
+            if (id != null && id != 0)
+                sql_d += " and id =" + id ;
             if (img_corp_id != null && img_corp_id!= 0)
-                sql += " and img_corp_id ="+img_corp_id;
+                sql_d += " and img_corp_id = " + img_corp_id ;
 
-//            System.out.print(sql);
-            rs = stmt.executeQuery(sql);
+
+
+            rs = stmt.executeQuery(sql_d);
 
             list = new ConvertToList().convertList(rs);
+
+
+
 
         }catch (SQLException e){
             System.out.print(e.getMessage());

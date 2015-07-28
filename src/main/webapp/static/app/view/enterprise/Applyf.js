@@ -159,7 +159,7 @@ function k22() {
 function corp_img_upload(id) {
 
     Ext.create('widget.window', {
-        title: '企业',
+        title: '企业图片',
         id: 'corp_find_window',
         width: 800,
         height: 600,
@@ -175,94 +175,87 @@ function corp_img_upload(id) {
                 items: [
                     {
                         text: '上传',
-                        id: 'market_update_id',
+                        id: 'corp_update_img_id',
                         listeners: {
                             click: function () {
-                                Ext.create('widget.window', {
-                                    title: '资料上传',
-                                    width: 280,
-                                    height: 160,
-                                    modal: true,
-                                    border: false,
-                                    layout: 'fit',
-                                    items: [
-                                        {
-                                            xtype: 'form',
-                                            frame: true,
-                                            bodyPadding: 16,
-                                            defaults: {
-                                                labelWidth: 50
-                                            },
-                                            items: [
-                                                {
-                                                    xtype: 'filefield',
-                                                    allowBlank: false,
-                                                    fieldLabel: '文件',
-                                                    name: 'file',
-                                                    id: 'file',
-                                                    anchor: '100%',
-                                                    buttonText: '浏览...',
-                                                    buttonConfig: {
-                                                        iconCls: 'upload'
-                                                    },
-                                                    listeners: {
-                                                        change: function (btn, value) {
-                                                            //是否是规定的图片类型
-                                                            var img_reg = /\.([jJ][pP][gG])$|\.([jJ][pP][eE][gG])$|\.([gG][iI][fF])小贝$|\.([pP][nN][gG])$|\.([bB][mM][pP])$/;
-                                                            if (img_reg.test(value)) {
-                                                                var img = Ext.getCmp('staffavatar');
-                                                                var file = btn.fileInputEl.dom.files[0];
-                                                                var url = URL.createObjectURL(file);
-                                                                img.setSrc(url);
-                                                            } else {
-                                                                Ext.Msg.alert('提示', '请选择图片类型的文件！');
-                                                                Ext.getCmp('file').reset();
-                                                                return;
+                                //Ext.Msg.alert("提示", "请填写营业执照号码！");
+
+                                    Ext.create('widget.window', {
+                                        title: '资料上传',
+                                        width: 280,
+                                        height: 160,
+                                        modal: true,
+                                        border: false,
+                                        layout: 'fit',
+                                        items: [
+                                            {
+                                                xtype: 'form',
+                                                frame: true,
+                                                bodyPadding: 16,
+                                                defaults: {
+                                                    labelWidth: 50
+                                                },
+                                                items: [
+                                                    {
+                                                        xtype: 'filefield',
+                                                        allowBlank: false,
+                                                        fieldLabel: '文件',
+                                                        name: 'file',
+                                                        id: 'file',
+                                                        anchor: '100%',
+                                                        buttonText: '浏览...',
+                                                        buttonConfig: {
+                                                            iconCls: 'upload'
+                                                        },
+                                                        listeners: {
+                                                            change: function (btn, value) {
+                                                                //是否是规定的图片类型
+                                                                var img_reg = /\.([jJ][pP][gG])$|\.([jJ][pP][eE][gG])$|\.([gG][iI][fF])小贝$|\.([pP][nN][gG])$|\.([bB][mM][pP])$/;
+                                                                if (img_reg.test(value)) {
+                                                                    var img = Ext.getCmp('file');
+                                                                    var file = btn.fileInputEl.dom.files[0];
+                                                                    var url = URL.createObjectURL(file);
+                                                                    img.setSrc(url);
+                                                                } else {
+                                                                    Ext.Msg.alert('提示', '请选择图片类型的文件！');
+                                                                    Ext.getCmp('file').reset();
+                                                                    return;
+                                                                }
                                                             }
                                                         }
                                                     }
-                                                },
-                                                {
-                                                    allowBlank: false,
-                                                    xtype: 'combobox',
-                                                    name: 'c_type',
-                                                    fieldLabel: '类别',
-                                                    store: 'market_dicts',
-                                                    displayField: 'fieldvaldis',
-                                                    valueField: 'fieldvaldis'
-                                                }
-                                            ],
-                                            buttonAlign: "center",
-                                            buttons: [
-                                                {
-                                                    text: '保存',
-                                                    iconCls: 'icon_save',
-                                                    handler: function () {
-                                                        var form = this.up('form').getForm();
-                                                        if (form.isValid()) {
-                                                            form.submit({
-                                                                url: 'add_market_annex_info',
-                                                                params: {
-                                                                    market_id: Ext.getCmp('market_survey_grid').getSelectionModel().getSelection()[0].get('id'),
-                                                                    market_nm: Ext.getCmp('market_survey_grid').getSelectionModel().getSelection()[0].get('name'),
-                                                                    c_type: ''
-                                                                },
-                                                                waitMsg: '正在保存数据...',
-                                                                success: function (response, action) {
-                                                                    Ext.Msg.alert("成功", "文件上传成功!");
-                                                                    Ext.getCmp('grid_market_annex_id').getStore().reload();
-                                                                },
-                                                                failure: function (form, action) {
-                                                                    Ext.Msg.alert("提示", "文件格式不正确，只能上传jpg,png格式的文件！");
-                                                                }
-                                                            });
+                                                ],
+                                                buttonAlign: "center",
+                                                buttons: [
+                                                    {
+                                                        text: '保存',
+                                                        iconCls: 'icon_save',
+                                                        handler: function () {
+                                                            var form = this.up('form').getForm();
+                                                            if (form.isValid()) {
+                                                                form.submit({
+                                                                    url: 'add_corp_img_info',
+                                                                    //params: {
+                                                                    //    img_corp_id: Ext.getCmp('market_survey_grid').getSelectionModel().getSelection()[0].get('id')
+                                                                    //},
+                                                                    waitMsg: '正在保存数据...',
+                                                                    success: function (response, action) {
+                                                                        Ext.Msg.alert("成功", "文件上传成功!");
+                                                                        //Ext.getCmp('grid_market_annex_id').getStore().reload();
+                                                                    },
+                                                                    failure: function (form, action) {
+                                                                        Ext.Msg.alert("提示", "文件格式不正确，只能上传jpg,png格式的文件！");
+                                                                    }
+                                                                });
+                                                            }
                                                         }
                                                     }
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }).show(Ext.get(market_update_id));
+                                                ]
+                                            }
+                                        ]
+                                    }).show(Ext.get(corp_update_img_id));
+
+
                             }
                         }
                     }

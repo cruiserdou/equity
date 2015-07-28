@@ -92,7 +92,7 @@ function view_img(file){
                 ]
             }
         ]
-    }).show(Ext.get(market_update_id));
+    }).show(Ext.get(corp_update_img_id));
 }
 
 
