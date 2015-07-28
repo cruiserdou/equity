@@ -10,6 +10,7 @@ Ext.define('App.view.enterprise.corp_img_grid', {
         afterrender: function(){
             Ext.getCmp('grid_corp_img').getStore().load();
         }
+
     },
     initComponent: function () {
         this.columns = [

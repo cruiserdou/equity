@@ -29,7 +29,7 @@ public class AddCorpImgInfo {
     @ResponseBody
     DataShop getShopInJSON(
             HttpServletRequest request,
-//            @RequestParam("img_corp_id") Integer img_corp_id,
+            @RequestParam("img_corp_id") Integer img_corp_id,
             @RequestParam(value = "file", required = false) MultipartFile file,
             HttpSession session
     ) throws Exception {
@@ -68,13 +68,13 @@ public class AddCorpImgInfo {
         try {
             conn = DriverManager.getConnection(url, user, password);
 
-            String sql_id = "select nextval('work.corp_id_seq'::regclass) as corp_id";
-            pst = conn.prepareStatement(sql_id);
-            ResultSet rs_id = pst.executeQuery();
-            int img_corp_id=1 ;
-            while (rs_id.next()) {
-                img_corp_id = rs_id.getInt("corp_id");
-            }
+//            String sql_id = "select nextval('work.corp_id_seq'::regclass) as corp_id";
+//            pst = conn.prepareStatement(sql_id);
+//            ResultSet rs_id = pst.executeQuery();
+//            int img_corp_id=1 ;
+//            while (rs_id.next()) {
+//                img_corp_id = rs_id.getInt("corp_id");
+//            }
 
             String sql_max_id = "select count(1) as max_id from work.tb_corp_img where img_corp_id ="+img_corp_id;
 

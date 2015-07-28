@@ -105,9 +105,8 @@ var  corp_edit_con_tpl = new Ext.XTemplate(
     '</tr>',
     '<tr>',
     '<th>企业图文信息</th>',
-    '<td colspan="3">' +
-    '<img onclick="corp_img_upload(\'{id}\')" id="apply_form_img" name="photo" value="{photo}" src="" style="width: 40px; height: 40px;" alt="点击上传照片"/>',
-    '</td></tr>',
+    '<td colspan="3"><button type="button" onclick="corp_img_upload({id})">上传图片</button></td>',
+    '</tr>',
     '</table>',
 
 

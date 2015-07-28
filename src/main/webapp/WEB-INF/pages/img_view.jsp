@@ -27,7 +27,7 @@
               Map<String,String> vo = (Map<String, String>) listX.get(i);
       %>
       <div class="img-holder">
-    <img width=100% height=100% src="static/upload/annex/<%=vo.get("img_name") %>">
+    <img width=100% height=90% src="static/upload/annex/<%=vo.get("img_name") %>">
   <%--<div class="img-ref">--%>
        <%--<img width="250" height="180" src="static/upload/annex/${img_name}">--%>
     <%--</div>--%>
