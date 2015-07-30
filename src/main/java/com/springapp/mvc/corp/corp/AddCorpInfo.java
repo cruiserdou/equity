@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 
 @Controller
@@ -67,8 +68,9 @@ public class AddCorpInfo {
             @RequestParam(value = "type_govermt", required = false) Boolean type_govermt,
             @RequestParam(value = "demand_rz", required = false) Boolean demand_rz,
             @RequestParam(value = "demand_px", required = false) Boolean demand_px,
-            @RequestParam(value = "demand_rl", required = false) Boolean demand_rl
+            @RequestParam(value = "demand_rl", required = false) Boolean demand_rl,
 //            @RequestParam(value = "inputdt", required = false) String inputdt
+            HttpSession session
 
  ) throws Exception{
         DataShop dataShop = new DataShop();
@@ -97,14 +99,14 @@ public class AddCorpInfo {
                     "            regaddr, offaddr, scope, mbus, eprofile, phoinf, remark, indclass1, \n" +
                     "            indclass2, indclass3, indclass4, csrc_type1, csrc_type2, csrc_type3, \n" +
                     "            csrc_type4, type_enterp, type_server, type_investors, type_govermt, \n" +
-                    "            demand_rz, demand_px, demand_rl, inputdt,id)\n" +
+                    "            demand_rz, demand_px, demand_rl, inputdt,inputid,id)\n" +
                     "    VALUES (  ?, ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, ?, \n" +
                     "            ?, ?, ?, ?, ?, \n" +
-                    "            ?, ?, ?, ?, ?)";
+                    "            ?, ?, ?, ?, ?, ?)";
             pst = conn.prepareStatement(sql);
             pst.setString(1, buslicno);
             pst.setString(2, name);
@@ -163,7 +165,8 @@ public class AddCorpInfo {
             pst.setBoolean(43, demand_px);
             pst.setBoolean(44, demand_rl);
             pst.setTimestamp(45, timestamp);
-            pst.setInt(46, id);
+            pst.setInt(46, Integer.parseInt(session.getAttribute("id").toString()));
+            pst.setInt(47, id);
             pst.executeUpdate();
 
 

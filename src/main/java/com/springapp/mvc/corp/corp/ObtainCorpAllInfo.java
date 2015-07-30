@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,8 @@ public class ObtainCorpAllInfo {
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "nos", required = false) String nos,
             @RequestParam(value = "buslicno", required = false) String buslicno,
-            @RequestParam(value = "listcode", required = false) String listcode
+            @RequestParam(value = "listcode", required = false) String listcode,
+            HttpSession session
   ) throws Exception{
         Connection conn = null;
         Statement stmt = null;
@@ -49,7 +51,7 @@ public class ObtainCorpAllInfo {
         String url = connstr.getUrl();
         String user = connstr.getUser();
         String password = connstr.getPassword();
-//        String user_id = session.getAttribute("user_id").toString();
+        String user_id = session.getAttribute("id").toString();
 
         try{
             conn = DriverManager.getConnection(url, user, password);
@@ -59,25 +61,43 @@ public class ObtainCorpAllInfo {
             String sql_c = "";
             Boolean b_check=false;
 
-
-
-             sql_d = "select corp.*,corp_contact.*,corp_finance.*,corp_maintain.*," +
-                    "     corp_government.*,corp_service.*,corp_investors.*," +
-                    "     corp_refinancing.*,corp_rehr.*,corp_retrain.*  " +
-                    "     from work.tb_corp corp " +
-                    "     inner join work.tb_corp_contact corp_contact on corp.id=corp_contact.cont_corp_id " +
-                    "     inner join work.tb_corp_finance corp_finance on corp.id=corp_finance.fin_corp_id " +
-                    "     left outer join work.tb_corp_maintain corp_maintain on corp.id=corp_maintain.mai_corp_id " +
+            if(user_id.equals("10001") ) {
+                sql_d = "select corp.*,corp_contact.*,corp_finance.*,corp_maintain.*," +
+                        "     corp_government.*,corp_service.*,corp_investors.*," +
+                        "     corp_refinancing.*,corp_rehr.*,corp_retrain.*  " +
+                        "     from work.tb_corp corp " +
+                        "     inner join work.tb_corp_contact corp_contact on corp.id=corp_contact.cont_corp_id " +
+                        "     inner join work.tb_corp_finance corp_finance on corp.id=corp_finance.fin_corp_id " +
+                        "     left outer join work.tb_corp_maintain corp_maintain on corp.id=corp_maintain.mai_corp_id " +
 //                    "     left outer join work.tb_corp_shareholder corp_shareholder on corp.id=corp_shareholder.gd_corp_id " +
-                    "     inner join work.tb_corp_government corp_government on corp.id=corp_government.gov_corp_id " +
-                    "     inner join work.tb_corp_service corp_service on corp.id=corp_service.srv_corp_id " +
-                    "     inner join work.tb_corp_investors corp_investors on corp.id=corp_investors.inv_corp_id " +
-                    "     inner join work.tb_corp_refinancing corp_refinancing on corp.id=corp_refinancing.refi_corp_id " +
-                    "     inner join work.tb_corp_rehr corp_rehr on corp.id=corp_rehr.rehr_corp_id " +
-                    "     inner join work.tb_corp_retrain corp_retrain on corp.id=corp_retrain.retra_corp_id  " +
-                    "      where 1=1 ";
+                        "     inner join work.tb_corp_government corp_government on corp.id=corp_government.gov_corp_id " +
+                        "     inner join work.tb_corp_service corp_service on corp.id=corp_service.srv_corp_id " +
+                        "     inner join work.tb_corp_investors corp_investors on corp.id=corp_investors.inv_corp_id " +
+                        "     inner join work.tb_corp_refinancing corp_refinancing on corp.id=corp_refinancing.refi_corp_id " +
+                        "     inner join work.tb_corp_rehr corp_rehr on corp.id=corp_rehr.rehr_corp_id " +
+                        "     inner join work.tb_corp_retrain corp_retrain on corp.id=corp_retrain.retra_corp_id  " +
+                        "      where 1=1 ";
 
-             sql_c = "select count(*) from work.tb_corp  corp where 1=1 ";
+                sql_c = "select count(*) from work.tb_corp  corp where 1=1 ";
+            }else {
+                sql_d = "select corp.*,corp_contact.*,corp_finance.*,corp_maintain.*," +
+                        "     corp_government.*,corp_service.*,corp_investors.*," +
+                        "     corp_refinancing.*,corp_rehr.*,corp_retrain.*  " +
+                        "     from work.tb_corp corp " +
+                        "     inner join work.tb_corp_contact corp_contact on corp.id=corp_contact.cont_corp_id " +
+                        "     inner join work.tb_corp_finance corp_finance on corp.id=corp_finance.fin_corp_id " +
+                        "     left outer join work.tb_corp_maintain corp_maintain on corp.id=corp_maintain.mai_corp_id " +
+//                    "     left outer join work.tb_corp_shareholder corp_shareholder on corp.id=corp_shareholder.gd_corp_id " +
+                        "     inner join work.tb_corp_government corp_government on corp.id=corp_government.gov_corp_id " +
+                        "     inner join work.tb_corp_service corp_service on corp.id=corp_service.srv_corp_id " +
+                        "     inner join work.tb_corp_investors corp_investors on corp.id=corp_investors.inv_corp_id " +
+                        "     inner join work.tb_corp_refinancing corp_refinancing on corp.id=corp_refinancing.refi_corp_id " +
+                        "     inner join work.tb_corp_rehr corp_rehr on corp.id=corp_rehr.rehr_corp_id " +
+                        "     inner join work.tb_corp_retrain corp_retrain on corp.id=corp_retrain.retra_corp_id  " +
+                        "      where inputid ="+Integer.parseInt(session.getAttribute("id").toString());
+
+                sql_c = "select count(*) from work.tb_corp  corp where inputid="+Integer.parseInt(session.getAttribute("id").toString());
+            }
 
 
             if (name != null && name.length() != 0){
