@@ -23,7 +23,7 @@ Ext.define('App.view.government.government_manage.Grid', {
                     afterrender: function (_this){
                         corp_tpl.append('government_manage_corp',record.data);
                         corp_contact_tpl.append('government_manage_corp_contact',record.data);
-                        corp_shareholder_tpl.append('government_manage_corp_shareholder',record.data);
+                        //corp_shareholder_tpl.append('government_manage_corp_shareholder',record.data);
                         corp_acount_tpl.append('government_manage_corp_acount',record.data);
                         corp_maintain_tpl.append('government_manage_corp_maintain',record.data);
                         corp_finance_tpl.append('government_manage_corp_finance',record.data);
@@ -46,11 +46,37 @@ Ext.define('App.view.government.government_manage.Grid', {
                         '</div>'
                     },
                     {
+                        //xtype: 'panel',
+                        //border: false,
+                        //id: 'corp_shareholder_panel',
+                        //html: '<div id="government_manage_corp_shareholder">' +
+                        //'</div>'
                         xtype: 'panel',
+                        height: 250,
+                        //autoScroll: true,
+                        frame: false,
                         border: false,
-                        id: 'corp_shareholder_panel',
-                        html: '<div id="government_manage_corp_shareholder">' +
-                        '</div>'
+                        bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
+                        listeners: {
+                            afterrender: function (_this) {
+                                corp_shareholder_list_store.load({
+                                    params: {
+                                        gd_corp_id: record.get("id")
+                                    },
+                                    callback: function (records, operation, success) {
+                                        if (success) {
+                                            var myarray = new Array();
+                                            for (var i = 0; i < corp_shareholder_list_store.getCount(); i++) {
+                                                myarray[i] = corp_shareholder_list_store.getAt(i).getData();
+                                            }
+
+
+                                            corp_shareholder_list_tpl.overwrite(_this.body, myarray[0]);
+                                        }
+                                    }
+                                })
+                            }
+                        }
                     },
                     {
                         xtype: 'panel',

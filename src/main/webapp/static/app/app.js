@@ -9,22 +9,7 @@ Ext.require([
     'Ext.selection.CheckboxModel'
 ]);
 
-//企业股东信息
-var corp_shareholder_list = Ext.create('Ext.data.Store', {
-    model: 'App.model.corp_shareholder_list',
-    proxy: {
-        type: 'ajax',
-        url: 'obtain_corp_shareholder_list_info',
-        actionMethods: {
-            read: 'POST'
-        },
-        reader: {
-            type: 'json',
-            root: 'list'
-        }
-    },
-    autoLoad: false
-});
+
 /**
  * 系统主页的顶部区域，主要放置系统名称，菜单，和一些快捷按钮
  */
@@ -43,8 +28,6 @@ Ext.define('app.view.main.region.Top', {
         {
             text: '甘肃中小企业信息管理系统'
         },
-
-
 
         {
             xtype: 'label',
