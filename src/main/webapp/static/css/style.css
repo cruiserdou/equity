@@ -2,15 +2,15 @@ body{
   height:0; /*not sure but codepen has some kind of height*/
 }
 .container .img-holder {
-  width:550px;
-  height:500px;
+  width:500px;
+  height:450px;
   position:absolute;
   background-color:#fff;  
   box-shadow:0px 1px 6px 3px #ccc; 
   visiblity:hidden;
   opacity:0;
   top:50px;
-  left:395px;
+  left:32%;
   cursor:pointer;
   z-index:99;
 }
@@ -19,10 +19,10 @@ body{
 
 .container{   
   position:relative;
-  height:600px;
-  width:72%;
+  height:550px;
+  width:80%;
   left:10%;
-  top:100px;
+  top:60px;
   border:2px solid #ccc;
   text-indent:4px;
   font-weight:bold;
@@ -42,7 +42,7 @@ body{
     border:1px solid #ccc;
     border-radius:10px;
     position:relative;
-    top:150px;
+    top:100px;
     left:25%;
     cursor:pointer;
 }
