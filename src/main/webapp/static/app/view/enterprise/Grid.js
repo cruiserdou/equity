@@ -20,6 +20,13 @@ Ext.define('App.view.enterprise.Grid', {
                 listeners: {
                     afterrender: function (_this){
                         corp_edit_con_tpl.append('corp_edit',record.data);
+                        //corp_other_edit_con_tpl.append('corp_other_edit',record.data);
+                        //var store = Ext.getCmp('grid_corp_shareholders').getStore();
+                        //store.load({
+                        //    params: {
+                        //        gd_corp_id: record.get("id")
+                        //    }
+                        //});
                         //setup();preselect('甘肃省');
                         setup_cl();preselect_cl('农、林、牧、渔业');
                         setup_zjh();type_zjh('农、林、牧、渔业');
@@ -41,6 +48,27 @@ Ext.define('App.view.enterprise.Grid', {
                         html: '<div id="corp_edit">' +
                         '</div>'
                     },
+                    //{
+                    //    xtype: 'corp_shareholder_grid',
+                    //    autoScroll: true,
+                    //    margin: '30% 330% 20% 70%',
+                    //    frame: false,
+                    //    height: 200,
+                    //    border: false,
+                    //    bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
+                    //    split: true,
+                    //    collapseMode: 'mini'
+                    //
+                    //
+                    //
+                    //},
+                    //{
+                    //    xtype: 'panel',
+                    //    border: false,
+                    //    id: 'corp_other_edit_panel',
+                    //    html: '<div id="corp_other_edit">' +
+                    //    '</div>'
+                    //},
                     {
                         xtype: 'panel',
                         border: false,
@@ -440,12 +468,13 @@ function win_close_edit() {
     Ext.getCmp('enterprise_edit_id').close();
 }
 
-function save_corp_edit(corp_id,cont_id,gd_id,finid,mai_id,gov_id,inv_id,srv_id,refi_id,rehr_id,retra_id) {
+//function save_corp_edit(corp_id,cont_id,finid,mai_id,gov_id,inv_id,srv_id,refi_id,rehr_id,retra_id) {
+function save_corp_edit(corp_id,cont_id,finid,mai_id,gov_id,inv_id,srv_id,refi_id,rehr_id,retra_id){
 
     var form_obt_edit = document.getElementById("apply_corp_form_edit");
     obt_corp_update(corp_id);
     obt_corp_contact_update(corp_id,cont_id);
-    obt_corp_shareholder_update(corp_id,gd_id);
+    //obt_corp_shareholder_update(corp_id,gd_id);
     obt_corp_finance_update(corp_id,finid);
     obt_corp_maintain_update(corp_id,mai_id);
     obt_corp_government_update(corp_id,gov_id);

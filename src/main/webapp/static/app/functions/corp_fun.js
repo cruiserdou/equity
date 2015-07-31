@@ -246,7 +246,7 @@ function obt_corp_update(corp_id) {
 
 //联系人信息更新
 function obt_corp_contact_update(corp_id,cont_id) {
-    var form_obt_edit = document.getElementById("apply_corp_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_other_form_edit");
 
     Ext.Ajax.request({
         method: "POST",
@@ -322,7 +322,7 @@ function obt_corp_shareholder_update(corp_id,gd_id) {
 
 //财务信息更新
 function obt_corp_finance_update(corp_id,finid) {
-    var form_obt_edit = document.getElementById("apply_corp_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_other_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -469,7 +469,7 @@ function obt_corp_finance_update(corp_id,finid) {
 
 //最近一次维护信息更新
 function obt_corp_maintain_update(corp_id,mai_id) {
-    var form_obt_edit = document.getElementById("apply_corp_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_other_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -507,7 +507,7 @@ function obt_corp_maintain_update(corp_id,mai_id) {
 
 //政府部门信息更新
 function obt_corp_government_update(corp_id,gov_id) {
-    var form_obt_edit = document.getElementById("apply_corp_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_other_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -540,7 +540,7 @@ function obt_corp_government_update(corp_id,gov_id) {
 
 //投资人信息更新
 function obt_corp_investors_update(corp_id,inv_id) {
-    var form_obt_edit = document.getElementById("apply_corp_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_other_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -579,7 +579,7 @@ function obt_corp_investors_update(corp_id,inv_id) {
 
 //服务机构信息更新
 function obt_corp_service_update(corp_id,srv_id) {
-    var form_obt_edit = document.getElementById("apply_corp_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_other_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -608,7 +608,7 @@ function obt_corp_service_update(corp_id,srv_id) {
 
 //融资信息更新
 function obt_corp_refinancing_update(corp_id,refi_id) {
-    var form_obt_edit = document.getElementById("apply_corp_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_other_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -634,7 +634,7 @@ function obt_corp_refinancing_update(corp_id,refi_id) {
 
 //人力资源信息更新
 function obt_corp_rehr_update(corp_id,rehr_id) {
-    var form_obt_edit = document.getElementById("apply_corp_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_other_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {
@@ -659,7 +659,7 @@ function obt_corp_rehr_update(corp_id,rehr_id) {
 
 //培训信息更新
 function obt_corp_retrain_update(corp_id,retra_id) {
-    var form_obt_edit = document.getElementById("apply_corp_form_edit");
+    var form_obt_edit = document.getElementById("apply_corp_other_form_edit");
     Ext.Ajax.request({
         method: "POST",
         params: {

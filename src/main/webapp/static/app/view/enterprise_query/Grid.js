@@ -9,7 +9,7 @@ Ext.define('App.view.enterprise_query.Grid', {
             var store = Ext.getCmp('enterprise_change_grid_id').getStore();
             store.load({
                 params: {
-                    id: record_.get('id')
+                    corp_id: record_.get('id')
                 }
             })
         },
@@ -24,6 +24,7 @@ Ext.define('App.view.enterprise_query.Grid', {
                 bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
                 listeners: {
                     afterrender: function (_this){
+
                         corp_tpl.append('corp',record.data);
                         corp_contact_tpl.append('corp_contact',record.data);
                         //corp_shareholder_tpl.append('corp_shareholder',record.data);
@@ -54,6 +55,20 @@ Ext.define('App.view.enterprise_query.Grid', {
                         html: '<div id="corp">' +
                         '</div>'
                     },
+                    //{
+                    //    xtype: 'corp_shareholder_grid',
+                    //    autoScroll: true,
+                    //    margin: '30% 330% 20% 70%',
+                    //    frame: false,
+                    //    height: 200,
+                    //    border: false,
+                    //    bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
+                    //    split: true,
+                    //    collapseMode: 'mini'
+                    //
+                    //
+                    //
+                    //},
                     {
                         //xtype: 'panel',
 
@@ -574,52 +589,5 @@ var corp_shareholder_list_store = Ext.create('Ext.data.Store', {
     autoLoad: true
 });
 
-var corp_shareholder_list_tpl = new Ext.XTemplate(
-    '<div style="overflow-x: auto; overflow-y: auto;">',
-    '<div class="wrap_center">',
-    '<table class="enter_table" id="table_sh_list">',
-    '<tr>',
-    '<th class="table_header" colspan="15">股东名册</th>',
-    '</tr>',
-    '<tr>',
-    '<th><div contenteditable="false">股东类型</div></th>',
-    '<th><div contenteditable="false">股东</div></th>',
-    '<th><div contenteditable="false">证件类型</div></th>',
-    '<th><div contenteditable="false">证件号码</div></th>',
-    '<th><div contenteditable="false">持股数量</div></th>',
-    '<th><div contenteditable="false">流通数量</div></th>',
-    '<th><div contenteditable="false">冻结数量</div></th>',
-    '<th><div contenteditable="false">详情</div></th>',
-    '<th><div contenteditable="false">职务</div></th>',
-    '<th><div contenteditable="false">电话</div></th>',
-    '<th><div contenteditable="false">传真</div></th>',
-    '<th><div contenteditable="false">E-mail</div></th>',
-    '<th><div contenteditable="false">QQ</div></th>',
-    '<th><div contenteditable="false">个人微信号</div></th>',
-    '<th><div contenteditable="false">固定电话</div></th>',
-    '</tr>',
-    '<tr>',
-    '<tpl for="list">',
-    '<td>{gd_shtype}</td>',
-    '<td>{gd_shname}</td>',
-    '<td>{gd_shdoctype}</td>',
-    '<td>{gd_shdocnum}</td>',
-    '<td>{gd_shareholdnum}</td>',
-    '<td>{gd_currencynum}</td>',
-    '<td>{gd_freezenum}</td>',
-    '<td>{gd_remark}</td>',
-    '<td>{gd_psotion}</td>',
-    '<td>{gd_phone}</td>',
-    '<td>{gd_fax}</td>',
-    '<td>{gd_email}</td>',
-    '<td>{gd_qq}</td>',
-    '<td>{gd_webchat}</td>',
-    '<td>{gd_tel}</td>',
-    '</tr>',
-    '</tpl>',
-    '</table>',
-    '</div>',
-    '</div>'
-);
 
 

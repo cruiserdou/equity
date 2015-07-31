@@ -11,7 +11,7 @@ Ext.define('App.controller.Tabitem', {
         ,'investors','corp_all','corp_shareholder_list','corp_img'
         ,'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
         ,'maintain_plan','maintain_info','refi_mos','refi_rop'
-        ,'corp_rehr_change','corp_retrain_change','corp_refinancing_change','corp_government_change','corp_service_change','corp_investors_change'
+        ,'corp_change','corp_contact_change','corp_rehr_change','corp_retrain_change','corp_refinancing_change','corp_government_change','corp_service_change','corp_investors_change'
     ],
 
 
@@ -25,7 +25,7 @@ Ext.define('App.controller.Tabitem', {
         ,'investors','corp_all','corp_service_all','corp_investors_all','corp_government_all','corp_refinancing_all','corp_rehr_all','corp_retrain_all'
         ,'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
         ,'maintain_plan','maintain_info','refi_mos','refi_rop','maintain_planf_history','maintain_info_history'
-        ,'corp_rehr_change','corp_retrain_change','corp_refinancing_change','corp_government_change','corp_service_change','corp_investors_change'
+        ,'corp_change','corp_contact_change','corp_rehr_change','corp_retrain_change','corp_refinancing_change','corp_government_change','corp_service_change','corp_investors_change'
     ],
 
     views: [
@@ -66,7 +66,8 @@ Ext.define('App.controller.Tabitem', {
         'maintain_info.Maintain_infof','maintain_info.Grid','maintain_info.Query','maintain_info.corp_basic_grid','maintain_info.corp_basic_query',
         'refi.refi_mos.Refi_mosf','refi.refi_mos.Grid','refi.refi_mos.Query','refi.refi_mos.RopGrid',
         'refi.refi_rop.Refi_ropf','refi.refi_rop.Grid','refi.refi_rop.Query',
-        'export_import.Export_importf','export_import.Grid','export_import.Query'
+        'export_import.Export_importf','export_import.Grid','export_import.Query',
+        'enterprise_query.corp_gd_grid'
 
   ],
 
