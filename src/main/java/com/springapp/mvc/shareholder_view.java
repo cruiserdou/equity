@@ -50,29 +50,25 @@ public class shareholder_view {
             rs = stmt.executeQuery(sql);
 
             while(rs.next()) {
-                model.addAttribute("gd_id", rs.getString( "gd_id" ));
-                model.addAttribute("gd_corp_id", rs.getString( "gd_corp_id" ));
-                model.addAttribute("education", rs.getString( "education" ));
-                model.addAttribute("card", rs.getString( "card" ));
-                model.addAttribute("address", rs.getString( "address" ));
-                model.addAttribute("workunit", rs.getString( "workunit" ));
-                model.addAttribute("drvschool", rs.getString( "drvschool" ));
-                model.addAttribute("lictype", rs.getString( "lictype" ));
-                model.addAttribute("licdt", rs.getString( "licdt" ));
-                model.addAttribute("applytp", rs.getString( "applytp" ));
-                model.addAttribute("qulfnum", rs.getString( "qulfnum" ));
-                model.addAttribute("licmd", rs.getString( "licmd" ));
-                model.addAttribute("scores", rs.getString( "scores" ));
-                model.addAttribute("photo", rs.getString( "photo" ));
-                model.addAttribute("promise", rs.getString( "promise" ));
-                model.addAttribute("pxnum", rs.getString( "pxnum" ));
-                model.addAttribute("licmd_goods", rs.getString( "licmd_goods" ));
-                model.addAttribute("checklist1", rs.getBoolean( "checklist1" ));
-                model.addAttribute("checklist2", rs.getBoolean( "checklist2" ));
-                model.addAttribute("checklist3", rs.getBoolean( "checklist3" ));
-                model.addAttribute("checklist4", rs.getBoolean( "checklist4" ));
-                model.addAttribute("checklist5", rs.getBoolean( "checklist5" ));
-                model.addAttribute("promisedt", rs.getDate("promisedt" ));
+                model.addAttribute("gd_id", rs.getInt("gd_id"));
+                model.addAttribute("gd_corp_id", rs.getInt( "gd_corp_id"));
+                model.addAttribute("gd_shtype", rs.getString("gd_shtype"));
+                model.addAttribute("gd_shname", rs.getString("gd_shname"));
+                model.addAttribute("gd_shdoctype", rs.getString("gd_shdoctype"));
+                model.addAttribute("gd_shdocnum", rs.getString("gd_shdocnum"));
+                model.addAttribute("gd_shareholdnum", rs.getString("gd_shareholdnum"));
+                model.addAttribute("gd_currencynum", rs.getString("gd_currencynum"));
+                model.addAttribute("gd_freezenum", rs.getString("gd_freezenum"));
+                model.addAttribute("gd_psotion", rs.getString("gd_psotion"));
+                model.addAttribute("gd_doctype", rs.getString("gd_doctype"));
+                model.addAttribute("gd_docnum", rs.getString("gd_docnum"));
+                model.addAttribute("gd_phone", rs.getString("gd_phone"));
+                model.addAttribute("gd_fax", rs.getString("gd_fax"));
+                model.addAttribute("gd_email", rs.getString("gd_email"));
+                model.addAttribute("gd_qq", rs.getString("gd_qq"));
+                model.addAttribute("gd_webchat", rs.getString("gd_webchat"));
+                model.addAttribute("gd_tel", rs.getString("gd_tel"));
+                model.addAttribute("gd_remark", rs.getString("gd_remark"));
             }
 
         }catch (SQLException e){
