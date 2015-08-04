@@ -1,4 +1,4 @@
-package com.springapp.mvc.rolepermissions;
+package com.springapp.mvc.rolepermissions.rolepermbutton;
 
 /**
  * Created by xwq on 14-4-15.
@@ -18,15 +18,16 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @Controller
-@RequestMapping("/add_rolepermissions_info")
-public class AddRolepermissionsInfo {
+@RequestMapping("/add_rolepermbutton_info")
+public class AddRolepermbuttonInfo {
 
     @RequestMapping( method = RequestMethod.POST)
     public
     @ResponseBody
     DataShop getShopInJSON(
             @RequestParam("roleid") Integer roleid,
-            @RequestParam("treeid") Integer treeid
+            @RequestParam("treeid") Integer treeid,
+            @RequestParam("button") String button
 
 
     ) throws Exception{
@@ -48,15 +49,18 @@ public class AddRolepermissionsInfo {
         try {
             conn = DriverManager.getConnection(url, user, password);
 
-            String sql = "insert into work.rolepermissions" +
-                    "(roleid,rolename, treeid,text, parentid) " +
-                    " values(?,(select rolename from work.roles where id=?),?,(select text from work.menu where id=?), (select i_root from work.root(?)))";
+            String sql = "insert into work.tb_rolepermbutton" +
+                    "(roleid,rolename, treeid,text, parentid,button) " +
+                    " values(?,(select rolename from work.roles where id=?)," +
+                    " ?,(select text from work.menu where id=?), (select i_root from work.root(?)),?)";
             pst = conn.prepareStatement(sql);
             pst.setInt(1, roleid);
             pst.setInt(2, roleid);
             pst.setInt(3, treeid);
             pst.setInt(4, treeid);
             pst.setInt(5, treeid);
+            pst.setString(6, button);
+
             pst.executeUpdate();
 
 

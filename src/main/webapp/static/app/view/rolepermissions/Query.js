@@ -18,7 +18,7 @@ Ext.define('App.view.rolepermissions.Query', {
                     listeners: {
                         click: function () {
                             Ext.create('widget.window', {
-                                title: '添加出车记录',
+                                title: '添加记录',
                                 modal: true,
                                 width: 300,
                                 height: 300,
@@ -147,6 +147,193 @@ Ext.define('App.view.rolepermissions.Query', {
                                 }
                             }
                         });
+                    }
+                },'-',
+                {
+                    text: '按钮权限',
+                    id: 'perm_button',
+                    handler: function () {
+
+
+                        var button_grid = Ext.create('Ext.grid.Panel', {
+                            store: 'rolepermbutton',
+                            border: false,
+                            id: 'grid_rolepermbutton',
+                            selType: 'checkboxmodel',
+
+                            listeners: {
+                                afterrender:function(){
+                                    Ext.getCmp('grid_rolepermbutton').getStore().load();
+
+                                }
+                            },
+                            columns: [
+                                {text: "角色ID", width: 105, dataIndex: 'roleid',hidden:true},
+                                {text: "菜单ID", width: 290, dataIndex: 'treeid',hidden:true},
+                                {text: "角色名称", width: 120, dataIndex: 'rolename', sortable: true},
+                                {text: "菜单标题", width: 120, dataIndex: 'text', sortable: true},
+                                {text: "按钮",  width: 100, dataIndex: 'button'},
+                                {
+                                    text: '删除', width: 50, dataIndex: 'id',
+                                    renderer: function (val) {
+                                        return "<span style='color: #FF4444;' onclick='delete_rolepermbutton(" + val + ")' >删除</span>";
+                                    }
+                                }
+                            ],
+                            columnLines: true,
+                            margin: '0 0 5 0'
+                        });
+
+
+
+                        var editForm = null;
+                        var editWindow = null;
+                        editForm = new Ext.form.FormPanel({
+                            frame: true,
+                            items: [
+                                {
+                                    border: false,
+                                    xtype: 'panel',
+                                    frame: true,
+                                    region: 'west',
+                                    margin: '0 0 0 5',
+                                    layout: 'fit',
+                                    items: [
+                                        button_grid
+
+                                    ],
+                                    dockedItems: [
+                                        {
+                                            xtype: 'toolbar',
+                                            dock: 'top',
+                                            border: true,
+                                            items: [
+                                                {
+                                                    text: '权限',
+                                                    id:'rolepermbutton_add_id',
+                                                    listeners: {
+                                                        click: function () {
+                                                            Ext.create('widget.window', {
+                                                                title: '权限管理',
+                                                                width: 300,
+                                                                height: 300,
+                                                                modal: true,
+                                                                border: false,
+                                                                layout: 'fit',
+                                                                items: [
+                                                                    {
+                                                                        xtype: 'form',
+                                                                        frame: true,
+                                                                        bodyPadding: 16,
+                                                                        defaults: {
+                                                                            labelWidth: 50
+                                                                        },
+                                                                        items: [
+                                                                            {
+                                                                                anchor: '100%',
+                                                                                name: 'roleid',
+                                                                                fieldLabel: '角色',
+                                                                                xtype: 'combobox',
+                                                                                autoRender: true,
+                                                                                autoShow: true,
+                                                                                store:'syj_roles',
+                                                                                triggerAction: 'all',
+                                                                                valueField: 'id',
+                                                                                displayField: 'rolename',
+                                                                                allowBlank:false
+                                                                            },
+                                                                            {
+                                                                                anchor: '100%',
+                                                                                name: 'treeid',
+                                                                                fieldLabel: '菜单',
+                                                                                xtype: 'combobox',
+                                                                                autoRender: true,
+                                                                                autoShow: true,
+                                                                                store:'syj_menu',
+                                                                                triggerAction: 'all',
+                                                                                valueField: 'id',
+                                                                                displayField: 'text',
+                                                                                allowBlank:false
+                                                                            },
+                                                                            {
+                                                                                fieldLabel: '按钮',
+                                                                                anchor: '100%',
+                                                                                name: 'button',
+                                                                                xtype: 'combo',
+                                                                                //value: '删除',
+                                                                                autoRender: true,
+                                                                                autoShow: true,
+                                                                                store: Ext.create('Ext.data.Store',
+                                                                                    {
+                                                                                        fields: ['type'],
+                                                                                        data: [
+                                                                                            {'type': '添加'},
+                                                                                            {'type': '编辑'},
+                                                                                            {'type': '修改'},
+                                                                                            {'type': '删除'},
+                                                                                            {'type': '导入'},
+                                                                                            {'type': '导出'}
+                                                                                        ]
+                                                                                    }
+                                                                                ),
+                                                                                displayField: 'type',
+                                                                                valueField: 'type',
+                                                                                allowBlank: false
+                                                                            }
+                                                                        ],
+                                                                        buttonAlign : "center",
+                                                                        buttons: [
+                                                                            {
+                                                                                text: '保存',
+                                                                                handler: function(){
+                                                                                    var form = this.up('form').getForm();
+                                                                                    if (form.isValid()){
+                                                                                        form.submit({
+                                                                                            url: 'add_rolepermbutton_info',
+                                                                                            waitMsg: '正在保存数据...',
+                                                                                            success: function(form, action){
+                                                                                                Ext.Msg.alert("成功", "数据保存成功!");
+                                                                                                //重新载入渠道信息
+                                                                                                Ext.getCmp('grid_rolepermbutton').getStore().reload();
+                                                                                            },
+                                                                                            failure: function(form, action){
+                                                                                                Ext.Msg.alert("失败", "数据保存失败!");
+                                                                                            }
+                                                                                        });
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                text: '重置',
+                                                                                handler: function () {
+                                                                                    this.up('form').getForm().reset();
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }).show(Ext.get(rolepermbutton_add_id));
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        });
+                        editWindow = new Ext.Window({
+                            layout: 'fit',
+                            width: 600,
+                            height: 500,
+                            modal: true,
+                            title: '按钮权限',
+                            border: false,
+                            items: [editForm]
+                        });
+                        editWindow.show(Ext.get('perm_button'));
+
+
                     }
                 }
             ]

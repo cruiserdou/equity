@@ -1,4 +1,4 @@
-package com.springapp.mvc.rolepermissions;
+package com.springapp.mvc.rolepermissions.rolepermbutton;
 
 /**
  * Created by xwq on 14-4-15.
@@ -18,20 +18,17 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @Controller
-@RequestMapping("/add_rolepermissions_info")
-public class AddRolepermissionsInfo {
+@RequestMapping("/delete_rolepermbutton_info")
+public class DeleteRolepermbuttonInfo {
 
-    @RequestMapping( method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public
     @ResponseBody
     DataShop getShopInJSON(
-            @RequestParam("roleid") Integer roleid,
+//            @PathVariable String user_id,
             @RequestParam("treeid") Integer treeid
-
-
-    ) throws Exception{
+            ) throws Exception{
         DataShop dataShop = new DataShop();
-        dataShop.setSuccess(true);
         Connection conn = null;
         PreparedStatement pst = null;
         try {
@@ -48,17 +45,11 @@ public class AddRolepermissionsInfo {
         try {
             conn = DriverManager.getConnection(url, user, password);
 
-            String sql = "insert into work.rolepermissions" +
-                    "(roleid,rolename, treeid,text, parentid) " +
-                    " values(?,(select rolename from work.roles where id=?),?,(select text from work.menu where id=?), (select i_root from work.root(?)))";
+            String sql = "delete from work.tb_rolepermbutton where treeid = ?";
             pst = conn.prepareStatement(sql);
-            pst.setInt(1, roleid);
-            pst.setInt(2, roleid);
-            pst.setInt(3, treeid);
-            pst.setInt(4, treeid);
-            pst.setInt(5, treeid);
-            pst.executeUpdate();
+            pst.setInt(1, treeid);
 
+            pst.executeUpdate();
 
 
             dataShop.setSuccess(true);
@@ -73,6 +64,7 @@ public class AddRolepermissionsInfo {
                 System.out.print(e.getMessage());
             }
         }
+//        dataShop.setName(user_id);
 
         return dataShop;
     }

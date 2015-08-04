@@ -154,7 +154,36 @@ Ext.define('App.view.enterprise.Query', {
                 },'-',
                 {
                     text: '删除',
+                    id:'perm_del',
+                    listeners: {
+                        afterrender: function (_this) {
+                            Ext.Ajax.request({
+                                method: 'POST',
+                                url: 'check_perm_button_info',
+                                params: {
+                                    "treeid": 1021,
+                                    "button": "删除"
+                                },
+                                success: function (response, opts) {
+                                    var obj = Ext.decode(response.responseText);
+
+                                    if (!obj.success) {
+                                        //Ext.Msg.alert("提示", "没有权限删除！");
+                                        Ext.getCmp('perm_del').setDisabled(true);
+                                        Ext.getCmp("perm_del").hide();
+                                        return;
+                                    }
+                                },
+                                failure: function (response, opts) {
+                                    Ext.Msg.alert("提示", "请联系管理员！");
+                                    return;
+                                }
+                            });
+
+                        }
+                        },
                     handler: function () {
+
                         Ext.Msg.confirm('信息', '确定要删除？', function (btn) {
                             if (btn == 'yes') {
                                 var sm = Ext.getCmp('grid_enterprise').getSelectionModel();
