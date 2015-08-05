@@ -284,13 +284,13 @@ var corp_maintain_tpl = new Ext.XTemplate(
     '<div class="wrap_center">',
     '<table  class="enter_table" id="table_ocompay">',
     '<tr>',
-    '<th class="table_header" colspan="4">企业最近一次被关注信息</th>',
+    '<th class="table_header" colspan="4">企业最近次被关注信息</th>',
     '</tr>',
     '<tr>',
     '<th>更新日期</th>',
     '<td>{mai_changer_dt}</td>',
     '<th>更新人</th>',
-    '<td>{mai_changer_id}</td>',
+    '<td><button class="btn1">Toggle</button></td>',
     '</tr>',
     '<tr>',
     '<th>更新单位</th>',
@@ -316,6 +316,8 @@ var corp_maintain_tpl = new Ext.XTemplate(
     '<th>企业接待人</th>',
     '<td>{mai_emaint}</td>',
     '</tr>',
+    '</table>',
+    '<table style="display:none">',
     '<tr>',
     '<th>部门</th>',
     '<td>{mai_dept}</td>',
@@ -925,3 +927,11 @@ var corp_rehr_tpl = new Ext.XTemplate(
     '</table>',
      '</div>'
 );
+
+
+
+    $(document).ready(function(){
+        $(".btn1").click(function(){
+            $("table").toggle(true);
+        });
+    });

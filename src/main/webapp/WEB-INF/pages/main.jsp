@@ -18,6 +18,7 @@
     <link href="static/css/main.css" rel="stylesheet">
     <script src="static/jslib/ext-4.2/ext-all.js"></script>
     <script src="static/jslib/ext-4.2/locale/ext-lang-zh_CN.js"></script>
+    <script src="static/jslib/jquery-2.1.1.js"></script>
 
     <script src="static/app/xtemplate/corp_apply.js"></script>
     <script src="static/app/xtemplate/corp_edit.js"></script>
@@ -34,6 +35,8 @@
             display:none;
         }
     </style>
+
+
 </head>
 <body>
 <div id="container"></div>
