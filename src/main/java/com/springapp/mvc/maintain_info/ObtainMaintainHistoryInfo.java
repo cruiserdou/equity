@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ public class ObtainMaintainHistoryInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
+            HttpSession session,
             @RequestParam(value = "mi_corp_id", required = false) Integer mi_corp_id,
            @RequestParam(value = "corp_name", required = false) String corp_name
 
@@ -54,8 +56,8 @@ public class ObtainMaintainHistoryInfo {
                     "       mi_mt_date, mi_cust_type, mi_next_date, mi_next_plan, mi_remark " +
                     "  FROM  work.tb_maintain_info maintain_info ,work.tb_corp  corp  " +
                     "       where   corp.id  = maintain_info.mi_corp_id    and " +
-                    "   mi_id  not in (select max(mi_id)  from work.tb_maintain_info   group by mi_corp_id) ";
-
+                    "   mi_id  not in (select max(mi_id)  from work.tb_maintain_info   group by mi_corp_id)  " +
+                    " and maintain_info.inputid ="+Integer.parseInt(session.getAttribute("id").toString());
             if (corp_name != null && corp_name.length() != 0)
                 sql += " and corp.name like '%" + corp_name + "%'";
             if (mi_corp_id != null)

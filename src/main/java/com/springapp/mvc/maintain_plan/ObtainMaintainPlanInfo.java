@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class ObtainMaintainPlanInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
-//           @RequestParam(value = "name", required = false) String name,
+            HttpSession session,
             @RequestParam(value = "corp_name", required = false) String corp_name
 
 
@@ -53,7 +54,8 @@ public class ObtainMaintainPlanInfo {
             String sql = "SELECT  corp.name corp_name, mp_id, mp_corp_id, mp_listcode, mp_province, mp_city, mp_county, \n" +
                     " TO_CHAR(mp_last_date,'yyyy-mm-dd hh24:mi:ss') as mp_last_date, mp_content, mp_result, mp_hisdesc, mp_remark \n" +
                     "  FROM   work.tb_maintain_plan  maintain_plan ,work.tb_corp  corp WHERE corp.id  = maintain_plan.mp_corp_id     \n" +
-                    "  and mp_id in (select max(mp_id)  from work.tb_maintain_plan   group by mp_corp_id)";
+                    "  and mp_id in (select max(mp_id)  from work.tb_maintain_plan   group by mp_corp_id) " +
+                    "  and maintain_plan.inputid ="+Integer.parseInt(session.getAttribute("id").toString());
             if (corp_name != null && corp_name.length() != 0)
                 sql += " and corp.name like '%" + corp_name + "%'";
 

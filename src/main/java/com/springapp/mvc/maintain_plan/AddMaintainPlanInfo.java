@@ -55,15 +55,16 @@ public class AddMaintainPlanInfo {
         String url = connstr.getUrl();
         String user = connstr.getUser();
         String password = connstr.getPassword();
-
+        java.util.Date date = new java.util.Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
         try {
             conn = DriverManager.getConnection(url, user, password);
 
             String sql = "INSERT INTO work.tb_maintain_plan(\n" +
                     "            mp_corp_id, mp_listcode, mp_province, mp_city, mp_county, \n" +
-                    "            mp_last_date, mp_content, mp_result, mp_hisdesc, mp_remark)\n" +
+                    "            mp_last_date, mp_content, mp_result, mp_hisdesc, mp_remark, inputdt,inputid)\n" +
                     "    VALUES (?, ?, ?, ?, ?, \n" +
-                    "            ?, ?, ?, ?, ?)";
+                    "            ?, ?, ?, ?, ?, ?, ?)";
             pst = conn.prepareStatement(sql);
             pst.setInt(1, mp_corp_id);
             pst.setString(2, mp_listcode);
@@ -80,6 +81,8 @@ public class AddMaintainPlanInfo {
             pst.setString(8, mp_result);
             pst.setString(9, mp_hisdesc);
             pst.setString(10, mp_remark);
+            pst.setTimestamp(11, timestamp);
+            pst.setInt(12, Integer.parseInt(session.getAttribute("id").toString()));
             pst.executeUpdate();
 
 

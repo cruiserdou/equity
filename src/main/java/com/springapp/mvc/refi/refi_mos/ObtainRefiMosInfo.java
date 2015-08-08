@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class ObtainRefiMosInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
-//           @RequestParam(value = "name", required = false) String name,
+            HttpSession session,
             @RequestParam(value = "corp_name", required = false) String corp_name
 
 
@@ -51,7 +52,8 @@ public class ObtainRefiMosInfo {
             stmt = conn.createStatement();
 
             String sql = "SELECT corp.name corp_name, mos_id, mos_corp_id, mos_cots, mos_amounts, mos_mop, mos_rop" +
-                    "  from work.tb_corp  corp INNER  join work.tb_refi_mos  refi_mos on  corp.id  = refi_mos.mos_corp_id      WHERE 1 = 1 ";
+                    "  from work.tb_corp  corp INNER  join work.tb_refi_mos  refi_mos on  corp.id  = refi_mos.mos_corp_id      WHERE " +
+                    "   where inputid ="+Integer.parseInt(session.getAttribute("id").toString());
             if (corp_name != null && corp_name.length() != 0)
                 sql += " and corp.name like '%" + corp_name + "%'";
 //            if (type != null && type.length() != 0)

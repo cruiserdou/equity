@@ -48,19 +48,22 @@ public class AddRefiMosInfo {
         String url = connstr.getUrl();
         String user = connstr.getUser();
         String password = connstr.getPassword();
-
+        java.util.Date date = new java.util.Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
         try {
             conn = DriverManager.getConnection(url, user, password);
 
             String sql = "INSERT INTO work.tb_refi_mos(\n" +
-                    "             mos_corp_id, mos_cots, mos_amounts, mos_mop, mos_rop)\n" +
-                    "    VALUES (?, ?, ?, ?, ?)";
+                    "             mos_corp_id, mos_cots, mos_amounts, mos_mop, mos_rop, inputdt,inputid)\n" +
+                    "    VALUES (?, ?, ?, ?, ?, ?, ?)";
             pst = conn.prepareStatement(sql);
             pst.setInt(1, mos_corp_id);
             pst.setString(2, mos_cots);
             pst.setString(3, mos_amounts);
             pst.setString(4, mos_mop);
             pst.setString(5, mos_rop);
+            pst.setTimestamp(6, timestamp);
+            pst.setInt(7, Integer.parseInt(session.getAttribute("id").toString()));
             pst.executeUpdate();
 
 

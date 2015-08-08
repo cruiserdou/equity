@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class ObtainRefiRopInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
-//           @RequestParam(value = "name", required = false) String name,
+            HttpSession session,
            @RequestParam(value = "rop_mos_id", required = false) String rop_mos_id
 
 
@@ -50,7 +51,7 @@ public class ObtainRefiRopInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-            String sql = "SELECT * FROM work.tb_refi_rop  WHERE 1 = 1 ";
+            String sql = "SELECT * FROM work.tb_refi_rop  WHERE  where inputid ="+Integer.parseInt(session.getAttribute("id").toString());
             if (rop_mos_id != null && rop_mos_id.length() != 0)
                 sql += " and rop_mos_id ="+rop_mos_id;
 //            if (type != null && type.length() != 0)

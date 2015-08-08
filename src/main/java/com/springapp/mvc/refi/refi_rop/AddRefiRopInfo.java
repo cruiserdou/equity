@@ -48,14 +48,15 @@ public class AddRefiRopInfo {
         String url = connstr.getUrl();
         String user = connstr.getUser();
         String password = connstr.getPassword();
-
+        java.util.Date date = new java.util.Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
         try {
             conn = DriverManager.getConnection(url, user, password);
 
             String sql = "INSERT INTO work.tb_refi_rop(\n" +
                     "            rop_mos_id, rop_items, rop_desc, rop_endt, rop_crb, rop_stat, \n" +
-                    "            rop_remark)\n" +
-                    "    VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    "            rop_remark, inputdt,inputid)\n" +
+                    "    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             pst = conn.prepareStatement(sql);
             pst.setInt(1, rop_mos_id);
             pst.setString(2, rop_items);
@@ -65,6 +66,8 @@ public class AddRefiRopInfo {
             pst.setString(5, rop_crb);
             pst.setString(6, rop_stat);
             pst.setString(7, rop_remark);
+            pst.setTimestamp(8, timestamp);
+            pst.setInt(9, Integer.parseInt(session.getAttribute("id").toString()));
             pst.executeUpdate();
 
 

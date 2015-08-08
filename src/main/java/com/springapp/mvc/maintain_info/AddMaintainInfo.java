@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 @Controller
 @RequestMapping("/add_maintain_info")
@@ -53,15 +50,16 @@ public class AddMaintainInfo {
         String url = connstr.getUrl();
         String user = connstr.getUser();
         String password = connstr.getPassword();
-
+        java.util.Date date = new java.util.Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
         try {
             conn = DriverManager.getConnection(url, user, password);
 
             String sql = "INSERT INTO work.tb_maintain_info(\n" +
                     "             mi_corp_id, mi_listcode, mi_province, mi_city, mi_county, \n" +
-                    "            mi_mt_date, mi_cust_type, mi_next_date, mi_next_plan, mi_remark)\n" +
+                    "            mi_mt_date, mi_cust_type, mi_next_date, mi_next_plan, mi_remark, inputdt,inputid)\n" +
                     "    VALUES (?, ?, ?, ?, ?, \n" +
-                    "            ?, ?, ?, ?, ?)";
+                    "            ?, ?, ?, ?, ?, ?, ?)";
             pst = conn.prepareStatement(sql);
             pst.setInt(1, mi_corp_id);
             pst.setString(2, mi_listcode);
@@ -79,6 +77,8 @@ public class AddMaintainInfo {
             pst.setDate(8, d_mi_next_date);
             pst.setString(9, mi_next_plan);
             pst.setString(10, mi_remark);
+            pst.setTimestamp(11, timestamp);
+            pst.setInt(12, Integer.parseInt(session.getAttribute("id").toString()));
             pst.executeUpdate();
 
 
