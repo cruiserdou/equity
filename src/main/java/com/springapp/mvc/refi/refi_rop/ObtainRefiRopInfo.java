@@ -51,7 +51,7 @@ public class ObtainRefiRopInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-            String sql = "SELECT * FROM work.tb_refi_rop  WHERE  where inputid ="+Integer.parseInt(session.getAttribute("id").toString());
+            String sql = "SELECT * FROM work.tb_refi_rop  WHERE   inputid ="+Integer.parseInt(session.getAttribute("id").toString());
             if (rop_mos_id != null && rop_mos_id.length() != 0)
                 sql += " and rop_mos_id ="+rop_mos_id;
 //            if (type != null && type.length() != 0)

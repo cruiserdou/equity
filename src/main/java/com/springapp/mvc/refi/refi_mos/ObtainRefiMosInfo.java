@@ -52,8 +52,8 @@ public class ObtainRefiMosInfo {
             stmt = conn.createStatement();
 
             String sql = "SELECT corp.name corp_name, mos_id, mos_corp_id, mos_cots, mos_amounts, mos_mop, mos_rop" +
-                    "  from work.tb_corp  corp INNER  join work.tb_refi_mos  refi_mos on  corp.id  = refi_mos.mos_corp_id      WHERE " +
-                    "   where inputid ="+Integer.parseInt(session.getAttribute("id").toString());
+                    "  from work.tb_corp  corp INNER  join work.tb_refi_mos  refi_mos on  corp.id  = refi_mos.mos_corp_id " +
+                    "     WHERE   refi_mos.inputid ="+Integer.parseInt(session.getAttribute("id").toString());
             if (corp_name != null && corp_name.length() != 0)
                 sql += " and corp.name like '%" + corp_name + "%'";
 //            if (type != null && type.length() != 0)

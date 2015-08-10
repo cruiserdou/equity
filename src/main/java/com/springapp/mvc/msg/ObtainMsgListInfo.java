@@ -33,7 +33,8 @@ public class ObtainMsgListInfo {
         PreparedStatement pst = null;
         DataShop dataShop = new DataShop();
         List list = new ArrayList();
-        String user_id = session.getAttribute("id").toString();
+        Integer user_id = 0;
+        user_id=Integer.parseInt(session.getAttribute("id").toString());
         try{
             Class.forName("org.postgresql.Driver").newInstance();
         }catch (Exception e){
@@ -45,26 +46,21 @@ public class ObtainMsgListInfo {
         String password = connstr.getPassword();
         try{
             conn = DriverManager.getConnection(url, user, password);
+            stmt = conn.createStatement();
 
-            java.util.Date date_deadline = new java.util.Date();
-            Timestamp timestamp_date_deadline = new Timestamp(date_deadline.getTime());
-            if(user_id.length()==0 && user_id==null){
+            if(user_id!=0 && user_id!=null){
                 String sql = "SELECT id, user_id, ruser_id, deadline, content, stat, remark, rtdate, \n" +
-                        "       type FROM work.tb_msg where stat=? and ruser_id = '"+user_id+"' ";
-                pst = conn.prepareStatement(sql);
-                pst.setString(1,"未阅");
-                rs = pst.executeQuery();
+                        "       type FROM work.tb_msg where stat='未阅' and ruser_id ="+Integer.parseInt(session.getAttribute("id").toString());
+ 
+                rs = stmt.executeQuery(sql);
                 list = new ConvertToList().convertList(rs);
             }
-
 
 
         }catch (SQLException e){
             System.out.print(e.getMessage());
         }finally {
             try{
-                if (pst != null) pst.close();
-                if (rs != null) rs.close();
                 if (stmt != null) stmt.close();
                 if (conn != null) conn.close();
             }catch (SQLException e){
