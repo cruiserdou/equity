@@ -4,7 +4,7 @@ Ext.define('App.controller.Tabitem', {
 
 
     models: [
-       'syj_users','syj_menu','syj_dicts'
+       'syj_users','syj_menu','syj_dicts','corp_stat'
         ,'syj_roles','syj_userroles','syj_rolepermissions','rolepermbutton'
         ,'msg','enterprise','login_log','enterprise_sh','change'
         ,'service','financ','enterprise_assets_finance','enterprise_maintain','enterprise_maintain_info','enterprise_represent_info','enterprise_sh'
@@ -26,6 +26,7 @@ Ext.define('App.controller.Tabitem', {
         ,'corp','corp_contact','corp_finance','corp_government','corp_investors','corp_maintain','corp_refinancing','corp_rehr','corp_retrain','corp_service','corp_shareholder'
         ,'maintain_plan','maintain_info','refi_mos','refi_rop','maintain_planf_history','maintain_info_history'
         ,'corp_change','corp_contact_change','corp_rehr_change','corp_retrain_change','corp_refinancing_change','corp_government_change','corp_service_change','corp_investors_change'
+        ,'corp_rehr_stat','corp_retrain_stat','corp_service_stat','corp_refinancing_stat','corp_investors_stat','corp_government_stat','corp_stat'
     ],
 
     views: [
