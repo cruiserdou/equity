@@ -906,10 +906,31 @@ var  corp_edit_con_tpl = new Ext.XTemplate(
     '</table>',
     '</form>',
     '</div>',
+
     
-    '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_corp_edit({id},{cont_id},{finid},{mai_id},{gov_id},{inv_id},{srv_id},{refi_id},{rehr_id},{retra_id})">保存</a>'
+    '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_corp_edit({id},{cont_id},{finid},{mai_id},{gov_id},{inv_id},{srv_id},{refi_id},{rehr_id},{retra_id})">保存</a>',
 
 
+    {
+        checktype_demand_rl: function (demand_rl) {
+            return demand_rl == true;
+        },
+        checktype_demand_px: function (demand_px) {
+            return demand_px == true;
+        },
+        checktype_demand_rz: function (demand_rz) {
+            return demand_rz == true;
+        },
+        checktype_type_server: function (type_server) {
+            return type_server == true;
+        },
+        checktype_type_investors: function (type_investors) {
+            return type_investors == true;
+        },
+        checktype_type_govermt: function (type_govermt) {
+            return type_govermt == true;
+        }
+    }
 );
 
 

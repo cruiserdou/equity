@@ -51,7 +51,7 @@ public class ObtainMsgListInfo {
             if(user_id!=0 && user_id!=null){
                 String sql = "SELECT id, user_id, ruser_id, deadline, content, stat, remark, rtdate, \n" +
                         "       type FROM work.tb_msg where stat='未阅' and ruser_id ="+Integer.parseInt(session.getAttribute("id").toString());
- 
+
                 rs = stmt.executeQuery(sql);
                 list = new ConvertToList().convertList(rs);
             }
