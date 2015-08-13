@@ -15,7 +15,7 @@ Ext.define('App.store.enterprise', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
 
 

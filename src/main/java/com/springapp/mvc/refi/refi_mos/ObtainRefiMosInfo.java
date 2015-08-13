@@ -47,17 +47,22 @@ public class ObtainRefiMosInfo {
         String url = connstr.getUrl();
         String user = connstr.getUser();
         String password = connstr.getPassword();
+        String user_id = session.getAttribute("id").toString();
+        String sql="";
         try{
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
-
-            String sql = "SELECT corp.name corp_name, mos_id, mos_corp_id, mos_cots, mos_amounts, mos_mop, mos_rop" +
-                    "  from work.tb_corp  corp INNER  join work.tb_refi_mos  refi_mos on  corp.id  = refi_mos.mos_corp_id " +
-                    "     WHERE   refi_mos.inputid ="+Integer.parseInt(session.getAttribute("id").toString());
+            if(user_id.equals("10001") ) {
+                 sql = "SELECT corp.name corp_name, mos_id, mos_corp_id, mos_cots, mos_amounts, mos_mop, mos_rop" +
+                        "  from work.tb_corp  corp INNER  join work.tb_refi_mos  refi_mos on  corp.id  = refi_mos.mos_corp_id " +
+                        "     WHERE  1=1 ";
+            }else{
+                sql = "SELECT corp.name corp_name, mos_id, mos_corp_id, mos_cots, mos_amounts, mos_mop, mos_rop" +
+                        "  from work.tb_corp  corp INNER  join work.tb_refi_mos  refi_mos on  corp.id  = refi_mos.mos_corp_id " +
+                        "     WHERE   refi_mos.inputid =" + Integer.parseInt(session.getAttribute("id").toString());
+  }
             if (corp_name != null && corp_name.length() != 0)
                 sql += " and corp.name like '%" + corp_name + "%'";
-//            if (type != null && type.length() != 0)
-//                sql += " and type like '%" + type + "%'";
 
             rs = stmt.executeQuery(sql);
 

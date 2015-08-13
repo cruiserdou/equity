@@ -15,14 +15,15 @@ Ext.define('App.view.msg.Grid', {
 
         this.columns = [
             {text: 'ID', width: 80, dataIndex: 'id',hidden:true},
-            {text: '发送人', width: 80, dataIndex: 'user_id',hidden:true},
             {text: '状态', width: 100, dataIndex: 'stat'},
-            {text: '类型', width: 100, dataIndex: 'type'},
-            {text: '接收人', width: 100, dataIndex: 'ruser_id'},
-            {text: '内容', width: 100, dataIndex: 'content'},
+            {text: '接收人', width: 100, dataIndex: 'ruser_id',hidden:true},
+            {text: '发送人', width: 80, dataIndex: 'user_id',hidden:true},
+            {text: '发送人', width: 120, dataIndex: 'user_name'},
+            {text: '内容', flex: 1, dataIndex: 'content'},
             {text: '期限', width: 100, dataIndex: 'deadline',hidden:true},
             {text: '发送时间', width: 200, dataIndex: 'rtdate'},
-            {text: '备注', flex: 1, dataIndex: 'remark'}
+            {text: '类型', width: 100, dataIndex: 'type'},
+            {text: '备注', width: 100, dataIndex: 'remark',hidden:true}
 
 
         ];

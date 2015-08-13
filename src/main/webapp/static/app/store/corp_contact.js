@@ -12,7 +12,7 @@ Ext.define('App.store.corp_contact', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
 
 

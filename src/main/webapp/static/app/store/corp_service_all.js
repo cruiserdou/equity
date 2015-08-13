@@ -15,7 +15,7 @@ Ext.define('App.store.corp_service_all', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
 
 

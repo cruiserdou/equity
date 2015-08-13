@@ -15,7 +15,7 @@ Ext.define('App.store.enterprise_maintain_info', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
 
 

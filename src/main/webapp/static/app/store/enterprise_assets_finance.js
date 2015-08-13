@@ -15,7 +15,7 @@ Ext.define('App.store.enterprise_assets_finance', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
 
 

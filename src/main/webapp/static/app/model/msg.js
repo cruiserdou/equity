@@ -12,7 +12,8 @@ Ext.define('App.model.msg', {
         {name: 'stat'},
         {name: 'rtdate'},
         {name: 'type'},
-        {name: 'remark'}
+        {name: 'remark'},
+        {name: 'user_name'}
     ]
 });
 

@@ -12,7 +12,7 @@ Ext.define('App.store.corp_finance', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
 
 

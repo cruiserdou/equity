@@ -49,6 +49,7 @@ Ext.define('App.view.msg.Query', {
                                         },
                                         items: [
                                             {
+                                                allowBlank: false,
                                                 anchor: '100%',
                                                 name: 'ruser_id',
                                                 fieldLabel: '用户',
@@ -79,6 +80,7 @@ Ext.define('App.view.msg.Query', {
                                                 anchor: '100%',
                                                 fieldLabel: '内容',
                                                 allowBlank: false,
+                                                xtype: 'textarea',
                                                 name: 'content'
                                             }
                                         ],
@@ -139,11 +141,13 @@ Ext.define('App.view.msg.Query', {
                         var editWindow = null;
                         editForm = new Ext.form.FormPanel({
                             frame: true,
+                            bodyPadding: 5,
                             fieldDefaults: {
-                                labelAlign: 'right',
+                                labelAlign: 'left',
                                 labelWidth: 70
                             },
                             defaults: {
+                                labelAlign: 'right',
                                 xtype: 'textfield'
                             },
                             items: [
@@ -153,7 +157,7 @@ Ext.define('App.view.msg.Query', {
                                     name: 'id'
                                 },
                                 {
-                                    anchor: '100%',
+                                    anchor: '90%',
                                     name: 'ruser_id',
                                     fieldLabel: '用户',
                                     xtype: 'combobox',
@@ -173,15 +177,16 @@ Ext.define('App.view.msg.Query', {
                                     hidden:true,
                                     xtype: 'datefield',
                                     fieldLabel: '期限',
-                                    anchor: '100%',
+                                    anchor:'90%',
                                     allowBlank: false,
                                     name: 'deadline',
                                     value: new Date(),
                                     format: 'Y-m-d H:i:s'
                                 },
                                 {
-                                    anchor: '100%',
+                                    anchor: '90%',
                                     fieldLabel: '内容',
+                                    xtype: 'textarea',
                                     allowBlank: false,
                                     name: 'content'
                                 }
@@ -221,7 +226,12 @@ Ext.define('App.view.msg.Query', {
                             height: 350,
                             modal: true,
                             title: '修改信息',
-                            items: [editForm]
+                            items: [editForm],
+                            layout: 'fit',
+                            defaults: {
+                                width: 200,
+                                allowBlank: false
+                            }
                         });
                         editWindow.show(Ext.get('msg_edit'));
                         editForm.getForm().loadRecord(record);
@@ -322,15 +332,14 @@ Ext.define('App.view.msg.Query', {
             items: [
                 {
                     allowBlank: true,
-                    fieldLabel: '资料类型',
-                    id: 'query_msg_ctype',
-                    emptyText: '资料类型'
+                    fieldLabel: '消息状态',
+                    id: 'query_msg_stat'
                 },
                 {
                     allowBlank: true,
-                    fieldLabel: '资料名称',
-                    id: 'query_msg_file',
-                    emptyText: '资料名称'
+                    fieldLabel: '发送人',
+                    id: 'query_msg_user_name',
+                    emptyText: '发送人'
                 }
 
             ]
@@ -347,8 +356,8 @@ Ext.define('App.view.msg.Query', {
                             var store = Ext.getCmp('grid_msg').getStore();
                             store.load({
                                 params: {
-                                    c_type: Ext.getCmp('query_msg_ctype').getValue(),
-                                    file: Ext.getCmp('query_msg_file').getValue()
+                                    stat: Ext.getCmp('query_msg_stat').getValue(),
+                                    user_name: Ext.getCmp('query_msg_user_name').getValue()
                                 }
                             });
                         }

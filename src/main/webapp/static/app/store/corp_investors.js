@@ -12,7 +12,7 @@ Ext.define('App.store.corp_investors', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
 
 

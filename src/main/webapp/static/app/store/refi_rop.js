@@ -15,7 +15,7 @@ Ext.define('App.store.refi_rop', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
 
 
