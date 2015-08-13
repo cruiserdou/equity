@@ -9,7 +9,7 @@ var  corp_edit_con_tpl = new Ext.XTemplate(
     '</tr>',
     '<tr>',
     '<th>营业执照号码<span style="color: red">*</span></th>',
-    '<td><input id="buslicno"  name="buslicno"  type="text"  value="{buslicno}"/></td>',
+    '<td><input id="buslicno" onchange="buslicno_check_edit({id});" name="buslicno"  type="text"  value="{buslicno}"/></td>',
     '<th>企业名称</th>',
     '<td><input id="name" name="name"  type="text" value="{name}"/></td>',
     '</tr>',

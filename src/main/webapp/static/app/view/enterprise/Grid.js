@@ -449,10 +449,39 @@ function win_close_edit() {
     Ext.getCmp('enterprise_edit_id').close();
 }
 
-//function save_corp_edit(corp_id,cont_id,finid,mai_id,gov_id,inv_id,srv_id,refi_id,rehr_id,retra_id) {
 function save_corp_edit(corp_id,cont_id,finid,mai_id,gov_id,inv_id,srv_id,refi_id,rehr_id,retra_id){
-
     var form_obt_edit = document.getElementById("apply_corp_form_edit");
+
+    if (form_obt_edit['buslicno'].value == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>营业执照号码不能为空！</span>")
+        return;
+    }
+    if (form_obt_edit['name'].value  == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>企业名称不能为空！</span>")
+        return;
+    }
+    if (form_obt_edit['unit'].value   == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>单位类别不能为空！</span>")
+        return;
+    }
+    if (form_obt_edit['legrep'].value  == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>法定代表人不能为空！</span>")
+        return;
+    }
+    if (form_obt_edit['nature'].value  == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>企业性质不能为空！</span>")
+        return;
+    }
+    if (form_obt_edit['regcap'].value   == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>注册资本不能为空！</span>")
+        return;
+    }
+    if (form_obt_edit['regdt'].value  == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>注册日期不能为空！</span>")
+        return;
+    }
+
+
     obt_corp_update(corp_id);
     obt_corp_contact_update(corp_id,cont_id);
     //obt_corp_shareholder_update(corp_id,gd_id);
@@ -484,6 +513,54 @@ function corp_export(id) {
         }
     });
 };
+
+function buslicnoCheck(num)
+{
+    var no_regexp = /\d{6}[123]\d{7}[1-9]/;
+    return no_regexp.exec(num) != null;
+}
+
+function buslicno_check_edit(id) {
+    var form_obt_edit = document.getElementById("apply_corp_form_edit");
+    if (form_obt_edit['buslicno'].value == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>营业执照号码不能为空！</span>");
+        return;
+    }
+    if(document.getElementById('apply_corp_form_edit')['buslicno'].value.length!=15)
+    {
+        Ext.Msg.alert("提示", "<span style='color: red;'>营业执照号码格式不对！请重新输入！</span>");
+        document.getElementById('apply_corp_form_edit')['buslicno'].value="";
+        return;
+    }
+    if (!buslicnoCheck(document.getElementById('apply_corp_form_edit')['buslicno'].value))
+    {
+        Ext.Msg.alert("提示", "<span style='color: red;'>营业执照号码格式不对！请重新输入！</span>");
+        document.getElementById('apply_corp_form_edit')['buslicno'].value="";
+        return;
+    }
+
+
+    Ext.Ajax.request({
+        method: "POST",
+        params: {
+            buslicno: form_obt_edit['buslicno'].value,
+            id : id
+        },
+        url: 'check_buslicno_info',
+        success: function (response,opts) {
+            var obj=Ext.decode(response.responseText);
+
+            if(!obj.success)
+            {
+                Ext.Msg.alert("提示", "该营业执照号码已用！");
+                document.getElementById('apply_corp_form_edit')['buslicno'].value="";
+            }
+        },
+        failure: function (response,opts) {
+            Ext.Msg.alert("提示", "错");
+        }
+    });
+}
 
 function addRow_edit(){
     var oTable = document.getElementById("table_corp_sh");

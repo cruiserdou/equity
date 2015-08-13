@@ -25,51 +25,76 @@ Ext.define('App.view.enterprise.Applyf', {
                         var obtain_panel = Ext.getCmp('applyf_panel');
                         corp_apply_con_tpl.overwrite(obtain_panel.body, {});
                     }
-                },
-                dockedItems: [
-                    {
-                        xtype: 'toolbar',
-                        dock: 'top',
-                        border: true,
-                        items: [
-                            {
-                                text: '新建',
-                                handler: function () {
-                                    document.getElementById('apply_form').reset();
-                                }
-                            },
-                            '-',
-                            {
-                                text: '保存',
-                                handler: function () {
-                                    //if (document.getElementById("apply_form_id_licmd").value == "") {
-                                    //    Ext.Msg.alert("提示", "<span style='color: red;'>申请类别不能为空！</span>")
-                                    //    return;
-                                    //}
-                                    save_cust_add()
-                                }
-                            }
-
-                        ]
-                    }
-                ]
+                }
+                //dockedItems: [
+                //    {
+                //        xtype: 'toolbar',
+                //        dock: 'top',
+                //        border: true,
+                //        items: [
+                //            {
+                //                text: '新建',
+                //                handler: function () {
+                //                    document.getElementById('apply_form').reset();
+                //                }
+                //            },
+                //            '-',
+                //            {
+                //                text: '保存',
+                //                handler: function () {
+                //                    //if (document.getElementById("apply_form_id_licmd").value == "") {
+                //                    //    Ext.Msg.alert("提示", "<span style='color: red;'>申请类别不能为空！</span>")
+                //                    //    return;
+                //                    //}
+                //
+                //                    save_cust_add()
+                //                }
+                //            }
+                //
+                //        ]
+                //    }
+                //]
             }
         ]
         this.callParent(arguments);
     }
 });
 
-function NumberCheck(num)
-{
-    var regex = /^[1-9][0-9]{5}(19[0-9]{2}|200[0-9]|2010)(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])[0-9]{3}[0-9xX]$/;
-    return regex.exec(num) != null;
-}
+
 
 function win_close() {
     Ext.getCmp('cust_add_id').close();
 }
 
 function save_cust_add() {
+    if (document.getElementById("buslicno").value == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>营业执照号码不能为空！</span>")
+        return;
+    }
+    if (document.getElementById("name").value == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>企业名称不能为空！</span>")
+        return;
+    }
+    if (document.getElementById("unit").value == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>单位类别不能为空！</span>")
+        return;
+    }
+    if (document.getElementById("legrep").value == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>法定代表人不能为空！</span>")
+        return;
+    }
+    if (document.getElementById("nature").value == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>企业性质不能为空！</span>")
+        return;
+    }
+    if (document.getElementById("regcap").value == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>注册资本不能为空！</span>")
+        return;
+    }
+    if (document.getElementById("regdt").value == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>注册日期不能为空！</span>")
+        return;
+    }
     var corp_id;
     if(document.getElementById('apply_form')['buslicno'].value==null && document.getElementById('apply_form')['buslicno'].value==""){
         Ext.Msg.alert("提示", "请填写营业执照号码！");
@@ -104,8 +129,32 @@ function save_cust_add() {
     }
 }
 
+function NumberCheck(num)
+{
+    var no_regexp = /\d{6}[123]\d{7}[1-9]/;
+    return no_regexp.exec(num) != null;
+}
+
 function card_check_apply() {
+    if (document.getElementById("buslicno").value == "") {
+        Ext.Msg.alert("提示", "<span style='color: red;'>营业执照号码不能为空！</span>")
+        return;
+    }
+    if(document.getElementById('buslicno').value.length!=15)
+    {
+        Ext.Msg.alert("提示", "<span style='color: red;'>营业执照号码格式不对！请重新输入！</span>");
+        document.getElementById('apply_form')['buslicno'].value="";
+        return;
+    }
+    if (!NumberCheck(document.getElementById('buslicno').value))
+    {
+        Ext.Msg.alert("提示", "<span style='color: red;'>营业执照号码格式不对！请重新输入！</span>")
+        document.getElementById('apply_form')['buslicno'].value="";
+        return;
+    }
+
     var form_obt_apply = document.getElementById("apply_form");
+
     Ext.Ajax.request({
         method: "POST",
         params: {

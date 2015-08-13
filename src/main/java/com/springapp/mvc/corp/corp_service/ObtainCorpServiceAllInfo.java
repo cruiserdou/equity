@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,9 @@ public class ObtainCorpServiceAllInfo {
     public
     @ResponseBody
     DataShop getShopInJSON(
+            HttpSession session,
+            @RequestParam(value = "start", required = false) String start,
+            @RequestParam(value = "limit", required = false) String limit,
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "nos", required = false) String nos,
             @RequestParam(value = "buslicno", required = false) String buslicno,
@@ -48,12 +52,16 @@ public class ObtainCorpServiceAllInfo {
         String url = connstr.getUrl();
         String user = connstr.getUser();
         String password = connstr.getPassword();
+        String user_id = session.getAttribute("id").toString();
         try{
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
-
-
-            String sql = "select corp.*,corp_contact.*,corp_finance.*,corp_maintain.*," +
+            String sql_d = "";
+            String sql_s = "";
+            String sql_c = "";
+            Boolean b_check=false;
+            if(user_id.equals("10001") ) {
+                sql_d = "select corp.*,corp_contact.*,corp_finance.*,corp_maintain.*," +
                     "     corp_government.*,corp_service.*,corp_investors.*," +
                     "     corp_refinancing.*,corp_rehr.*,corp_retrain.*  from work.tb_corp corp " +
                     "     inner join work.tb_corp_contact corp_contact on corp.id=corp_contact.cont_corp_id " +
@@ -67,22 +75,59 @@ public class ObtainCorpServiceAllInfo {
                     "     left join work.tb_corp_rehr corp_rehr on corp.id=corp_rehr.rehr_corp_id " +
                     "     left join work.tb_corp_retrain corp_retrain on corp.id=corp_retrain.retra_corp_id" +
                     "     where corp.type_server=TRUE ";
+                sql_c = "select count(*) from work.tb_corp  corp where corp.type_server=TRUE";
+            }else{
+                sql_d = "select corp.*,corp_contact.*,corp_finance.*,corp_maintain.*," +
+                        "     corp_government.*,corp_service.*,corp_investors.*," +
+                        "     corp_refinancing.*,corp_rehr.*,corp_retrain.*  from work.tb_corp corp " +
+                        "     inner join work.tb_corp_contact corp_contact on corp.id=corp_contact.cont_corp_id " +
+                        "     inner join work.tb_corp_finance corp_finance on corp.id=corp_finance.fin_corp_id " +
+                        "     inner join work.tb_corp_maintain corp_maintain on corp.id=corp_maintain.mai_corp_id " +
+//                    "     inner join work.tb_corp_shareholder corp_shareholder on corp.id=corp_shareholder.gd_corp_id " +
+                        "     left join work.tb_corp_government corp_government on corp.id=corp_government.gov_corp_id " +
+                        "     left join work.tb_corp_service corp_service on corp.id=corp_service.srv_corp_id " +
+                        "     left join work.tb_corp_investors corp_investors on corp.id=corp_investors.inv_corp_id " +
+                        "     left join work.tb_corp_refinancing corp_refinancing on corp.id=corp_refinancing.refi_corp_id " +
+                        "     left join work.tb_corp_rehr corp_rehr on corp.id=corp_rehr.rehr_corp_id " +
+                        "     left join work.tb_corp_retrain corp_retrain on corp.id=corp_retrain.retra_corp_id" +
+                        "     where corp.type_server=TRUE   and  inputid ="+Integer.parseInt(session.getAttribute("id").toString());
+                sql_c = "select count(*) from work.tb_corp  corp where corp.type_server=TRUE  and  inputid ="+Integer.parseInt(session.getAttribute("id").toString());
+            }
 
+            if (name != null && name.length() != 0){
+                sql_s += " and corp.name like '%" + name + "%'";
+                b_check=true;
+            }
 
-            if (name != null && name.length() != 0)
-                sql += " and corp.name like '%" + name + "%'";
-            if (nos != null && nos.length() != 0)
-                sql += " and corp.nos like '%" + nos + "%'";
-            if (buslicno != null && buslicno.length() != 0)
-                sql += " and corp.buslicno like '%" + buslicno + "%'";
-            if (listcode != null && listcode.length() != 0)
-                sql += " and corp.listcode = '" + listcode + "'";
+            if (nos != null && nos.length() != 0){
+                sql_s += " and corp.nos like '%" + nos + "%'";
+                b_check=true;
+            }
 
-            sql += " order by  corp.id desc ";
+            if (buslicno != null && buslicno.length() != 0){
+                sql_s += " and corp.buslicno like '%" + buslicno + "%'";
+                b_check=true;
+            }
 
-            rs = stmt.executeQuery(sql);
+            if (listcode != null && listcode.length() != 0){
+                sql_s += " and corp.listcode = '" + listcode + "'";
+                b_check=true;
+            }
 
+            sql_c += sql_s;
+
+            sql_s += " order by  corp.id desc ";
+
+            sql_d += sql_s;
+            if( !b_check==true)
+                sql_d += " limit " + limit + " offset " + start;
+
+            rs = stmt.executeQuery(sql_d);
             list = new ConvertToList().convertList(rs);
+
+            rs = stmt.executeQuery(sql_c);
+            while (rs.next())
+                dataShop.setTotal(rs.getInt(1));
 
         }catch (SQLException e){
             System.out.print(e.getMessage());
