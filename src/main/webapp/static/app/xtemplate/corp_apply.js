@@ -887,7 +887,7 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
 
     '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_cust_add()">保存</a>'+
     '</div>',
-    '<div style="position: fixed; top: 7em; right: 6em">',
+    '<div style="position: fixed; top: 7em; right: 6em;">',
     '<ul>',
     '<li></li>',
     '<li></li>',

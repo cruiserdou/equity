@@ -1,23 +1,62 @@
 function showa() {
     var window = Ext.create('Ext.window.Window', {
         title: '新增企业',
-        height: 640,
-        width: 480,
+        height: 600,
+        width: 1100,
         layout: 'fit',
         constrain: true,
         items: {  // Let's put an empty grid in just to illustrate fit layout
-            xtype: 'grid',
+            //xtype: 'grid',
+            //border: false,
+            //columns: [{header: 'World'}],                 // One header just for show. There's no data,
+            //store: Ext.create('Ext.data.ArrayStore', {}) // A dummy empty data store
+            xtype: 'panel',
+            title: '新增企业入口',
             border: false,
-            columns: [{header: 'World'}],                 // One header just for show. There's no data,
-            store: Ext.create('Ext.data.ArrayStore', {}) // A dummy empty data store
+            layout: 'border',
+            items: [
+
+                {
+                    border: true,
+                    width: 1000,
+                    xtype: 'applyf',
+                    region: 'center'
+                }
+            ]
         }
     }).show(Ext.get('a_add_href'));
+};
+
+function showb() {
+    var window = Ext.create('Ext.window.Window', {
+        title: '已入库企业',
+        height: 600,
+        width: 1100,
+        layout: 'fit',
+        constrain: true,
+        items: {
+
+            xtype: 'panel',
+            border: false,
+            layout: 'border',
+            items: [
+                {
+                    xtype: 'enterprisef_query',
+                    region: 'north'
+                },
+                {
+                    xtype: 'enterprisef_grid',
+                    region: 'center'
+                }
+            ]
+        }
+    }).show(Ext.get('a_dis_href'));
 };
 
 var work_plan_tpl = [
     '<div id="enter_mgr" style="padding: 1.6em;">' ,
     '<div><a id="a_add_href" href="#" onclick="showa()">新增企业</a></div>' ,
-    '<div><a id="a_dis_href" href="#" onclick="showa()">已入库企业</a></div>' ,
+    '<div><a id="a_dis_href" href="#" onclick="showb()">已入库企业</a></div>' ,
     '</div>'
 ];
 

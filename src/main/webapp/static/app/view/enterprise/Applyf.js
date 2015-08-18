@@ -17,6 +17,7 @@ Ext.define('App.view.enterprise.Applyf', {
     initComponent: function () {
         this.items = [
             {
+                width: 1000,
                 xtype: 'panel',
                 id: 'applyf_panel',
                 autoScroll: true,
@@ -26,34 +27,7 @@ Ext.define('App.view.enterprise.Applyf', {
                         corp_apply_con_tpl.overwrite(obtain_panel.body, {});
                     }
                 }
-                //dockedItems: [
-                //    {
-                //        xtype: 'toolbar',
-                //        dock: 'top',
-                //        border: true,
-                //        items: [
-                //            {
-                //                text: '新建',
-                //                handler: function () {
-                //                    document.getElementById('apply_form').reset();
-                //                }
-                //            },
-                //            '-',
-                //            {
-                //                text: '保存',
-                //                handler: function () {
-                //                    //if (document.getElementById("apply_form_id_licmd").value == "") {
-                //                    //    Ext.Msg.alert("提示", "<span style='color: red;'>申请类别不能为空！</span>")
-                //                    //    return;
-                //                    //}
-                //
-                //                    save_cust_add()
-                //                }
-                //            }
-                //
-                //        ]
-                //    }
-                //]
+
             }
         ]
         this.callParent(arguments);
