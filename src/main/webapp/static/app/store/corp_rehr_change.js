@@ -14,5 +14,3 @@ Ext.define('App.store.corp_rehr_change', {
     },
     autoLoad: false
 });
-
-

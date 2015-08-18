@@ -15,11 +15,5 @@ Ext.define('App.store.refi_mos', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-
-
-
-
-

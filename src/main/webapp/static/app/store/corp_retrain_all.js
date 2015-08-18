@@ -16,5 +16,3 @@ Ext.define('App.store.corp_retrain_all', {
     },
     autoLoad: false
 });
-
-

@@ -15,9 +15,5 @@ Ext.define('App.store.msg', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-
-
-

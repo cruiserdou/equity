@@ -17,8 +17,3 @@ Ext.define('App.store.maintain_info_history', {
     },
     autoLoad: false
 });
-
-
-
-
-

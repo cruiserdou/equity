@@ -15,12 +15,5 @@ Ext.define('App.store.login_log', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-
-
-
-
-
-

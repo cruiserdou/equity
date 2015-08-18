@@ -14,5 +14,3 @@ Ext.define('App.store.rolepermbutton', {
     },
     autoLoad: false
 });
-
-

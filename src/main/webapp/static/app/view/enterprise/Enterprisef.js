@@ -1,21 +1,23 @@
 function showa() {
-    Ext.getCmp('tabPanel_id').add({
-        xtype: 'rolesf',
-        id: 'rolesf_id',
-        title: '企业信息',
-        listeners: {
-            activate: function () {
-                msg_list_refresh();
-
-            }
+    var window = Ext.create('Ext.window.Window', {
+        title: '新增企业',
+        height: 640,
+        width: 480,
+        layout: 'fit',
+        constrain: true,
+        items: {  // Let's put an empty grid in just to illustrate fit layout
+            xtype: 'grid',
+            border: false,
+            columns: [{header: 'World'}],                 // One header just for show. There's no data,
+            store: Ext.create('Ext.data.ArrayStore', {}) // A dummy empty data store
         }
-    })
-}
+    }).show(Ext.get('a_add_href'));
+};
 
 var work_plan_tpl = [
     '<div id="enter_mgr" style="padding: 1.6em;">' ,
-    '<div><a href="#" onclick="showa()">新增企业</a></div>' ,
-    '<div><a href="#" onclick="showa()">已入库企业</a></div>' ,
+    '<div><a id="a_add_href" href="#" onclick="showa()">新增企业</a></div>' ,
+    '<div><a id="a_dis_href" href="#" onclick="showa()">已入库企业</a></div>' ,
     '</div>'
 ];
 

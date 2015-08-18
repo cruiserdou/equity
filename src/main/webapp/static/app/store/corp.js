@@ -16,5 +16,3 @@ Ext.define('App.store.corp', {
     },
     autoLoad: false
 });
-
-

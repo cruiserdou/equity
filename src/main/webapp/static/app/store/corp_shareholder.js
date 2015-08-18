@@ -17,8 +17,3 @@ Ext.define('App.store.corp_shareholder', {
     },
     autoLoad: false
 });
-
-
-
-
-

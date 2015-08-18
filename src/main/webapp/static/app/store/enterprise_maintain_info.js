@@ -17,9 +17,3 @@ Ext.define('App.store.enterprise_maintain_info', {
     },
     autoLoad: false
 });
-
-
-
-
-
-

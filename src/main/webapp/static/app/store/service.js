@@ -15,11 +15,5 @@ Ext.define('App.store.service', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-
-
-
-
-

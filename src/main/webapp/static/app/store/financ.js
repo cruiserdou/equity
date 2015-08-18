@@ -15,11 +15,5 @@ Ext.define('App.store.financ', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-
-
-
-
-

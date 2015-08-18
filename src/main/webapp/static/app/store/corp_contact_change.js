@@ -17,8 +17,3 @@ Ext.define('App.store.corp_contact_change', {
     },
     autoLoad: false
 });
-
-
-
-
-

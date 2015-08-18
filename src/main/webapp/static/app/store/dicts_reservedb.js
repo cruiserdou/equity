@@ -15,7 +15,5 @@ Ext.define('App.store.dicts_reservedb', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-

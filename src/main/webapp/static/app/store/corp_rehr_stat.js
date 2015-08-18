@@ -12,7 +12,5 @@ Ext.define('App.store.corp_rehr_stat', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-

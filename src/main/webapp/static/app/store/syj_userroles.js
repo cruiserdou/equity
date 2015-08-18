@@ -1,4 +1,3 @@
-
 Ext.define('App.store.syj_userroles', {
     extend: 'Ext.data.Store',
     model: 'App.model.syj_userroles',
@@ -13,7 +12,5 @@ Ext.define('App.store.syj_userroles', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-

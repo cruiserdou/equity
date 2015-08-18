@@ -15,10 +15,5 @@ Ext.define('App.store.maintain_info', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-
-
-
-

@@ -6,7 +6,7 @@ Ext.define('App.view.enterprise_maintain.Enterprise_maintainf', {
     listeners: {
         activate: function () {
             Ext.getCmp('grid_enterprise_maintain').getStore().load();
-        } 
+        }
     },
     initComponent: function () {
         this.items = [
@@ -17,10 +17,8 @@ Ext.define('App.view.enterprise_maintain.Enterprise_maintainf', {
             {
                 xtype: 'enterprise_maintainf_grid',
                 region: 'center'
-            } 
+            }
         ]
         this.callParent(arguments);
     }
 });
-
- 

@@ -12,8 +12,5 @@ Ext.define('App.store.corp_retrain_stat', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-
-

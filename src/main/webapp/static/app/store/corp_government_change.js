@@ -14,5 +14,3 @@ Ext.define('App.store.corp_government_change', {
     },
     autoLoad: false
 });
-
-

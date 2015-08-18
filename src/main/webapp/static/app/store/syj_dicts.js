@@ -12,7 +12,5 @@ Ext.define('App.store.syj_dicts', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-

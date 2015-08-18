@@ -2,10 +2,10 @@ Ext.define('App.view.enterprise_query.Enterprise_queryf', {
     extend: 'Ext.panel.Panel',
     border: false,
     alias: 'widget.enterprise_queryf',
-    id :'enterprise_queryf_id',
+    id: 'enterprise_queryf_id',
     layout: 'border',
     listeners: {
-        activate: function () {
+        afterrender: function () {
             Ext.getCmp('grid_enterprise_query').getStore().load();
         }
     },
@@ -37,5 +37,3 @@ Ext.define('App.view.enterprise_query.Enterprise_queryf', {
         this.callParent(arguments);
     }
 });
- 
- 

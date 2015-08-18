@@ -12,5 +12,5 @@ Ext.define('App.store.corp_img', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });

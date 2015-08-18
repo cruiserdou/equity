@@ -19,7 +19,3 @@ Ext.define('App.store.corp_service_all', {
     },
     autoLoad: false
 });
-
-
-
-

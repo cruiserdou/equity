@@ -12,5 +12,5 @@ Ext.define('App.store.corp_government_stat', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });

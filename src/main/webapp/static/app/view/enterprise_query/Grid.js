@@ -23,20 +23,18 @@ Ext.define('App.view.enterprise_query.Grid', {
                 border: false,
                 bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
                 listeners: {
-                    afterrender: function (_this){
-
-                        corp_tpl.append('corp',record.data);
-                        corp_contact_tpl.append('corp_contact',record.data);
-                        //corp_shareholder_tpl.append('corp_shareholder',record.data);
-                        corp_acount_tpl.append('corp_acount',record.data);
-                        corp_maintain_tpl.append('corp_maintain',record.data);
-                        corp_finance_tpl.append('corp_finance',record.data);
-                        corp_service_tpl.append('corp_service',record.data);
-                        corp_investors_tpl.append('corp_investors',record.data);
-                        corp_government_tpl.append('corp_government',record.data);
-                        corp_refinancing_tpl.append('corp_refinancing',record.data);
-                        corp_retrain_tpl.append('corp_retrain',record.data);
-                        corp_rehr_tpl.append('corp_rehr',record.data);
+                    afterrender: function (_this) {
+                        corp_tpl.append('corp', record.data);
+                        corp_contact_tpl.append('corp_contact', record.data);
+                        corp_acount_tpl.append('corp_acount', record.data);
+                        corp_maintain_tpl.append('corp_maintain', record.data);
+                        corp_finance_tpl.append('corp_finance', record.data);
+                        corp_service_tpl.append('corp_service', record.data);
+                        corp_investors_tpl.append('corp_investors', record.data);
+                        corp_government_tpl.append('corp_government', record.data);
+                        corp_refinancing_tpl.append('corp_refinancing', record.data);
+                        corp_retrain_tpl.append('corp_retrain', record.data);
+                        corp_rehr_tpl.append('corp_rehr', record.data);
 
 
                     }
@@ -55,30 +53,9 @@ Ext.define('App.view.enterprise_query.Grid', {
                         html: '<div id="corp">' +
                         '</div>'
                     },
-                    //{
-                    //    xtype: 'corp_shareholder_grid',
-                    //    autoScroll: true,
-                    //    margin: '30% 330% 20% 70%',
-                    //    frame: false,
-                    //    height: 200,
-                    //    border: false,
-                    //    bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
-                    //    split: true,
-                    //    collapseMode: 'mini'
-                    //
-                    //
-                    //
-                    //},
                     {
-                        //xtype: 'panel',
-
-                        //id: 'corp_shareholder_panel',
-                        //
-                        //html: '<div id="corp_shareholder">' +
-                        //'</div>'
                         xtype: 'panel',
                         height: 250,
-                        //autoScroll: true,
                         frame: false,
                         border: false,
                         bodyStyle: 'overflow-x:hidden; overflow-y:scroll',
@@ -185,12 +162,12 @@ Ext.define('App.view.enterprise_query.Grid', {
                         border: false,
                         id: 'corp_top_panel',
                         html: '<div id="corp_top_div">' +
-                        '<div style="position: fixed; top: 7em; right: 6em">'+
-                        '<a href="#"   style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close_ch()">关闭</a>'+
+                        '<div style="position: fixed; top: 7em; right: 6em">' +
+                        '<a href="#"   style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#f27809, #e14100);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);" onclick="win_close_ch()">关闭</a>' +
 
-                          '<a  onclick="export_enterprise();"  href="#" style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#c5f21d, #50e11a);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);">导出</a>'+
+                        '<a  onclick="export_enterprise();"  href="#" style="font-size:18px;display: block;  margin-top: 26px;  width: 120px;  font-size: 14px;  border: 1px solid #ffffff;  border-radius: 8px;  padding: 4px 25px;  cursor: hand;  color: #fff;  box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 1px 0px;  background-image: linear-gradient(#c5f21d, #50e11a);  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);">导出</a>' +
 
-                        '<ul>'+
+                        '<ul>' +
                         '<li><a href="#table_base" style="font-size:18px;">基本信息</a></li>' +
                         '<li><a href="#table_sh"  style="font-size:18px;">股东名册</a></li>' +
                         '<li><a href="#table_link"  style="font-size:18px;">法定代表人</a></li>' +
@@ -207,7 +184,7 @@ Ext.define('App.view.enterprise_query.Grid', {
                         '</ul>' +
                         '</div>'
                     }
-                    ]
+                ]
             });
 
             var editWindow = new Ext.Window({
@@ -227,21 +204,21 @@ Ext.define('App.view.enterprise_query.Grid', {
 
     initComponent: function () {
         this.columns = [
-            {text: '企业ID',  width: 120, dataIndex: 'id', hidden: true}, 
-            {text: '企业名称', width: 120, dataIndex: 'name'},
-            {text: '营业执照号码', width: 120, dataIndex: 'buslicno'},
-            {text: '单位类别', width: 120, dataIndex: 'unit'},
-            {text: '法定代表人', width: 120, dataIndex: 'legrep'},
+            {text: '企业ID', width: 120, dataIndex: 'id', hidden: true},
+            {text: '企业名称', width: 230, dataIndex: 'name'},
+            {text: '营业执照号码', width: 160, dataIndex: 'buslicno'},
+            {text: '单位类别', width: 220, dataIndex: 'unit'},
+            {text: '法定代表人', width: 80, dataIndex: 'legrep'},
             {text: '省', width: 120, dataIndex: 'province', hidden: true},
-            {text: '市', width: 120, dataIndex: 'city'},
-            {text: '县',  width: 120, dataIndex: 'county', hidden: true},
+            {text: '市', width: 60, dataIndex: 'city'},
+            {text: '县', width: 120, dataIndex: 'county', hidden: true},
             {text: '公司简称', width: 120, dataIndex: 'nos', hidden: true},
             {text: '邮政编码', width: 120, dataIndex: 'postal', hidden: true},
             {text: '企业性质', width: 120, dataIndex: 'nature', hidden: true},
             {text: '注册资本（万元）', width: 120, dataIndex: 'regcap'},
             {text: '营业期限自', width: 120, dataIndex: 'bustermfdt', hidden: true},
             {text: '营业期限至', width: 120, dataIndex: 'bustremtdt', hidden: true},
-            {text: '注册日期', width: 120, dataIndex: 'regdt'},
+            {text: '注册日期', width: 100, dataIndex: 'regdt'},
             {text: '挂牌区域', width: 120, dataIndex: 'list_area', hidden: true},
             {text: '挂牌代码', width: 120, dataIndex: 'listcode', hidden: true},
             {text: '挂牌出资（元/元出资.股）', width: 120, dataIndex: 'listprice', hidden: true},
@@ -257,25 +234,6 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '企业简介', width: 120, dataIndex: 'eprofile', hidden: true},
             {text: '企业照片资料', width: 120, dataIndex: 'phoinf', hidden: true},
             {text: '备注', width: 120, dataIndex: 'remark', hidden: true},
-            //{text: '企业股东ID',  width: 120, dataIndex: 'gd_id', hidden: true},
-            //{text: '企业ID',  width: 120, dataIndex: 'gd_corp_id', hidden: true},
-            //{text: '股东类型',  width: 120, dataIndex: 'gd_shtype', hidden: true},
-            //{text: '股东',  width: 120, dataIndex: 'gd_shname', hidden: true},
-            //{text: '证照/证件类型',  width: 120, dataIndex: 'gd_shdoctype', hidden: true},
-            //{text: '证照/证件号码', width: 120, dataIndex: 'gd_shdocnum', hidden: true},
-            //{text: '持股数量',  width: 120, dataIndex: 'gd_shareholdnum', hidden: true},
-            //{text: '流通数量',  width: 120, dataIndex: 'gd_currencynum', hidden: true},
-            //{text: '冻结数量',  width: 120, dataIndex: 'gd_freezenum', hidden: true},
-            //{text: '职务',  width: 120, dataIndex: 'gd_psotion', hidden: true},
-            //{text: '证件类型',  width: 120, dataIndex: 'gd_doctype', hidden: true},
-            //{text: '证件号码',  width: 120, dataIndex: 'gd_docnum', hidden: true},
-            //{text: '手机号码',  width: 120, dataIndex: 'gd_phone', hidden: true},
-            //{text: '传真', width: 120, dataIndex: 'gd_fax', hidden: true},
-            //{text: 'E-mail',  width: 120, dataIndex: 'gd_email', hidden: true},
-            //{text: 'QQ',  width: 120, dataIndex: 'gd_qq', hidden: true},
-            //{text: '个人微信号',  width: 120, dataIndex: 'gd_webchat', hidden: true},
-            //{text: '固定电话',  width: 120, dataIndex: 'gd_tel', hidden: true},
-            //{text: '备注',  width: 120, dataIndex: 'gd_remark', hidden: true},
             {text: '行业一级分类', width: 120, dataIndex: 'indclass1'},
             {text: '行业二级分类', width: 120, dataIndex: 'indclass2', hidden: true},
             {text: '行业三级分类', width: 120, dataIndex: 'indclass3', hidden: true},
@@ -324,43 +282,43 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '应收股利(初始)', width: 120, dataIndex: 'st_ys_dividends', hidden: true},
             {text: '应收股利end', width: 120, dataIndex: 'end_ys_dividends', hidden: true},
             {text: '其他应收款(初始)', width: 120, dataIndex: 'st_other_ys_money', hidden: true},
-            {text: '其他应收款end',width: 120, dataIndex: 'end_other_ys_money', hidden: true},
+            {text: '其他应收款end', width: 120, dataIndex: 'end_other_ys_money', hidden: true},
             {text: '存货(初始)', width: 120, dataIndex: 'st_inventory', hidden: true},
             {text: '存货end', width: 120, dataIndex: 'end_inventory', hidden: true},
             {text: '一年内到期的非流动资产(初始)', width: 120, dataIndex: 'st_ynndq_no_assets', hidden: true},
             {text: '一年内到期的非流动资产end', width: 120, dataIndex: 'end_ynndq_no_assets', hidden: true},
             {text: '其他流动资产(初始)', width: 120, dataIndex: 'st_other_assets', hidden: true},
-            {text: '其他流动资产end',width: 120, dataIndex: 'end_other_assets', hidden: true},
+            {text: '其他流动资产end', width: 120, dataIndex: 'end_other_assets', hidden: true},
             {text: '流动资产合计(初始)', width: 120, dataIndex: 'st_hj_assets', hidden: true},
             {text: '流动资产合计end', width: 120, dataIndex: 'end_hj_assets', hidden: true},
-            {text: '可供出售金融资产(初始)',width: 120, dataIndex: 'st_kgcs_assets', hidden: true},
+            {text: '可供出售金融资产(初始)', width: 120, dataIndex: 'st_kgcs_assets', hidden: true},
             {text: '可供出售金融资产end', width: 120, dataIndex: 'end_kgcs_assets', hidden: true},
-            {text: '持有至到期投资(初始)',width: 120, dataIndex: 'st_cyzdq_investment', hidden: true},
-            {text: '持有至到期投资end',width: 120, dataIndex: 'end_cyzdq_investment', hidden: true},
-            {text: '长期应收款(初始)',width: 120, dataIndex: 'st_long_ys_money', hidden: true},
+            {text: '持有至到期投资(初始)', width: 120, dataIndex: 'st_cyzdq_investment', hidden: true},
+            {text: '持有至到期投资end', width: 120, dataIndex: 'end_cyzdq_investment', hidden: true},
+            {text: '长期应收款(初始)', width: 120, dataIndex: 'st_long_ys_money', hidden: true},
             {text: '长期应收款end', width: 120, dataIndex: 'end_long_ys_money', hidden: true},
-            {text: '长期股权投资(初始)',width: 120, dataIndex: 'st_long_gq_investment', hidden: true},
-            {text: '长期股权投资end',width: 120, dataIndex: 'end_long_gq_investment', hidden: true},
+            {text: '长期股权投资(初始)', width: 120, dataIndex: 'st_long_gq_investment', hidden: true},
+            {text: '长期股权投资end', width: 120, dataIndex: 'end_long_gq_investment', hidden: true},
             {text: '投资性房地产(初始)', width: 120, dataIndex: 'st_invest_house', hidden: true},
-            {text: '投资性房地产end',width: 120, dataIndex: 'end_invest_house', hidden: true},
+            {text: '投资性房地产end', width: 120, dataIndex: 'end_invest_house', hidden: true},
             {text: '固定资产(初始)', width: 120, dataIndex: 'st_gd_assets'},
             {text: '固定资产end', width: 120, dataIndex: 'end_gd_assets', hidden: true},
-            {text: '减：累计折旧(初始)',width: 120, dataIndex: 'st_accu_deprec', hidden: true},
+            {text: '减：累计折旧(初始)', width: 120, dataIndex: 'st_accu_deprec', hidden: true},
             {text: '减：累计折旧end', width: 120, dataIndex: 'end_accu_deprec', hidden: true},
             {text: '固定资产净值(初始)', width: 120, dataIndex: 'st_gd_assets_jz', hidden: true},
-            {text: '固定资产净值end',width: 120, dataIndex: 'end_gd_assets_jz', hidden: true},
-            {text: '减：固定资产减值准备(初始)',width: 120, dataIndex: 'st_gd_assets_ready', hidden: true},
+            {text: '固定资产净值end', width: 120, dataIndex: 'end_gd_assets_jz', hidden: true},
+            {text: '减：固定资产减值准备(初始)', width: 120, dataIndex: 'st_gd_assets_ready', hidden: true},
             {text: '减：固定资产减值准备end', width: 120, dataIndex: 'end_gd_assets_ready', hidden: true},
             {text: '固定资产净额(初始)', width: 120, dataIndex: 'st_gd_assets_je', hidden: true},
-            {text: '固定资产净额end',width: 120, dataIndex: 'end_gd_assets_je', hidden: true},
+            {text: '固定资产净额end', width: 120, dataIndex: 'end_gd_assets_je', hidden: true},
             {text: '在建工程(初始)', width: 120, dataIndex: 'st_now_project', hidden: true},
             {text: '在建工程end', width: 120, dataIndex: 'end_now_project', hidden: true},
             {text: '工程物资(初始)', width: 120, dataIndex: 'st_project_material', hidden: true},
-            {text: '工程物资end',width: 120, dataIndex: 'end_project_material', hidden: true},
+            {text: '工程物资end', width: 120, dataIndex: 'end_project_material', hidden: true},
             {text: '固定资产清理(初始)', width: 120, dataIndex: 'st_gd_assets_ql', hidden: true},
-            {text: '固定资产清理end',width: 120, dataIndex: 'end_gd_assets_ql', hidden: true},
-            {text: '生产性生物投资(初始)',width: 120, dataIndex: 'st_scx_investment', hidden: true},
-            {text: '生产性生物投资end',width: 120, dataIndex: 'end_scx_investment', hidden: true},
+            {text: '固定资产清理end', width: 120, dataIndex: 'end_gd_assets_ql', hidden: true},
+            {text: '生产性生物投资(初始)', width: 120, dataIndex: 'st_scx_investment', hidden: true},
+            {text: '生产性生物投资end', width: 120, dataIndex: 'end_scx_investment', hidden: true},
             {text: '无形资产(初始)', width: 120, dataIndex: 'st_wx_assets', hidden: true},
             {text: '无形资产end', width: 120, dataIndex: 'end_wx_assets', hidden: true},
             {text: '商誉(初始)', width: 120, dataIndex: 'st_goodwill', hidden: true},
@@ -369,16 +327,16 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '长期待摊费用end', width: 120, dataIndex: 'end_cqdt_cost', hidden: true},
             {text: '递延所得税资产(初始)', width: 120, dataIndex: 'st_dysds_assets', hidden: true},
             {text: '递延所得税资产end', width: 120, dataIndex: 'end_dysds_assets', hidden: true},
-            {text: '其他非流动资产(初始)',width: 120, dataIndex: 'st_other_no_assets', hidden: true},
-            {text: '其他非流动资产end',width: 120, dataIndex: 'end_other_no_assets', hidden: true},
+            {text: '其他非流动资产(初始)', width: 120, dataIndex: 'st_other_no_assets', hidden: true},
+            {text: '其他非流动资产end', width: 120, dataIndex: 'end_other_no_assets', hidden: true},
             {text: '非流动资产合计(初始)', width: 120, dataIndex: 'st_hj_no_asset', hidden: true},
             {text: '非流动资产合计end', width: 120, dataIndex: 'end_hj_no_asset', hidden: true},
             {text: '资产总计(初始)', width: 120, dataIndex: 'st_hj_total_asset'},
             {text: '资产总计end', width: 120, dataIndex: 'end_hj_total_asset', hidden: true},
             {text: '短期借款(初始)', width: 120, dataIndex: 'st_short_borrow', hidden: true},
             {text: '短期借款end', width: 120, dataIndex: 'end_short_borrow', hidden: true},
-            {text: '交易性金融负债(初始)',width: 120, dataIndex: 'st_jyx_finance_fz', hidden: true},
-            {text: '交易性金融负债end',width: 120, dataIndex: 'end_jyx_finance_fz', hidden: true},
+            {text: '交易性金融负债(初始)', width: 120, dataIndex: 'st_jyx_finance_fz', hidden: true},
+            {text: '交易性金融负债end', width: 120, dataIndex: 'end_jyx_finance_fz', hidden: true},
             {text: '应付票据(初始)', width: 120, dataIndex: 'st_yf_bill', hidden: true},
             {text: '应付票据end', width: 120, dataIndex: 'end_yf_bill', hidden: true},
             {text: '应付账款(初始)', width: 120, dataIndex: 'st_yf_account', hidden: true},
@@ -386,7 +344,7 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '预收款项(初始)', width: 120, dataIndex: 'st_ys_money', hidden: true},
             {text: '预收款项end', width: 120, dataIndex: 'end_ys_money', hidden: true},
             {text: '应付职工薪酬(初始)', width: 120, dataIndex: 'st_yf_staff_pay', hidden: true},
-            {text: '应付职工薪酬end',width: 120, dataIndex: 'end_yf_staff_pay', hidden: true},
+            {text: '应付职工薪酬end', width: 120, dataIndex: 'end_yf_staff_pay', hidden: true},
             {text: '应交税费(初始)', width: 120, dataIndex: 'st_yj_tax', hidden: true},
             {text: '应交税费end', width: 120, dataIndex: 'end_yj_tax', hidden: true},
             {text: '应付利息(初始)', width: 120, dataIndex: 'st_yf_interest', hidden: true},
@@ -394,8 +352,8 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '应付股利(初始)', width: 120, dataIndex: 'st_yf_dividends', hidden: true},
             {text: '应付股利end', width: 120, dataIndex: 'end_yf_dividends', hidden: true},
             {text: '其他应付款(初始)', width: 120, dataIndex: 'st_other_yf_money', hidden: true},
-            {text: '其他应付款end',width: 120, dataIndex: 'end_other_yf_money', hidden: true},
-            {text: '一年内到期的非流动负债(初始)',width: 120, dataIndex: 'st_ynndq_no_fz', hidden: true},
+            {text: '其他应付款end', width: 120, dataIndex: 'end_other_yf_money', hidden: true},
+            {text: '一年内到期的非流动负债(初始)', width: 120, dataIndex: 'st_ynndq_no_fz', hidden: true},
             {text: '一年内到期的非流动负债end', width: 120, dataIndex: 'end_ynndq_no_fz', hidden: true},
             {text: '其他流动负债(初始)', width: 120, dataIndex: 'st_other_fz', hidden: true},
             {text: '其他流动负债end', width: 120, dataIndex: 'end_other_fz', hidden: true},
@@ -405,7 +363,7 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '长期借款end', width: 120, dataIndex: 'end_long_borrow', hidden: true},
             {text: '应付债券(初始)', width: 120, dataIndex: 'st_yf_bond', hidden: true},
             {text: '应付债券end', width: 120, dataIndex: 'end_yf_bond', hidden: true},
-            {text: '长期应付款(初始)',width: 120, dataIndex: 'st_long_yf_money', hidden: true},
+            {text: '长期应付款(初始)', width: 120, dataIndex: 'st_long_yf_money', hidden: true},
             {text: '长期应付款end', width: 120, dataIndex: 'end_long_yf_money', hidden: true},
             {text: '专项应付款(初始)', width: 120, dataIndex: 'st_zx_yf_money', hidden: true},
             {text: '专项应付款end', width: 120, dataIndex: 'end_zx_yf_money', hidden: true},
@@ -419,8 +377,8 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '非流动负债合计end', width: 120, dataIndex: 'end_hj_no_fz', hidden: true},
             {text: '负债合计(初始)', width: 120, dataIndex: 'st_hj_total_fz', hidden: true},
             {text: '负债合计end', width: 120, dataIndex: 'end_hj_total_fz', hidden: true},
-            {text: '实收资本（或股本）(初始)',width: 120, dataIndex: 'st_paid_assets'},
-            {text: '实收资本（或股本）end',width: 120, dataIndex: 'end_paid_assets', hidden: true},
+            {text: '实收资本（或股本）(初始)', width: 120, dataIndex: 'st_paid_assets'},
+            {text: '实收资本（或股本）end', width: 120, dataIndex: 'end_paid_assets', hidden: true},
             {text: '资本公积(初始)', width: 120, dataIndex: 'st_zb_reserve', hidden: true},
             {text: '资本公积end', width: 120, dataIndex: 'end_zb_reserve', hidden: true},
             {text: '减：库存股(初始)', width: 120, dataIndex: 'st_kc_stock', hidden: true},
@@ -431,10 +389,10 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '盈余公积end', width: 120, dataIndex: 'end_yy_reserve', hidden: true},
             {text: '未分配利润(初始)', width: 120, dataIndex: 'st_wfp_profit', hidden: true},
             {text: '未分配利润end', width: 120, dataIndex: 'end_wfp_profit', hidden: true},
-            {text: '所有者权益合计(初始)',width: 120, dataIndex: 'st_hj_owner_right', hidden: true},
-            {text: '所有者权益合计end',width: 120, dataIndex: 'end_hj_owner_right', hidden: true},
+            {text: '所有者权益合计(初始)', width: 120, dataIndex: 'st_hj_owner_right', hidden: true},
+            {text: '所有者权益合计end', width: 120, dataIndex: 'end_hj_owner_right', hidden: true},
             {text: '负债和所有者权益合计(初始)', width: 120, dataIndex: 'st_hj_fz_owner_right', hidden: true},
-            {text: '负债和所有者权益合计end',width: 120, dataIndex: 'end_hj_fz_owner_right', hidden: true},
+            {text: '负债和所有者权益合计end', width: 120, dataIndex: 'end_hj_fz_owner_right', hidden: true},
             {text: '企业维护信息ID', width: 120, dataIndex: 'mai_id', hidden: true},
             {text: '企业ID', width: 120, dataIndex: 'mai_corp_id', hidden: true},
             {text: '更新人', width: 120, dataIndex: 'mai_changer_id', hidden: true},
@@ -502,7 +460,7 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '手机号码', width: 120, dataIndex: 'inv_phone', hidden: true},
             {text: '传真', width: 120, dataIndex: 'inv_fax', hidden: true},
             {text: 'E-mail', width: 120, dataIndex: 'inv_email', hidden: true},
-            {text: 'QQ',width: 120, dataIndex: 'inv_qq', hidden: true},
+            {text: 'QQ', width: 120, dataIndex: 'inv_qq', hidden: true},
             {text: '个人微信号', width: 120, dataIndex: 'inv_webchat', hidden: true},
             {text: '固定电话', width: 120, dataIndex: 'inv_tel', hidden: true},
             {text: '备注', width: 120, dataIndex: 'inv_remark', hidden: true},
@@ -512,7 +470,7 @@ Ext.define('App.view.enterprise_query.Grid', {
             {text: '融资用途', width: 120, dataIndex: 'refi_use', hidden: true},
             {text: '股份融资/债券融资', width: 120, dataIndex: 'refi_financ', hidden: true},
             {text: '偿付保障', width: 120, dataIndex: 'refi_security', hidden: true},
-            {text: '可接受成本（%/年）',width: 120, dataIndex: 'refi_acc_cost', hidden: true},
+            {text: '可接受成本（%/年）', width: 120, dataIndex: 'refi_acc_cost', hidden: true},
             {text: '融资期限', width: 120, dataIndex: 'refi_deadline', hidden: true},
             {text: '融资用途详细说明', width: 120, dataIndex: 'refi_desc', hidden: true},
             {text: '人力资源需求ID', width: 120, dataIndex: 'rehr_id', hidden: true},
@@ -586,6 +544,3 @@ var corp_shareholder_list_store = Ext.create('Ext.data.Store', {
     },
     autoLoad: true
 });
-
-
-

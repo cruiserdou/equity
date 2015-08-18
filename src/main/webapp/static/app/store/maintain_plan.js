@@ -15,10 +15,5 @@ Ext.define('App.store.maintain_plan', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-
-
-
-

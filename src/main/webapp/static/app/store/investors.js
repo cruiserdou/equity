@@ -15,8 +15,5 @@ Ext.define('App.store.investors', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-
-

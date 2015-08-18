@@ -17,6 +17,7 @@ Ext.define('App.view.enterprise_query.Query', {
 
                 {
                     text: '刷新',
+                    glyph: '',
                     listeners: {
                         click: function (_this) {
                             _this.up('form').getForm().reset();
@@ -98,7 +99,7 @@ Ext.define('App.view.enterprise_query.Query', {
     items: [
         {
             xtype: 'panel',
-            columnWidth: .3,
+            columnWidth: .4,
             border: false,
             defaultType: 'textfield',
             layout: {
@@ -124,7 +125,7 @@ Ext.define('App.view.enterprise_query.Query', {
         },
         {
             xtype: 'panel',
-            columnWidth: .3,
+            columnWidth: .4,
             border: false,
             defaultType: 'textfield',
             layout: {
@@ -150,6 +151,7 @@ Ext.define('App.view.enterprise_query.Query', {
         },
         {
             xtype: 'panel',
+            columnWith: 0.2,
             border: false,
             items: [
                 {
@@ -172,7 +174,7 @@ Ext.define('App.view.enterprise_query.Query', {
                 },
                 {
                     xtype: 'panel',
-                    height: 10,
+                    height: 6,
                     border: false
                 },
                 {

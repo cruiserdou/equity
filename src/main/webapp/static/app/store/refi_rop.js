@@ -17,9 +17,3 @@ Ext.define('App.store.refi_rop', {
     },
     autoLoad: false
 });
-
-
-
-
-
-

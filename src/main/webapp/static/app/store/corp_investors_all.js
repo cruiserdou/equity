@@ -16,5 +16,3 @@ Ext.define('App.store.corp_investors_all', {
     },
     autoLoad: false
 });
-
-

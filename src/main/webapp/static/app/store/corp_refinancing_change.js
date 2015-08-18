@@ -14,5 +14,3 @@ Ext.define('App.store.corp_refinancing_change', {
     },
     autoLoad: false
 });
-
-

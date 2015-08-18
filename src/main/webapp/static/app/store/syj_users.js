@@ -1,7 +1,7 @@
 Ext.define('App.store.syj_users', {
     extend: 'Ext.data.Store',
     model: 'App.model.syj_users',
-    storeId:'dict_user_id',
+    storeId: 'dict_user_id',
     proxy: {
         type: 'ajax',
         url: 'obtain_users_info',
@@ -13,10 +13,5 @@ Ext.define('App.store.syj_users', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-
-
-
-

@@ -15,7 +15,5 @@ Ext.define('App.store.syj_roles', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-

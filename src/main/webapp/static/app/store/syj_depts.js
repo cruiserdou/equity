@@ -12,7 +12,5 @@ Ext.define('App.store.syj_depts', {
             root: 'list'
         }
     },
-    autoLoad: true
+    autoLoad: false
 });
-
-
