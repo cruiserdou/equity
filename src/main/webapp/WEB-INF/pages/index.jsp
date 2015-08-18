@@ -12,6 +12,7 @@
     <title>甘肃中小微企业信息管理系统</title>
     <link href="static/css/font_awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="static/css/images/wq-icon.png" rel="shortcut icon">
+    <script src="static/jslib/jquery-2.1.1.js"></script>
 
     <style>
         * {
@@ -118,7 +119,6 @@
     (function ($) {
         "use strict";
         var pluginName = 'centerImage';
-
         var pluginController = function (element, theOptions) {
 
             var $container = $(element);

@@ -1,12 +1,8 @@
 Ext.define('App.controller.Frame', {
     extend: 'Ext.app.Controller',
-
     stores: ['Tree'],
-
     models: ['Tree'],
-
     views: ['NavPanel', 'TabPanel'],
-
     refs: [
         {
             ref: 'navPanel',
@@ -17,7 +13,6 @@ Ext.define('App.controller.Frame', {
             selector: 'tabPanel'
         }
     ],
-
     init: function () {
         this.control({
             'navPanel': {
@@ -35,7 +30,7 @@ Ext.define('App.controller.Frame', {
                     Ext.getCmp('tabPanel_id').setActiveTab(tabitem);
                 },
                 afterrender: function () {
-                    setInterval("msg_list_refresh()",  30000);
+                    setInterval("msg_list_refresh()", 30000);
                     Ext.getCmp('tabPanel_id').add({
                         xtype: 'enterprise_queryf',
                         id: 'enterprise_queryf_id',
@@ -43,7 +38,6 @@ Ext.define('App.controller.Frame', {
                         listeners: {
                             activate: function () {
                                 msg_list_refresh();
-
                             }
                         }
                     })
@@ -52,4 +46,3 @@ Ext.define('App.controller.Frame', {
         })
     }
 });
-
