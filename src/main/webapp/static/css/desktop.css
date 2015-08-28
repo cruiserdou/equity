@@ -21,7 +21,6 @@ body * {
     -webkit-font-smoothing: antialiased;
 }
 
-
 #top-menu-bar {
     width: 100%;
     min-width: 1200px;
@@ -65,7 +64,6 @@ body * {
     background-color: #D73D32;
 }
 
-
 #page_footer {
     margin-top: 2em;
     width: 100%;
@@ -84,7 +82,6 @@ body * {
     color: #404040;
 }
 
-
 #content {
     min-width: 1200px;
     display: table;
@@ -93,11 +90,10 @@ body * {
     margin: 0 auto;
 }
 
-#content .content-div{
+#content .content-div {
     display: table-cell;
     vertical-align: top;
 }
-
 
 #left-nav {
     width: 220px;
@@ -133,11 +129,9 @@ body * {
     border-bottom: 2px solid #324FE1;
 }
 
-
 #center-content {
     padding: 42px 2em 0 2em;
 }
-
 
 #right-widget {
     width: 330px;
@@ -188,7 +182,6 @@ a {
     text-decoration: none;
     color: #324FE1;
 }
-
 
 /*设置右边栏当前主题样式*/
 #month-theme {
@@ -242,7 +235,8 @@ a {
     font-size: inherit;
     box-shadow: inset 0 0 4px #E2E2E6;
 }
-#send-info input[type="file"]{
+
+#send-info input[type="file"] {
     width: 100%;
 }
 
@@ -304,11 +298,11 @@ a {
     text-align: left;
 }
 
-h3{
+h3 {
     font-size: 1.2em;
 }
 
-.pinned{
+.pinned {
     background-color: white;
     margin-top: 40px;
     border-top: 1px solid #E6E6E6;
@@ -318,7 +312,7 @@ h3{
     height: 930px;
 }
 
-#page_footer{
+#page_footer {
     z-index: 10;
     padding-left: 220px;
 }

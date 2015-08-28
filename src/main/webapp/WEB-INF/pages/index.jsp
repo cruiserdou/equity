@@ -215,7 +215,7 @@
             this.each(function () {
                 pluginController(this, options);
             });
-        // Chain-ability of jQuery objects
+            // Chain-ability of jQuery objects
             return this;
         };
     })(jQuery);

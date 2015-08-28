@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="static/css/desktop.css">
 
     <style>
-        #center-content{
+        #center-content {
             padding-top: 9em;
         }
+
         #center-content span {
             margin-top: 10px;
             margin-left: 50px;
@@ -35,7 +36,7 @@
             box-shadow: 0 0 4px #CCC;
         }
 
-        .signin input[type="text"], .signin input[type="password"], .signin input[type="email"],select {
+        .signin input[type="text"], .signin input[type="password"], .signin input[type="email"], select {
             width: 100%;
             padding: 0.6em 0.5em;
             font-size: 1.2em;
@@ -45,22 +46,22 @@
             margin: 0.5em 0;
         }
 
-        select{
+        select {
             width: 60%;
         }
 
-        .signin input[name="phone-code"]{
+        .signin input[name="phone-code"] {
             width: 60%;
         }
 
-        .signin input[type="submit"]{
+        .signin input[type="submit"] {
             width: 100%;
             margin: 1.2em 0;
             padding: 1em;
             height: 2em;
         }
 
-        #get-code{
+        #get-code {
             display: inline-block;
             text-align: center;
             font-size: 1.2em;
@@ -72,14 +73,15 @@
             color: #468CC8;
             box-shadow: 0 1px 1px #E2E4E6;
         }
-        #get-code:hover{
+
+        #get-code:hover {
             background-color: #468CC8;
             color: white;
             border: 1px solid #468CC8;
             text-decoration: none;
         }
 
-        .signin button{
+        .signin button {
             padding: 0.6em;
             border: 1px solid #8A9BA8;
             background-color: #8A9BA8;
@@ -103,7 +105,7 @@
 
     <script>
         var Account = null;
-        var codecheck=true;
+        var codecheck = true;
         var boolphone = false;
         var boolcode = false;
         var boolemail = false;
@@ -131,10 +133,10 @@
             $('#get-code').click(function (e) {
                 e.preventDefault();
                 var myreg = /((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/;
-                if($("#phone").val() == ""){
+                if ($("#phone").val() == "") {
                     $('#phonespan').html("<span style='color:darkorange;font-size:13px;'>电话号码不能为空！</span>");
                     return;
-                }else if(!myreg.test($("#phone").val())){
+                } else if (!myreg.test($("#phone").val())) {
                     $('#phonespan').html("<span style='color:darkorange;font-size:13px;'>电话号码格式不正确！</span>");
                     return;
                 }
@@ -147,28 +149,25 @@
                     },
                     success: function (data) {
 //                        alert(data)
-                        if(data == "success"){
+                        if (data == "success") {
                             $('#phonespan').html("<span style='color:darkorange;font-size:13px;'></span>");
                             boolphone = true;
                             alert("验证码已发送至您输入的手机号！有效期3分钟！");
                             RemainTime();
-                        }else if(data == "fail"){
+                        } else if (data == "fail") {
                             $('#phonespan').html("<span style='color:darkorange;font-size:13px;'>此电话号码已经注册，请更换电话号码！</span>");
-                        }else{
+                        } else {
                             alert("验证码获取失败！请重新获取！");
                         }
                     }
                 });
 
 
-
-
-
             });
             //校验验证码
             $('#phone-code').focusout(function () {
 
-                if(codecheck == false){
+                if (codecheck == false) {
                     $('#phone-code').val("");
                     alert("验证码已过期，请重新获取！")
                     return;
@@ -180,10 +179,10 @@
                         'mycode': $('#phone-code').val()
                     },
                     success: function (data, statusText) {
-                        if(data == "success"){
+                        if (data == "success") {
                             boolcode = true;
                             alert("验证成功！")
-                        }else if(data == "fail"){
+                        } else if (data == "fail") {
                             alert("验证失败,请重新输入验证码！")
                         }
                     }
@@ -191,12 +190,12 @@
             });
             //校验邮箱号
             $('#email').focusout(function () {
-                var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-                if($("#email").val() == ""){
+                var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if ($("#email").val() == "") {
                     $('#emailspan').html("<span style='color:darkorange;font-size:13px;'>邮箱号不能为空！</span>");
                     $('#email').val("");
                     return;
-                }else if(!filter.test($("#email").val())){
+                } else if (!filter.test($("#email").val())) {
                     $('#emailspan').html("<span style='color:darkorange;font-size:13px;'>邮箱号格式不正确！</span>");
                     $('#email').val("");
                     return;
@@ -208,9 +207,9 @@
                         'myemail': $('#email').val()
                     },
                     success: function (data, statusText) {
-                        if(data == "fail"){
+                        if (data == "fail") {
                             $('#emailspan').html("<span style='color:darkorange;font-size:13px;'>此邮箱已经注册，请更换邮箱！</span>");
-                        }else if(data == "success"){
+                        } else if (data == "success") {
                             $('#emailspan').html("<span style='color:darkorange;font-size:13px;'></span>");
                             boolemail = true;
                         }
@@ -219,11 +218,11 @@
             });
             //校验密码是否符合规定
             $('#password').focusout(function () {
-                var patrn=/^(\w){6,20}$/;
-                if( $('#password').val()==""){
+                var patrn = /^(\w){6,20}$/;
+                if ($('#password').val() == "") {
                     $('#passwordspan').html("<span style='color:darkorange;font-size:13px;'>密码不能为空！</span>");
                     return;
-                }else if(!patrn.exec($('#password').val()) ){
+                } else if (!patrn.exec($('#password').val())) {
                     $('#passwordspan').html("<span style='color:darkorange;font-size:13px;'>只能输入6-20个字母、数字、下划线 ！</span>");
                     $('#password').val("");
                     return;
@@ -233,34 +232,34 @@
             });
             //校验两次密码输入是否一致
             $('#passwdagain').focusout(function () {
-               if( $('#password').val() !=  $('#passwdagain').val()){
-                   $('#passwdagainspan').html("<span style='color:darkorange;font-size:13px;'>两次密码输入不一致，请重新输入！</span>");
-                   $('#passwdagain').val("");
-                   return;
-               }
+                if ($('#password').val() != $('#passwdagain').val()) {
+                    $('#passwdagainspan').html("<span style='color:darkorange;font-size:13px;'>两次密码输入不一致，请重新输入！</span>");
+                    $('#passwdagain').val("");
+                    return;
+                }
                 $('#passwdagainspan').html("<span style='color:darkorange;font-size:13px;'></span>");
             });
             //提交数据
             $('#tijiao').click(function (e) {
                 e.preventDefault();
 
-                if(!boolcode){
-                   $('#codespan').html("<span style='color:darkorange;font-size:13px;'>验证码不正确！</span>");
-                   return;
+                if (!boolcode) {
+                    $('#codespan').html("<span style='color:darkorange;font-size:13px;'>验证码不正确！</span>");
+                    return;
                 }
-                if(!boolemail){
-                       $('#emailspan').html("<span style='color:darkorange;font-size:13px;'>邮箱号不正确！</span>");
-                       return;
-                }
-
-                if(!boolphone){
-                           $('#phonespan').html("<span style='color:darkorange;font-size:13px;'>电话号码不正确！</span>");
-                           return;
+                if (!boolemail) {
+                    $('#emailspan').html("<span style='color:darkorange;font-size:13px;'>邮箱号不正确！</span>");
+                    return;
                 }
 
-                if(!boolppassword){
-                               $('#passwordspan').html("<span style='color:darkorange;font-size:13px;'>密码不正确！</span>");
-                               return;
+                if (!boolphone) {
+                    $('#phonespan').html("<span style='color:darkorange;font-size:13px;'>电话号码不正确！</span>");
+                    return;
+                }
+
+                if (!boolppassword) {
+                    $('#passwordspan').html("<span style='color:darkorange;font-size:13px;'>密码不正确！</span>");
+                    return;
                 }
 //                if(!boolrefercode){
 //                    $('#refercodespan').html("<span style='color:darkorange;font-size:13px;'>对不起，你所输入的推荐码不存在！</span>");
@@ -342,15 +341,20 @@
 
                 <p id="phonespan"></p>
                 <input type="text" id="phone" name="phone" maxlength="20" placeholder="手机号">
+
                 <p id="codespan"></p>
                 <input type="text" id="phone-code" name="phone-code" maxlength="20" placeholder="获取手机验证码">
                 <a id="get-code" href="#"><i class="fa fa-mobile-phone"></i> 获取验证码</a>
+
                 <p id="emailspan"></p>
                 <input type="email" id="email" name="" placeholder="邮箱地址">
+
                 <p id="refercodespan"></p>
-                <input type="text" id="refercode" name="refercode"  placeholder="身份证">
+                <input type="text" id="refercode" name="refercode" placeholder="身份证">
+
                 <p id="passwordspan"></p>
                 <input type="password" id="password" name="password" placeholder="密码">
+
                 <p id="passwdagainspan"></p>
                 <input type="password" id="passwdagain" name="passwdagain" maxlength="20" placeholder="再次输入">
                 <button id="tijiao">提交</button>

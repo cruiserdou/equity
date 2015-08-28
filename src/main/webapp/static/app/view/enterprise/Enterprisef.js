@@ -35,7 +35,6 @@ function showb() {
         layout: 'fit',
         constrain: true,
         items: {
-
             xtype: 'panel',
             border: false,
             layout: 'border',

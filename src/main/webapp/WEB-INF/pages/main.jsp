@@ -28,8 +28,8 @@
     <script src="static/app/geo.js"></script>
     <script src="static/app/app.js"></script>
     <style>
-        .x-tree-icon{
-            display:none;
+        .x-tree-icon {
+            display: none;
         }
     </style>
 </head>

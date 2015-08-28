@@ -11,7 +11,9 @@ Dsy.prototype.Exists = function (id) {
 
 function change(v) {
     var str = "0";
-    for (i = 0; i < v; i++) { str += ("_" + (document.getElementById(s[i]).selectedIndex - 1));}
+    for (i = 0; i < v; i++) {
+        str += ("_" + (document.getElementById(s[i]).selectedIndex - 1));
+    }
     ;
     var ss = document.getElementById(s[v]);
     with (ss) {
@@ -24,7 +26,9 @@ function change(v) {
                 if (v)options[0].selected = true;
             }
         }
-        if (++v < s.length) {change(v);}
+        if (++v < s.length) {
+            change(v);
+        }
     }
 }
 function preselect(p_key) {
@@ -432,10 +436,11 @@ function setup() {
 }
 
 
-
 function change_edit(v) {
     var str = "0";
-    for (i = 0; i < v; i++) { str += ("_" + (document.getElementById(s_edit[i]).selectedIndex - 1));}
+    for (i = 0; i < v; i++) {
+        str += ("_" + (document.getElementById(s_edit[i]).selectedIndex - 1));
+    }
     ;
     var ss = document.getElementById(s_edit[v]);
     with (ss) {
@@ -448,7 +453,9 @@ function change_edit(v) {
                 if (v)options[0].selected = true;
             }
         }
-        if (++v < s_edit.length) {change_edit(v);}
+        if (++v < s_edit.length) {
+            change_edit(v);
+        }
     }
 }
 function preselect_edit(p_key) {
