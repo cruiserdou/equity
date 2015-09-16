@@ -49,8 +49,6 @@ public class ObtainDictInfo {
             conn = DriverManager.getConnection(url, user, password);
             stmt = conn.createStatement();
 
-
-
             String sql = "select * from work.dicts WHERE 1 = 1 ";
             if (field != null && field.length() != 0)
                 sql += " and field like '%" + field + "%'";

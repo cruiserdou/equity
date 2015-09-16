@@ -889,8 +889,6 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '</div>',
     '<div style="position: fixed; top: 7em; right: 6em;">',
     '<ul>',
-    '<li></li>',
-    '<li></li>',
     '<br>',
     '<br>',
     '<li><a href="#table_apply_base" style="font-size:18px;">基本信息</a></li>',

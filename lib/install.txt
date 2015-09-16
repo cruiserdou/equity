@@ -1,0 +1,4 @@
+mvn install:install-file -Dfile=gson-2.2.4.jar -DgroupId=com.google.gson -DartifactId=gson -Dversion=1.0.0 -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=webChat-util-1.0.0.jar -DgroupId=me.riverslob.webChat -DartifactId=webChat-util -Dversion=1.0.0 -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=webChat-core-1.0.0.jar -DgroupId=me.riverslob.webChat -DartifactId=webChat-core -Dversion=1.0.0 -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=websocket-api.jar -DgroupId=javax.websocket -DartifactId=websocket -Dversio.2.3 -Dpackaging=jar -DgeneratePom=true

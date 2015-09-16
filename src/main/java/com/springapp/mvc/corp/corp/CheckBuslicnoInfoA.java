@@ -19,8 +19,8 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/check_buslicno_info")
-public class CheckBuslicnoInfo {
+@RequestMapping("/check_buslicno_infoa")
+public class CheckBuslicnoInfoA {
 
     @RequestMapping(method = RequestMethod.POST)
     public

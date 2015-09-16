@@ -58,7 +58,6 @@ public class ObtainRolesInfo {
             rs = stmt.executeQuery(sql);
 
             list = new ConvertToList().convertList(rs);
-
         }catch (SQLException e){
             System.out.print(e.getMessage());
         }finally {

@@ -8,8 +8,8 @@
  }
 
 
-.enter_table input{
-    background-color: #ecf2fb;
+.enter_table input, .enter_table td, .enter_table textarea{
+    background-color: white;
 }
 
 .enter_table textarea{
@@ -265,6 +265,23 @@ td textarea{
     font-size: 2em;
     font-weight: bold;
     margin: 6em auto;
+}
+
+
+.statis_div{
+    margin-top: 12em;
+}
+
+.statis_div h1{
+    width: 100%;
+    text-align: center;
+    font-size: 6em;
+    font-weight: 900;
+    color: #85bf32;
+}
+
+.statis_div h1:first-child{
+    /*margin-bottom: 1.4em;*/
 }
 
 /*定义面板图标*/

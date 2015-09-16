@@ -25,8 +25,8 @@ import java.io.IOException;
 import java.sql.*;
 
 @Controller
-@RequestMapping("/import_corp_xls")
-public class ImportXlsEnterprise {
+@RequestMapping("/import_corp_xlsa")
+public class ImportXlsEnterpriseA {
     private static final int BUFFER_SIZE = 16 * 1024;
 
     @RequestMapping(method = RequestMethod.POST)

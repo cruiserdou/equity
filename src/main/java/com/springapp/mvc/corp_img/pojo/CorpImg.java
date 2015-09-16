@@ -1,45 +1,27 @@
 package com.springapp.mvc.corp_img.pojo;
 
-import java.io.Serializable;
+/**
+ * Created by xwq on 15/7/12.
+ */
+public class CorpImg {
+    private String id;
+    private String img_corp_id;
+    private String img_name;
+    private String img_type;
 
-
-public class CorpImg implements Serializable{
-
-    private  Integer id;
-    private  Integer img_corp_id;
-    private  String img_name;
-    private  String img_type;
-
-//    @Override
-//    public String toString() {
-//        return "CorpImgInfo{" +
-//                " id=" + id +
-//                ", img_corp_id=" + img_corp_id  +
-//                ", img_name='" + img_name + '\'' +
-//                ", img_type='" + img_type +'\'' + '}';
-//    }
-
-    public String getImg_type() {
-        return img_type;
-    }
-
-    public void setImg_type(String img_type) {
-        this.img_type = img_type;
-    }
-
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Integer getImg_corp_id() {
+    public String getImg_corp_id() {
         return img_corp_id;
     }
 
-    public void setImg_corp_id(Integer img_corp_id) {
+    public void setImg_corp_id(String img_corp_id) {
         this.img_corp_id = img_corp_id;
     }
 
@@ -51,5 +33,11 @@ public class CorpImg implements Serializable{
         this.img_name = img_name;
     }
 
+    public String getImg_type() {
+        return img_type;
+    }
 
+    public void setImg_type(String img_type) {
+        this.img_type = img_type;
+    }
 }
