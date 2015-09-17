@@ -87,6 +87,7 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '<th>办公地址</th>'+
     '<td colspan="3"><input id="offaddr" name="offaddr"  type="text" value="{offaddr}"/></td>'+
     '</tr>'+
+
     '<tr>',
     '<th>经营范围</th>'+
     '<td colspan="3"><textarea style="background-color: white" id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>'+
