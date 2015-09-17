@@ -1,3 +1,21 @@
+#enter_menu_list ul li{
+    list-style: none;
+    border: 1px solid white;
+}
+
+#enter_menu_list a{
+    display: block;
+    background-color: #3291D5;
+    padding: 0.5em;
+    text-decoration: none;
+    color: white;
+    transition: all 300ms;
+}
+
+#enter_menu_list ul a:hover{
+    background-color: #006699;
+}
+
 .enter_table{
      border-collapse: collapse;
      width: 80%;

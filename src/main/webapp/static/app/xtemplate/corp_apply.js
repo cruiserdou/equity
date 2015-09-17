@@ -89,19 +89,19 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '</tr>'+
     '<tr>',
     '<th>经营范围</th>'+
-    '<td colspan="3"><textarea id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>'+
+    '<td colspan="3"><textarea style="background-color: white" id="scope" name="scope"  type="text" value="{scope}">{scope}</textarea></td>'+
     '</tr>'+
     '<tr>'+
     '<th>主营业务</th>'+
-    '<td colspan="3"><textarea id="mbus" name="mbus"  type="text" value="{mbus}">{mbus}</textarea></td>'+
+    '<td colspan="3"><textarea style="background-color: white"  id="mbus" name="mbus"  type="text" value="{mbus}">{mbus}</textarea></td>'+
     '</tr>'+
     '<tr>'+
     '<th>企业简介</th>'+
-    '<td colspan="3"><textarea id="eprofile" name="eprofile"  type="text" value="{eprofile}">{eprofile}</textarea></td>'+
+    '<td colspan="3"><textarea style="background-color: white"  id="eprofile" name="eprofile"  type="text" value="{eprofile}">{eprofile}</textarea></td>'+
     '</tr>'+
     '<tr>',
     '<th>备注</th>',
-    '<td colspan="3"><textarea id="remark" name="remark"  type="text" value="{remark}"></textarea></td>',
+    '<td colspan="3"><textarea style="background-color: white"  id="remark" name="remark"  type="text" value="{remark}"></textarea></td>',
     '</tr>',
     //'<tr>',
     //'<th>企业图文信息</th>',
@@ -176,7 +176,7 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '</tr>'+
     '<tr>'+
     '<th>备注</th>'+
-    '<td colspan="3"><textarea id="cont_bz" name="cont_bz"  type="text" value="{cont_bz}"></textarea></td>'+
+    '<td colspan="3"><textarea  style="background-color: white"  id="cont_bz" name="cont_bz"  type="text" value="{cont_bz}"></textarea></td>'+
     '</tr>'+
     '</table>'+
 
@@ -297,7 +297,7 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '</tr>',
     '<tr>',
     '<th>备注</th>',
-    '<td colspan="3"><textarea id="mai_bz" name="mai_bz"  type="text" value="{mai_bz}"></textarea></td>'+
+    '<td colspan="3"><textarea  style="background-color: white"  id="mai_bz" name="mai_bz"  type="text" value="{mai_bz}"></textarea></td>'+
     '</tr>',
     '</table>',
 
@@ -646,11 +646,11 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '</tr>',
     '<tr>',
     '<th>简介</th>',
-    '<td colspan="3"><textarea id="srv_descs" name="srv_descs"  type="text" value="{srv_descs}"></textarea></td>'+
+    '<td colspan="3"><textarea  style="background-color: white"  id="srv_descs" name="srv_descs"  type="text" value="{srv_descs}"></textarea></td>'+
     '</tr>',
     '<tr>',
     '<th>备注</th>',
-    '<td colspan="3"><textarea id="srv_remark" name="srv_remark"  type="text" value="{srv_remark}"></textarea></td>'+
+    '<td colspan="3"><textarea  style="background-color: white"  id="srv_remark" name="srv_remark"  type="text" value="{srv_remark}"></textarea></td>'+
     '</tr>',
     '</table>',
 
@@ -740,7 +740,7 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '</tr>'+
     '<tr>'+
     '<th>备注</th>'+
-    '<td colspan="3"><textarea id="inv_remark" name="inv_remark"  type="text" value="{inv_remark}"></textarea></td>'+
+    '<td colspan="3"><textarea  style="background-color: white"  id="inv_remark" name="inv_remark"  type="text" value="{inv_remark}"></textarea></td>'+
     '</tr>'+
     '</table>',
 
@@ -795,7 +795,7 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '</tr>'+
     '<tr>'+
     '<th>备注</th>'+
-    '<td colspan="3"><textarea id="gov_remark" name="gov_remark"  type="text" value="{gov_remark}"></textarea></td>'+
+    '<td colspan="3"><textarea  style="background-color: white"  id="gov_remark" name="gov_remark"  type="text" value="{gov_remark}"></textarea></td>'+
     '</tr>'+
     '</table>',
 
@@ -826,7 +826,7 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '</tr>',
     '<tr>'+
     '<th>融资用途详细说明</th>'+
-    '<td colspan="3"><textarea id="refi_desc" name="refi_desc"  type="text" value="{refi_desc}"></textarea></td>'+
+    '<td colspan="3"><textarea  style="background-color: white"  id="refi_desc" name="refi_desc"  type="text" value="{refi_desc}"></textarea></td>'+
     '</tr>'+
     '</table>',
 
@@ -850,11 +850,11 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '</tr>',
     '<tr>',
     '<th>培训内容</th>',
-    '<td colspan="3"><textarea id="retra_content" name="retra_content"  type="text" value="{retra_content}"></textarea></td>'+
+    '<td colspan="3"><textarea  style="background-color: white"  id="retra_content" name="retra_content"  type="text" value="{retra_content}"></textarea></td>'+
     '</tr>',
     '<tr>'+
     '<th>详细要求</th>'+
-    '<td colspan="3"><textarea id="retra_requests" name="retra_requests"  type="text" value="{retra_requests}"></textarea></td>'+
+    '<td colspan="3"><textarea  style="background-color: white"  id="retra_requests" name="retra_requests"  type="text" value="{retra_requests}"></textarea></td>'+
     '</tr>'+
     '</table>',
 
@@ -887,7 +887,7 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
 
     '<a href="#"  style="font-size:18px;text-decoration: none;text-align: center;color: #ffffff;  margin: 1em auto;width: 8em;border-radius: 5px;  padding: 0.5em 0;background-color: #38AD5A; border: 1px solid #38AD5A;display: block;  "  onclick="save_cust_add()">保存</a>'+
     '</div>',
-    '<div style="position: fixed; top: 7em; right: 6em;">',
+    '<div id="enter_menu_list" style="position: fixed; top: 7em; right: 6em;">',
     '<ul>',
     '<br>',
     '<br>',
@@ -907,5 +907,4 @@ var  corp_apply_con_tpl = new Ext.XTemplate(
     '</ul>',
     '</form>',
     '</div>'
-
 );
